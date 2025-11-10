@@ -16,10 +16,10 @@
     --popover: 30 20% 98%;
     --popover-foreground: 30 8% 20%;
 
-    /* Primary - Soft rose/mauve */
-    --primary: 340 30% 65%;
+    /* Primary - Warm brown #5F3E31 */
+    --primary: 18 32% 29%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 340 40% 75%;
+    --primary-glow: 18 32% 39%;
 
     /* Secondary - Warm beige */
     --secondary: 30 25% 90%;
@@ -42,7 +42,7 @@
 
     --border: 30 15% 88%;
     --input: 30 15% 88%;
-    --ring: 340 30% 65%;
+    --ring: 18 32% 29%;
 
     --radius: 1rem;
 
@@ -56,16 +56,16 @@
     /* Neumorphism tokens */
     --neuro-shadow-light: 30 20% 95%;
     --neuro-shadow-dark: 30 10% 80%;
-    --neuro-glow: 340 30% 65%;
+    --neuro-glow: 18 32% 29%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(340 30% 65%), hsl(340 40% 75%));
+    --gradient-primary: linear-gradient(135deg, hsl(18 32% 29%), hsl(18 32% 39%));
     --gradient-soft: linear-gradient(180deg, hsl(30 20% 98%), hsl(30 15% 95%));
     --gradient-warm: linear-gradient(135deg, hsl(20 45% 85%), hsl(30 35% 88%));
 
     /* Shadows */
     --shadow-soft: 0 4px 16px -4px hsl(30 15% 20% / 0.08);
-    --shadow-glow: 0 0 32px hsl(340 40% 75% / 0.3);
+    --shadow-glow: 0 0 32px hsl(18 32% 39% / 0.3);
     --shadow-neuro-out: 8px 8px 16px hsl(30 10% 80%), -8px -8px 16px hsl(30 20% 98%);
     --shadow-neuro-in: inset 4px 4px 8px hsl(30 10% 85%), inset -4px -4px 8px hsl(30 20% 100%);
 
@@ -89,9 +89,9 @@
     --popover: 30 12% 10%;
     --popover-foreground: 30 10% 95%;
 
-    --primary: 340 35% 55%;
+    --primary: 18 32% 35%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 340 40% 65%;
+    --primary-glow: 18 32% 45%;
 
     --secondary: 30 10% 15%;
     --secondary-foreground: 30 10% 90%;
@@ -107,7 +107,7 @@
 
     --border: 30 8% 20%;
     --input: 30 8% 20%;
-    --ring: 340 35% 55%;
+    --ring: 18 32% 35%;
 
     --glass-bg: 0 0% 10%;
     --glass-opacity: 0.12;
@@ -117,10 +117,10 @@
 
     --neuro-shadow-light: 30 10% 12%;
     --neuro-shadow-dark: 30 15% 5%;
-    --neuro-glow: 340 35% 55%;
+    --neuro-glow: 18 32% 35%;
 
     --shadow-soft: 0 4px 16px -4px hsl(0 0% 0% / 0.4);
-    --shadow-glow: 0 0 32px hsl(340 40% 65% / 0.25);
+    --shadow-glow: 0 0 32px hsl(18 32% 45% / 0.25);
   }
 }
 
