@@ -1,101 +1,40 @@
-import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Star } from "@phosphor-icons/react";
-import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
 
 interface Review {
   author_name: string;
   rating: number;
   text: string;
-  time: number;
   relative_time_description: string;
 }
 
-interface GoogleReviewsProps {
-  placeId: string;
-}
-
-export const GoogleReviews = ({ placeId }: GoogleReviewsProps) => {
-  const [reviews, setReviews] = useState<Review[]>([]);
-  const [loading, setLoading] = useState(true);
-  const { toast } = useToast();
-
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        setLoading(true);
-        
-        const { data, error } = await supabase.functions.invoke('fetch-google-reviews', {
-          body: { placeId }
-        });
-
-        if (error) throw error;
-
-        if (data?.success && data?.reviews) {
-          setReviews(data.reviews);
-        } else {
-          throw new Error(data?.error || 'Failed to fetch reviews');
-        }
-      } catch (error) {
-        console.error('Error fetching Google reviews:', error);
-        toast({
-          title: "Chyba pri načítaní recenzií",
-          description: "Nepodarilo sa načítať Google recenzie. Zobrazujú sa predvolené recenzie.",
-          variant: "destructive",
-        });
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchReviews();
-  }, [placeId, toast]);
-
-  if (loading) {
-    return (
-      <div className="grid md:grid-cols-3 gap-6 mb-16">
-        {[1, 2, 3].map((i) => (
-          <Card key={i} className="glass-card p-6 animate-pulse">
-            <div className="h-24 bg-muted rounded mb-4"></div>
-            <div className="h-4 bg-muted rounded w-3/4 mb-2"></div>
-            <div className="h-3 bg-muted rounded w-1/2"></div>
-          </Card>
-        ))}
-      </div>
-    );
+// Static testimonials - update these with your real testimonials later
+const testimonials: Review[] = [
+  {
+    author_name: "Martina K.",
+    rating: 5,
+    text: "NeoMe mi úplne zmenilo prístup k wellbeingu. Konečne mám čas na seba aj s dvoma deťmi. 15 minút denne a vidím výsledky!",
+    relative_time_description: "pred 2 týždňami"
+  },
+  {
+    author_name: "Lucia P.",
+    rating: 5,
+    text: "Najlepšia investícia do seba. Tréningy sú krátke, efektívne a recepty chutia celej rodine. Cítim sa silnejšia a pokojnejšia.",
+    relative_time_description: "pred mesiacom"
+  },
+  {
+    author_name: "Simona H.",
+    rating: 5,
+    text: "Konečne aplikácia, ktorá ma neťahá k dokonalosti. Mám viac energie, lepšie spím a hlavne - užívam si to!",
+    relative_time_description: "pred 3 týždňami"
   }
+];
 
-  // Fallback testimonials if Google reviews fail to load
-  const fallbackReviews = [
-    {
-      author_name: "Martina K.",
-      rating: 5,
-      text: "NeoMe mi úplne zmenilo prístup k wellbeingu. Konečne mám čas na seba aj s dvoma deťmi. 15 minút denne a vidím výsledky!",
-      time: Date.now(),
-      relative_time_description: "pred 2 týždňami"
-    },
-    {
-      author_name: "Lucia P.",
-      rating: 5,
-      text: "Najlepšia investícia do seba. Tréningy sú krátke, efektívne a recepty chutia celej rodine. Cítim sa silnejšia a pokojnejšia.",
-      time: Date.now(),
-      relative_time_description: "pred mesiacom"
-    },
-    {
-      author_name: "Simona H.",
-      rating: 5,
-      text: "Konečne aplikácia, ktorá ma neťahá k dokonalosti. Mám viac energie, lepšie spím a hlavne - užívam si to!",
-      time: Date.now(),
-      relative_time_description: "pred 3 týždňami"
-    }
-  ];
-
-  const displayReviews = reviews.length > 0 ? reviews : fallbackReviews;
+export const GoogleReviews = () => {
 
   return (
     <div className="grid md:grid-cols-3 gap-6 mb-16">
-      {displayReviews.slice(0, 3).map((review, i) => (
+      {testimonials.map((review, i) => (
         <Card key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
           <div className="flex flex-col h-full">
             {/* Star rating */}

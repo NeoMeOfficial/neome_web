@@ -111,7 +111,7 @@ const Index = () => {
               Už <span className="gradient-text font-normal">4000 Žien</span> Pocítilo Ten Rozdiel.
             </h2>
 
-            <GoogleReviews placeId="ChIJuw32973k-4wR1REI2QTcpNk" />
+            <GoogleReviews />
 
             <div className="mt-12 bg-gradient-to-br from-primary/5 to-accent/10 border border-primary/20 p-8 md:p-10 rounded-2xl text-center">
               <CheckCircle size={48} weight="fill" className="text-primary mx-auto mb-4" />
