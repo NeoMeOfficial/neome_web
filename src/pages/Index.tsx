@@ -122,42 +122,56 @@ const Index = () => {
       </section>
 
       {/* Holistic Value Section */}
-      <section id="o-aplikacii" ref={addToRefs} className="py-20 px-4 opacity-0">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-light text-center mb-6">
-            Telo, Myseľ a Energia:
-          </h2>
-          <p className="text-xl text-center text-muted-foreground mb-16">
-            Všetko, čo potrebuješ, v jednej Appke.
-          </p>
+      <section id="o-aplikacii" ref={addToRefs} className="py-24 px-0 opacity-0 bg-[hsl(var(--feature-bg))]">
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light mb-4">
+              Všetko, čo potrebuješ,
+            </h2>
+            <p className="text-2xl md:text-3xl gradient-text font-normal">
+              v jednej Appke.
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
-                emoji: "🧘‍♀️",
-                title: "Pohyb",
-                desc: "5-15 minútové tréningy na požiadanie. Cvičenia sú zamerané na ženské telo: spevnenie jadra, metabolizmus a mobilitu. Bez výhovoriek, bez tlaku."
+                icon: "💪",
+                title: "Cvičenie",
+                desc: "5-15 minútové tréningy na požiadanie. Cvičenia zamerané na ženské telo: spevnenie jadra, metabolizmus a mobilitu."
               },
               {
-                emoji: "🥗",
-                title: "Výživa",
+                icon: "🥗",
+                title: "Strava",
                 desc: "Recepty a jedálničky pre celú rodinu. Žiadne obmedzenia. Zameranie na hormonálnu rovnováhu a energiu."
               },
               {
-                emoji: "💭",
+                icon: "💭",
                 title: "Myseľ",
                 desc: "Krátke meditácie a dychové cvičenia pre okamžité upokojenie. Denná motivácia, ktorá ti pripomenie, že si dosť."
               },
               {
-                emoji: "🩸",
-                title: "Tracker",
-                desc: "Cyklus a Návyková denník. Sleduj náladu, spánok a pohyb. Ukážeme ti, ako sa mení tvoj pocit, nie len tvoje miery."
+                icon: "✨",
+                title: "Extras",
+                desc: "Špeciálne programy a výzvy. Prístup k exkluzívnemu obsahu a nástrojom pre tvoju transformáciu."
+              },
+              {
+                icon: "👥",
+                title: "Komunita",
+                desc: "Pripoj sa k tisíckam žien na rovnakej ceste. Zdieľaj svoje úspechy, inšpiruj sa a podporuj ostatné."
               }
             ].map((pillar, i) => (
-              <Card key={i} className="glass-card p-6 hover:scale-105 transition-transform group">
-                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">{pillar.emoji}</div>
-                <h3 className="text-xl font-medium mb-3">{pillar.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{pillar.desc}</p>
+              <Card 
+                key={i} 
+                className="bg-[hsl(var(--feature-card))] p-8 hover:scale-[1.02] transition-all duration-300 border-border/50 shadow-lg group"
+              >
+                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  {pillar.icon}
+                </div>
+                <h3 className="text-2xl font-medium mb-4 text-foreground">{pillar.title}</h3>
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  {pillar.desc}
+                </p>
               </Card>
             ))}
           </div>

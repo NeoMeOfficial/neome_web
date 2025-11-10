@@ -33,6 +33,10 @@
     --accent: 20 45% 85%;
     --accent-foreground: 30 8% 25%;
 
+    /* Feature section - Warm beige */
+    --feature-bg: 30 25% 94%;
+    --feature-card: 0 0% 100%;
+
     --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 100%;
 
