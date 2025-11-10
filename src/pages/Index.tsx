@@ -126,9 +126,9 @@ const Index = () => {
       {/* Holistic Value Section */}
       <section id="o-aplikacii" ref={addToRefs} className="py-24 px-4 opacity-0 bg-[hsl(var(--feature-bg))]">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left: App Mockups */}
-            <div className="relative flex items-center justify-center gap-6 order-2 lg:order-1">
+            <div className="relative flex items-center justify-center gap-6 order-2 lg:order-1 lg:sticky lg:top-24 self-start">
               <div className="relative z-10 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
                 <img 
                   src={appMockup1} 
