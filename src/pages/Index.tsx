@@ -63,7 +63,7 @@ const Index = () => {
             
             <h1 className="text-5xl md:text-7xl font-light mb-6 leading-tight text-white">
               Sila v Každom<br />
-              <span className="gradient-text font-normal">Krátkom Momente.</span>
+              <span className="text-white font-normal">Krátkom Momente.</span>
             </h1>
             
             <p className="text-xl md:text-2xl mb-4 font-light text-white">
