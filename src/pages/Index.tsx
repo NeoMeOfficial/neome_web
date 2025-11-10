@@ -4,6 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ArrowRight, CheckCircle, Sparkle } from "@phosphor-icons/react";
 import { useEffect, useRef } from "react";
 import heroImage from "@/assets/hero-yoga.jpg";
+import { GoogleReviews } from "@/components/GoogleReviews";
 
 const Index = () => {
   const sectionsRef = useRef<HTMLElement[]>([]);
@@ -106,37 +107,7 @@ const Index = () => {
             Už <span className="gradient-text font-normal">4000 Žien</span> Pocítilo Ten Rozdiel.
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {[
-              {
-                text: "Prvý program, ktorý som naozaj dokončila! Konečne niečo, čo zvládnem s deťmi okolo. Cítim sa silná a sebavedomá.",
-                author: "Mamička, 32 rokov",
-                tag: "Diastáza vyriešená"
-              },
-              {
-                text: "Nemám čas na fitko, ale 10 minút strečingu mi zmenilo rána. NeoMe je môj kotviaci bod pokoja.",
-                author: "Jana, 38 rokov",
-                tag: "Väčší rešpekt k sebe"
-              },
-              {
-                text: "Prestala som sa súdiť za to, že 'nestíham'. Zameriavam sa na pocit, nie na váhu. Ďakujem.",
-                author: "Zuzana, 45 rokov",
-                tag: "Konečne vnútorný pokoj"
-              }
-            ].map((testimonial, i) => (
-              <Card key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
-                <div className="flex flex-col h-full">
-                  <p className="text-base mb-4 flex-grow italic">"{testimonial.text}"</p>
-                  <div className="mt-auto">
-                    <p className="font-medium text-sm mb-1">— {testimonial.author}</p>
-                    <span className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary inline-block">
-                      {testimonial.tag}
-                    </span>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
+          <GoogleReviews placeId="5010715" />
 
           <Card className="glass-card p-8 md:p-12 text-center bg-gradient-to-br from-primary/5 to-accent/10">
             <CheckCircle size={48} weight="fill" className="text-primary mx-auto mb-4" />
