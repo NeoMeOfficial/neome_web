@@ -39,11 +39,11 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-background to-accent/10">
+    <div className="min-h-screen bg-white text-foreground">
       {/* HERO Section */}
       <section 
         id="hero" 
-        className="relative min-h-screen flex items-center pt-20 px-4 overflow-hidden"
+        className="relative min-h-screen flex items-center pt-20 px-4 overflow-hidden shadow-lg"
         style={{
           backgroundImage: `url(${heroImage})`,
           backgroundSize: 'cover',
@@ -84,9 +84,9 @@ const Index = () => {
       </section>
 
       {/* Empathy Section */}
-      <section id="empatia" ref={addToRefs} className="py-20 px-4 opacity-0">
+      <section id="empatia" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
         <div className="container mx-auto max-w-4xl">
-          <Card className="glass-card p-10 md:p-16 text-center">
+          <Card className="rounded-3xl shadow-xl p-10 md:p-16 text-center bg-white border-border/10">
             <h2 className="text-4xl md:text-5xl font-light mb-8">
               Si unavená. A aj tak sa snažíš...
             </h2>
@@ -104,31 +104,34 @@ const Index = () => {
       </section>
 
       {/* Proof & Guarantee Section */}
-      <section id="dokaz" ref={addToRefs} className="py-20 px-4 opacity-0">
+      <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-light text-center mb-16">
-            Už <span className="gradient-text font-normal">4000 Žien</span> Pocítilo Ten Rozdiel.
-          </h2>
+          <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
+            <h2 className="text-4xl md:text-5xl font-light text-center mb-12">
+              Už <span className="gradient-text font-normal">4000 Žien</span> Pocítilo Ten Rozdiel.
+            </h2>
 
-          <GoogleReviews placeId="ChIJuw32973k-4wR1REI2QTcpNk" />
+            <GoogleReviews placeId="ChIJuw32973k-4wR1REI2QTcpNk" />
 
-          <Card className="glass-card p-8 md:p-12 text-center bg-gradient-to-br from-primary/5 to-accent/10">
-            <CheckCircle size={48} weight="fill" className="text-primary mx-auto mb-4" />
-            <h3 className="text-2xl font-light mb-4">Nulové Riziko. Pocit, že to funguje.</h3>
-            <p className="text-lg max-w-2xl mx-auto">
-              S našou <strong className="font-medium">zárukou vrátenia peňazí do 30 dní</strong> neriskuješ nič. 
-              Dáme ti čas na to, aby si pocítila, ako sa meníš.
-            </p>
+            <div className="mt-12 bg-gradient-to-br from-primary/5 to-accent/10 border border-primary/20 p-8 md:p-10 rounded-2xl text-center">
+              <CheckCircle size={48} weight="fill" className="text-primary mx-auto mb-4" />
+              <h3 className="text-2xl font-light mb-4">Nulové Riziko. Pocit, že to funguje.</h3>
+              <p className="text-lg max-w-2xl mx-auto">
+                S našou <strong className="font-medium">zárukou vrátenia peňazí do 30 dní</strong> neriskuješ nič. 
+                Dáme ti čas na to, aby si pocítila, ako sa meníš.
+              </p>
+            </div>
           </Card>
         </div>
       </section>
 
       {/* Holistic Value Section */}
-      <section id="o-aplikacii" ref={addToRefs} className="py-24 px-4 opacity-0 bg-[hsl(var(--feature-bg))]">
+      <section id="o-aplikacii" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left: App Mockups */}
-            <div className="relative flex items-center justify-center gap-6 order-2 lg:order-1 lg:sticky lg:top-24 self-start">
+          <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              {/* Left: App Mockups */}
+              <div className="relative flex items-center justify-center gap-6 order-2 lg:order-1 lg:sticky lg:top-24 self-start">
               <div className="relative z-10 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
                 <img 
                   src={appMockup1} 
@@ -214,8 +217,9 @@ const Index = () => {
                   </AccordionItem>
                 ))}
               </Accordion>
+              </div>
             </div>
-          </div>
+          </Card>
         </div>
       </section>
 
@@ -223,18 +227,19 @@ const Index = () => {
       <ProgramsScroll />
 
       {/* Pricing Section */}
-      <section id="ceny" ref={addToRefs} className="py-20 px-4 opacity-0">
+      <section id="ceny" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-light text-center mb-6">
-            Začni Zadarmo.
-          </h2>
-          <p className="text-xl text-center text-muted-foreground mb-16">
-            Pokračuj s Hodnotou, Ktorú Cítiš.
-          </p>
+          <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
+            <h2 className="text-4xl md:text-5xl font-light text-center mb-6">
+              Začni Zadarmo.
+            </h2>
+            <p className="text-xl text-center text-muted-foreground mb-16">
+              Pokračuj s Hodnotou, Ktorú Cítiš.
+            </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Free Tier */}
-            <Card className="glass-card p-8">
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Free Tier */}
+              <Card className="p-8 border-2 border-border/20 hover:border-primary/40 transition-all rounded-2xl shadow-md bg-white">
               <h3 className="text-2xl font-medium mb-2">Zadarmo</h3>
               <p className="text-sm text-muted-foreground mb-6">Prístup k základom aplikácie</p>
               
@@ -258,8 +263,8 @@ const Index = () => {
               </Button>
             </Card>
 
-            {/* Subscription Tier - RECOMMENDED */}
-            <Card className="glass-card p-8 border-2 border-primary relative">
+              {/* Subscription Tier - RECOMMENDED */}
+              <Card className="p-8 border-2 border-primary shadow-xl rounded-2xl relative overflow-hidden bg-white">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-sm font-medium rounded-full">
                 ODPORÚČANÉ
               </div>
@@ -290,8 +295,8 @@ const Index = () => {
               </Button>
             </Card>
 
-            {/* Programs Tier */}
-            <Card className="glass-card p-8">
+              {/* Programs Tier */}
+              <Card className="p-8 border-2 border-border/20 hover:border-primary/40 transition-all rounded-2xl shadow-md bg-white">
               <h3 className="text-2xl font-medium mb-2">Programy</h3>
               <p className="text-sm text-muted-foreground mb-6">Individuálne Zakúpenie</p>
               
@@ -313,20 +318,22 @@ const Index = () => {
               <Button variant="outline" className="w-full">
                 POZRIEŤ PROGRAMY
               </Button>
-            </Card>
-          </div>
+              </Card>
+            </div>
+          </Card>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" ref={addToRefs} className="py-20 px-4 opacity-0">
-        <div className="container mx-auto max-w-3xl">
-          <h2 className="text-4xl md:text-5xl font-light text-center mb-16">
-            Máš otázky? Máme odpovede.
-          </h2>
+      <section id="faq" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
+        <div className="container mx-auto max-w-4xl">
+          <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
+            <h2 className="text-4xl md:text-5xl font-light text-center mb-12">
+              Máš otázky? Máme odpovede.
+            </h2>
 
-          <Accordion type="single" collapsible className="space-y-4">
-            <AccordionItem value="item-1" className="glass-card px-6 border-0">
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="item-1" className="border border-border/20 rounded-xl px-6 py-1 backdrop-blur-sm hover:border-border/40 transition-all">
               <AccordionTrigger className="text-left font-light hover:no-underline">
                 Je aplikácia vhodná aj pre ženy, ktoré nie sú mamičky?
               </AccordionTrigger>
@@ -335,7 +342,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2" className="glass-card px-6 border-0">
+            <AccordionItem value="item-2" className="border border-border/20 rounded-xl px-6 py-1 backdrop-blur-sm hover:border-border/40 transition-all">
               <AccordionTrigger className="text-left font-light hover:no-underline">
                 Ako funguje vaša záruka vrátenia peňazí?
               </AccordionTrigger>
@@ -344,7 +351,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="glass-card px-6 border-0">
+            <AccordionItem value="item-3" className="border border-border/20 rounded-xl px-6 py-1 backdrop-blur-sm hover:border-border/40 transition-all">
               <AccordionTrigger className="text-left font-light hover:no-underline">
                 Môžem cvičiť s minimálnym vybavením?
               </AccordionTrigger>
@@ -353,7 +360,7 @@ const Index = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4" className="glass-card px-6 border-0">
+            <AccordionItem value="item-4" className="border border-border/20 rounded-xl px-6 py-1 backdrop-blur-sm hover:border-border/40 transition-all">
               <AccordionTrigger className="text-left font-light hover:no-underline">
                 Ako dlho trvajú tréningy?
               </AccordionTrigger>
@@ -361,14 +368,24 @@ const Index = () => {
                 Naše tréningy trvajú 5-15 minút. Veríme, že aj krátky čas venovaný sebe je lepší ako žiadny. Môžeš ich robiť kedykoľvek počas dňa.
               </AccordionContent>
             </AccordionItem>
-          </Accordion>
+
+            <AccordionItem value="item-5" className="border border-border/20 rounded-xl px-6 py-1 backdrop-blur-sm hover:border-border/40 transition-all">
+              <AccordionTrigger className="text-left font-light hover:no-underline">
+                Ako dlho trvajú tréningy?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Naše tréningy trvajú 5-15 minút. Veríme, že aj krátky čas venovaný sebe je lepší ako žiadny. Môžeš ich robiť kedykoľvek počas dňa.
+              </AccordionContent>
+            </AccordionItem>
+            </Accordion>
+          </Card>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4">
+      <section ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
         <div className="container mx-auto max-w-4xl text-center">
-          <Card className="glass-card p-12 md:p-16 bg-gradient-to-br from-primary/10 to-accent/20">
+          <Card className="rounded-3xl shadow-xl p-12 md:p-16 bg-gradient-to-br from-primary/10 to-accent/20 border-primary/20">
             <h2 className="text-4xl md:text-5xl font-light mb-6">
               Pamätaj, že na tebe záleží.
             </h2>
