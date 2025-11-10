@@ -122,9 +122,9 @@ const Index = () => {
       </section>
 
       {/* Holistic Value Section */}
-      <section id="o-aplikacii" ref={addToRefs} className="py-24 px-0 opacity-0 bg-[hsl(var(--feature-bg))]">
-        <div className="container mx-auto max-w-7xl px-4">
-          <div className="text-center mb-16">
+      <section id="o-aplikacii" ref={addToRefs} className="py-24 px-4 opacity-0 bg-[hsl(var(--feature-bg))]">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-light mb-4">
               Všetko, čo potrebuješ,
             </h2>
@@ -133,48 +133,57 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-4">
             {[
               {
                 icon: "💪",
                 title: "Cvičenie",
-                desc: "5-15 minútové tréningy na požiadanie. Cvičenia zamerané na ženské telo: spevnenie jadra, metabolizmus a mobilitu."
+                desc: "5-15 minútové tréningy na požiadanie, ktoré sa prispôsobia tvojmu denníku. Cvičenia zamerané na ženské telo: spevnenie brušného korzetu, zlepšenie metabolizmu a mobility. Vďaka krátkym tréningom už nemáš výhovorky – nájdeš si čas aj vtedy, keď si myslíš, že ho nemáš."
               },
               {
                 icon: "🥗",
                 title: "Strava",
-                desc: "Recepty a jedálničky pre celú rodinu. Žiadne obmedzenia. Zameranie na hormonálnu rovnováhu a energiu."
+                desc: "Jednoduché a chutné recepty, ktoré zvládne celá rodina. Žiadne počítanie kalórií ani drastické obmedzenia. Zameraj sa na podporu hormonálnej rovnováhy, stabilnú energiu cez celý deň a jedlo, ktoré ťa naozaj zasýti a potešĺ."
               },
               {
                 icon: "💭",
                 title: "Myseľ",
-                desc: "Krátke meditácie a dychové cvičenia pre okamžité upokojenie. Denná motivácia, ktorá ti pripomenie, že si dosť."
+                desc: "Krátke meditácie a dychové cvičenia na okamžité upokojenie mysle – aj keď máš len 3 minúty. Každý deň ti pripomíname, že si dosť presne taká, aká si. Získaj nástroje, ktoré ti pomôžu zvládnuť stres a vrátiť sa do svojho centra."
               },
               {
                 icon: "✨",
                 title: "Extras",
-                desc: "Špeciálne programy a výzvy. Prístup k exkluzívnemu obsahu a nástrojom pre tvoju transformáciu."
+                desc: "Prístup k špeciálnym programom, výzvam a exkluzívnemu obsahu. Nájdeš tu dodatočné nástroje pre tvoju osobnú transformáciu – od špeciálnychworkoutov až po tematické výzvy, ktoré ťa posunú ďalej."
               },
               {
                 icon: "👥",
                 title: "Komunita",
-                desc: "Pripoj sa k tisíckam žien na rovnakej ceste. Zdieľaj svoje úspechy, inšpiruj sa a podporuj ostatné."
+                desc: "Pripoj sa k tisíckam žien, ktoré sú na podobnej ceste ako ty. Zdieľaj svoje úspechy, nájdi inšpiráciu v príbehoch ostatných a cíť podporu komunity, ktorá ťa povzbudí aj v náročnejších dňoch. Spolu to ide lepšie."
               }
             ].map((pillar, i) => (
-              <Card 
+              <AccordionItem 
                 key={i} 
-                className="bg-[hsl(var(--feature-card))] p-8 hover:scale-[1.02] transition-all duration-300 border-border/50 shadow-lg group"
+                value={`item-${i + 1}`}
+                className="bg-[hsl(var(--feature-card))] border-border/30 rounded-2xl px-8 overflow-hidden data-[state=open]:shadow-lg transition-all"
               >
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {pillar.icon}
-                </div>
-                <h3 className="text-2xl font-medium mb-4 text-foreground">{pillar.title}</h3>
-                <p className="text-base text-muted-foreground leading-relaxed">
+                <AccordionTrigger className="hover:no-underline py-6 text-left group">
+                  <div className="flex items-center gap-6 w-full">
+                    <div className="text-4xl group-data-[state=open]:scale-110 transition-transform">
+                      {pillar.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-medium text-foreground group-hover:text-primary transition-colors">
+                        {i + 1}. {pillar.title}
+                      </h3>
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="text-base text-muted-foreground leading-relaxed pb-6 pt-2">
                   {pillar.desc}
-                </p>
-              </Card>
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </section>
 
