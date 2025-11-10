@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar } from "@phosphor-icons/react";
@@ -41,8 +40,6 @@ const blogPosts = [
 const Blog = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-accent/5">
-      <Header />
-      
       <main className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 animate-fade-in">

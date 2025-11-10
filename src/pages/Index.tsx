@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -35,8 +34,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-accent/10">
-      <Header />
-
       {/* HERO Section */}
       <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 px-4">
         <div className="container mx-auto max-w-5xl text-center animate-slide-up">
