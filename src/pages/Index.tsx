@@ -201,7 +201,7 @@ const Index = () => {
                   <AccordionItem 
                     key={i} 
                     value={`item-${i + 1}`}
-                    className="border-2 border-border/30 rounded-xl px-6 py-1 bg-white/50 hover:border-primary/30 hover:shadow-md transition-all"
+                    className="border-2 border-border/30 rounded-xl px-6 py-1 hover:border-primary/30 hover:shadow-md transition-all"
                   >
                     <AccordionTrigger className="hover:no-underline py-5">
                       <div className="text-left flex-1 pr-4">
