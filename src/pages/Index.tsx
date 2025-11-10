@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, CheckCircle, Sparkle } from "@phosphor-icons/react";
 import { useEffect, useRef } from "react";
+import heroImage from "@/assets/hero-yoga.jpg";
 
 const Index = () => {
   const sectionsRef = useRef<HTMLElement[]>([]);
@@ -36,31 +37,46 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-accent/10">
       {/* HERO Section */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 px-4">
-        <div className="container mx-auto max-w-5xl text-center animate-slide-up">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
-            <Sparkle size={16} weight="fill" className="text-primary" />
-            <span className="text-sm font-light">4000 žien už začalo</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-light mb-6 leading-tight">
-            Sila v Každom<br />
-            <span className="gradient-text font-normal">Krátkom Momente.</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl mb-4 max-w-2xl mx-auto font-light">
-            Holistický wellbeing pre skutočné ženy.<br />
-            Silnejšie telo, pokojnejšia myseľ.
-          </p>
-          
-          <p className="text-lg text-muted-foreground mb-10 font-light">
-            Bez viny, bez extrémov.
-          </p>
+      <section 
+        id="hero" 
+        className="relative min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden"
+        style={{
+          backgroundImage: `url(${heroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/30"></div>
+        
+        <div className="container mx-auto max-w-5xl text-center animate-slide-up relative z-10">
+          {/* Glassmorphism container for text */}
+          <div className="backdrop-blur-xl bg-white/10 dark:bg-black/20 rounded-3xl p-8 md:p-12 border border-white/20 shadow-2xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md mb-6 border border-white/30">
+              <Sparkle size={16} weight="fill" className="text-white drop-shadow-lg" />
+              <span className="text-sm font-light text-white drop-shadow-lg">4000 žien už začalo</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-light mb-6 leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+              Sila v Každom<br />
+              <span className="font-normal bg-gradient-to-r from-white to-primary bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">Krátkom Momente.</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl mb-4 max-w-2xl mx-auto font-light text-white drop-shadow-lg">
+              Holistický wellbeing pre skutočné ženy.<br />
+              Silnejšie telo, pokojnejšia myseľ.
+            </p>
+            
+            <p className="text-lg text-white/90 mb-10 font-light drop-shadow-lg">
+              Bez viny, bez extrémov.
+            </p>
 
-          <Button size="lg" className="neuro-button text-base px-8 py-6 bg-primary text-primary-foreground group">
-            🔥 STIAHNUŤ APLIKÁCIU A ZAČAŤ ZDARMA
-            <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
+            <Button size="lg" className="neuro-button text-base px-8 py-6 bg-primary text-primary-foreground group shadow-xl hover:shadow-2xl transition-shadow">
+              🔥 STIAHNUŤ APLIKÁCIU A ZAČAŤ ZDARMA
+              <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
         </div>
       </section>
 
