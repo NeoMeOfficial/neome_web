@@ -75,7 +75,7 @@ const Index = () => {
               Bez viny, bez extrémov.
             </p>
 
-            <Button size="lg" className="neuro-button text-base px-8 py-6 bg-primary text-primary-foreground group">
+            <Button size="lg" className="text-base px-8 py-6 bg-primary text-primary-foreground group hover:bg-primary/20 hover:backdrop-blur-md hover:border-primary/30 border border-transparent transition-all duration-300">
               🔥 STIAHNUŤ APLIKÁCIU A ZAČAŤ ZDARMA
               <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
@@ -290,7 +290,7 @@ const Index = () => {
                 </li>
               </ul>
 
-              <Button className="w-full neuro-button bg-primary text-primary-foreground">
+              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/20 hover:backdrop-blur-md hover:border-primary/30 border border-transparent transition-all duration-300">
                 PRIHLÁSIŤ SA
               </Button>
             </Card>
@@ -392,7 +392,7 @@ const Index = () => {
             <p className="text-xl mb-10 text-muted-foreground">
               Začni ešte dnes.
             </p>
-            <Button size="lg" className="neuro-button text-base px-8 py-6 bg-primary text-primary-foreground">
+            <Button size="lg" className="text-base px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/20 hover:backdrop-blur-md hover:border-primary/30 border border-transparent transition-all duration-300">
               🔥 STIAHNUŤ APLIKÁCIU A ZÍSKAŤ POKOJ
             </Button>
           </Card>
