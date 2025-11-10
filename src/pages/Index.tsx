@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle, Sparkle } from "@phosphor-icons/react";
 import { useEffect, useRef } from "react";
 import heroImage from "@/assets/hero-yoga.jpg";
 import { GoogleReviews } from "@/components/GoogleReviews";
+import { ProgramsScroll } from "@/components/ProgramsScroll";
 
 const Index = () => {
   const sectionsRef = useRef<HTMLElement[]>([]);
@@ -164,59 +165,7 @@ const Index = () => {
       </section>
 
       {/* Programs Section */}
-      <section id="programy" ref={addToRefs} className="py-20 px-4 opacity-0">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-light text-center mb-6">
-            Chceš Cielenú Transformáciu?
-          </h2>
-          <p className="text-xl text-center text-muted-foreground mb-4">
-            Vyber si Štrukturovaný Program.
-          </p>
-          <p className="text-center max-w-3xl mx-auto mb-16 text-muted-foreground">
-            Tieto 6-8 týždňové programy sú voliteľné doplnky k tvojmu predplatnému. 
-            Sú navrhnuté pre hlbšiu, garantovanú zmenu, ak si pripravená ísť na cieľ.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Postpartum",
-                desc: "Pre mamičky. Obnovenie sily jadra a riešenie diastázy.",
-                duration: "8 týždňov"
-              },
-              {
-                title: "BodyForming",
-                desc: "Ideálne pre formovanie tela a posilnenie svalov bez špeciálneho vybavenia.",
-                duration: "6 týždňov"
-              },
-              {
-                title: "ElasticBands",
-                desc: "Tréning s odporovými gumami pre svalovú definíciu a silu.",
-                duration: "6 týždňov"
-              },
-              {
-                title: "Strong & Sexy",
-                desc: "Pokročilý program pre kompletnú transformáciu tela a sebavedomia.",
-                duration: "8 týždňov"
-              }
-            ].map((program, i) => (
-              <Card key={i} className="glass-card p-8 hover:shadow-xl transition-all group">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl font-medium">{program.title}</h3>
-                  <span className="text-xs px-3 py-1 rounded-full bg-accent text-accent-foreground">
-                    {program.duration}
-                  </span>
-                </div>
-                <p className="text-muted-foreground mb-6">{program.desc}</p>
-                <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  ZISTI VIAC
-                  <ArrowRight size={16} className="ml-2" />
-                </Button>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProgramsScroll />
 
       {/* Pricing Section */}
       <section id="ceny" ref={addToRefs} className="py-20 px-4 opacity-0">
