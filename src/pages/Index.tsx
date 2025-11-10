@@ -2,15 +2,20 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, CheckCircle, Sparkle } from "@phosphor-icons/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import heroImage from "@/assets/hero-yoga.jpg";
 import appMockup1 from "@/assets/app-mockup-1.png";
 import appMockup2 from "@/assets/app-mockup-2.png";
+import appMockupMind from "@/assets/app-mockup-mind.png";
+import appMockupExtras from "@/assets/app-mockup-extras.png";
+import appMockupCommunity from "@/assets/app-mockup-community.png";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ProgramsScroll } from "@/components/ProgramsScroll";
 
 const Index = () => {
   const sectionsRef = useRef<HTMLElement[]>([]);
+  const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
+  const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,11 +37,66 @@ const Index = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const featureObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = featureRefs.current.findIndex(ref => ref === entry.target);
+            if (index !== -1) {
+              setActiveFeatureIndex(index);
+            }
+          }
+        });
+      },
+      { threshold: 0.6, rootMargin: "-100px 0px -100px 0px" }
+    );
+
+    featureRefs.current.forEach((ref) => {
+      if (ref) featureObserver.observe(ref);
+    });
+
+    return () => featureObserver.disconnect();
+  }, []);
+
   const addToRefs = (el: HTMLElement | null) => {
     if (el && !sectionsRef.current.includes(el)) {
       sectionsRef.current.push(el);
     }
   };
+
+  const features = [
+    {
+      title: "Cvičenie",
+      subheading: "5-15 minútové tréningy prispôsobené tvojmu rytmu a cieľom",
+      desc: "Tréningy na požiadanie, ktoré sa prispôsobia tvojmu denníku. Cvičenia zamerané na ženské telo: spevnenie brušného korzetu, zlepšenie metabolizmu a mobility. Vďaka krátkym tréningom už nemáš výhovorky – nájdeš si čas aj vtedy, keď si myslíš, že ho nemáš.",
+      image: appMockup1
+    },
+    {
+      title: "Strava",
+      subheading: "Jednoduché recepty pre hormonálnu rovnováhu a trvalú energiu",
+      desc: "Jednoduché a chutné recepty, ktoré zvládne celá rodina. Žiadne počítanie kalórií ani drastické obmedzenia. Zameraj sa na podporu hormonálnej rovnováhy, stabilnú energiu cez celý deň a jedlo, ktoré ťa naozaj zasýti a potešĺ.",
+      image: appMockup2
+    },
+    {
+      title: "Myseľ",
+      subheading: "Denné meditácie a dychové cvičenia pre mentálny pokoj",
+      desc: "Krátke meditácie a dychové cvičenia na okamžité upokojenie mysle – aj keď máš len 3 minúty. Každý deň ti pripomíname, že si dosť presne taká, aká si. Získaj nástroje, ktoré ti pomôžu zvládnuť stres a vrátiť sa do svojho centra.",
+      image: appMockupMind
+    },
+    {
+      title: "Extras",
+      subheading: "Špeciálne programy, výzvy a exkluzívny obsah pre tvoj rast",
+      desc: "Prístup k špeciálnym programom, výzvám a exkluzívnemu obsahu. Nájdeš tu dodatočné nástroje pre tvoju osobnú transformáciu – od špeciálnych workoutov až po tematické výzvy, ktoré ťa posunú ďalej.",
+      image: appMockupExtras
+    },
+    {
+      title: "Komunita",
+      subheading: "Pripoj sa k tisíckam žien na podobnej transformačnej ceste",
+      desc: "Pripoj sa k tisíckam žien, ktoré sú na podobnej ceste ako ty. Zdieľaj svoje úspechy, nájdi inšpiráciu v príbehoch ostatných a cíť podporu komunity, ktorá ťa povzbudí aj v náročnejších dňoch. Spolu to ide lepšie.",
+      image: appMockupCommunity
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-white text-foreground">
@@ -125,98 +185,72 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Holistic Value Section */}
+      {/* Holistic Value Section - Scroll Triggered */}
       <section id="o-aplikacii" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
         <div className="container mx-auto max-w-7xl">
           <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
             <div className="grid lg:grid-cols-2 gap-16 items-start">
-              {/* Left: App Mockups */}
-              <div className="relative flex items-center justify-center gap-6 order-2 lg:order-1 lg:sticky lg:top-24 self-start">
-              <div className="relative z-10 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
-                <img 
-                  src={appMockup1} 
-                  alt="NeoMe App - Workout Screen" 
-                  className="w-64 h-auto rounded-3xl shadow-2xl"
-                />
-              </div>
-              <div className="relative z-20 transform rotate-6 hover:rotate-0 transition-transform duration-300">
-                <img 
-                  src={appMockup2} 
-                  alt="NeoMe App - Nutrition Screen" 
-                  className="w-64 h-auto rounded-3xl shadow-2xl"
-                />
-              </div>
-            </div>
-
-            {/* Right: Content + Accordion */}
-            <div className="space-y-8 order-1 lg:order-2">
-              {/* Small highlight tag */}
-              <div className="inline-block">
-                <span className="text-sm font-medium uppercase tracking-wider text-primary relative">
-                  Všetko na jednom mieste
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"></span>
-                </span>
-              </div>
-              
-              {/* Large headline */}
-              <h2 className="text-4xl md:text-5xl font-light leading-tight">
-                Všetko, čo potrebuješ,<br />
-                <span className="gradient-text font-normal">v jednej appke.</span>
-              </h2>
-              
-              {/* Subheading */}
-              <p className="text-lg text-muted-foreground font-light">
-                Holistický prístup k wellbeingu. Telo, myseľ a komunita v jednej aplikácii.
-              </p>
-              
-              {/* Accordion */}
-              <Accordion type="single" collapsible className="space-y-3">
-                {[
-                  {
-                    title: "Cvičenie",
-                    subheading: "5-15 minútové tréningy prispôsobené tvojmu rytmu a cieľom",
-                    desc: "Tréningy na požiadanie, ktoré sa prispôsobia tvojmu denníku. Cvičenia zamerané na ženské telo: spevnenie brušného korzetu, zlepšenie metabolizmu a mobility. Vďaka krátkym tréningom už nemáš výhovorky – nájdeš si čas aj vtedy, keď si myslíš, že ho nemáš."
-                  },
-                  {
-                    title: "Strava",
-                    subheading: "Jednoduché recepty pre hormonálnu rovnováhu a trvalú energiu",
-                    desc: "Jednoduché a chutné recepty, ktoré zvládne celá rodina. Žiadne počítanie kalórií ani drastické obmedzenia. Zameraj sa na podporu hormonálnej rovnováhy, stabilnú energiu cez celý deň a jedlo, ktoré ťa naozaj zasýti a potešĺ."
-                  },
-                  {
-                    title: "Myseľ",
-                    subheading: "Denné meditácie a dychové cvičenia pre mentálny pokoj",
-                    desc: "Krátke meditácie a dychové cvičenia na okamžité upokojenie mysle – aj keď máš len 3 minúty. Každý deň ti pripomíname, že si dosť presne taká, aká si. Získaj nástroje, ktoré ti pomôžu zvládnuť stres a vrátiť sa do svojho centra."
-                  },
-                  {
-                    title: "Extras",
-                    subheading: "Špeciálne programy, výzvy a exkluzívny obsah pre tvoj rast",
-                    desc: "Prístup k špeciálnym programom, výzvam a exkluzívnemu obsahu. Nájdeš tu dodatočné nástroje pre tvoju osobnú transformáciu – od špeciálnych workoutov až po tematické výzvy, ktoré ťa posunú ďalej."
-                  },
-                  {
-                    title: "Komunita",
-                    subheading: "Pripoj sa k tisíckam žien na podobnej transformačnej ceste",
-                    desc: "Pripoj sa k tisíckam žien, ktoré sú na podobnej ceste ako ty. Zdieľaj svoje úspechy, nájdi inšpiráciu v príbehoch ostatných a cíť podporu komunity, ktorá ťa povzbudí aj v náročnejších dňoch. Spolu to ide lepšie."
-                  }
-                ].map((pillar, i) => (
-                  <AccordionItem 
-                    key={i} 
-                    value={`item-${i + 1}`}
-                    className="border-2 border-border/30 rounded-xl px-6 py-1 hover:border-primary/30 hover:shadow-md transition-all"
+              {/* Left: Dynamic Image - Sticky on Desktop */}
+              <div className="relative flex items-center justify-center order-2 lg:order-1 lg:sticky lg:top-24 self-start h-[600px]">
+                {features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${
+                      activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'
+                    }`}
                   >
-                    <AccordionTrigger className="hover:no-underline py-5">
-                      <div className="text-left flex-1 pr-4">
-                        <h3 className="text-xl font-medium mb-1">{pillar.title}</h3>
-                        <p className="text-sm text-muted-foreground font-light">
-                          {pillar.subheading}
-                        </p>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="text-base text-muted-foreground leading-relaxed pb-4 pt-0">
-                      {pillar.desc}
-                    </AccordionContent>
-                  </AccordionItem>
+                    <img 
+                      src={feature.image} 
+                      alt={`NeoMe App - ${feature.title}`} 
+                      className="w-72 h-auto rounded-3xl shadow-2xl"
+                    />
+                  </div>
                 ))}
-              </Accordion>
+              </div>
+
+              {/* Right: Scrollable Feature Sections */}
+              <div className="space-y-8 order-1 lg:order-2">
+                {/* Small highlight tag */}
+                <div className="inline-block">
+                  <span className="text-sm font-medium uppercase tracking-wider text-primary relative">
+                    Všetko na jednom mieste
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"></span>
+                  </span>
+                </div>
+                
+                {/* Large headline */}
+                <h2 className="text-4xl md:text-5xl font-light leading-tight">
+                  Všetko, čo potrebuješ,<br />
+                  <span className="gradient-text font-normal">v jednej appke.</span>
+                </h2>
+                
+                {/* Subheading */}
+                <p className="text-lg text-muted-foreground font-light">
+                  Holistický prístup k wellbeingu. Telo, myseľ a komunita v jednej aplikácii.
+                </p>
+                
+                {/* Feature Sections */}
+                <div className="space-y-8 pt-4">
+                  {features.map((feature, index) => (
+                    <div
+                      key={index}
+                      ref={(el) => (featureRefs.current[index] = el)}
+                      className={`p-6 rounded-2xl border-2 transition-all duration-500 ${
+                        activeFeatureIndex === index
+                          ? 'border-primary/50 bg-white shadow-lg scale-[1.02]'
+                          : 'border-border/20 bg-white/50 opacity-60'
+                      }`}
+                    >
+                      <h3 className="text-2xl font-medium mb-2">{feature.title}</h3>
+                      <p className="text-sm text-muted-foreground font-light mb-4">
+                        {feature.subheading}
+                      </p>
+                      <p className="text-base text-muted-foreground leading-relaxed">
+                        {feature.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </Card>
