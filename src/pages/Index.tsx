@@ -4,6 +4,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ArrowRight, CheckCircle, Sparkle } from "@phosphor-icons/react";
 import { useEffect, useRef } from "react";
 import heroImage from "@/assets/hero-yoga.jpg";
+import appMockup1 from "@/assets/app-mockup-1.png";
+import appMockup2 from "@/assets/app-mockup-2.png";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ProgramsScroll } from "@/components/ProgramsScroll";
 
@@ -123,67 +125,97 @@ const Index = () => {
 
       {/* Holistic Value Section */}
       <section id="o-aplikacii" ref={addToRefs} className="py-24 px-4 opacity-0 bg-[hsl(var(--feature-bg))]">
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-light mb-4">
-              Všetko, čo potrebuješ,
-            </h2>
-            <p className="text-2xl md:text-3xl gradient-text font-normal">
-              v jednej Appke.
-            </p>
-          </div>
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left: App Mockups */}
+            <div className="relative flex items-center justify-center gap-6 order-2 lg:order-1">
+              <div className="relative z-10 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
+                <img 
+                  src={appMockup1} 
+                  alt="NeoMe App - Workout Screen" 
+                  className="w-64 h-auto rounded-3xl shadow-2xl"
+                />
+              </div>
+              <div className="relative z-20 transform rotate-6 hover:rotate-0 transition-transform duration-300">
+                <img 
+                  src={appMockup2} 
+                  alt="NeoMe App - Nutrition Screen" 
+                  className="w-64 h-auto rounded-3xl shadow-2xl"
+                />
+              </div>
+            </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
-            {[
-              {
-                icon: "💪",
-                title: "Cvičenie",
-                desc: "5-15 minútové tréningy na požiadanie, ktoré sa prispôsobia tvojmu denníku. Cvičenia zamerané na ženské telo: spevnenie brušného korzetu, zlepšenie metabolizmu a mobility. Vďaka krátkym tréningom už nemáš výhovorky – nájdeš si čas aj vtedy, keď si myslíš, že ho nemáš."
-              },
-              {
-                icon: "🥗",
-                title: "Strava",
-                desc: "Jednoduché a chutné recepty, ktoré zvládne celá rodina. Žiadne počítanie kalórií ani drastické obmedzenia. Zameraj sa na podporu hormonálnej rovnováhy, stabilnú energiu cez celý deň a jedlo, ktoré ťa naozaj zasýti a potešĺ."
-              },
-              {
-                icon: "💭",
-                title: "Myseľ",
-                desc: "Krátke meditácie a dychové cvičenia na okamžité upokojenie mysle – aj keď máš len 3 minúty. Každý deň ti pripomíname, že si dosť presne taká, aká si. Získaj nástroje, ktoré ti pomôžu zvládnuť stres a vrátiť sa do svojho centra."
-              },
-              {
-                icon: "✨",
-                title: "Extras",
-                desc: "Prístup k špeciálnym programom, výzvam a exkluzívnemu obsahu. Nájdeš tu dodatočné nástroje pre tvoju osobnú transformáciu – od špeciálnychworkoutov až po tematické výzvy, ktoré ťa posunú ďalej."
-              },
-              {
-                icon: "👥",
-                title: "Komunita",
-                desc: "Pripoj sa k tisíckam žien, ktoré sú na podobnej ceste ako ty. Zdieľaj svoje úspechy, nájdi inšpiráciu v príbehoch ostatných a cíť podporu komunity, ktorá ťa povzbudí aj v náročnejších dňoch. Spolu to ide lepšie."
-              }
-            ].map((pillar, i) => (
-              <AccordionItem 
-                key={i} 
-                value={`item-${i + 1}`}
-                className="bg-[hsl(var(--feature-card))] border-border/30 rounded-2xl px-8 overflow-hidden data-[state=open]:shadow-lg transition-all"
-              >
-                <AccordionTrigger className="hover:no-underline py-6 text-left group">
-                  <div className="flex items-center gap-6 w-full">
-                    <div className="text-4xl group-data-[state=open]:scale-110 transition-transform">
-                      {pillar.icon}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-medium text-foreground group-hover:text-primary transition-colors">
-                        {i + 1}. {pillar.title}
-                      </h3>
-                    </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground leading-relaxed pb-6 pt-2">
-                  {pillar.desc}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+            {/* Right: Content + Accordion */}
+            <div className="space-y-8 order-1 lg:order-2">
+              {/* Small highlight tag */}
+              <div className="inline-block">
+                <span className="text-sm font-medium uppercase tracking-wider text-primary relative">
+                  Všetko na jednom mieste
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"></span>
+                </span>
+              </div>
+              
+              {/* Large headline */}
+              <h2 className="text-4xl md:text-5xl font-light leading-tight">
+                Všetko, čo potrebuješ,<br />
+                <span className="gradient-text font-normal">v jednej Appke.</span>
+              </h2>
+              
+              {/* Subheading */}
+              <p className="text-lg text-muted-foreground font-light">
+                Holistický prístup k wellbeingu. Telo, myseľ a komunita v jednej aplikácii.
+              </p>
+              
+              {/* Accordion */}
+              <Accordion type="single" collapsible className="space-y-3">
+                {[
+                  {
+                    title: "Cvičenie",
+                    subheading: "5-15 minútové tréningy prispôsobené tvojmu rytmu a cieľom",
+                    desc: "Tréningy na požiadanie, ktoré sa prispôsobia tvojmu denníku. Cvičenia zamerané na ženské telo: spevnenie brušného korzetu, zlepšenie metabolizmu a mobility. Vďaka krátkym tréningom už nemáš výhovorky – nájdeš si čas aj vtedy, keď si myslíš, že ho nemáš."
+                  },
+                  {
+                    title: "Strava",
+                    subheading: "Jednoduché recepty pre hormonálnu rovnováhu a trvalú energiu",
+                    desc: "Jednoduché a chutné recepty, ktoré zvládne celá rodina. Žiadne počítanie kalórií ani drastické obmedzenia. Zameraj sa na podporu hormonálnej rovnováhy, stabilnú energiu cez celý deň a jedlo, ktoré ťa naozaj zasýti a potešĺ."
+                  },
+                  {
+                    title: "Myseľ",
+                    subheading: "Denné meditácie a dychové cvičenia pre mentálny pokoj",
+                    desc: "Krátke meditácie a dychové cvičenia na okamžité upokojenie mysle – aj keď máš len 3 minúty. Každý deň ti pripomíname, že si dosť presne taká, aká si. Získaj nástroje, ktoré ti pomôžu zvládnuť stres a vrátiť sa do svojho centra."
+                  },
+                  {
+                    title: "Extras",
+                    subheading: "Špeciálne programy, výzvy a exkluzívny obsah pre tvoj rast",
+                    desc: "Prístup k špeciálnym programom, výzvam a exkluzívnemu obsahu. Nájdeš tu dodatočné nástroje pre tvoju osobnú transformáciu – od špeciálnych workoutov až po tematické výzvy, ktoré ťa posunú ďalej."
+                  },
+                  {
+                    title: "Komunita",
+                    subheading: "Pripoj sa k tisíckam žien na podobnej transformačnej ceste",
+                    desc: "Pripoj sa k tisíckam žien, ktoré sú na podobnej ceste ako ty. Zdieľaj svoje úspechy, nájdi inšpiráciu v príbehoch ostatných a cíť podporu komunity, ktorá ťa povzbudí aj v náročnejších dňoch. Spolu to ide lepšie."
+                  }
+                ].map((pillar, i) => (
+                  <AccordionItem 
+                    key={i} 
+                    value={`item-${i + 1}`}
+                    className="border border-border/20 rounded-xl px-6 py-1 backdrop-blur-sm hover:border-border/40 transition-all"
+                  >
+                    <AccordionTrigger className="hover:no-underline py-5">
+                      <div className="text-left flex-1 pr-4">
+                        <h3 className="text-xl font-medium mb-1">{pillar.title}</h3>
+                        <p className="text-sm text-muted-foreground font-light">
+                          {pillar.subheading}
+                        </p>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-base text-muted-foreground leading-relaxed pb-4 pt-0">
+                      {pillar.desc}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
         </div>
       </section>
 
