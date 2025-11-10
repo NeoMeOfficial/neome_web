@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "@/components/NavLink";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { List, X } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,22 +47,24 @@ export const Header = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <NavLink to="/" className="text-2xl font-light tracking-tight text-foreground">
+            <Link to="/" className="text-2xl font-light tracking-tight text-foreground">
               Neo<span className="gradient-text font-medium">Me</span>
-            </NavLink>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) =>
                 link.to ? (
-                  <NavLink
+                  <Link
                     key={link.label}
                     to={link.to}
-                    className="text-sm font-light text-foreground/70 hover:text-foreground transition-colors"
-                    activeClassName="text-foreground font-normal"
+                    className={cn(
+                      "text-sm font-light text-foreground/70 hover:text-foreground transition-colors",
+                      location.pathname === link.to && "text-foreground font-normal"
+                    )}
                   >
                     {link.label}
-                  </NavLink>
+                  </Link>
                 ) : (
                   <button
                     key={link.label}
@@ -117,15 +120,17 @@ export const Header = () => {
         <div className="flex flex-col items-center justify-center h-full gap-8 px-8">
           {navLinks.map((link) =>
             link.to ? (
-              <NavLink
+              <Link
                 key={link.label}
                 to={link.to}
-                className="text-2xl font-light text-foreground/70 hover:text-foreground transition-colors"
-                activeClassName="text-foreground font-normal"
+                className={cn(
+                  "text-2xl font-light text-foreground/70 hover:text-foreground transition-colors",
+                  location.pathname === link.to && "text-foreground font-normal"
+                )}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
-              </NavLink>
+              </Link>
             ) : (
               <button
                 key={link.label}
