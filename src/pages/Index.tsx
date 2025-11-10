@@ -62,8 +62,8 @@ const Index = () => {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-light mb-6 leading-tight text-white">
-              Sila v Každom<br />
-              <span className="text-white font-normal">Krátkom Momente.</span>
+              Sila v každom<br />
+              <span className="text-white font-normal">krátkom momente.</span>
             </h1>
             
             <p className="text-xl md:text-2xl mb-4 font-light text-white">
@@ -108,14 +108,14 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
             <h2 className="text-4xl md:text-5xl font-light text-center mb-12">
-              Už <span className="gradient-text font-normal">4000 Žien</span> Pocítilo Ten Rozdiel.
+              Už <span className="gradient-text font-normal">4000 žien</span> pocítilo ten rozdiel.
             </h2>
 
             <GoogleReviews />
 
             <div className="mt-12 bg-gradient-to-br from-primary/5 to-accent/10 border border-primary/20 p-8 md:p-10 rounded-2xl text-center">
               <CheckCircle size={48} weight="fill" className="text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-light mb-4">Nulové Riziko. Pocit, že to funguje.</h3>
+              <h3 className="text-2xl font-light mb-4">Nulové riziko. Pocit, že to funguje.</h3>
               <p className="text-lg max-w-2xl mx-auto">
                 S našou <strong className="font-medium">zárukou vrátenia peňazí do 30 dní</strong> neriskuješ nič. 
                 Dáme ti čas na to, aby si pocítila, ako sa meníš.
@@ -161,7 +161,7 @@ const Index = () => {
               {/* Large headline */}
               <h2 className="text-4xl md:text-5xl font-light leading-tight">
                 Všetko, čo potrebuješ,<br />
-                <span className="gradient-text font-normal">v jednej Appke.</span>
+                <span className="gradient-text font-normal">v jednej appke.</span>
               </h2>
               
               {/* Subheading */}
@@ -231,10 +231,10 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
             <h2 className="text-4xl md:text-5xl font-light text-center mb-6">
-              Začni Zadarmo.
+              Začni zadarmo.
             </h2>
             <p className="text-xl text-center text-muted-foreground mb-16">
-              Pokračuj s Hodnotou, Ktorú Cítiš.
+              Pokračuj s hodnotou, ktorú cítiš.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6">
