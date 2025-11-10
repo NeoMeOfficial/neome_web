@@ -7,7 +7,15 @@ import { cn } from "@/lib/utils";
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  
+  let currentPath = "/";
+  try {
+    const location = useLocation();
+    currentPath = location.pathname;
+  } catch (e) {
+    // Fallback if useLocation fails
+    currentPath = window.location.pathname;
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +68,7 @@ export const Header = () => {
                     to={link.to}
                     className={cn(
                       "text-sm font-light text-foreground/70 hover:text-foreground transition-colors",
-                      location.pathname === link.to && "text-foreground font-normal"
+                      currentPath === link.to && "text-foreground font-normal"
                     )}
                   >
                     {link.label}
@@ -125,7 +133,7 @@ export const Header = () => {
                 to={link.to}
                 className={cn(
                   "text-2xl font-light text-foreground/70 hover:text-foreground transition-colors",
-                  location.pathname === link.to && "text-foreground font-normal"
+                  currentPath === link.to && "text-foreground font-normal"
                 )}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
