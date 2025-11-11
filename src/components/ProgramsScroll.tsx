@@ -22,10 +22,10 @@ const individualPrograms = [
     duration: "8 týždňov",
     image: postpartumImg,
     icon: Baby,
-    accentColor: "bg-rose-400",
-    badgeColor: "bg-rose-100 text-rose-700",
-    borderColor: "border-rose-400",
-    glowColor: "shadow-rose-400/40"
+    accentColor: "bg-level-1",
+    badgeColor: "bg-level-1 text-level-1-foreground",
+    borderColor: "border-level-1",
+    glowColor: "shadow-level-1/40"
   },
   {
     level: "Level 2",
@@ -40,10 +40,10 @@ const individualPrograms = [
     duration: "6 týždňov",
     image: bodyformingImg,
     icon: Dumbbell,
-    accentColor: "bg-purple-400",
-    badgeColor: "bg-purple-100 text-purple-700",
-    borderColor: "border-purple-400",
-    glowColor: "shadow-purple-400/40"
+    accentColor: "bg-level-2",
+    badgeColor: "bg-level-2 text-level-2-foreground",
+    borderColor: "border-level-2",
+    glowColor: "shadow-level-2/40"
   },
   {
     level: "Level 3",
@@ -58,10 +58,10 @@ const individualPrograms = [
     duration: "6 týždňov",
     image: elasticbandsImg,
     icon: Zap,
-    accentColor: "bg-blue-400",
-    badgeColor: "bg-blue-100 text-blue-700",
-    borderColor: "border-blue-400",
-    glowColor: "shadow-blue-400/40"
+    accentColor: "bg-level-3",
+    badgeColor: "bg-level-3 text-level-3-foreground",
+    borderColor: "border-level-3",
+    glowColor: "shadow-level-3/40"
   },
   {
     level: "Level 4",
@@ -76,10 +76,10 @@ const individualPrograms = [
     duration: "8 týždňov",
     image: strongsexyImg,
     icon: Crown,
-    accentColor: "bg-amber-400",
-    badgeColor: "bg-amber-100 text-amber-700",
-    borderColor: "border-amber-400",
-    glowColor: "shadow-amber-400/40"
+    accentColor: "bg-level-4",
+    badgeColor: "bg-level-4 text-level-4-foreground",
+    borderColor: "border-level-4",
+    glowColor: "shadow-level-4/40"
   }
 ];
 
