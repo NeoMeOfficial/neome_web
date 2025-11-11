@@ -100,7 +100,7 @@ export const PricingComparison = () => {
           <Badge variant="secondary" className="mb-4 px-4 py-2">
             Transparentné ceny
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-light mb-4">
+          <h2 className="text-3xl md:text-5xl font-light mb-4">
             Vyber si <span className="gradient-text font-normal">čo ti vyhovuje</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

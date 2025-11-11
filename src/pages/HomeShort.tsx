@@ -115,12 +115,12 @@ const HomeShort = () => {
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-light mb-6 leading-tight text-white">
+            <h1 className="text-4xl md:text-7xl font-light mb-6 leading-tight text-white">
               Sila v každom<br />
               <span className="text-white font-normal">krátkom momente.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl mb-4 font-light text-white">
+            <p className="text-lg md:text-2xl mb-4 font-light text-white">
               Holistický wellbeing pre skutočné ženy.<br />
               Silnejšie telo, pokojnejšia myseľ.
             </p>

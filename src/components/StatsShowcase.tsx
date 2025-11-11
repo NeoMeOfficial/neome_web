@@ -61,7 +61,7 @@ export const StatsShowcase = () => {
   return <section ref={sectionRef} className="py-16 md:py-20 px-0 md:px-4 bg-section-white">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light mb-4">
+          <h2 className="text-3xl md:text-5xl font-light mb-4">
             Dôvera <span className="gradient-text font-normal">tisícok žien</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -76,7 +76,7 @@ export const StatsShowcase = () => {
               
               {/* Main content */}
               <div className="pt-6">
-                <div className="text-5xl md:text-6xl font-light mb-3 gradient-text tracking-tight">
+                <div className="text-4xl md:text-6xl font-light mb-3 gradient-text tracking-tight">
                   {stat.value}{stat.suffix}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground font-light leading-relaxed px-2">

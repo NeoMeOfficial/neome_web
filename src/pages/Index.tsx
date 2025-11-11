@@ -239,12 +239,12 @@ const Index = () => {
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-light mb-6 leading-tight text-white">
+            <h1 className="text-4xl md:text-7xl font-light mb-6 leading-tight text-white">
               Sila v každom<br />
               <span className="text-white font-normal">krátkom momente.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl mb-4 font-light text-white">
+            <p className="text-lg md:text-2xl mb-4 font-light text-white">
               Holistický wellbeing pre skutočné ženy.<br />
               Silnejšie telo, pokojnejšia myseľ.
             </p>
@@ -307,7 +307,7 @@ const Index = () => {
       <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-0 md:px-8 opacity-0 bg-section-beige">
         <div className="container mx-auto max-w-6xl">
           <Card className="rounded-3xl shadow-xl p-4 md:p-12 lg:p-16 bg-white border-border/10">
-            <h2 className="text-4xl md:text-5xl font-light text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-light text-center mb-12">
               Už <span className="gradient-text font-normal">4000 žien</span> pocítilo ten rozdiel.
             </h2>
 
@@ -371,7 +371,7 @@ const Index = () => {
                   </div>
                   
                   {/* Large headline */}
-                  <h2 className="text-4xl md:text-5xl font-light leading-tight">
+                  <h2 className="text-3xl md:text-5xl font-light leading-tight">
                     Všetko, čo potrebuješ,<br />
                     <span className="gradient-text font-normal">v jednej appke.</span>
                   </h2>
@@ -431,10 +431,10 @@ const Index = () => {
       <section id="testimonials" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
         <div className="container mx-auto max-w-7xl">
           <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
-            <h2 className="text-4xl md:text-5xl font-light text-center mb-4">
+            <h2 className="text-3xl md:text-5xl font-light text-center mb-4">
               Príbehy, ktoré inšpirujú
             </h2>
-            <p className="text-xl text-center text-muted-foreground mb-16">
+            <p className="text-lg md:text-xl text-center text-muted-foreground mb-16">
               Skutočné ženy, skutočné výsledky.
             </p>
 

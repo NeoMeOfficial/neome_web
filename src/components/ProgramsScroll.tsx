@@ -122,7 +122,7 @@ export const ProgramsScroll = () => {
         {/* Introduction Card */}
         <Card className="rounded-3xl shadow-xl p-3 md:p-12 lg:p-16 bg-white border-border/10">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-light mb-6">
+            <h2 className="text-3xl md:text-5xl font-light mb-6">
               Chceš Cielenú Transformáciu?
             </h2>
             <p className="text-xl text-muted-foreground mb-4">
@@ -220,7 +220,7 @@ export const ProgramsScroll = () => {
                       <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full ${program.badgeColor} text-xs mb-3 font-medium`}>
                         {program.duration}
                       </div>
-                      <h3 className="text-3xl lg:text-4xl xl:text-5xl font-light text-foreground mb-3">
+                      <h3 className="text-2xl lg:text-4xl xl:text-5xl font-light text-foreground mb-3">
                         {program.title}
                       </h3>
                       <p className="text-base text-muted-foreground leading-relaxed">

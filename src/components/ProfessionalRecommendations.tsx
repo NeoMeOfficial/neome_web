@@ -41,7 +41,7 @@ export const ProfessionalRecommendations = () => {
           <Badge variant="secondary" className="mb-4 px-4 py-2">
             Dôvera odborníkov
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-light mb-4">
+          <h2 className="text-3xl md:text-5xl font-light mb-4">
             Odporúčania <span className="gradient-text font-normal">lekárov a fyzioterapeutov</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
