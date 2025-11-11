@@ -15,6 +15,8 @@ import testimonialLucia from "@/assets/testimonial-lucia.jpg";
 import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ProgramsScroll } from "@/components/ProgramsScroll";
+import { FloatingCTA } from "@/components/FloatingCTA";
+import { Apple, Star as StarIcon, Download } from "lucide-react";
 
 const Index = () => {
   const sectionsRef = useRef<HTMLElement[]>([]);
@@ -181,6 +183,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white text-foreground">
+      {/* Floating CTA Button */}
+      <FloatingCTA />
+
       {/* HERO Section */}
       <section 
         id="hero" 
@@ -196,10 +201,17 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
         
         <div className="container mx-auto max-w-7xl animate-slide-up relative z-10">
-          <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm mb-6">
-              <Sparkle size={16} weight="fill" className="text-primary" />
-              <span className="text-sm font-light">4000 žien už začalo</span>
+          <div className="max-w-2xl">
+            {/* Stats Badges */}
+            <div className="flex flex-wrap gap-3 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm">
+                <Sparkle size={16} weight="fill" className="text-primary" />
+                <span className="text-sm font-light">4000+ žien už začalo</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm">
+                <StarIcon size={16} className="text-yellow-500 fill-yellow-500" />
+                <span className="text-sm font-light">230 5★ recenzií</span>
+              </div>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-light mb-6 leading-tight text-white">
@@ -212,14 +224,34 @@ const Index = () => {
               Silnejšie telo, pokojnejšia myseľ.
             </p>
             
-            <p className="text-lg text-white/90 mb-10 font-light">
+            <p className="text-lg text-white/90 mb-8 font-light">
               Bez viny, bez extrémov.
             </p>
 
-            <Button size="lg" className="text-base px-8 py-6 bg-primary text-primary-foreground group hover:bg-primary/20 hover:backdrop-blur-md hover:border-primary/30 border border-transparent transition-all duration-300">
+            {/* Primary CTA */}
+            <Button size="lg" className="text-base px-8 py-6 bg-primary text-primary-foreground group hover:bg-primary/20 hover:backdrop-blur-md hover:border-primary/30 border border-transparent transition-all duration-300 mb-6">
               🔥 STIAHNUŤ APLIKÁCIU A ZAČAŤ ZDARMA
               <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
+
+            {/* App Store Badges */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="inline-flex items-center gap-3 px-6 py-3 bg-black/90 hover:bg-black text-white rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+                <Apple size={28} />
+                <div className="text-left">
+                  <div className="text-xs opacity-80">Stiahni z</div>
+                  <div className="text-sm font-medium">App Store</div>
+                </div>
+              </button>
+              
+              <button className="inline-flex items-center gap-3 px-6 py-3 bg-black/90 hover:bg-black text-white rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+                <Download size={28} />
+                <div className="text-left">
+                  <div className="text-xs opacity-80">Získaj na</div>
+                  <div className="text-sm font-medium">Google Play</div>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </section>
