@@ -138,6 +138,29 @@ const Index = () => {
     };
   }, [features.length]);
 
+  // Keyboard navigation support
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!featureSectionRef.current) return;
+
+      const rect = featureSectionRef.current.getBoundingClientRect();
+      const isInSection = rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
+
+      if (!isInSection) return;
+
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        setActiveFeatureIndex(prev => Math.min(prev + 1, features.length - 1));
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        setActiveFeatureIndex(prev => Math.max(prev - 1, 0));
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [features.length]);
+
   const addToRefs = (el: HTMLElement | null) => {
     if (el && !sectionsRef.current.includes(el)) {
       sectionsRef.current.push(el);
@@ -237,7 +260,7 @@ const Index = () => {
           addToRefs(el);
           if (el) featureSectionRef.current = el as HTMLDivElement;
         }}
-        style={{ height: `${features.length * 80}vh` }}
+        style={{ height: `${features.length * 60}vh` }}
         className="relative opacity-0 scroll-smooth"
       >
         {/* Sticky Content */}
