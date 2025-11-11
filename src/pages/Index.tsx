@@ -20,6 +20,7 @@ import { StatsShowcase } from "@/components/StatsShowcase";
 import { ProfessionalRecommendations } from "@/components/ProfessionalRecommendations";
 import { HowItWorks } from "@/components/HowItWorks";
 import { PricingComparison } from "@/components/PricingComparison";
+import { ComparisonSection } from "@/components/ComparisonSection";
 import { Apple, Star as StarIcon, Download } from "lucide-react";
 
 const Index = () => {
@@ -285,6 +286,9 @@ const Index = () => {
 
       {/* How It Works Section */}
       <HowItWorks />
+
+      {/* Comparison Section */}
+      <ComparisonSection />
 
       {/* Proof & Guarantee Section */}
       <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
