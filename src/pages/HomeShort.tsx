@@ -2,24 +2,74 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, CheckCircle, Sparkle } from "@phosphor-icons/react";
-import { Star, Play, Apple, Download } from "lucide-react";
+import { Star, Play, Apple, Download, Dumbbell, Baby, Zap, Crown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import heroImage from "@/assets/hero-yoga.jpg";
 import appMockup1 from "@/assets/app-mockup-1.png";
 import appMockup2 from "@/assets/app-mockup-2.png";
 import appMockupMind from "@/assets/app-mockup-mind.png";
+import appMockupExtras from "@/assets/app-mockup-extras.png";
 import testimonialMartina from "@/assets/testimonial-martina.jpg";
 import testimonialLucia from "@/assets/testimonial-lucia.jpg";
 import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
+import postpartumImg from "@/assets/postpartum-program.jpg";
+import bodyformingImg from "@/assets/bodyforming-program.jpg";
 import { FloatingCTA } from "@/components/FloatingCTA";
 import { PromoBanner } from "@/components/PromoBanner";
 import { VideoPlayerModal } from "@/components/VideoPlayerModal";
-import { useCounterAnimation } from "@/hooks/use-counter-animation";
+import { Link } from "react-router-dom";
 
 const HomeShort = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [currentVideoId, setCurrentVideoId] = useState<string | null>(null);
   const [currentVideoTitle, setCurrentVideoTitle] = useState<string>("");
+  const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
+  const featureSectionRef = useRef<HTMLDivElement>(null);
+  
+  const features = [
+    {
+      title: "Cvičenie",
+      desc: "5-15 minútové tréningy prispôsobené tvojmu rytmu a cieľom. Efektívne cvičenia zamerané na ženské telo.",
+      image: appMockup1,
+    },
+    {
+      title: "Strava",
+      desc: "Jednoduché recepty pre hormonálnu rovnováhu a trvalú energiu. Žiadne počítanie kalórií.",
+      image: appMockup2,
+    },
+    {
+      title: "Myseľ",
+      desc: "Denné meditácie a dychové cvičenia pre mentálny pokoj. Už len 3 minúty robia rozdiel.",
+      image: appMockupMind,
+    },
+    {
+      title: "Extras",
+      desc: "Špeciálne programy, výzvy a exkluzívny obsah pre tvoj osobný rast.",
+      image: appMockupExtras,
+    }
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!featureSectionRef.current) return;
+      
+      const rect = featureSectionRef.current.getBoundingClientRect();
+      const sectionHeight = rect.height;
+      
+      if (rect.top <= 0 && rect.bottom > window.innerHeight) {
+        const scrollProgress = -rect.top;
+        const scrollPerFeature = sectionHeight / features.length;
+        const newIndex = Math.min(
+          Math.floor(scrollProgress / scrollPerFeature),
+          features.length - 1
+        );
+        setActiveFeatureIndex(newIndex);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [features.length]);
   
   const openVideoModal = (videoId: string, title: string) => {
     setCurrentVideoId(videoId);
@@ -185,53 +235,256 @@ const HomeShort = () => {
         </div>
       </section>
 
-      {/* Core Features - 3 Pillars */}
-      <section className="py-16 md:py-20 px-4 md:px-8 bg-white">
+      {/* Core Features - Interactive Scroll */}
+      <div 
+        ref={featureSectionRef}
+        style={{ height: `${features.length * 60}vh` }}
+        className="relative"
+      >
+        <section className="sticky top-0 min-h-screen flex items-center py-16 md:py-20 px-4 md:px-8">
+          <div className="container mx-auto max-w-7xl w-full">
+            <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                {/* Left: Dynamic Image */}
+                <div className="relative flex items-center justify-center order-2 lg:order-1 h-[600px]">
+                  {features.map((feature, index) => (
+                    <div
+                      key={index}
+                      className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${
+                        activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
+                      <img 
+                        src={feature.image} 
+                        alt={`NeoMe App - ${feature.title}`} 
+                        className="w-72 h-auto rounded-3xl shadow-2xl"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Right: Feature Content */}
+                <div className="space-y-8 order-1 lg:order-2 min-h-[600px] flex flex-col justify-center">
+                  <div className="inline-block">
+                    <span className="text-sm font-medium uppercase tracking-wider text-primary relative">
+                      Všetko na jednom mieste
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"></span>
+                    </span>
+                  </div>
+                  
+                  <h2 className="text-4xl md:text-5xl font-light leading-tight">
+                    Všetko, čo potrebuješ,<br />
+                    <span className="gradient-text font-normal">v jednej appke.</span>
+                  </h2>
+                  
+                  <p className="text-lg text-muted-foreground font-light">
+                    Holistický prístup k wellbeingu. Telo, myseľ a komunita.
+                  </p>
+                  
+                  <div className="p-6 rounded-2xl border-2 border-primary/50 bg-white shadow-lg transition-all duration-700 min-h-[200px] flex flex-col">
+                    <h3 className="text-2xl font-medium mb-2">{features[activeFeatureIndex].title}</h3>
+                    <p className="text-base text-muted-foreground leading-relaxed mb-6 flex-grow">
+                      {features[activeFeatureIndex].desc}
+                    </p>
+                  </div>
+
+                  {/* Progress Indicator */}
+                  <div className="flex gap-2 justify-center pt-4">
+                    {features.map((_, index) => (
+                      <div
+                        key={index}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          activeFeatureIndex === index 
+                            ? 'w-8 bg-primary' 
+                            : 'w-2 bg-primary/30'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </section>
+      </div>
+
+      {/* Featured Programs - 2 Key Programs */}
+      <section className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-b from-background to-accent/5">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl md:text-5xl font-light text-center mb-4">
-            Všetko, čo potrebuješ,<br />
-            <span className="gradient-text font-medium">v jednej appke.</span>
+            Štrukturované <span className="gradient-text font-medium">programy</span>
           </h2>
           <p className="text-xl text-center text-muted-foreground mb-16">
-            Holistický prístup k wellbeingu.
+            Pre tie, ktoré chcú cielenú transformáciu.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center space-y-4">
-              <div className="relative w-48 h-48 mx-auto mb-6">
-                <img src={appMockup1} alt="Cvičenie" className="w-full h-full object-contain" />
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Postpartum Program */}
+            <Card className="glass-card p-8 rounded-2xl hover:scale-105 transition-transform">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 rounded-full bg-rose-400 flex items-center justify-center shadow-lg">
+                  <Baby size={32} className="text-white" />
+                </div>
+                <div>
+                  <span className="inline-block px-3 py-1 bg-rose-100 text-rose-700 text-xs rounded-full font-medium mb-2">
+                    Level 1
+                  </span>
+                  <h3 className="text-2xl font-medium">Postpartum</h3>
+                </div>
               </div>
-              <h3 className="text-2xl font-medium">Cvičenie</h3>
-              <p className="text-muted-foreground">
-                5-15 minútové tréningy prispôsobené tvojmu rytmu. Efektívne cvičenia pre ženské telo.
+              
+              <p className="text-muted-foreground mb-6">
+                Program pre mamičky, ktoré potrebujú obnoviť silu brušného korzetu a vrátiť sa k pohybu bezpečne.
               </p>
-            </div>
 
-            <div className="text-center space-y-4">
-              <div className="relative w-48 h-48 mx-auto mb-6">
-                <img src={appMockup2} alt="Strava" className="w-full h-full object-contain" />
+              <div className="relative rounded-xl overflow-hidden aspect-[3/4] mb-6 border-t-4 border-rose-400">
+                <img 
+                  src={postpartumImg} 
+                  alt="Postpartum Program" 
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="text-2xl font-medium">Strava</h3>
-              <p className="text-muted-foreground">
-                Jednoduché recepty pre hormonálnu rovnováhu. Bez počítania kalórií.
-              </p>
-            </div>
 
-            <div className="text-center space-y-4">
-              <div className="relative w-48 h-48 mx-auto mb-6">
-                <img src={appMockupMind} alt="Myseľ" className="w-full h-full object-contain" />
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-muted-foreground">8 týždňov</span>
+                <Button className="bg-rose-400 hover:bg-rose-500 text-white">
+                  ZISTI VIAC
+                  <ArrowRight size={16} className="ml-2" />
+                </Button>
               </div>
-              <h3 className="text-2xl font-medium">Myseľ</h3>
-              <p className="text-muted-foreground">
-                Denné meditácie a dychové cvičenia. Nájdi svoj vnútorný pokoj.
+            </Card>
+
+            {/* BodyForming Program */}
+            <Card className="glass-card p-8 rounded-2xl hover:scale-105 transition-transform">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 rounded-full bg-purple-400 flex items-center justify-center shadow-lg">
+                  <Dumbbell size={32} className="text-white" />
+                </div>
+                <div>
+                  <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs rounded-full font-medium mb-2">
+                    Level 2
+                  </span>
+                  <h3 className="text-2xl font-medium">BodyForming</h3>
+                </div>
+              </div>
+              
+              <p className="text-muted-foreground mb-6">
+                Ideálne pre formovanie tela a posilnenie svalov bez špeciálneho vybavenia. Efektívne a účinné.
               </p>
-            </div>
+
+              <div className="relative rounded-xl overflow-hidden aspect-[3/4] mb-6 border-t-4 border-purple-400">
+                <img 
+                  src={bodyformingImg} 
+                  alt="BodyForming Program" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-muted-foreground">6 týždňov</span>
+                <Button className="bg-purple-400 hover:bg-purple-500 text-white">
+                  ZISTI VIAC
+                  <ArrowRight size={16} className="ml-2" />
+                </Button>
+              </div>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-4">
+              Máme aj ďalšie programy pre pokročilé úrovne
+            </p>
+            <Button variant="outline" size="lg">
+              POZRIEŤ VŠETKY PROGRAMY
+              <ArrowRight size={20} className="ml-2" />
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Testimonials - Combined Text + Video */}
+      {/* Why NeoMe vs Others - Comparison */}
+      <section className="py-16 md:py-20 px-4 md:px-8 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-4xl md:text-5xl font-light text-center mb-16">
+            Prečo si vybrať <span className="gradient-text font-medium">NeoMe?</span>
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="glass-card p-8 text-center hover:scale-105 transition-transform">
+              <div className="text-4xl mb-4">⏱️</div>
+              <h3 className="text-xl font-medium mb-3">Úspora času</h3>
+              <p className="text-muted-foreground mb-4">
+                Len 15 minút denne namiesto hodín v posilňovni.
+              </p>
+              <p className="text-sm text-primary font-medium">Žiadne výhovorky</p>
+            </Card>
+
+            <Card className="glass-card p-8 text-center hover:scale-105 transition-transform">
+              <div className="text-4xl mb-4">🏠</div>
+              <h3 className="text-xl font-medium mb-3">Z pohodlia domova</h3>
+              <p className="text-muted-foreground mb-4">
+                Cvič kedykoľvek a kdekoľvek. Žiadne cestovanie.
+              </p>
+              <p className="text-sm text-primary font-medium">Vždy dostupné</p>
+            </Card>
+
+            <Card className="glass-card p-8 text-center hover:scale-105 transition-transform">
+              <div className="text-4xl mb-4">💰</div>
+              <h3 className="text-xl font-medium mb-3">Dostupná cena</h3>
+              <p className="text-muted-foreground mb-4">
+                Za cenu dvoch káv mesačne. Nie stovky eur.
+              </p>
+              <p className="text-sm text-primary font-medium">Od €9.99/mesiac</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Founder Story - Compact Version */}
       <section className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-br from-primary/5 to-accent/10">
+        <div className="container mx-auto max-w-5xl">
+          <Card className="rounded-3xl shadow-xl p-8 md:p-12 bg-white border-border/10">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg aspect-[3/4] order-2 md:order-1">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                  <p className="text-foreground/60 text-center px-8">
+                    [Gabi - zakladateľka]
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-6 order-1 md:order-2">
+                <Sparkle size={32} weight="fill" className="text-primary" />
+                
+                <blockquote className="text-2xl font-light italic leading-relaxed">
+                  <span className="text-foreground">Verím, že pohyb je </span>
+                  <span className="gradient-text font-medium">liek</span>
+                  <span className="text-foreground">. Ale nie každý pohyb je liečivý.</span>
+                </blockquote>
+
+                <p className="text-lg text-muted-foreground">
+                  <span className="font-medium text-foreground">— Gabi</span>, zakladateľka NeoMe
+                </p>
+
+                <p className="text-base leading-relaxed">
+                  15+ rokov skúseností v tanci a tréningu. Vytvorila som NeoMe pre skutočné ženy s reálnymi životmi – 
+                  pre tie, ktoré chcú byť silné, ale aj pokojné.
+                </p>
+
+                <Button asChild size="lg" variant="outline">
+                  <Link to="/o-nas">
+                    PREČÍTAJ SI MÔJ PRÍBEH
+                    <ArrowRight size={20} className="ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Testimonials - Expanded with 4 stories */}
+      <section className="py-16 md:py-20 px-4 md:px-8 bg-white">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl md:text-5xl font-light text-center mb-4">
             Skutočné ženy, skutočné výsledky
@@ -240,31 +493,56 @@ const HomeShort = () => {
             Pridaj sa k 4000+ ženám na transformačnej ceste.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {/* Text Testimonial */}
-            <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-white">
-              <div className="flex items-center gap-4 mb-4">
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
+            {/* Text Testimonial 1 */}
+            <Card className="p-6 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-white">
+              <div className="flex items-center gap-3 mb-3">
                 <img 
                   src={testimonialMartina} 
                   alt="Martina" 
-                  className="w-16 h-16 rounded-full object-cover"
+                  className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <h3 className="font-medium text-lg">Martina, 34</h3>
+                  <h3 className="font-medium">Martina, 34</h3>
                   <div className="flex gap-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={14} fill="hsl(var(--primary))" className="text-primary" />
+                      <Star key={i} size={12} fill="hsl(var(--primary))" className="text-primary" />
                     ))}
                   </div>
                 </div>
               </div>
               
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                "Po narodení druhého dieťaťa som sa cítila úplne stratená. NeoMe mi pomohlo vrátiť sa k sebe bez tlaku."
+              <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+                "Po pôrode som sa cítila stratená. NeoMe mi pomohlo vrátiť sa k sebe."
               </p>
               <div className="flex gap-2 flex-wrap">
-                <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">-8 kg</span>
-                <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Viac energie</span>
+                <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">-8 kg</span>
+              </div>
+            </Card>
+
+            {/* Text Testimonial 2 */}
+            <Card className="p-6 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-white">
+              <div className="flex items-center gap-3 mb-3">
+                <img 
+                  src={testimonialZuzana} 
+                  alt="Zuzana" 
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h3 className="font-medium">Zuzana, 41</h3>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={12} fill="hsl(var(--primary))" className="text-primary" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+                "Meditácie zmenili môj prístup k životu. Už sa nenechám rozhodiť."
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Pokoj</span>
               </div>
             </Card>
 
@@ -312,11 +590,11 @@ const HomeShort = () => {
           </div>
 
           {/* Guarantee */}
-          <Card className="bg-white border-primary/20 p-8 rounded-2xl text-center max-w-2xl mx-auto">
+          <Card className="bg-gradient-to-br from-primary/5 to-accent/10 border-primary/20 p-8 rounded-2xl text-center max-w-2xl mx-auto">
             <CheckCircle size={48} weight="fill" className="text-primary mx-auto mb-4" />
             <h3 className="text-2xl font-light mb-4">30-dňová záruka vrátenia peňazí</h3>
             <p className="text-muted-foreground">
-              Ak v priebehu prvých 30 dní zistíš, že NeoMe nie je pre teba, vrátime ti peniaze. Žiadne otázky.
+              Ak nie si spokojná, vrátime ti peniaze. Žiadne otázky.
             </p>
           </Card>
         </div>
