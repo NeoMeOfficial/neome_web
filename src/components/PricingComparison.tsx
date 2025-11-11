@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 interface PricingTier {
   name: string;
@@ -19,26 +20,29 @@ interface PricingTier {
 }
 
 export const PricingComparison = () => {
-  const tiers: PricingTier[] = [
-    {
-      name: "Free",
-      price: "0€",
-      period: "navždy",
-      description: "Vyskúšaj základy",
-      features: [
-        { name: "Obmedzené cvičenia", included: true },
-        { name: "Základné recepty", included: true },
-        { name: "3 meditácie", included: true },
-        { name: "Prístup ku komunite", included: false },
-        { name: "Programy", included: "0" },
-        { name: "Denné výzvy", included: false },
-        { name: "Extras obsah", included: false },
-        { name: "Prioritná podpora", included: false },
-      ],
-      cta: "Začať zadarmo"
-    },
-    {
-      name: "Mesačne",
+  const [subscriptionPeriod, setSubscriptionPeriod] = useState<'monthly' | 'quarterly' | 'yearly'>('quarterly');
+
+  const freeTier: PricingTier = {
+    name: "Free",
+    price: "0€",
+    period: "navždy",
+    description: "Vyskúšaj základy",
+    features: [
+      { name: "Obmedzené cvičenia", included: true },
+      { name: "Základné recepty", included: true },
+      { name: "3 meditácie", included: true },
+      { name: "Prístup ku komunite", included: false },
+      { name: "Programy", included: "0" },
+      { name: "Denné výzvy", included: false },
+      { name: "Extras obsah", included: false },
+      { name: "Prioritná podpora", included: false },
+    ],
+    cta: "Začať zadarmo"
+  };
+
+  const subscriptionTiers = {
+    monthly: {
+      name: "Predplatné",
       price: "14.99€",
       period: "mesačne",
       description: "Skvelý začiatok",
@@ -52,10 +56,10 @@ export const PricingComparison = () => {
         { name: "Extras obsah", included: true },
         { name: "Prioritná podpora", included: false },
       ],
-      cta: "Vybrať mesačne"
+      cta: "Vybrať predplatné"
     },
-    {
-      name: "Kvartálne",
+    quarterly: {
+      name: "Predplatné",
       price: "11.99€",
       period: "mesačne",
       popular: true,
@@ -71,10 +75,10 @@ export const PricingComparison = () => {
         { name: "Extras obsah", included: true },
         { name: "Prioritná podpora", included: true },
       ],
-      cta: "Vybrať kvartálne"
+      cta: "Vybrať predplatné"
     },
-    {
-      name: "Ročne",
+    yearly: {
+      name: "Predplatné",
       price: "9.99€",
       period: "mesačne",
       description: "Najväčšia úspora",
@@ -89,9 +93,30 @@ export const PricingComparison = () => {
         { name: "Extras obsah", included: true },
         { name: "Prioritná podpora", included: true },
       ],
-      cta: "Vybrať ročne"
+      cta: "Vybrať predplatné"
     }
-  ];
+  };
+
+  const programsTier: PricingTier = {
+    name: "Programy",
+    price: "49.99€",
+    period: "jednorazovo",
+    description: "Kúp individuálne programy",
+    features: [
+      { name: "Všetky cvičenia", included: true },
+      { name: "Všetky recepty", included: true },
+      { name: "Všetky meditácie", included: false },
+      { name: "Prístup ku komunite", included: false },
+      { name: "Programy", included: "1 program natrvalo" },
+      { name: "Denné výzvy", included: false },
+      { name: "Extras obsah", included: false },
+      { name: "Prioritná podpora", included: false },
+    ],
+    cta: "Kúpiť program"
+  };
+
+  const subscriptionTier = subscriptionTiers[subscriptionPeriod];
+  const tiers: PricingTier[] = [freeTier, subscriptionTier, programsTier];
 
   return (
     <section id="cennik" className="py-16 md:py-20 px-0 md:px-4 bg-white">
@@ -106,6 +131,51 @@ export const PricingComparison = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Všetky plány zahŕňajú 30-dňovú záruku vrátenia peňazí
           </p>
+
+          {/* Subscription Period Toggle */}
+          <div className="flex justify-center mt-8">
+            <div className="inline-flex items-center bg-muted/50 backdrop-blur-sm rounded-full p-1 gap-1">
+              <button
+                onClick={() => setSubscriptionPeriod('monthly')}
+                className={cn(
+                  "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200",
+                  subscriptionPeriod === 'monthly'
+                    ? "bg-white shadow-sm text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                Mesačne
+              </button>
+              <button
+                onClick={() => setSubscriptionPeriod('quarterly')}
+                className={cn(
+                  "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 relative",
+                  subscriptionPeriod === 'quarterly'
+                    ? "bg-white shadow-sm text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                Kvartálne
+                <Badge variant="secondary" className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0">
+                  -20%
+                </Badge>
+              </button>
+              <button
+                onClick={() => setSubscriptionPeriod('yearly')}
+                className={cn(
+                  "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 relative",
+                  subscriptionPeriod === 'yearly'
+                    ? "bg-white shadow-sm text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                Ročne
+                <Badge variant="secondary" className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0">
+                  -33%
+                </Badge>
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Comparison Table - Desktop */}
