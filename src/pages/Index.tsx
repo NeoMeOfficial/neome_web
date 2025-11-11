@@ -103,7 +103,7 @@ const Index = () => {
       const sectionHeight = rect.height;
       
       // Calculate scroll progress within the section
-      if (rect.top <= 0 && rect.bottom > window.innerHeight) {
+      if (rect.top <= 0 && rect.bottom > 0) {
         const scrollProgress = -rect.top;
         const scrollPerFeature = sectionHeight / features.length;
         const newIndex = Math.min(
