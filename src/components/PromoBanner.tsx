@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
-import { X, Sparkle } from "lucide-react";
+import { X, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 export const PromoBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
-    // Check if banner was dismissed
     const dismissed = localStorage.getItem("promo-banner-dismissed");
     const dismissedTime = dismissed ? parseInt(dismissed) : 0;
     const now = Date.now();
     
-    // Show banner if not dismissed or if 24 hours have passed (86400000 ms)
     if (!dismissed || now - dismissedTime > 86400000) {
       setIsVisible(true);
     }
@@ -19,54 +19,61 @@ export const PromoBanner = () => {
 
   const handleDismiss = () => {
     setIsVisible(false);
+    setIsExpanded(false);
     localStorage.setItem("promo-banner-dismissed", Date.now().toString());
   };
 
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-warning via-warning/90 to-warning/80 text-white shadow-lg animate-fade-in">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between gap-4 py-3">
-          
-          {/* Left: Icon + Tag */}
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <Sparkle size={20} className="text-white animate-pulse hidden sm:block" />
-            <span className="font-medium text-sm sm:text-base uppercase tracking-wide">
-              🎉 Jarná Akcia
-            </span>
+    <>
+      {/* Floating Gift Icon */}
+      <div className="fixed top-24 left-6 z-50 animate-fade-in">
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="relative w-14 h-14 bg-gradient-to-br from-warning to-warning/80 text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform animate-pulse"
+          aria-label="Special offer"
+        >
+          <Gift size={24} />
+          <div className="absolute -top-1 -right-1 w-6 h-6 bg-destructive rounded-full flex items-center justify-center text-xs font-bold">
+            30%
           </div>
+        </button>
+      </div>
 
-          {/* Center: Message */}
-          <div className="flex-grow text-center">
-            <p className="text-sm sm:text-base font-light">
-              Získaj <strong className="font-semibold">30% zľavu</strong> na ročný plán – 
-              <span className="hidden sm:inline"> Platí len do 31. marca!</span>
-              <span className="sm:hidden"> Do 31.3.!</span>
-            </p>
-          </div>
-
-          {/* Right: CTA + Dismiss */}
-          <div className="flex items-center gap-2 flex-shrink-0">
-            <Button 
-              size="sm"
-              className="bg-white text-warning hover:bg-white/90 font-medium hidden sm:inline-flex"
-            >
-              VYUŽIŤ ZĽAVU
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
+      {/* Expanded Offer Card */}
+      {isExpanded && (
+        <div className="fixed top-24 left-24 z-50 animate-scale-in">
+          <Card className="p-6 shadow-2xl bg-gradient-to-br from-warning/95 to-warning/85 text-white backdrop-blur-sm max-w-sm">
+            <button
               onClick={handleDismiss}
-              className="text-white hover:bg-white/20 flex-shrink-0 h-8 w-8"
-              aria-label="Dismiss banner"
+              className="absolute top-2 right-2 text-white hover:bg-white/20 rounded-full p-1"
             >
               <X size={18} />
+            </button>
+            
+            <div className="flex items-start gap-3 mb-4">
+              <Gift size={32} className="flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold text-lg mb-1">Jarná Akcia</h3>
+                <p className="text-sm text-white/90">Ušetri na svojej transformácii</p>
+              </div>
+            </div>
+            
+            <p className="text-base mb-4 leading-relaxed">
+              Získaj <strong className="text-xl">30% zľavu</strong> na ročný plán. 
+              Platí len do 31. marca!
+            </p>
+            
+            <Button 
+              size="lg"
+              className="w-full bg-white text-warning hover:bg-white/90 font-semibold"
+            >
+              VYUŽIŤ ZĽAVU TERAZ
             </Button>
-          </div>
-
+          </Card>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };

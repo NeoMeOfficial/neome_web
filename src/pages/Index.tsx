@@ -24,7 +24,6 @@ import { ComparisonSection } from "@/components/ComparisonSection";
 import { FounderStory } from "@/components/FounderStory";
 import { VideoPlayerModal } from "@/components/VideoPlayerModal";
 import { PromoBanner } from "@/components/PromoBanner";
-import { LiveChatWidget } from "@/components/LiveChatWidget";
 import { Apple, Star as StarIcon, Download } from "lucide-react";
 
 const Index = () => {
@@ -256,7 +255,7 @@ const Index = () => {
 
             {/* Primary CTA */}
             <Button size="lg" className="text-base px-8 py-6 bg-primary text-primary-foreground group hover:bg-primary/20 hover:backdrop-blur-md hover:border-primary/30 border border-transparent transition-all duration-300 mb-6">
-              🔥 STIAHNUŤ APLIKÁCIU TERAZ
+              STIAHNUŤ APLIKÁCIU TERAZ
               <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             
@@ -819,9 +818,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-
-      {/* Live Chat Widget */}
-      <LiveChatWidget />
     </div>
   );
 };
