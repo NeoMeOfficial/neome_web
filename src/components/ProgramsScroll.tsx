@@ -69,7 +69,35 @@ const individualPrograms = [
 
 export const ProgramsScroll = () => {
   const [selectedProgram, setSelectedProgram] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
   const program = individualPrograms[selectedProgram];
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(0);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && selectedProgram < individualPrograms.length - 1) {
+      setSelectedProgram(selectedProgram + 1);
+    }
+    if (isRightSwipe && selectedProgram > 0) {
+      setSelectedProgram(selectedProgram - 1);
+    }
+  };
 
   return (
     <section id="programy" className="py-12 md:py-16 px-4 md:px-8 bg-white">
@@ -131,7 +159,12 @@ export const ProgramsScroll = () => {
             </div>
 
             {/* Selected Program Display with transition */}
-            <div className="p-8 lg:p-12 xl:p-16">
+            <div 
+              className="p-8 lg:p-12 xl:p-16 touch-pan-y"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               <div className="max-w-4xl mx-auto">
                 <div 
                   key={selectedProgram}
