@@ -16,6 +16,8 @@ import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ProgramsScroll } from "@/components/ProgramsScroll";
 import { FloatingCTA } from "@/components/FloatingCTA";
+import { StatsShowcase } from "@/components/StatsShowcase";
+import { ProfessionalRecommendations } from "@/components/ProfessionalRecommendations";
 import { Apple, Star as StarIcon, Download } from "lucide-react";
 
 const Index = () => {
@@ -275,6 +277,12 @@ const Index = () => {
           </Card>
         </div>
       </section>
+
+      {/* Stats Showcase Section */}
+      <StatsShowcase />
+
+      {/* Professional Recommendations Section */}
+      <ProfessionalRecommendations />
 
       {/* Proof & Guarantee Section */}
       <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
