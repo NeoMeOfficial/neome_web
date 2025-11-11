@@ -72,36 +72,28 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
+    const handleScroll = () => {
       if (!featureSectionRef.current) return;
       
       const rect = featureSectionRef.current.getBoundingClientRect();
-      const isInSection = rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
+      const sectionHeight = rect.height;
       
-      if (isInSection) {
-        const totalFeatures = features.length;
-        
-        if (e.deltaY > 0) {
-          // Scrolling down
-          if (activeFeatureIndex < totalFeatures - 1) {
-            e.preventDefault();
-            setActiveFeatureIndex(prev => prev + 1);
-          }
-          // Don't prevent default on last feature, allow natural scroll
-        } else {
-          // Scrolling up
-          if (activeFeatureIndex > 0) {
-            e.preventDefault();
-            setActiveFeatureIndex(prev => prev - 1);
-          }
-          // Don't prevent default on first feature, allow natural scroll up
-        }
+      // Calculate scroll progress within the section
+      // When section top hits 0, we're starting to scroll through it
+      if (rect.top <= 0 && rect.bottom > window.innerHeight) {
+        const scrollProgress = -rect.top;
+        const scrollPerFeature = sectionHeight / features.length;
+        const newIndex = Math.min(
+          Math.floor(scrollProgress / scrollPerFeature),
+          features.length - 1
+        );
+        setActiveFeatureIndex(newIndex);
       }
     };
 
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    return () => window.removeEventListener('wheel', handleWheel);
-  }, [activeFeatureIndex, features.length]);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [features.length]);
 
   const addToRefs = (el: HTMLElement | null) => {
     if (el && !sectionsRef.current.includes(el)) {
@@ -196,86 +188,92 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Holistic Value Section - Scroll Triggered */}
-      <section 
-        id="o-aplikacii" 
+      {/* Holistic Value Section - Scroll Spacer Container */}
+      <div 
         ref={(el) => {
           addToRefs(el);
           if (el) featureSectionRef.current = el as HTMLDivElement;
-        }} 
-        className="min-h-screen flex items-center py-12 md:py-16 px-4 md:px-8 opacity-0"
+        }}
+        style={{ height: `${features.length * 100}vh` }}
+        className="relative opacity-0"
       >
-        <div className="container mx-auto max-w-7xl w-full">
-          <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left: Dynamic Image */}
-              <div className="relative flex items-center justify-center order-2 lg:order-1 h-[600px]">
-                {features.map((feature, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${
-                      activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  >
-                    <img 
-                      src={feature.image} 
-                      alt={`NeoMe App - ${feature.title}`} 
-                      className="w-72 h-auto rounded-3xl shadow-2xl"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {/* Right: Single Card */}
-              <div className="space-y-8 order-1 lg:order-2">
-                {/* Small highlight tag */}
-                <div className="inline-block">
-                  <span className="text-sm font-medium uppercase tracking-wider text-primary relative">
-                    Všetko na jednom mieste
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"></span>
-                  </span>
-                </div>
-                
-                {/* Large headline */}
-                <h2 className="text-4xl md:text-5xl font-light leading-tight">
-                  Všetko, čo potrebuješ,<br />
-                  <span className="gradient-text font-normal">v jednej appke.</span>
-                </h2>
-                
-                {/* Subheading */}
-                <p className="text-lg text-muted-foreground font-light">
-                  Holistický prístup k wellbeingu. Telo, myseľ a komunita v jednej aplikácii.
-                </p>
-                
-                {/* Feature Card */}
-                <div className="p-6 rounded-2xl border-2 border-primary/50 bg-white shadow-lg transition-all duration-700">
-                  <h3 className="text-2xl font-medium mb-2">{features[activeFeatureIndex].title}</h3>
-                  <p className="text-sm text-muted-foreground font-light mb-4">
-                    {features[activeFeatureIndex].subheading}
-                  </p>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    {features[activeFeatureIndex].desc}
-                  </p>
-                </div>
-
-                {/* Progress Indicator */}
-                <div className="flex gap-2 justify-center pt-4">
-                  {features.map((_, index) => (
+        {/* Sticky Content */}
+        <section 
+          id="o-aplikacii" 
+          className="sticky top-0 min-h-screen flex items-center py-12 md:py-16 px-4 md:px-8"
+        >
+          <div className="container mx-auto max-w-7xl w-full">
+            <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                {/* Left: Dynamic Image */}
+                <div className="relative flex items-center justify-center order-2 lg:order-1 h-[600px]">
+                  {features.map((feature, index) => (
                     <div
                       key={index}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        activeFeatureIndex === index 
-                          ? 'w-8 bg-primary' 
-                          : 'w-2 bg-primary/30'
+                      className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${
+                        activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'
                       }`}
-                    />
+                    >
+                      <img 
+                        src={feature.image} 
+                        alt={`NeoMe App - ${feature.title}`} 
+                        className="w-72 h-auto rounded-3xl shadow-2xl"
+                      />
+                    </div>
                   ))}
                 </div>
+
+                {/* Right: Single Card */}
+                <div className="space-y-8 order-1 lg:order-2">
+                  {/* Small highlight tag */}
+                  <div className="inline-block">
+                    <span className="text-sm font-medium uppercase tracking-wider text-primary relative">
+                      Všetko na jednom mieste
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"></span>
+                    </span>
+                  </div>
+                  
+                  {/* Large headline */}
+                  <h2 className="text-4xl md:text-5xl font-light leading-tight">
+                    Všetko, čo potrebuješ,<br />
+                    <span className="gradient-text font-normal">v jednej appke.</span>
+                  </h2>
+                  
+                  {/* Subheading */}
+                  <p className="text-lg text-muted-foreground font-light">
+                    Holistický prístup k wellbeingu. Telo, myseľ a komunita v jednej aplikácii.
+                  </p>
+                  
+                  {/* Feature Card */}
+                  <div className="p-6 rounded-2xl border-2 border-primary/50 bg-white shadow-lg transition-all duration-700">
+                    <h3 className="text-2xl font-medium mb-2">{features[activeFeatureIndex].title}</h3>
+                    <p className="text-sm text-muted-foreground font-light mb-4">
+                      {features[activeFeatureIndex].subheading}
+                    </p>
+                    <p className="text-base text-muted-foreground leading-relaxed">
+                      {features[activeFeatureIndex].desc}
+                    </p>
+                  </div>
+
+                  {/* Progress Indicator */}
+                  <div className="flex gap-2 justify-center pt-4">
+                    {features.map((_, index) => (
+                      <div
+                        key={index}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          activeFeatureIndex === index 
+                            ? 'w-8 bg-primary' 
+                            : 'w-2 bg-primary/30'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </Card>
-        </div>
-      </section>
+            </Card>
+          </div>
+        </section>
+      </div>
 
       {/* Programs Section */}
       <ProgramsScroll />
