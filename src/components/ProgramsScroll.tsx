@@ -93,10 +93,10 @@ export const ProgramsScroll = () => {
 
         {/* Interactive Program Selection */}
         <Card className="rounded-3xl shadow-lg overflow-hidden bg-white border-border/5">
-          <div className="grid lg:grid-cols-[320px,1fr]">
+          <div className="flex flex-col lg:grid lg:grid-cols-[320px,1fr]">
             
-            {/* Left Column - Accordion Navigation */}
-            <div className="border-r border-border/10 p-6 lg:p-8 bg-muted/10">
+            {/* Accordion Navigation - Stacked on mobile, sidebar on desktop */}
+            <div className="border-b lg:border-b-0 lg:border-r border-border/10 p-6 lg:p-8 bg-muted/10">
               <h3 className="text-lg font-semibold mb-6 text-foreground">Vyber Program</h3>
               <Accordion 
                 type="single" 
@@ -130,15 +130,21 @@ export const ProgramsScroll = () => {
               </Accordion>
             </div>
 
-            {/* Right Column - Selected Program Display */}
+            {/* Selected Program Display with transition */}
             <div className="p-8 lg:p-12 xl:p-16">
               <div className="max-w-4xl mx-auto">
-                <div className="grid md:grid-cols-[1fr,280px] lg:grid-cols-[1fr,320px] gap-8 lg:gap-12">
+                <div 
+                  key={selectedProgram}
+                  className="grid md:grid-cols-[1fr,280px] lg:grid-cols-[1fr,320px] gap-8 lg:gap-12 animate-fade-in"
+                >
                   
                   {/* Content */}
                   <div className="space-y-6">
-                    {/* Title */}
+                    {/* Duration & Title */}
                     <div>
+                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border text-muted-foreground text-xs mb-3">
+                        {program.duration}
+                      </div>
                       <h3 className="text-3xl lg:text-4xl xl:text-5xl font-light text-foreground mb-3">
                         {program.title}
                       </h3>
@@ -161,11 +167,8 @@ export const ProgramsScroll = () => {
                       ))}
                     </div>
 
-                    {/* Bottom Row: Duration & CTA */}
-                    <div className="flex items-center gap-4 pt-4">
-                      <span className="px-4 py-2 rounded-full border border-border text-muted-foreground text-sm">
-                        {program.duration}
-                      </span>
+                    {/* CTA Button */}
+                    <div className="pt-4">
                       <Button 
                         size="lg"
                         className={`${program.accentColor} hover:opacity-90 text-white px-6 transition-all hover:scale-105`}
