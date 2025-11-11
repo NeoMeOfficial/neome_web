@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, CheckCircle, Sparkle } from "@phosphor-icons/react";
+import { Star, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import heroImage from "@/assets/hero-yoga.jpg";
 import appMockup1 from "@/assets/app-mockup-1.png";
@@ -677,8 +678,8 @@ const Index = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* Testimonial 1 */}
-              <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent">
-                <div className="flex items-center gap-4 mb-6">
+              <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent relative group overflow-hidden">
+                <div className="flex items-center gap-4 mb-4">
                   <img 
                     src={testimonialMartina} 
                     alt="Martina" 
@@ -689,6 +690,14 @@ const Index = () => {
                     <p className="text-sm text-muted-foreground">Mamička dvoch detí</p>
                   </div>
                 </div>
+                
+                {/* Star Rating */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />
+                  ))}
+                </div>
+
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   "Po narodení druhého dieťaťa som sa cítila úplne stratená. NeoMe mi pomohlo vrátiť sa k sebe bez tlaku a výčitiek. Prvýkrát sa cítim silná v tele aj v mysli."
                 </p>
@@ -697,11 +706,22 @@ const Index = () => {
                   <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Lepší spánok</span>
                   <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Viac energie</span>
                 </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-primary/95 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl">
+                  <Button 
+                    variant="outline" 
+                    className="bg-white text-primary hover:bg-white/90 border-white"
+                  >
+                    Prečítať celý príbeh
+                    <ArrowRight size={16} className="ml-2" />
+                  </Button>
+                </div>
               </Card>
 
               {/* Testimonial 2 */}
-              <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent">
-                <div className="flex items-center gap-4 mb-6">
+              <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent relative group overflow-hidden">
+                <div className="flex items-center gap-4 mb-4">
                   <img 
                     src={testimonialLucia} 
                     alt="Lucia" 
@@ -712,6 +732,14 @@ const Index = () => {
                     <p className="text-sm text-muted-foreground">Kariérna žena</p>
                   </div>
                 </div>
+                
+                {/* Star Rating */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />
+                  ))}
+                </div>
+
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   "Nemusím sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel. Konečne som našla niečo, čo sa hodí do môjho rýchleho života."
                 </p>
@@ -720,11 +748,22 @@ const Index = () => {
                   <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Pevnejšie telo</span>
                   <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Viac sebavedomia</span>
                 </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-primary/95 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl">
+                  <Button 
+                    variant="outline" 
+                    className="bg-white text-primary hover:bg-white/90 border-white"
+                  >
+                    Prečítať celý príbeh
+                    <ArrowRight size={16} className="ml-2" />
+                  </Button>
+                </div>
               </Card>
 
               {/* Testimonial 3 */}
-              <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent">
-                <div className="flex items-center gap-4 mb-6">
+              <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent relative group overflow-hidden">
+                <div className="flex items-center gap-4 mb-4">
                   <img 
                     src={testimonialZuzana} 
                     alt="Zuzana" 
@@ -735,6 +774,14 @@ const Index = () => {
                     <p className="text-sm text-muted-foreground">Podnikateľka</p>
                   </div>
                 </div>
+                
+                {/* Star Rating */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />
+                  ))}
+                </div>
+
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   "Meditácie a dychové cvičenia zmenili môj prístup k životu. Už sa nenechám tak ľahko rozhodiť a mám viac energie na rodinu aj biznis. Je to o celej mne, nie len o cvičení."
                 </p>
@@ -742,6 +789,17 @@ const Index = () => {
                   <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Pokojnejšia myseľ</span>
                   <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Lepšia koncentrácia</span>
                   <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Viac radosti</span>
+                </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-primary/95 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl">
+                  <Button 
+                    variant="outline" 
+                    className="bg-white text-primary hover:bg-white/90 border-white"
+                  >
+                    Prečítať celý príbeh
+                    <ArrowRight size={16} className="ml-2" />
+                  </Button>
                 </div>
               </Card>
             </div>
@@ -752,6 +810,101 @@ const Index = () => {
               </p>
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                 ZAČNI SVOJU CESTU
+                <ArrowRight size={20} className="ml-2" />
+              </Button>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Video Testimonials Section */}
+      <section id="video-testimonials" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
+        <div className="container mx-auto max-w-7xl">
+          <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-primary/5 to-accent/10 border-border/10">
+            <h2 className="text-4xl md:text-5xl font-light text-center mb-4">
+              Pozri ich transformácie
+            </h2>
+            <p className="text-xl text-center text-muted-foreground mb-16">
+              Nech ich príbehy ťa inšpirujú k vlastnej zmene.
+            </p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Video Card 1 */}
+              <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow">
+                <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
+                  <img 
+                    src={testimonialMartina} 
+                    alt="Martina transformation video" 
+                    className="absolute inset-0 w-full h-full object-cover opacity-80"
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Play size={32} className="text-primary ml-1" fill="hsl(var(--primary))" />
+                    </div>
+                    <p className="text-white font-medium mt-4 text-lg">Martinina cesta</p>
+                    <p className="text-white/80 text-sm">3:45</p>
+                  </div>
+                </div>
+                <div className="p-4 bg-white">
+                  <p className="text-sm text-muted-foreground">
+                    Ako som stratila 8 kg a získala energiu
+                  </p>
+                </div>
+              </div>
+
+              {/* Video Card 2 */}
+              <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow">
+                <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
+                  <img 
+                    src={testimonialLucia} 
+                    alt="Lucia transformation video" 
+                    className="absolute inset-0 w-full h-full object-cover opacity-80"
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Play size={32} className="text-primary ml-1" fill="hsl(var(--primary))" />
+                    </div>
+                    <p className="text-white font-medium mt-4 text-lg">Luciin príbeh</p>
+                    <p className="text-white/80 text-sm">2:30</p>
+                  </div>
+                </div>
+                <div className="p-4 bg-white">
+                  <p className="text-sm text-muted-foreground">
+                    15 minút denne, ktoré zmenili môj život
+                  </p>
+                </div>
+              </div>
+
+              {/* Video Card 3 */}
+              <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow">
+                <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
+                  <img 
+                    src={testimonialZuzana} 
+                    alt="Zuzana transformation video" 
+                    className="absolute inset-0 w-full h-full object-cover opacity-80"
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Play size={32} className="text-primary ml-1" fill="hsl(var(--primary))" />
+                    </div>
+                    <p className="text-white font-medium mt-4 text-lg">Zuzanina premena</p>
+                    <p className="text-white/80 text-sm">4:15</p>
+                  </div>
+                </div>
+                <div className="p-4 bg-white">
+                  <p className="text-sm text-muted-foreground">
+                    Od vyhorenia k vnútornému pokoju
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary/10">
+                POZRIEŤ VŠETKY PRÍBEHY
                 <ArrowRight size={20} className="ml-2" />
               </Button>
             </div>
