@@ -350,8 +350,38 @@ const Index = () => {
                     Holistický prístup k wellbeingu. Telo, myseľ a komunita v jednej aplikácii.
                   </p>
                   
+                  {/* Notebook-style Tabs */}
+                  <div className="flex gap-1 items-end mb-0">
+                    {features.map((feature, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setActiveFeatureIndex(index)}
+                        className={`
+                          relative px-4 py-3 text-sm font-medium transition-all duration-300 cursor-pointer
+                          rounded-t-xl border-t-2 border-x-2
+                          ${activeFeatureIndex === index 
+                            ? 'bg-white border-primary/50 text-foreground z-10 -mb-[2px]' 
+                            : 'bg-muted/30 border-border/20 text-muted-foreground hover:bg-muted/50 hover:border-border/40'
+                          }
+                        `}
+                        style={{
+                          boxShadow: activeFeatureIndex === index 
+                            ? '0 -4px 6px -1px rgba(0, 0, 0, 0.05)' 
+                            : 'none'
+                        }}
+                      >
+                        <span className="block truncate max-w-[80px] md:max-w-none">
+                          {feature.title}
+                        </span>
+                        {activeFeatureIndex === index && (
+                          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white"></div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  
                   {/* Feature Card - Fixed height to prevent shifting */}
-                  <div className="p-6 rounded-2xl border-2 border-primary/50 bg-white shadow-lg transition-all duration-700 min-h-[280px] flex flex-col">
+                  <div className="p-6 rounded-2xl rounded-tl-none border-2 border-primary/50 bg-white shadow-lg transition-all duration-700 min-h-[280px] flex flex-col">
                     <h3 className="text-2xl font-medium mb-2">{features[activeFeatureIndex].title}</h3>
                     <p className="text-sm text-muted-foreground font-light mb-4">
                       {features[activeFeatureIndex].subheading}
@@ -368,20 +398,6 @@ const Index = () => {
                         <ArrowRight size={16} className="ml-2" />
                       </a>
                     </Button>
-                  </div>
-
-                  {/* Progress Indicator */}
-                  <div className="flex gap-2 justify-center pt-4">
-                    {features.map((_, index) => (
-                      <div
-                        key={index}
-                        className={`h-2 rounded-full transition-all duration-300 ${
-                          activeFeatureIndex === index 
-                            ? 'w-8 bg-primary' 
-                            : 'w-2 bg-primary/30'
-                        }`}
-                      />
-                    ))}
                   </div>
                 </div>
               </div>
