@@ -28,13 +28,16 @@ export const PricingComparison = () => {
     period: "navždy",
     description: "Vyskúšaj základy",
     features: [
-      { name: "Obmedzené cvičenia", included: true },
-      { name: "Základné recepty", included: true },
-      { name: "3 meditácie", included: true },
+      { name: "Cvičenia", included: true },
+      { name: "Strečingy", included: false },
+      { name: "Recepty", included: true },
+      { name: "Meditácie", included: true },
+      { name: "Periodka", included: false },
+      { name: "Denník návykov", included: false },
+      { name: "Reflexie", included: false },
+      { name: "Články", included: false },
       { name: "Prístup ku komunite", included: false },
       { name: "Programy", included: "0" },
-      { name: "Denné výzvy", included: false },
-      { name: "Extras obsah", included: false },
       { name: "Prioritná podpora", included: false },
     ],
     cta: "Začať zadarmo"
@@ -47,13 +50,16 @@ export const PricingComparison = () => {
       period: "mesačne",
       description: "Skvelý začiatok",
       features: [
-        { name: "Všetky cvičenia", included: true },
-        { name: "Všetky recepty", included: true },
-        { name: "Všetky meditácie", included: true },
+        { name: "Cvičenia", included: true },
+        { name: "Strečingy", included: true },
+        { name: "Recepty", included: true },
+        { name: "Meditácie", included: true },
+        { name: "Periodka", included: true },
+        { name: "Denník návykov", included: true },
+        { name: "Reflexie", included: true },
+        { name: "Články", included: true },
         { name: "Prístup ku komunite", included: true },
         { name: "Programy", included: "1 program" },
-        { name: "Denné výzvy", included: true },
-        { name: "Extras obsah", included: true },
         { name: "Prioritná podpora", included: false },
       ],
       cta: "Vybrať predplatné"
@@ -66,13 +72,16 @@ export const PricingComparison = () => {
       description: "Najlepšia hodnota",
       savings: "Ušetríš 20%",
       features: [
-        { name: "Všetky cvičenia", included: true },
-        { name: "Všetky recepty", included: true },
-        { name: "Všetky meditácie", included: true },
+        { name: "Cvičenia", included: true },
+        { name: "Strečingy", included: true },
+        { name: "Recepty", included: true },
+        { name: "Meditácie", included: true },
+        { name: "Periodka", included: true },
+        { name: "Denník návykov", included: true },
+        { name: "Reflexie", included: true },
+        { name: "Články", included: true },
         { name: "Prístup ku komunite", included: true },
         { name: "Programy", included: "2 programy" },
-        { name: "Denné výzvy", included: true },
-        { name: "Extras obsah", included: true },
         { name: "Prioritná podpora", included: true },
       ],
       cta: "Vybrať predplatné"
@@ -84,13 +93,16 @@ export const PricingComparison = () => {
       description: "Najväčšia úspora",
       savings: "Ušetríš 33%",
       features: [
-        { name: "Všetky cvičenia", included: true },
-        { name: "Všetky recepty", included: true },
-        { name: "Všetky meditácie", included: true },
+        { name: "Cvičenia", included: true },
+        { name: "Strečingy", included: true },
+        { name: "Recepty", included: true },
+        { name: "Meditácie", included: true },
+        { name: "Periodka", included: true },
+        { name: "Denník návykov", included: true },
+        { name: "Reflexie", included: true },
+        { name: "Články", included: true },
         { name: "Prístup ku komunite", included: true },
         { name: "Programy", included: "Neobmedzené" },
-        { name: "Denné výzvy", included: true },
-        { name: "Extras obsah", included: true },
         { name: "Prioritná podpora", included: true },
       ],
       cta: "Vybrať predplatné"
@@ -103,13 +115,16 @@ export const PricingComparison = () => {
     period: "jednorazovo",
     description: "Kúp individuálne programy",
     features: [
-      { name: "Všetky cvičenia", included: true },
-      { name: "Všetky recepty", included: true },
-      { name: "Všetky meditácie", included: false },
+      { name: "Cvičenia", included: true },
+      { name: "Strečingy", included: true },
+      { name: "Recepty", included: true },
+      { name: "Meditácie", included: false },
+      { name: "Periodka", included: false },
+      { name: "Denník návykov", included: false },
+      { name: "Reflexie", included: false },
+      { name: "Články", included: false },
       { name: "Prístup ku komunite", included: false },
       { name: "Programy", included: "1 program natrvalo" },
-      { name: "Denné výzvy", included: false },
-      { name: "Extras obsah", included: false },
       { name: "Prioritná podpora", included: false },
     ],
     cta: "Kúpiť program"
@@ -183,7 +198,7 @@ export const PricingComparison = () => {
           <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th className="text-left p-4 font-light text-lg">Funkcie</th>
+                <th className="text-left p-4 font-light text-lg"></th>
                 {tiers.map((tier, index) => (
                   <th key={index} className="p-4">
                     <Card className={cn(
