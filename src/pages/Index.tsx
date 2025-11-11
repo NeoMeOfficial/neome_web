@@ -15,6 +15,7 @@ import { ProgramsScroll } from "@/components/ProgramsScroll";
 const Index = () => {
   const sectionsRef = useRef<HTMLElement[]>([]);
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
+  const [pricingPeriod, setPricingPeriod] = useState<'monthly' | 'quarterly' | 'yearly'>('quarterly');
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const featureSectionRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef<number>(0);
