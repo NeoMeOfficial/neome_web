@@ -352,37 +352,37 @@ const Index = () => {
                   
                   {/* Notebook-style Tabs Container */}
                   <div className="relative">
-                    {/* Tabs */}
-                    <div className="flex gap-0.5 items-end relative z-20">
+                    {/* Tabs - Behind the card */}
+                    <div className="flex gap-1 items-end relative z-0 pb-0">
                       {features.map((feature, index) => (
                         <button
                           key={index}
                           onClick={() => setActiveFeatureIndex(index)}
                           className={`
-                            relative px-3 md:px-4 py-2.5 md:py-3 text-xs md:text-sm font-medium 
+                            relative px-3 md:px-5 py-2 md:py-3 text-xs md:text-sm font-medium 
                             transition-all duration-300 cursor-pointer
-                            rounded-t-lg
+                            rounded-t-xl border-t border-x
+                            backdrop-blur-sm
                             ${activeFeatureIndex === index 
-                              ? 'bg-white text-primary border-t-2 border-x-2 border-primary shadow-[0_-2px_8px_rgba(0,0,0,0.06)] translate-y-[2px]' 
-                              : 'bg-gradient-to-b from-muted/60 to-muted/40 text-muted-foreground border border-border/30 hover:from-muted/80 hover:to-muted/60 hover:text-foreground hover:shadow-sm'
+                              ? 'bg-white/40 text-primary border-white/30 shadow-[0_-3px_10px_rgba(0,0,0,0.04)]' 
+                              : 'bg-white/20 text-muted-foreground border-white/20 hover:bg-white/30 hover:text-foreground'
                             }
                           `}
                         >
                           <span className="block truncate max-w-[60px] md:max-w-none whitespace-nowrap">
                             {feature.title}
                           </span>
-                          {/* Active tab bottom border that merges with card */}
-                          {activeFeatureIndex === index && (
-                            <div className="absolute bottom-[-2px] left-0 right-0 h-[3px] bg-white z-30"></div>
-                          )}
                         </button>
                       ))}
                     </div>
                     
-                    {/* Feature Card - Seamlessly connected to tabs */}
-                    <div className="relative z-10 p-6 md:p-8 rounded-2xl rounded-tl-lg border-2 border-primary bg-white shadow-xl transition-all duration-700 min-h-[320px] flex flex-col">
+                    {/* Feature Card - Glass morphism on top */}
+                    <div className="relative z-10 -mt-[1px] p-6 md:p-8 rounded-2xl border border-white/30 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-700 min-h-[320px] flex flex-col">
+                      {/* Glass shine effect */}
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-transparent pointer-events-none"></div>
+                      
                       {/* Animated content wrapper */}
-                      <div key={activeFeatureIndex} className="animate-fade-in">
+                      <div key={activeFeatureIndex} className="animate-fade-in relative z-10">
                         <h3 className="text-2xl md:text-3xl font-semibold mb-3 text-foreground">
                           {features[activeFeatureIndex].title}
                         </h3>
@@ -396,7 +396,7 @@ const Index = () => {
                       
                       <Button 
                         asChild
-                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transition-all"
+                        className="relative z-10 w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transition-all backdrop-blur-sm"
                       >
                         <a href={features[activeFeatureIndex].link}>
                           Chcem vedieť viac
