@@ -18,18 +18,17 @@ import { ProgramsScroll } from "@/components/ProgramsScroll";
 import { FloatingCTA } from "@/components/FloatingCTA";
 import { StatsShowcase } from "@/components/StatsShowcase";
 import { ProfessionalRecommendations } from "@/components/ProfessionalRecommendations";
+import { HowItWorks } from "@/components/HowItWorks";
+import { PricingComparison } from "@/components/PricingComparison";
 import { Apple, Star as StarIcon, Download } from "lucide-react";
 
 const Index = () => {
   const sectionsRef = useRef<HTMLElement[]>([]);
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
-  const [pricingPeriod, setPricingPeriod] = useState<'monthly' | 'quarterly' | 'yearly'>('quarterly');
-  const [activePricingCard, setActivePricingCard] = useState(1); // Start with recommended card
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const featureSectionRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef<number>(0);
   const touchStartX = useRef<number>(0);
-  const pricingTouchStartX = useRef<number>(0);
 
   const features = [
     {
@@ -284,6 +283,9 @@ const Index = () => {
       {/* Professional Recommendations Section */}
       <ProfessionalRecommendations />
 
+      {/* How It Works Section */}
+      <HowItWorks />
+
       {/* Proof & Guarantee Section */}
       <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
         <div className="container mx-auto max-w-6xl">
@@ -406,304 +408,7 @@ const Index = () => {
       <ProgramsScroll />
 
       {/* Pricing Section */}
-      <section id="ceny" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
-        <div className="container mx-auto max-w-6xl">
-          <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
-            <h2 className="text-4xl md:text-5xl font-light text-center mb-6">
-              Začni zadarmo.
-            </h2>
-            <p className="text-xl text-center text-muted-foreground mb-8">
-              Pokračuj s hodnotou, ktorú cítiš.
-            </p>
-
-            {/* Period Toggle */}
-            <div className="flex justify-center mb-12">
-              <div className="inline-flex items-center gap-1 p-1 rounded-full bg-muted/50 border border-border/30">
-                <button
-                  onClick={() => setPricingPeriod('monthly')}
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    pricingPeriod === 'monthly'
-                      ? 'bg-primary text-primary-foreground shadow-md'
-                      : 'text-muted-foreground hover:text-foreground'
-                  }`}
-                >
-                  Mesačne
-                </button>
-                <button
-                  onClick={() => setPricingPeriod('quarterly')}
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 relative ${
-                    pricingPeriod === 'quarterly'
-                      ? 'bg-primary text-primary-foreground shadow-md'
-                      : 'text-muted-foreground hover:text-foreground'
-                  }`}
-                >
-                  Kvartálne
-                  <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-accent text-accent-foreground text-xs rounded-full">
-                    -25%
-                  </span>
-                </button>
-                <button
-                  onClick={() => setPricingPeriod('yearly')}
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 relative ${
-                    pricingPeriod === 'yearly'
-                      ? 'bg-primary text-primary-foreground shadow-md'
-                      : 'text-muted-foreground hover:text-foreground'
-                  }`}
-                >
-                  Ročne
-                  <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-accent text-accent-foreground text-xs rounded-full">
-                    -40%
-                  </span>
-                </button>
-              </div>
-            </div>
-
-            {/* Desktop: Grid Layout */}
-            <div className="hidden md:grid md:grid-cols-3 gap-6">
-              {/* Free Tier */}
-              <Card className="p-8 border-2 border-border/20 hover:border-primary/40 transition-all rounded-2xl shadow-md bg-white">
-                <h3 className="text-2xl font-medium mb-2">Zadarmo</h3>
-                <p className="text-sm text-muted-foreground mb-6">Prístup k základom aplikácie</p>
-                
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Ukážkové tréningy a recepty</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Bez časového obmedzenia</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Vyskúšaj, či je NeoMe pre teba</span>
-                  </li>
-                </ul>
-
-                <Button variant="outline" className="w-full">
-                  STIAHNUŤ ZDARMA
-                </Button>
-              </Card>
-
-              {/* Subscription Tier - RECOMMENDED */}
-              <Card className="p-8 border-2 border-primary shadow-xl rounded-2xl relative bg-white pt-12">
-                <div className="absolute top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-sm font-medium rounded-full shadow-md">
-                  ODPORÚČANÉ
-                </div>
-                
-                <h3 className="text-2xl font-medium mb-2">Predplatné</h3>
-                <p className="text-sm text-muted-foreground mb-2">
-                  {pricingPeriod === 'monthly' && 'Mesačne'}
-                  {pricingPeriod === 'quarterly' && 'Kvartálne (Ušetri 25%)'}
-                  {pricingPeriod === 'yearly' && 'Ročne (Ušetri 40%)'}
-                </p>
-                <p className="text-3xl font-light mb-6" key={pricingPeriod}>
-                  <span className="gradient-text font-medium animate-fade-in">
-                    {pricingPeriod === 'monthly' && '€XX'}
-                    {pricingPeriod === 'quarterly' && '€XX'}
-                    {pricingPeriod === 'yearly' && '€XX'}
-                  </span>
-                  {pricingPeriod === 'monthly' && '/mesiac'}
-                  {pricingPeriod === 'quarterly' && '/3 mesiace'}
-                  {pricingPeriod === 'yearly' && '/rok'}
-                </p>
-                
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Neobmedzený prístup ku všetkým 4 pilierom</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Nový obsah každý týždeň</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Prístup k celej knižnici</span>
-                  </li>
-                </ul>
-
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/20 hover:backdrop-blur-md hover:border-primary/30 border border-transparent transition-all duration-300">
-                  PRIHLÁSIŤ SA
-                </Button>
-              </Card>
-
-              {/* Programs Tier */}
-              <Card className="p-8 border-2 border-border/20 hover:border-primary/40 transition-all rounded-2xl shadow-md bg-white">
-                <h3 className="text-2xl font-medium mb-2">Programy</h3>
-                <p className="text-sm text-muted-foreground mb-6">Individuálne Zakúpenie</p>
-                
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">6-8 týždňové cielené plány</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">K dispozícii pre existujúcich predplatiteľov</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Jednorazová platba</span>
-                  </li>
-                </ul>
-
-                <div className="space-y-3">
-                  <Button variant="outline" className="w-full">
-                    POZRIEŤ PROGRAMY
-                  </Button>
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    VYBRAŤ PROGRAM
-                  </Button>
-                </div>
-              </Card>
-            </div>
-
-            {/* Mobile: Swipeable Cards */}
-            <div className="md:hidden relative">
-              <div 
-                className="flex transition-transform duration-300 ease-out touch-pan-y"
-                style={{ transform: `translateX(-${activePricingCard * 100}%)` }}
-                onTouchStart={(e) => {
-                  pricingTouchStartX.current = e.touches[0].clientX;
-                }}
-                onTouchEnd={(e) => {
-                  const touchEndX = e.changedTouches[0].clientX;
-                  const deltaX = pricingTouchStartX.current - touchEndX;
-                  
-                  if (Math.abs(deltaX) > 50) {
-                    if (deltaX > 0 && activePricingCard < 2) {
-                      setActivePricingCard(prev => prev + 1);
-                    } else if (deltaX < 0 && activePricingCard > 0) {
-                      setActivePricingCard(prev => prev - 1);
-                    }
-                  }
-                }}
-              >
-                {/* Free Tier */}
-                <div className="w-full flex-shrink-0 px-2">
-                  <Card className="p-8 border-2 border-border/20 rounded-2xl shadow-md bg-white">
-                    <h3 className="text-2xl font-medium mb-2">Zadarmo</h3>
-                    <p className="text-sm text-muted-foreground mb-6">Prístup k základom aplikácie</p>
-                    
-                    <ul className="space-y-3 mb-8">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Ukážkové tréningy a recepty</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Bez časového obmedzenia</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Vyskúšaj, či je NeoMe pre teba</span>
-                      </li>
-                    </ul>
-
-                    <Button variant="outline" className="w-full">
-                      STIAHNUŤ ZDARMA
-                    </Button>
-                  </Card>
-                </div>
-
-                {/* Subscription Tier - RECOMMENDED */}
-                <div className="w-full flex-shrink-0 px-2">
-                  <Card className="p-8 border-2 border-primary shadow-xl rounded-2xl relative bg-white pt-12">
-                    <div className="absolute top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-sm font-medium rounded-full shadow-md">
-                      ODPORÚČANÉ
-                    </div>
-                    
-                    <h3 className="text-2xl font-medium mb-2">Predplatné</h3>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      {pricingPeriod === 'monthly' && 'Mesačne'}
-                      {pricingPeriod === 'quarterly' && 'Kvartálne (Ušetri 25%)'}
-                      {pricingPeriod === 'yearly' && 'Ročne (Ušetri 40%)'}
-                    </p>
-                    <p className="text-3xl font-light mb-6" key={pricingPeriod}>
-                      <span className="gradient-text font-medium animate-fade-in">
-                        {pricingPeriod === 'monthly' && '€XX'}
-                        {pricingPeriod === 'quarterly' && '€XX'}
-                        {pricingPeriod === 'yearly' && '€XX'}
-                      </span>
-                      {pricingPeriod === 'monthly' && '/mesiac'}
-                      {pricingPeriod === 'quarterly' && '/3 mesiace'}
-                      {pricingPeriod === 'yearly' && '/rok'}
-                    </p>
-                    
-                    <ul className="space-y-3 mb-8">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Neobmedzený prístup ku všetkým 4 pilierom</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Nový obsah každý týždeň</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Prístup k celej knižnici</span>
-                      </li>
-                    </ul>
-
-                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/20 hover:backdrop-blur-md hover:border-primary/30 border border-transparent transition-all duration-300">
-                      PRIHLÁSIŤ SA
-                    </Button>
-                  </Card>
-                </div>
-
-                {/* Programs Tier */}
-                <div className="w-full flex-shrink-0 px-2">
-                  <Card className="p-8 border-2 border-border/20 rounded-2xl shadow-md bg-white">
-                    <h3 className="text-2xl font-medium mb-2">Programy</h3>
-                    <p className="text-sm text-muted-foreground mb-6">Individuálne Zakúpenie</p>
-                    
-                    <ul className="space-y-3 mb-8">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">6-8 týždňové cielené plány</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">K dispozícii pre existujúcich predplatiteľov</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle size={20} weight="fill" className="text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Jednorazová platba</span>
-                      </li>
-                    </ul>
-
-                    <div className="space-y-3">
-                      <Button variant="outline" className="w-full">
-                        POZRIEŤ PROGRAMY
-                      </Button>
-                      <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                        VYBRAŤ PROGRAM
-                      </Button>
-                    </div>
-                  </Card>
-                </div>
-              </div>
-
-              {/* Mobile Progress Indicators */}
-              <div className="flex gap-2 justify-center mt-6">
-                {[0, 1, 2].map((index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActivePricingCard(index)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      activePricingCard === index 
-                        ? 'w-8 bg-primary' 
-                        : 'w-2 bg-primary/30'
-                    }`}
-                    aria-label={`Go to pricing card ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </Card>
-        </div>
-      </section>
+      <PricingComparison />
 
       {/* Testimonials Section */}
       <section id="testimonials" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
