@@ -442,8 +442,8 @@ const Index = () => {
               </Card>
 
               {/* Subscription Tier - RECOMMENDED */}
-              <Card className="p-8 border-2 border-primary shadow-xl rounded-2xl relative overflow-hidden bg-white">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-sm font-medium rounded-full">
+              <Card className="p-8 border-2 border-primary shadow-xl rounded-2xl relative bg-white pt-12">
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-sm font-medium rounded-full shadow-md">
                   ODPORÚČANÉ
                 </div>
                 
@@ -565,8 +565,8 @@ const Index = () => {
 
                 {/* Subscription Tier - RECOMMENDED */}
                 <div className="w-full flex-shrink-0 px-2">
-                  <Card className="p-8 border-2 border-primary shadow-xl rounded-2xl relative overflow-hidden bg-white">
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-sm font-medium rounded-full">
+                  <Card className="p-8 border-2 border-primary shadow-xl rounded-2xl relative bg-white pt-12">
+                    <div className="absolute top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-sm font-medium rounded-full shadow-md">
                       ODPORÚČANÉ
                     </div>
                     
