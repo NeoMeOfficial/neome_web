@@ -1,5 +1,3 @@
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, X, Dumbbell, User, Smartphone, Sparkles } from "lucide-react";
 export const ComparisonSection = () => {
@@ -41,21 +39,23 @@ export const ComparisonSection = () => {
           </p>
         </div>
 
-        {/* Mobile Accordion */}
-        <div className="md:hidden px-4">
-          <Accordion type="single" collapsible className="w-full space-y-4">
+        {/* Accordion for all screen sizes */}
+        <div className="px-4 md:px-0">
+          <Accordion type="single" collapsible className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {comparisons.map((comparison, index) => {
             const Icon = comparison.icon;
-            return <AccordionItem key={index} value={`item-${index}`} className="border rounded-2xl px-4 bg-card">
-                  <AccordionTrigger className="hover:no-underline py-4">
+            return <AccordionItem key={index} value={`item-${index}`} className="border rounded-2xl px-4 md:px-6 bg-card hover:shadow-xl transition-all duration-300" style={{
+              animationDelay: `${index * 100}ms`
+            }}>
+                  <AccordionTrigger className="hover:no-underline py-4 md:py-6">
                     <div className="flex items-center gap-3">
-                      <div className={`inline-flex p-2.5 rounded-full ${comparison.iconBg}`}>
-                        <Icon size={20} className={comparison.iconColor} />
+                      <div className={`inline-flex p-2.5 md:p-3 rounded-full ${comparison.iconBg}`}>
+                        <Icon size={20} className={`md:w-6 md:h-6 ${comparison.iconColor}`} />
                       </div>
-                      <span className="text-lg font-light text-left">{comparison.title}</span>
+                      <span className="text-lg md:text-xl font-light text-left">{comparison.title}</span>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="pb-4">
+                  <AccordionContent className="pb-4 md:pb-6">
                     <div className="space-y-6 pt-2">
                       {/* NeoMe Advantages */}
                       <div>
@@ -88,58 +88,6 @@ export const ComparisonSection = () => {
                 </AccordionItem>;
           })}
           </Accordion>
-        </div>
-
-        {/* Desktop Comparison Cards Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {comparisons.map((comparison, index) => {
-          const Icon = comparison.icon;
-          return <Card key={index} className="p-4 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card border-border/20 animate-fade-in" style={{
-            animationDelay: `${index * 100}ms`
-          }}>
-                {/* Icon */}
-                <div className="mb-6">
-                  <div className={`inline-flex p-4 rounded-full ${comparison.iconBg}`}>
-                    <Icon size={32} className={comparison.iconColor} />
-                  </div>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-2xl font-light mb-6 text-foreground">
-                  {comparison.title}
-                </h3>
-
-                {/* Comparison Grid */}
-                <div className="space-y-6">
-                  {/* NeoMe Advantages */}
-                  <div>
-                    <h4 className="font-medium text-primary mb-4 flex items-center gap-2">
-                      <Sparkles size={20} />
-                      NeoMe
-                    </h4>
-                    <ul className="space-y-3">
-                      {comparison.advantages.map((advantage, i) => <li key={i} className="flex items-start gap-3 text-sm text-foreground/90">
-                          <CheckCircle size={18} className="text-primary flex-shrink-0 mt-0.5" />
-                          <span>{advantage}</span>
-                        </li>)}
-                    </ul>
-                  </div>
-
-                  {/* Competitor Disadvantages */}
-                  <div className="pt-6 border-t border-border/20">
-                    <h4 className="font-medium text-muted-foreground mb-4">
-                      {comparison.competitor}
-                    </h4>
-                    <ul className="space-y-3">
-                      {comparison.disadvantages.map((disadvantage, i) => <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground/70">
-                          <X size={18} className="text-muted-foreground/50 flex-shrink-0 mt-0.5" />
-                          <span>{disadvantage}</span>
-                        </li>)}
-                    </ul>
-                  </div>
-                </div>
-              </Card>;
-        })}
         </div>
       </div>
     </section>;
