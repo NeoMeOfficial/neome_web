@@ -138,23 +138,6 @@ const HomeShort = () => {
               Vyskúšaj zadarmo 7 dní. Žiadna platobná karta potrebná.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="inline-flex items-center gap-3 px-6 py-3 bg-black/90 hover:bg-black text-white rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm">
-                <Apple size={28} />
-                <div className="text-left">
-                  <div className="text-xs opacity-80">Stiahni z</div>
-                  <div className="text-sm font-medium">App Store</div>
-                </div>
-              </button>
-              
-              <button className="inline-flex items-center gap-3 px-6 py-3 bg-black/90 hover:bg-black text-white rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm">
-                <Download size={28} />
-                <div className="text-left">
-                  <div className="text-xs opacity-80">Získaj na</div>
-                  <div className="text-sm font-medium">Google Play</div>
-                </div>
-              </button>
-            </div>
           </div>
         </div>
       </section>
