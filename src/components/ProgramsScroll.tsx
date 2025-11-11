@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, Check } from "lucide-react";
 import postpartumImg from "@/assets/postpartum-program.jpg";
 import bodyformingImg from "@/assets/bodyforming-program.jpg";
@@ -66,6 +68,9 @@ const individualPrograms = [
 ];
 
 export const ProgramsScroll = () => {
+  const [selectedProgram, setSelectedProgram] = useState(0);
+  const program = individualPrograms[selectedProgram];
+
   return (
     <section id="programy" className="py-12 md:py-16 px-4 md:px-8 bg-white">
       <div className="container mx-auto max-w-7xl space-y-8 md:space-y-12">
@@ -86,79 +91,113 @@ export const ProgramsScroll = () => {
           </div>
         </Card>
 
-        {/* Program Cards */}
-        {individualPrograms.map((program, index) => (
-          <Card key={index} className="rounded-3xl shadow-xl overflow-hidden bg-white border-border/10">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 p-8 md:p-12">
-              
-              {/* Left Column - Content */}
-              <div className="space-y-6 flex flex-col justify-center">
-                {/* Tag */}
-                <div className="inline-block">
-                  <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider ${program.accentColor} text-white`}>
-                    {program.level}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-4xl lg:text-5xl font-light text-foreground">
-                  {program.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-                  {program.description}
-                </p>
-
-                {/* Features List */}
-                <div className="space-y-4 py-4">
-                  {program.features.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className={`flex-shrink-0 w-6 h-6 rounded-full ${program.accentColor} flex items-center justify-center mt-0.5`}>
-                        <Check size={14} className="text-white" />
+        {/* Interactive Program Selection */}
+        <Card className="rounded-3xl shadow-xl overflow-hidden bg-white border-border/10">
+          <div className="grid lg:grid-cols-[400px,1fr] gap-0">
+            
+            {/* Left Column - Accordion Navigation */}
+            <div className="border-r border-border/10 p-8 bg-muted/20">
+              <Accordion 
+                type="single" 
+                collapsible 
+                value={`item-${selectedProgram}`}
+                onValueChange={(value) => {
+                  const index = parseInt(value.split('-')[1]);
+                  if (!isNaN(index)) setSelectedProgram(index);
+                }}
+              >
+                {individualPrograms.map((prog, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-left hover:no-underline">
+                      <div className="flex flex-col gap-1">
+                        <span className="text-sm font-semibold text-primary">{prog.level}</span>
+                        <span className="text-base font-medium text-foreground">{prog.tag}</span>
                       </div>
-                      <span className="text-foreground">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <p className="text-sm text-muted-foreground pl-2">
+                        {prog.description}
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
 
-                {/* CTA Button */}
-                <div className="pt-4">
-                  <Button 
-                    size="lg"
-                    className={`${program.accentColor} hover:opacity-90 text-white px-8 transition-all hover:scale-105`}
-                  >
-                    Zisti Viac
-                    <ArrowRight size={18} className="ml-2" />
-                  </Button>
-                </div>
+            {/* Right Column - Selected Program Card */}
+            <div className="p-8 md:p-12">
+              <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+                
+                {/* Content */}
+                <div className="space-y-6 flex flex-col justify-center">
+                  {/* Tag */}
+                  <div className="inline-block">
+                    <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider ${program.accentColor} text-white`}>
+                      {program.level}
+                    </span>
+                  </div>
 
-                {/* Duration Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border text-muted-foreground text-sm">
-                  {program.duration}
-                </div>
-              </div>
+                  {/* Title */}
+                  <h3 className="text-3xl lg:text-4xl font-light text-foreground">
+                    {program.title}
+                  </h3>
 
-              {/* Right Column - Image */}
-              <div className="relative flex items-center justify-center">
-                <div className="relative rounded-2xl overflow-hidden shadow-xl w-full max-w-md">
-                  <div className="aspect-[3/4] relative">
-                    <img 
-                      src={program.image} 
-                      alt={program.title}
-                      className="w-full h-full object-cover"
-                    />
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  {/* Description */}
+                  <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
+                    {program.description}
+                  </p>
+
+                  {/* Features List */}
+                  <div className="space-y-3 py-4">
+                    {program.features.map((feature, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <div className={`flex-shrink-0 w-5 h-5 rounded-full ${program.accentColor} flex items-center justify-center mt-0.5`}>
+                          <Check size={12} className="text-white" />
+                        </div>
+                        <span className="text-sm text-foreground">
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Duration Badge */}
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border text-muted-foreground text-sm w-fit">
+                    {program.duration}
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="pt-2">
+                    <Button 
+                      size="lg"
+                      className={`${program.accentColor} hover:opacity-90 text-white px-8 transition-all hover:scale-105`}
+                    >
+                      Zisti Viac
+                      <ArrowRight size={18} className="ml-2" />
+                    </Button>
                   </div>
                 </div>
-              </div>
 
+                {/* Image */}
+                <div className="relative flex items-center justify-center">
+                  <div className="relative rounded-2xl overflow-hidden shadow-xl w-full max-w-sm">
+                    <div className="aspect-[3/4] relative">
+                      <img 
+                        src={program.image} 
+                        alt={program.title}
+                        className="w-full h-full object-cover"
+                      />
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
-          </Card>
-        ))}
+
+          </div>
+        </Card>
       </div>
     </section>
   );
