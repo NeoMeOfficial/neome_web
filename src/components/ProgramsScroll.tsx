@@ -129,8 +129,7 @@ export const ProgramsScroll = () => {
               Vyber si Štrukturovaný Program.
             </p>
             <p className="text-muted-foreground">
-              Tieto 6-8 týždňové programy sú voliteľné doplnky k tvojmu predplatnému. 
-              Sú navrhnuté pre hlbšiu, garantovanú zmenu, ak si pripravená ísť na cieľ.
+              Tieto 6-8 týždňové programy sú voliteľné doplnky k tvojmu predplatnému. Každý program zahŕňa <strong className="text-foreground">plný prístup k celej aplikácii NeoMe</strong> plus štrukturovaný tréningový plán navrhnutý pre hlbšiu, garantovanú zmenu.
             </p>
           </div>
         </Card>
