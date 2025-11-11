@@ -21,6 +21,10 @@ import { ProfessionalRecommendations } from "@/components/ProfessionalRecommenda
 import { HowItWorks } from "@/components/HowItWorks";
 import { PricingComparison } from "@/components/PricingComparison";
 import { ComparisonSection } from "@/components/ComparisonSection";
+import { FounderStory } from "@/components/FounderStory";
+import { VideoPlayerModal } from "@/components/VideoPlayerModal";
+import { PromoBanner } from "@/components/PromoBanner";
+import { LiveChatWidget } from "@/components/LiveChatWidget";
 import { Apple, Star as StarIcon, Download } from "lucide-react";
 
 const Index = () => {
@@ -30,6 +34,9 @@ const Index = () => {
   const featureSectionRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef<number>(0);
   const touchStartX = useRef<number>(0);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [currentVideoId, setCurrentVideoId] = useState<string | null>(null);
+  const [currentVideoTitle, setCurrentVideoTitle] = useState<string>("");
 
   const features = [
     {
@@ -183,10 +190,27 @@ const Index = () => {
     }
   };
 
+  const openVideoModal = (videoId: string, title: string) => {
+    setCurrentVideoId(videoId);
+    setCurrentVideoTitle(title);
+    setIsVideoModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-white text-foreground">
+      {/* Promo Banner */}
+      <PromoBanner />
+      
       {/* Floating CTA Button */}
       <FloatingCTA />
+
+      {/* Video Player Modal */}
+      <VideoPlayerModal 
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoId={currentVideoId}
+        videoTitle={currentVideoTitle}
+      />
 
       {/* HERO Section */}
       <section 
@@ -232,9 +256,14 @@ const Index = () => {
 
             {/* Primary CTA */}
             <Button size="lg" className="text-base px-8 py-6 bg-primary text-primary-foreground group hover:bg-primary/20 hover:backdrop-blur-md hover:border-primary/30 border border-transparent transition-all duration-300 mb-6">
-              🔥 STIAHNUŤ APLIKÁCIU A ZAČAŤ ZDARMA
+              🔥 STIAHNUŤ APLIKÁCIU TERAZ
               <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
+            
+            {/* Secondary CTA */}
+            <p className="text-white/90 mb-6 text-sm">
+              Vyskúšaj zadarmo 7 dní. Žiadna platobná karta potrebná.
+            </p>
 
             {/* App Store Badges */}
             <div className="flex flex-col sm:flex-row gap-4">
@@ -289,6 +318,9 @@ const Index = () => {
 
       {/* Comparison Section */}
       <ComparisonSection />
+
+      {/* Founder Story Section */}
+      <FounderStory />
 
       {/* Proof & Guarantee Section */}
       <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
@@ -557,8 +589,8 @@ const Index = () => {
               <p className="text-lg text-muted-foreground mb-6">
                 Pridaj sa k <span className="gradient-text font-medium">4000+ ženám</span>, ktoré už zmenili svoj život.
               </p>
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                ZAČNI SVOJU CESTU
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-transform">
+                PRIDAJ SA K TISÍCKAM ŽIEN
                 <ArrowRight size={20} className="ml-2" />
               </Button>
             </div>
@@ -579,7 +611,10 @@ const Index = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Video Card 1 */}
-              <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow">
+              <div 
+                className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
+                onClick={() => openVideoModal("dQw4w9WgXcQ", "Martinina cesta - Ako som stratila 8 kg")}
+              >
                 <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
                   <img 
                     src={testimonialMartina} 
@@ -603,7 +638,10 @@ const Index = () => {
               </div>
 
               {/* Video Card 2 */}
-              <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow">
+              <div 
+                className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
+                onClick={() => openVideoModal("dQw4w9WgXcQ", "Luciin príbeh - 15 minút denne")}
+              >
                 <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
                   <img 
                     src={testimonialLucia} 
@@ -627,7 +665,10 @@ const Index = () => {
               </div>
 
               {/* Video Card 3 */}
-              <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow">
+              <div 
+                className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
+                onClick={() => openVideoModal("dQw4w9WgXcQ", "Zuzanina premena - Od vyhorenia k pokoju")}
+              >
                 <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
                   <img 
                     src={testimonialZuzana} 
@@ -738,18 +779,24 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
+      <section ref={addToRefs} className="py-16 md:py-20 px-4 md:px-8 opacity-0">
         <div className="container mx-auto max-w-4xl text-center">
           <Card className="rounded-3xl shadow-xl p-12 md:p-16 bg-gradient-to-br from-primary/10 to-accent/20 border-primary/20">
+            <Sparkle size={56} weight="fill" className="text-primary mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-light mb-6">
               Pamätaj, že na tebe záleží.
             </h2>
-            <p className="text-xl mb-10 text-muted-foreground">
-              Začni ešte dnes.
+            <p className="text-xl mb-10 text-muted-foreground leading-relaxed">
+              Každá transformácia začína jediným rozhodnutím.<br />
+              Tým rozhodnutím môžeš byť ty. Teraz.
             </p>
-            <Button size="lg" className="text-base px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/20 hover:backdrop-blur-md hover:border-primary/30 border border-transparent transition-all duration-300">
-              🔥 STIAHNUŤ APLIKÁCIU A ZÍSKAŤ POKOJ
+            <Button size="lg" className="text-base px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-300">
+              STIAHNI APLIKÁCIU A ZAČNI
+              <ArrowRight size={20} className="ml-2" />
             </Button>
+            <p className="text-sm text-muted-foreground mt-6">
+              Vyskúšaj zadarmo 7 dní. Zruš kedykoľvek.
+            </p>
           </Card>
         </div>
       </section>
@@ -772,6 +819,9 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Live Chat Widget */}
+      <LiveChatWidget />
     </div>
   );
 };

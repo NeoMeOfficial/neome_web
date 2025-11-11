@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Baby, Dumbbell, Zap, Crown } from "lucide-react";
 import postpartumImg from "@/assets/postpartum-program.jpg";
 import bodyformingImg from "@/assets/bodyforming-program.jpg";
 import elasticbandsImg from "@/assets/elasticbands-program.jpg";
@@ -21,7 +21,11 @@ const individualPrograms = [
     ],
     duration: "8 týždňov",
     image: postpartumImg,
-    accentColor: "bg-[hsl(35,45%,65%)]" // Warm gold accent
+    icon: Baby,
+    accentColor: "bg-rose-400",
+    badgeColor: "bg-rose-100 text-rose-700",
+    borderColor: "border-rose-400",
+    glowColor: "shadow-rose-400/40"
   },
   {
     level: "Level 2",
@@ -35,7 +39,11 @@ const individualPrograms = [
     ],
     duration: "6 týždňov",
     image: bodyformingImg,
-    accentColor: "bg-[hsl(15,35%,68%)]"
+    icon: Dumbbell,
+    accentColor: "bg-purple-400",
+    badgeColor: "bg-purple-100 text-purple-700",
+    borderColor: "border-purple-400",
+    glowColor: "shadow-purple-400/40"
   },
   {
     level: "Level 3",
@@ -49,7 +57,11 @@ const individualPrograms = [
     ],
     duration: "6 týždňov",
     image: elasticbandsImg,
-    accentColor: "bg-[hsl(35,45%,65%)]"
+    icon: Zap,
+    accentColor: "bg-blue-400",
+    badgeColor: "bg-blue-100 text-blue-700",
+    borderColor: "border-blue-400",
+    glowColor: "shadow-blue-400/40"
   },
   {
     level: "Level 4",
@@ -63,7 +75,11 @@ const individualPrograms = [
     ],
     duration: "8 týždňov",
     image: strongsexyImg,
-    accentColor: "bg-[hsl(35,45%,65%)]"
+    icon: Crown,
+    accentColor: "bg-amber-400",
+    badgeColor: "bg-amber-100 text-amber-700",
+    borderColor: "border-amber-400",
+    glowColor: "shadow-amber-400/40"
   }
 ];
 
@@ -140,12 +156,17 @@ export const ProgramsScroll = () => {
                   <AccordionItem 
                     key={index} 
                     value={`item-${index}`}
-                    className="border-none"
+                    className={`border-none border-l-4 ${selectedProgram === index ? prog.borderColor : 'border-transparent'} transition-all`}
                   >
                     <AccordionTrigger className="text-left hover:no-underline py-4 px-3 rounded-lg hover:bg-muted/30 data-[state=open]:bg-muted/40 transition-colors">
-                      <div className="flex flex-col gap-1">
-                        <span className="text-xs font-semibold text-primary uppercase tracking-wide">{prog.level}</span>
-                        <span className="text-sm font-medium text-foreground">{prog.tag}</span>
+                      <div className="flex items-center gap-3">
+                        <div className={`w-10 h-10 rounded-full ${prog.accentColor} flex items-center justify-center flex-shrink-0`}>
+                          <prog.icon size={20} className="text-white" />
+                        </div>
+                        <div className="flex flex-col gap-1">
+                          <span className={`text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full ${prog.badgeColor}`}>{prog.level}</span>
+                          <span className="text-sm font-medium text-foreground">{prog.tag}</span>
+                        </div>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="px-3 pb-2">
@@ -173,9 +194,14 @@ export const ProgramsScroll = () => {
                   
                   {/* Content */}
                   <div className="space-y-6">
+                    {/* Icon Circle */}
+                    <div className={`w-16 h-16 rounded-full ${program.accentColor} flex items-center justify-center shadow-lg ${program.glowColor}`}>
+                      <program.icon size={32} className="text-white" />
+                    </div>
+
                     {/* Duration & Title */}
                     <div>
-                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border text-muted-foreground text-xs mb-3">
+                      <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full ${program.badgeColor} text-xs mb-3 font-medium`}>
                         {program.duration}
                       </div>
                       <h3 className="text-3xl lg:text-4xl xl:text-5xl font-light text-foreground mb-3">
@@ -204,9 +230,9 @@ export const ProgramsScroll = () => {
                     <div className="pt-4">
                       <Button 
                         size="lg"
-                        className={`${program.accentColor} hover:opacity-90 text-white px-6 transition-all hover:scale-105`}
+                        className={`${program.accentColor} hover:opacity-90 text-white px-6 transition-all hover:scale-105 shadow-lg ${program.glowColor}`}
                       >
-                        Zisti Viac
+                        ZISTI VIAC O PROGRAME
                         <ArrowRight size={16} className="ml-2" />
                       </Button>
                     </div>
@@ -214,14 +240,14 @@ export const ProgramsScroll = () => {
 
                   {/* Image */}
                   <div className="relative flex items-start justify-center md:justify-end">
-                    <div className="relative rounded-2xl overflow-hidden shadow-lg w-full max-w-[280px] lg:max-w-[320px]">
-                      <div className="aspect-[3/4] relative">
+                    <div className={`relative rounded-2xl overflow-hidden shadow-xl w-full max-w-[280px] lg:max-w-[320px] border-t-4 ${program.borderColor}`}>
+                      <div className="aspect-[3/4] relative group">
                         <img 
                           src={program.image} 
                           alt={program.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                        <div className={`absolute inset-0 bg-gradient-to-t from-${program.accentColor.split('-')[1]}-500/40 to-transparent`} />
                       </div>
                     </div>
                   </div>

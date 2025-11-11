@@ -40,6 +40,18 @@
     --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 100%;
 
+    /* Success colors for testimonials */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    /* Info colors for educational content */
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    /* Warning colors for promotional banners */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
     --border: 30 15% 88%;
     --input: 30 15% 88%;
     --ring: 18 32% 29%;
@@ -104,6 +116,15 @@
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --info: 217 85% 65%;
+    --info-foreground: 0 0% 100%;
+
+    --warning: 38 85% 55%;
+    --warning-foreground: 0 0% 100%;
 
     --border: 30 8% 20%;
     --input: 30 8% 20%;
