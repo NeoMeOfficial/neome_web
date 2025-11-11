@@ -209,7 +209,7 @@ const Index = () => {
               </div>
 
               {/* Right: Scrollable Feature Sections */}
-              <div className="space-y-8 order-1 lg:order-2">
+              <div className="space-y-8 order-1 lg:order-2 pb-96">
                 {/* Small highlight tag */}
                 <div className="inline-block">
                   <span className="text-sm font-medium uppercase tracking-wider text-primary relative">
@@ -229,15 +229,16 @@ const Index = () => {
                   Holistický prístup k wellbeingu. Telo, myseľ a komunita v jednej aplikácii.
                 </p>
                 
-                {/* Feature Sections */}
-                <div className="space-y-8 pt-4">
+                {/* Feature Sections - Stacking Effect */}
+                <div className="space-y-4 pt-4 min-h-[200vh]">
                   {features.map((feature, index) => (
                     <div
                       key={index}
                       ref={(el) => (featureRefs.current[index] = el)}
-                      className={`p-6 rounded-2xl border-2 transition-all duration-500 ${
+                      style={{ top: `${80 + index * 24}px` }}
+                      className={`sticky p-6 rounded-2xl border-2 transition-all duration-500 ${
                         activeFeatureIndex === index
-                          ? 'border-primary/50 bg-white shadow-lg scale-[1.02]'
+                          ? 'border-primary/50 bg-white shadow-lg scale-[1.02] z-10'
                           : 'border-border/20 bg-white/50 opacity-60'
                       }`}
                     >
