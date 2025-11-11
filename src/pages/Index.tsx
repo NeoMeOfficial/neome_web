@@ -504,14 +504,19 @@ const Index = () => {
                   </li>
                 </ul>
 
-                <Button variant="outline" className="w-full">
-                  POZRIEŤ PROGRAMY
-                </Button>
+                <div className="space-y-3">
+                  <Button variant="outline" className="w-full">
+                    POZRIEŤ PROGRAMY
+                  </Button>
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                    VYBRAŤ PROGRAM
+                  </Button>
+                </div>
               </Card>
             </div>
 
             {/* Mobile: Swipeable Cards */}
-            <div className="md:hidden relative overflow-hidden">
+            <div className="md:hidden relative">
               <div 
                 className="flex transition-transform duration-300 ease-out touch-pan-y"
                 style={{ transform: `translateX(-${activePricingCard * 100}%)` }}
@@ -624,9 +629,14 @@ const Index = () => {
                       </li>
                     </ul>
 
-                    <Button variant="outline" className="w-full">
-                      POZRIEŤ PROGRAMY
-                    </Button>
+                    <div className="space-y-3">
+                      <Button variant="outline" className="w-full">
+                        POZRIEŤ PROGRAMY
+                      </Button>
+                      <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                        VYBRAŤ PROGRAM
+                      </Button>
+                    </div>
                   </Card>
                 </div>
               </div>
@@ -646,6 +656,95 @@ const Index = () => {
                   />
                 ))}
               </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
+        <div className="container mx-auto max-w-7xl">
+          <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
+            <h2 className="text-4xl md:text-5xl font-light text-center mb-4">
+              Príbehy, ktoré inšpirujú
+            </h2>
+            <p className="text-xl text-center text-muted-foreground mb-16">
+              Skutočné ženy, skutočné výsledky.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Testimonial 1 */}
+              <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-2xl font-medium">
+                    M
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-lg">Martina, 34</h3>
+                    <p className="text-sm text-muted-foreground">Mamička dvoch detí</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  "Po narodení druhého dieťaťa som sa cítila úplne stratená. NeoMe mi pomohlo vrátiť sa k sebe bez tlaku a výčitiek. Prvýkrát sa cítim silná v tele aj v mysli."
+                </p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">-8 kg</span>
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Lepší spánok</span>
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Viac energie</span>
+                </div>
+              </Card>
+
+              {/* Testimonial 2 */}
+              <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-2xl font-medium">
+                    L
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-lg">Lucia, 29</h3>
+                    <p className="text-sm text-muted-foreground">Kariérna žena</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  "Nemusím sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel. Konečne som našla niečo, čo sa hodí do môjho rýchleho života."
+                </p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Menej stresu</span>
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Pevnejšie telo</span>
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Viac sebavedomia</span>
+                </div>
+              </Card>
+
+              {/* Testimonial 3 */}
+              <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-2xl font-medium">
+                    Z
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-lg">Zuzana, 41</h3>
+                    <p className="text-sm text-muted-foreground">Podnikateľka</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  "Meditácie a dychové cvičenia zmenili môj prístup k životu. Už sa nenechám tak ľahko rozhodiť a mám viac energie na rodinu aj biznis. Je to o celej mne, nie len o cvičení."
+                </p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Pokojnejšia myseľ</span>
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Lepšia koncentrácia</span>
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Viac radosti</span>
+                </div>
+              </Card>
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-lg text-muted-foreground mb-6">
+                Pridaj sa k <span className="gradient-text font-medium">4000+ ženám</span>, ktoré už zmenili svoj život.
+              </p>
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                ZAČNI SVOJU CESTU
+                <ArrowRight size={20} className="ml-2" />
+              </Button>
             </div>
           </Card>
         </div>
