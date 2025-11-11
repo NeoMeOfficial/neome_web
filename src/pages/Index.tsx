@@ -9,6 +9,9 @@ import appMockup2 from "@/assets/app-mockup-2.png";
 import appMockupMind from "@/assets/app-mockup-mind.png";
 import appMockupExtras from "@/assets/app-mockup-extras.png";
 import appMockupCommunity from "@/assets/app-mockup-community.png";
+import testimonialMartina from "@/assets/testimonial-martina.jpg";
+import testimonialLucia from "@/assets/testimonial-lucia.jpg";
+import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ProgramsScroll } from "@/components/ProgramsScroll";
 
@@ -676,9 +679,11 @@ const Index = () => {
               {/* Testimonial 1 */}
               <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-2xl font-medium">
-                    M
-                  </div>
+                  <img 
+                    src={testimonialMartina} 
+                    alt="Martina" 
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
                   <div>
                     <h3 className="font-medium text-lg">Martina, 34</h3>
                     <p className="text-sm text-muted-foreground">Mamička dvoch detí</p>
@@ -697,9 +702,11 @@ const Index = () => {
               {/* Testimonial 2 */}
               <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-2xl font-medium">
-                    L
-                  </div>
+                  <img 
+                    src={testimonialLucia} 
+                    alt="Lucia" 
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
                   <div>
                     <h3 className="font-medium text-lg">Lucia, 29</h3>
                     <p className="text-sm text-muted-foreground">Kariérna žena</p>
@@ -718,9 +725,11 @@ const Index = () => {
               {/* Testimonial 3 */}
               <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-2xl font-medium">
-                    Z
-                  </div>
+                  <img 
+                    src={testimonialZuzana} 
+                    alt="Zuzana" 
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
                   <div>
                     <h3 className="font-medium text-lg">Zuzana, 41</h3>
                     <p className="text-sm text-muted-foreground">Podnikateľka</p>
