@@ -17,6 +17,8 @@ const Index = () => {
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const featureSectionRef = useRef<HTMLDivElement>(null);
+  const touchStartY = useRef<number>(0);
+  const touchStartX = useRef<number>(0);
 
   const features = [
     {
@@ -93,6 +95,47 @@ const Index = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, [features.length]);
+
+  // Touch/swipe gesture support for mobile
+  useEffect(() => {
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY.current = e.touches[0].clientY;
+      touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (!featureSectionRef.current) return;
+
+      const rect = featureSectionRef.current.getBoundingClientRect();
+      const isInSection = rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
+
+      if (!isInSection) return;
+
+      const touchEndY = e.changedTouches[0].clientY;
+      const touchEndX = e.changedTouches[0].clientX;
+      const deltaY = touchStartY.current - touchEndY;
+      const deltaX = touchStartX.current - touchEndX;
+
+      // Check if it's primarily a vertical swipe (not horizontal)
+      if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 50) {
+        if (deltaY > 0) {
+          // Swiped up - next feature
+          setActiveFeatureIndex(prev => Math.min(prev + 1, features.length - 1));
+        } else {
+          // Swiped down - previous feature
+          setActiveFeatureIndex(prev => Math.max(prev - 1, 0));
+        }
+      }
+    };
+
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
   }, [features.length]);
 
   const addToRefs = (el: HTMLElement | null) => {
@@ -194,8 +237,8 @@ const Index = () => {
           addToRefs(el);
           if (el) featureSectionRef.current = el as HTMLDivElement;
         }}
-        style={{ height: `${features.length * 100}vh` }}
-        className="relative opacity-0"
+        style={{ height: `${features.length * 80}vh` }}
+        className="relative opacity-0 scroll-smooth"
       >
         {/* Sticky Content */}
         <section 
