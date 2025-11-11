@@ -346,58 +346,64 @@ const Index = () => {
                   </h2>
                   
                   {/* Subheading */}
-                  <p className="text-lg text-muted-foreground font-light">
+                  <p className="text-lg text-muted-foreground font-light mb-2">
                     Holistický prístup k wellbeingu. Telo, myseľ a komunita v jednej aplikácii.
                   </p>
                   
-                  {/* Notebook-style Tabs */}
-                  <div className="flex gap-1 items-end mb-0">
-                    {features.map((feature, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setActiveFeatureIndex(index)}
-                        className={`
-                          relative px-4 py-3 text-sm font-medium transition-all duration-300 cursor-pointer
-                          rounded-t-xl border-t-2 border-x-2
-                          ${activeFeatureIndex === index 
-                            ? 'bg-white border-primary/50 text-foreground z-10 -mb-[2px]' 
-                            : 'bg-muted/30 border-border/20 text-muted-foreground hover:bg-muted/50 hover:border-border/40'
-                          }
-                        `}
-                        style={{
-                          boxShadow: activeFeatureIndex === index 
-                            ? '0 -4px 6px -1px rgba(0, 0, 0, 0.05)' 
-                            : 'none'
-                        }}
+                  {/* Notebook-style Tabs Container */}
+                  <div className="relative">
+                    {/* Tabs */}
+                    <div className="flex gap-0.5 items-end relative z-20">
+                      {features.map((feature, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setActiveFeatureIndex(index)}
+                          className={`
+                            relative px-3 md:px-4 py-2.5 md:py-3 text-xs md:text-sm font-medium 
+                            transition-all duration-300 cursor-pointer
+                            rounded-t-lg
+                            ${activeFeatureIndex === index 
+                              ? 'bg-white text-primary border-t-2 border-x-2 border-primary shadow-[0_-2px_8px_rgba(0,0,0,0.06)] translate-y-[2px]' 
+                              : 'bg-gradient-to-b from-muted/60 to-muted/40 text-muted-foreground border border-border/30 hover:from-muted/80 hover:to-muted/60 hover:text-foreground hover:shadow-sm'
+                            }
+                          `}
+                        >
+                          <span className="block truncate max-w-[60px] md:max-w-none whitespace-nowrap">
+                            {feature.title}
+                          </span>
+                          {/* Active tab bottom border that merges with card */}
+                          {activeFeatureIndex === index && (
+                            <div className="absolute bottom-[-2px] left-0 right-0 h-[3px] bg-white z-30"></div>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                    
+                    {/* Feature Card - Seamlessly connected to tabs */}
+                    <div className="relative z-10 p-6 md:p-8 rounded-2xl rounded-tl-lg border-2 border-primary bg-white shadow-xl transition-all duration-700 min-h-[320px] flex flex-col">
+                      {/* Animated content wrapper */}
+                      <div key={activeFeatureIndex} className="animate-fade-in">
+                        <h3 className="text-2xl md:text-3xl font-semibold mb-3 text-foreground">
+                          {features[activeFeatureIndex].title}
+                        </h3>
+                        <p className="text-sm md:text-base text-primary font-medium mb-4">
+                          {features[activeFeatureIndex].subheading}
+                        </p>
+                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 flex-grow">
+                          {features[activeFeatureIndex].desc}
+                        </p>
+                      </div>
+                      
+                      <Button 
+                        asChild
+                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transition-all"
                       >
-                        <span className="block truncate max-w-[80px] md:max-w-none">
-                          {feature.title}
-                        </span>
-                        {activeFeatureIndex === index && (
-                          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white"></div>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                  
-                  {/* Feature Card - Fixed height to prevent shifting */}
-                  <div className="p-6 rounded-2xl rounded-tl-none border-2 border-primary/50 bg-white shadow-lg transition-all duration-700 min-h-[280px] flex flex-col">
-                    <h3 className="text-2xl font-medium mb-2">{features[activeFeatureIndex].title}</h3>
-                    <p className="text-sm text-muted-foreground font-light mb-4">
-                      {features[activeFeatureIndex].subheading}
-                    </p>
-                    <p className="text-base text-muted-foreground leading-relaxed mb-6 flex-grow">
-                      {features[activeFeatureIndex].desc}
-                    </p>
-                    <Button 
-                      asChild
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                    >
-                      <a href={features[activeFeatureIndex].link}>
-                        Chcem vedieť viac
-                        <ArrowRight size={16} className="ml-2" />
-                      </a>
-                    </Button>
+                        <a href={features[activeFeatureIndex].link}>
+                          Chcem vedieť viac
+                          <ArrowRight size={16} className="ml-2" />
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
