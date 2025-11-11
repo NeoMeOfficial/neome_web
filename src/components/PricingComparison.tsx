@@ -131,7 +131,7 @@ export const PricingComparison = () => {
   };
 
   const subscriptionTier = subscriptionTiers[subscriptionPeriod];
-  const tiers: PricingTier[] = [freeTier, subscriptionTier, programsTier];
+  const tiers: PricingTier[] = [freeTier, subscriptionTier];
 
   return (
     <section id="cennik" className="py-16 md:py-20 px-0 md:px-4 bg-white">
@@ -146,51 +146,6 @@ export const PricingComparison = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Všetky plány zahŕňajú 30-dňovú záruku vrátenia peňazí
           </p>
-
-          {/* Subscription Period Toggle */}
-          <div className="flex justify-center mt-8">
-            <div className="inline-flex items-center bg-muted/50 backdrop-blur-sm rounded-full p-1 gap-1">
-              <button
-                onClick={() => setSubscriptionPeriod('monthly')}
-                className={cn(
-                  "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200",
-                  subscriptionPeriod === 'monthly'
-                    ? "bg-white shadow-sm text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                Mesačne
-              </button>
-              <button
-                onClick={() => setSubscriptionPeriod('quarterly')}
-                className={cn(
-                  "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 relative",
-                  subscriptionPeriod === 'quarterly'
-                    ? "bg-white shadow-sm text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                Kvartálne
-                <Badge variant="secondary" className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0">
-                  -20%
-                </Badge>
-              </button>
-              <button
-                onClick={() => setSubscriptionPeriod('yearly')}
-                className={cn(
-                  "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 relative",
-                  subscriptionPeriod === 'yearly'
-                    ? "bg-white shadow-sm text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                Ročne
-                <Badge variant="secondary" className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0">
-                  -33%
-                </Badge>
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Comparison Table - Desktop */}
@@ -202,6 +157,52 @@ export const PricingComparison = () => {
                 {tiers.map((tier, index) => (
                   <th key={index} className="p-4">
                     <div className="flex flex-col items-center">
+                      {/* Subscription Period Toggle - only for subscription tier */}
+                      {index === 1 && (
+                        <div className="mb-4 flex justify-center">
+                          <div className="inline-flex items-center bg-muted/50 backdrop-blur-sm rounded-full p-1 gap-1">
+                            <button
+                              onClick={() => setSubscriptionPeriod('monthly')}
+                              className={cn(
+                                "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
+                                subscriptionPeriod === 'monthly'
+                                  ? "bg-white shadow-sm text-foreground"
+                                  : "text-muted-foreground hover:text-foreground"
+                              )}
+                            >
+                              Mesačne
+                            </button>
+                            <button
+                              onClick={() => setSubscriptionPeriod('quarterly')}
+                              className={cn(
+                                "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative",
+                                subscriptionPeriod === 'quarterly'
+                                  ? "bg-white shadow-sm text-foreground"
+                                  : "text-muted-foreground hover:text-foreground"
+                              )}
+                            >
+                              Kvartálne
+                              <Badge variant="secondary" className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0">
+                                -20%
+                              </Badge>
+                            </button>
+                            <button
+                              onClick={() => setSubscriptionPeriod('yearly')}
+                              className={cn(
+                                "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative",
+                                subscriptionPeriod === 'yearly'
+                                  ? "bg-white shadow-sm text-foreground"
+                                  : "text-muted-foreground hover:text-foreground"
+                              )}
+                            >
+                              Ročne
+                              <Badge variant="secondary" className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0">
+                                -33%
+                              </Badge>
+                            </button>
+                          </div>
+                        </div>
+                      )}
                       {/* Badge container with fixed height */}
                       <div className="h-7 mb-2 flex items-center justify-center">
                         {tier.popular && (
@@ -276,6 +277,52 @@ export const PricingComparison = () => {
         <div className="lg:hidden grid sm:grid-cols-2 gap-6">
           {tiers.map((tier, index) => (
             <div key={index} className="flex flex-col">
+              {/* Subscription Period Toggle - only for subscription tier */}
+              {index === 1 && (
+                <div className="mb-3 flex justify-center">
+                  <div className="inline-flex items-center bg-muted/50 backdrop-blur-sm rounded-full p-1 gap-1">
+                    <button
+                      onClick={() => setSubscriptionPeriod('monthly')}
+                      className={cn(
+                        "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
+                        subscriptionPeriod === 'monthly'
+                          ? "bg-white shadow-sm text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
+                      )}
+                    >
+                      Mesačne
+                    </button>
+                    <button
+                      onClick={() => setSubscriptionPeriod('quarterly')}
+                      className={cn(
+                        "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative",
+                        subscriptionPeriod === 'quarterly'
+                          ? "bg-white shadow-sm text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
+                      )}
+                    >
+                      Kvartálne
+                      <Badge variant="secondary" className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0">
+                        -20%
+                      </Badge>
+                    </button>
+                    <button
+                      onClick={() => setSubscriptionPeriod('yearly')}
+                      className={cn(
+                        "px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative",
+                        subscriptionPeriod === 'yearly'
+                          ? "bg-white shadow-sm text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
+                      )}
+                    >
+                      Ročne
+                      <Badge variant="secondary" className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0">
+                        -33%
+                      </Badge>
+                    </button>
+                  </div>
+                </div>
+              )}
               {/* Badge container with fixed height */}
               <div className="h-8 mb-2 flex items-start justify-center">
                 {tier.popular && (
