@@ -294,9 +294,6 @@ const Index = () => {
       {/* Professional Recommendations Section */}
       <ProfessionalRecommendations />
 
-      {/* How It Works Section */}
-      <HowItWorks />
-
       {/* Comparison Section */}
       <ComparisonSection />
 
@@ -426,6 +423,9 @@ const Index = () => {
 
       {/* Pricing Section */}
       <PricingComparison />
+
+      {/* How It Works Section */}
+      <HowItWorks />
 
       {/* Testimonials Section */}
       <section id="testimonials" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
