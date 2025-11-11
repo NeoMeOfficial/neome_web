@@ -8,6 +8,11 @@ import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Cvicenie from "./pages/Cvicenie";
+import Strava from "./pages/Strava";
+import Mysel from "./pages/Mysel";
+import Extras from "./pages/Extras";
+import Komunita from "./pages/Komunita";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +29,11 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/o-nas" element={<About />} />
           <Route path="/kontakt" element={<Contact />} />
+          <Route path="/cvicenie" element={<Cvicenie />} />
+          <Route path="/strava" element={<Strava />} />
+          <Route path="/mysel" element={<Mysel />} />
+          <Route path="/extras" element={<Extras />} />
+          <Route path="/komunita" element={<Komunita />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

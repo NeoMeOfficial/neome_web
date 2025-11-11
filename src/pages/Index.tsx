@@ -25,31 +25,36 @@ const Index = () => {
       title: "Cvičenie",
       subheading: "5-15 minútové tréningy prispôsobené tvojmu rytmu a cieľom",
       desc: "Tréningy na požiadanie, ktoré sa prispôsobia tvojmu denníku. Cvičenia zamerané na ženské telo: spevnenie brušného korzetu, zlepšenie metabolizmu a mobility. Vďaka krátkym tréningom už nemáš výhovorky – nájdeš si čas aj vtedy, keď si myslíš, že ho nemáš.",
-      image: appMockup1
+      image: appMockup1,
+      link: "/cvicenie"
     },
     {
       title: "Strava",
       subheading: "Jednoduché recepty pre hormonálnu rovnováhu a trvalú energiu",
       desc: "Jednoduché a chutné recepty, ktoré zvládne celá rodina. Žiadne počítanie kalórií ani drastické obmedzenia. Zameraj sa na podporu hormonálnej rovnováhy, stabilnú energiu cez celý deň a jedlo, ktoré ťa naozaj zasýti a potešĺ.",
-      image: appMockup2
+      image: appMockup2,
+      link: "/strava"
     },
     {
       title: "Myseľ",
       subheading: "Denné meditácie a dychové cvičenia pre mentálny pokoj",
       desc: "Krátke meditácie a dychové cvičenia na okamžité upokojenie mysle – aj keď máš len 3 minúty. Každý deň ti pripomíname, že si dosť presne taká, aká si. Získaj nástroje, ktoré ti pomôžu zvládnuť stres a vrátiť sa do svojho centra.",
-      image: appMockupMind
+      image: appMockupMind,
+      link: "/mysel"
     },
     {
       title: "Extras",
       subheading: "Špeciálne programy, výzvy a exkluzívny obsah pre tvoj rast",
       desc: "Prístup k špeciálnym programom, výzvám a exkluzívnemu obsahu. Nájdeš tu dodatočné nástroje pre tvoju osobnú transformáciu – od špeciálnych workoutov až po tematické výzvy, ktoré ťa posunú ďalej.",
-      image: appMockupExtras
+      image: appMockupExtras,
+      link: "/extras"
     },
     {
       title: "Komunita",
       subheading: "Pripoj sa k tisíckam žien na podobnej transformačnej ceste",
       desc: "Pripoj sa k tisíckam žien, ktoré sú na podobnej ceste ako ty. Zdieľaj svoje úspechy, nájdi inšpiráciu v príbehoch ostatných a cíť podporu komunity, ktorá ťa povzbudí aj v náročnejších dňoch. Spolu to ide lepšie.",
-      image: appMockupCommunity
+      image: appMockupCommunity,
+      link: "/komunita"
     }
   ];
 
@@ -290,7 +295,7 @@ const Index = () => {
                 </div>
 
                 {/* Right: Single Card */}
-                <div className="space-y-8 order-1 lg:order-2">
+                <div className="space-y-8 order-1 lg:order-2 min-h-[600px] flex flex-col justify-center">
                   {/* Small highlight tag */}
                   <div className="inline-block">
                     <span className="text-sm font-medium uppercase tracking-wider text-primary relative">
@@ -310,15 +315,24 @@ const Index = () => {
                     Holistický prístup k wellbeingu. Telo, myseľ a komunita v jednej aplikácii.
                   </p>
                   
-                  {/* Feature Card */}
-                  <div className="p-6 rounded-2xl border-2 border-primary/50 bg-white shadow-lg transition-all duration-700">
+                  {/* Feature Card - Fixed height to prevent shifting */}
+                  <div className="p-6 rounded-2xl border-2 border-primary/50 bg-white shadow-lg transition-all duration-700 min-h-[280px] flex flex-col">
                     <h3 className="text-2xl font-medium mb-2">{features[activeFeatureIndex].title}</h3>
                     <p className="text-sm text-muted-foreground font-light mb-4">
                       {features[activeFeatureIndex].subheading}
                     </p>
-                    <p className="text-base text-muted-foreground leading-relaxed">
+                    <p className="text-base text-muted-foreground leading-relaxed mb-6 flex-grow">
                       {features[activeFeatureIndex].desc}
                     </p>
+                    <Button 
+                      asChild
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                    >
+                      <a href={features[activeFeatureIndex].link}>
+                        Chcem vedieť viac
+                        <ArrowRight size={16} className="ml-2" />
+                      </a>
+                    </Button>
                   </div>
 
                   {/* Progress Indicator */}
