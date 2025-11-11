@@ -254,7 +254,7 @@ export const PricingComparison = () => {
                 {tiers.map((tier, index) => <th key={index} className="p-4 align-top">
                     <div className="flex flex-col items-center">
                       {/* Subscription Period Toggle - only for subscription tier */}
-                      {index === 1 && <div className="mb-4 flex justify-center">
+                      {index === 1 && <div className="mb-1 flex justify-center">
                           <div className="inline-flex items-center bg-muted/50 backdrop-blur-sm rounded-full p-1 gap-1">
                             <button onClick={() => setSubscriptionPeriod('monthly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200", subscriptionPeriod === 'monthly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
                               Mesačne
@@ -274,7 +274,7 @@ export const PricingComparison = () => {
                           </div>
                         </div>}
                       {/* Empty space for alignment when no toggle */}
-                      {index !== 1 && <div className="mb-4 h-[34px]"></div>}
+                      {index !== 1 && <div className="mb-1 h-[34px]"></div>}
                       {/* Badge container with fixed height */}
                       <div className="h-7 mb-2 flex items-center justify-center">
                         {tier.popular && <Badge className="bg-primary text-primary-foreground animate-fade-in">
@@ -321,7 +321,7 @@ export const PricingComparison = () => {
         <div className="lg:hidden grid sm:grid-cols-2 gap-6">
           {tiers.map((tier, index) => <div key={index} className="flex flex-col">
               {/* Subscription Period Toggle - only for subscription tier */}
-              {index === 1 && <div className="mb-3 flex justify-center">
+              {index === 1 && <div className="mb-1 flex justify-center">
                   <div className="inline-flex items-center bg-muted/50 backdrop-blur-sm rounded-full p-1 gap-1">
                     <button onClick={() => setSubscriptionPeriod('monthly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200", subscriptionPeriod === 'monthly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
                       Mesačne
@@ -341,7 +341,7 @@ export const PricingComparison = () => {
                   </div>
                 </div>}
               {/* Empty space for alignment when no toggle */}
-              {index !== 1 && <div className="mb-3 h-[34px]"></div>}
+              {index !== 1 && <div className="mb-1 h-[34px]"></div>}
               {/* Badge container with fixed height */}
               <div className="h-8 mb-2 flex items-start justify-center">
                 {tier.popular && <Badge className="bg-primary text-primary-foreground animate-fade-in">

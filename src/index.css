@@ -72,7 +72,7 @@
     --success-foreground: 0 0% 100%;
 
     /* Info colors for educational content */
-    --info: 217 91% 60%;
+    --info: 194 28% 64%;
     --info-foreground: 0 0% 100%;
 
     /* Warning colors for promotional banners */
@@ -147,7 +147,7 @@
     --success: 142 70% 45%;
     --success-foreground: 0 0% 100%;
 
-    --info: 217 85% 65%;
+    --info: 194 28% 64%;
     --info-foreground: 0 0% 100%;
 
     --warning: 38 85% 55%;
