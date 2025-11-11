@@ -70,7 +70,7 @@ export const ComparisonSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-secondary/10 to-background">
+    <section className="py-16 md:py-20 px-4 bg-section-beige">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">

@@ -287,19 +287,19 @@ const Index = () => {
       </section>
 
       {/* Empathy Section */}
-      <section id="empatia" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
+      <section id="empatia" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0 bg-section-beige">
         <div className="container mx-auto max-w-4xl">
-          <Card className="rounded-3xl shadow-xl p-10 md:p-16 text-center bg-white border-border/10">
-            <h2 className="text-4xl md:text-5xl font-light mb-8">
+          <Card className="rounded-3xl shadow-xl p-10 md:p-16 text-center bg-primary border-0">
+            <h2 className="text-4xl md:text-5xl font-light mb-8 text-white">
               Si unavená. A aj tak sa snažíš...
             </h2>
-            <p className="text-lg leading-relaxed mb-6">
+            <p className="text-lg leading-relaxed mb-6 text-white opacity-90">
               Viem to. Každá sekunda tvojho času je cenná a snaha nájsť čas na seba je často zdrojom stresu, nie radosti.
             </p>
-            <p className="text-lg leading-relaxed mb-6">
-              U nás v NeoMe veríme, že aj <strong className="font-medium gradient-text">15 minút denne je víťazstvo</strong>. Nie je to o dokonalosti. Je to o tvojom rozhodnutí, že si to zaslúžiš.
+            <p className="text-lg leading-relaxed mb-6 text-white opacity-90">
+              U nás v NeoMe veríme, že aj <strong className="font-medium text-white">15 minút denne je víťazstvo</strong>. Nie je to o dokonalosti. Je to o tvojom rozhodnutí, že si to zaslúžiš.
             </p>
-            <p className="text-xl font-light gradient-text">
+            <p className="text-xl font-light text-white">
               NeoMe sa ti prispôsobí, nie naopak.
             </p>
           </Card>
@@ -322,7 +322,7 @@ const Index = () => {
       <FounderStory />
 
       {/* Proof & Guarantee Section */}
-      <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
+      <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0 bg-section-beige">
         <div className="container mx-auto max-w-6xl">
           <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
             <h2 className="text-4xl md:text-5xl font-light text-center mb-12">

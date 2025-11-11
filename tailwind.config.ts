@@ -63,6 +63,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        section: {
+          white: "hsl(var(--section-white))",
+          beige: "hsl(var(--section-beige))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -37,6 +37,10 @@
     --feature-bg: 30 25% 94%;
     --feature-card: 0 0% 100%;
 
+    /* Alternate section backgrounds */
+    --section-white: 0 0% 100%;
+    --section-beige: 30 29% 92%;
+
     --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 100%;
 
