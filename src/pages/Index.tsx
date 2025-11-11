@@ -103,7 +103,6 @@ const Index = () => {
       const sectionHeight = rect.height;
       
       // Calculate scroll progress within the section
-      // When section top hits 0, we're starting to scroll through it
       if (rect.top <= 0 && rect.bottom > window.innerHeight) {
         const scrollProgress = -rect.top;
         const scrollPerFeature = sectionHeight / features.length;
@@ -300,8 +299,8 @@ const Index = () => {
           addToRefs(el);
           if (el) featureSectionRef.current = el as HTMLDivElement;
         }}
-        style={{ height: `${features.length * 60}vh` }}
-        className="relative opacity-0 scroll-smooth"
+        style={{ height: `${features.length * 100}vh` }}
+        className="relative opacity-0"
       >
         {/* Sticky Content */}
         <section 
