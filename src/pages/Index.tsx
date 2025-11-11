@@ -16,54 +16,8 @@ const Index = () => {
   const sectionsRef = useRef<HTMLElement[]>([]);
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("opacity-0");
-            entry.target.classList.add("animate-fade-blur-in");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionsRef.current.forEach((section) => {
-      if (section) observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const featureObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = featureRefs.current.findIndex(ref => ref === entry.target);
-            if (index !== -1) {
-              setActiveFeatureIndex(index);
-            }
-          }
-        });
-      },
-      { threshold: 0.6, rootMargin: "-100px 0px -100px 0px" }
-    );
-
-    featureRefs.current.forEach((ref) => {
-      if (ref) featureObserver.observe(ref);
-    });
-
-    return () => featureObserver.disconnect();
-  }, []);
-
-  const addToRefs = (el: HTMLElement | null) => {
-    if (el && !sectionsRef.current.includes(el)) {
-      sectionsRef.current.push(el);
-    }
-  };
+  const featureSectionRef = useRef<HTMLDivElement>(null);
+  const [scrollLocked, setScrollLocked] = useState(false);
 
   const features = [
     {
@@ -97,6 +51,68 @@ const Index = () => {
       image: appMockupCommunity
     }
   ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("opacity-0");
+            entry.target.classList.add("animate-fade-blur-in");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionsRef.current.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (!featureSectionRef.current) return;
+      
+      const rect = featureSectionRef.current.getBoundingClientRect();
+      const isInView = rect.top <= 0 && rect.bottom > window.innerHeight;
+      
+      if (isInView) {
+        const totalFeatures = features.length;
+        
+        if (e.deltaY > 0) {
+          // Scrolling down
+          if (activeFeatureIndex < totalFeatures - 1) {
+            e.preventDefault();
+            setActiveFeatureIndex(prev => Math.min(prev + 1, totalFeatures - 1));
+            setScrollLocked(true);
+          } else {
+            setScrollLocked(false);
+          }
+        } else {
+          // Scrolling up
+          if (activeFeatureIndex > 0) {
+            e.preventDefault();
+            setActiveFeatureIndex(prev => Math.max(prev - 1, 0));
+            setScrollLocked(true);
+          } else if (rect.top < 0) {
+            e.preventDefault();
+          }
+        }
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    return () => window.removeEventListener('wheel', handleWheel);
+  }, [activeFeatureIndex, features.length]);
+
+  const addToRefs = (el: HTMLElement | null) => {
+    if (el && !sectionsRef.current.includes(el)) {
+      sectionsRef.current.push(el);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white text-foreground">
@@ -186,16 +202,23 @@ const Index = () => {
       </section>
 
       {/* Holistic Value Section - Scroll Triggered */}
-      <section id="o-aplikacii" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
-        <div className="container mx-auto max-w-7xl">
+      <section 
+        id="o-aplikacii" 
+        ref={(el) => {
+          addToRefs(el);
+          if (el) featureSectionRef.current = el as HTMLDivElement;
+        }} 
+        className="min-h-screen flex items-center py-12 md:py-16 px-4 md:px-8 opacity-0 sticky top-0"
+      >
+        <div className="container mx-auto max-w-7xl w-full">
           <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
-            <div className="grid lg:grid-cols-2 gap-16 items-start">
-              {/* Left: Dynamic Image - Sticky on Desktop */}
-              <div className="relative flex items-center justify-center order-2 lg:order-1 lg:sticky lg:top-24 self-start h-[600px]">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left: Dynamic Image */}
+              <div className="relative flex items-center justify-center order-2 lg:order-1 h-[600px]">
                 {features.map((feature, index) => (
                   <div
                     key={index}
-                    className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${
+                    className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${
                       activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'
                     }`}
                   >
@@ -208,7 +231,7 @@ const Index = () => {
                 ))}
               </div>
 
-              {/* Right: Single Card with Scroll Zones */}
+              {/* Right: Single Card */}
               <div className="space-y-8 order-1 lg:order-2">
                 {/* Small highlight tag */}
                 <div className="inline-block">
@@ -229,26 +252,27 @@ const Index = () => {
                   Holistický prístup k wellbeingu. Telo, myseľ a komunita v jednej aplikácii.
                 </p>
                 
-                {/* Single Sticky Card */}
-                <div className="sticky top-32 z-10">
-                  <div className="p-6 rounded-2xl border-2 border-primary/50 bg-white shadow-lg transition-all duration-500">
-                    <h3 className="text-2xl font-medium mb-2">{features[activeFeatureIndex].title}</h3>
-                    <p className="text-sm text-muted-foreground font-light mb-4">
-                      {features[activeFeatureIndex].subheading}
-                    </p>
-                    <p className="text-base text-muted-foreground leading-relaxed">
-                      {features[activeFeatureIndex].desc}
-                    </p>
-                  </div>
+                {/* Feature Card */}
+                <div className="p-6 rounded-2xl border-2 border-primary/50 bg-white shadow-lg transition-all duration-700">
+                  <h3 className="text-2xl font-medium mb-2">{features[activeFeatureIndex].title}</h3>
+                  <p className="text-sm text-muted-foreground font-light mb-4">
+                    {features[activeFeatureIndex].subheading}
+                  </p>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    {features[activeFeatureIndex].desc}
+                  </p>
                 </div>
 
-                {/* Invisible Scroll Trigger Zones */}
-                <div className="space-y-96 pt-96">
+                {/* Progress Indicator */}
+                <div className="flex gap-2 justify-center pt-4">
                   {features.map((_, index) => (
                     <div
                       key={index}
-                      ref={(el) => (featureRefs.current[index] = el)}
-                      className="h-96"
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        activeFeatureIndex === index 
+                          ? 'w-8 bg-primary' 
+                          : 'w-2 bg-primary/30'
+                      }`}
                     />
                   ))}
                 </div>
