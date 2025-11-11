@@ -16,22 +16,45 @@
     --popover: 30 20% 98%;
     --popover-foreground: 30 8% 20%;
 
-    /* Primary - Warm brown #5F3E31 */
+    /* Level System - Program Color Accents */
+    /* Level 1: Lightest beige #F1EDE4 */
+    --level-1: 30 29% 92%;
+    --level-1-foreground: 30 8% 20%;
+    
+    /* Level 2: Rose/Peach #C1856A */
+    --level-2: 18 41% 59%;
+    --level-2-foreground: 0 0% 100%;
+    
+    /* Level 3: Primary brown #5F3E31 */
+    --level-3: 18 32% 29%;
+    --level-3-foreground: 0 0% 100%;
+    
+    /* Level 4: Darkest brown #311003 */
+    --level-4: 18 95% 10%;
+    --level-4-foreground: 0 0% 100%;
+
+    /* Primary - Warm brown #5F3E31 (Level 3) */
     --primary: 18 32% 29%;
     --primary-foreground: 0 0% 100%;
     --primary-glow: 18 32% 39%;
 
-    /* Secondary - Warm beige */
-    --secondary: 30 25% 90%;
+    /* Secondary - Warm beige (Level 1) */
+    --secondary: 30 29% 92%;
     --secondary-foreground: 30 8% 25%;
 
     /* Muted - Light warm gray */
     --muted: 30 15% 92%;
     --muted-foreground: 30 6% 50%;
 
-    /* Accent - Soft peach */
-    --accent: 20 45% 85%;
-    --accent-foreground: 30 8% 25%;
+    /* Accent - Rose/Peach (Level 2) */
+    --accent: 18 41% 59%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* CTA Colors */
+    --cta-teal: 193 23% 64%;
+    --cta-teal-foreground: 0 0% 100%;
+    --cta-white: 0 0% 100%;
+    --cta-white-foreground: 18 32% 29%;
 
     /* Feature section - Warm beige */
     --feature-bg: 30 25% 94%;

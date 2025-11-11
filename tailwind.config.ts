@@ -67,6 +67,22 @@ export default {
           white: "hsl(var(--section-white))",
           beige: "hsl(var(--section-beige))",
         },
+        level: {
+          1: "hsl(var(--level-1))",
+          "1-foreground": "hsl(var(--level-1-foreground))",
+          2: "hsl(var(--level-2))",
+          "2-foreground": "hsl(var(--level-2-foreground))",
+          3: "hsl(var(--level-3))",
+          "3-foreground": "hsl(var(--level-3-foreground))",
+          4: "hsl(var(--level-4))",
+          "4-foreground": "hsl(var(--level-4-foreground))",
+        },
+        cta: {
+          teal: "hsl(var(--cta-teal))",
+          "teal-foreground": "hsl(var(--cta-teal-foreground))",
+          white: "hsl(var(--cta-white))",
+          "white-foreground": "hsl(var(--cta-white-foreground))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
