@@ -35,7 +35,7 @@ export const ProfessionalRecommendations = () => {
   ];
 
   return (
-    <section className="py-16 md:py-20 px-2 md:px-4 bg-section-beige">
+    <section className="py-16 md:py-20 px-0 md:px-4 bg-section-beige">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <Badge variant="secondary" className="mb-4 px-4 py-2">
@@ -53,7 +53,7 @@ export const ProfessionalRecommendations = () => {
           {recommendations.map((rec, index) => (
             <Card
               key={index}
-              className="p-6 hover:shadow-lg transition-all duration-300 border-border/20 bg-white overflow-hidden group"
+              className="p-4 md:p-6 hover:shadow-lg transition-all duration-300 border-border/20 bg-white overflow-hidden group"
             >
               {rec.type === "video" ? (
                 <div className="relative mb-4 rounded-lg overflow-hidden cursor-pointer">

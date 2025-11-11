@@ -70,7 +70,7 @@ export const ComparisonSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-20 px-2 md:px-4 bg-section-beige">
+    <section className="py-16 md:py-20 px-0 md:px-4 bg-section-beige">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
@@ -92,7 +92,7 @@ export const ComparisonSection = () => {
             return (
               <Card
                 key={index}
-                className="p-6 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card border-border/20 animate-fade-in"
+                className="p-4 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card border-border/20 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Icon */}

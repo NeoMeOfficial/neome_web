@@ -6,9 +6,9 @@ import founderImage from "@/assets/founder-gabi.png";
 
 export const FounderStory = () => {
   return (
-    <section id="founder-story" className="py-16 md:py-20 px-2 md:px-8 bg-section-white">
+    <section id="founder-story" className="py-16 md:py-20 px-0 md:px-8 bg-section-white">
       <div className="container mx-auto max-w-6xl">
-        <Card className="rounded-3xl shadow-xl p-8 md:p-12 bg-white border-border/10">
+        <Card className="rounded-3xl shadow-xl p-4 md:p-12 bg-white border-border/10">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             
             {/* Left: Image */}

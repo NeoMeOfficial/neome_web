@@ -214,7 +214,7 @@ const Index = () => {
       {/* HERO Section */}
       <section 
         id="hero" 
-        className="relative min-h-screen flex items-center pt-20 px-2 md:px-4 overflow-hidden shadow-lg"
+        className="relative min-h-screen flex items-center pt-20 px-0 md:px-4 overflow-hidden shadow-lg"
         style={{
           backgroundImage: `url(${heroImage})`,
           backgroundSize: 'cover',
@@ -287,9 +287,9 @@ const Index = () => {
       </section>
 
       {/* Empathy Section */}
-      <section id="empatia" ref={addToRefs} className="py-12 md:py-16 px-2 md:px-8 opacity-0 bg-section-beige">
+      <section id="empatia" ref={addToRefs} className="py-12 md:py-16 px-0 md:px-8 opacity-0 bg-section-beige">
         <div className="container mx-auto max-w-4xl">
-          <Card className="rounded-3xl shadow-xl p-10 md:p-16 text-center bg-primary border-0">
+          <Card className="rounded-3xl shadow-xl p-4 md:p-16 text-center bg-primary border-0">
             <h2 className="text-4xl md:text-5xl font-light mb-8 text-white">
               Si unavená. A aj tak sa snažíš...
             </h2>
@@ -322,9 +322,9 @@ const Index = () => {
       <FounderStory />
 
       {/* Proof & Guarantee Section */}
-      <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-2 md:px-8 opacity-0 bg-section-beige">
+      <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-0 md:px-8 opacity-0 bg-section-beige">
         <div className="container mx-auto max-w-6xl">
-          <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
+          <Card className="rounded-3xl shadow-xl p-4 md:p-12 lg:p-16 bg-white border-border/10">
             <h2 className="text-4xl md:text-5xl font-light text-center mb-12">
               Už <span className="gradient-text font-normal">4000 žien</span> pocítilo ten rozdiel.
             </h2>
@@ -355,10 +355,10 @@ const Index = () => {
         {/* Sticky Content */}
         <section 
           id="o-aplikacii" 
-          className="sticky top-0 min-h-screen flex items-center py-12 md:py-16 px-2 md:px-8"
+          className="sticky top-0 min-h-screen flex items-center py-12 md:py-16 px-0 md:px-8"
         >
           <div className="container mx-auto max-w-7xl w-full">
-            <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
+            <Card className="rounded-3xl shadow-xl p-3 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
               <div className="grid lg:grid-cols-2 gap-16 items-center">
                 {/* Left: Dynamic Image */}
                 <div className="relative flex items-center justify-center order-2 lg:order-1 h-[600px]">

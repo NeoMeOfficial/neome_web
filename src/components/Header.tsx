@@ -44,14 +44,14 @@ export const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-2 md:px-4 pt-4">
+      <header className="fixed top-0 left-0 right-0 z-50 px-0 md:px-4 pt-4">
         <div
           className={cn(
             "glass-card rounded-full shadow-lg transition-all duration-300 mx-auto max-w-7xl",
             "bg-white/80 backdrop-blur-md border border-border/20"
           )}
         >
-          <div className="flex items-center justify-between h-16 px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 px-3 lg:px-8">
             {/* Logo */}
             <Link to="/" className="text-2xl font-light tracking-tight text-foreground">
               Neo<span className="gradient-text font-medium">Me</span>

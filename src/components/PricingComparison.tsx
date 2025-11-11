@@ -94,7 +94,7 @@ export const PricingComparison = () => {
   ];
 
   return (
-    <section id="cennik" className="py-16 md:py-20 px-2 md:px-4 bg-white">
+    <section id="cennik" className="py-16 md:py-20 px-0 md:px-4 bg-white">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <Badge variant="secondary" className="mb-4 px-4 py-2">
@@ -117,7 +117,7 @@ export const PricingComparison = () => {
                 {tiers.map((tier, index) => (
                   <th key={index} className="p-4">
                     <Card className={cn(
-                      "p-6 text-center",
+                      "p-4 md:p-6 text-center",
                       tier.popular && "border-2 border-primary shadow-lg"
                     )}>
                       {tier.popular && (
@@ -188,7 +188,7 @@ export const PricingComparison = () => {
             <Card
               key={index}
               className={cn(
-                "p-6",
+                "p-4 md:p-6",
                 tier.popular && "border-2 border-primary shadow-lg"
               )}
             >
@@ -255,7 +255,7 @@ export const PricingComparison = () => {
         </div>
 
         {/* Money-back guarantee */}
-        <Card className="mt-12 p-8 bg-gradient-to-br from-primary/5 to-accent/10 border-primary/20 text-center">
+        <Card className="mt-12 p-4 md:p-8 bg-gradient-to-br from-primary/5 to-accent/10 border-primary/20 text-center">
           <h3 className="text-2xl font-light mb-3">
             💯 30-dňová záruka vrátenia peňazí
           </h3>
