@@ -17,7 +17,6 @@ const Index = () => {
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const featureSectionRef = useRef<HTMLDivElement>(null);
-  const [scrollLocked, setScrollLocked] = useState(false);
 
   const features = [
     {
@@ -77,29 +76,25 @@ const Index = () => {
       if (!featureSectionRef.current) return;
       
       const rect = featureSectionRef.current.getBoundingClientRect();
-      const isInView = rect.top <= 0 && rect.bottom > window.innerHeight;
+      const isInSection = rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
       
-      if (isInView) {
+      if (isInSection) {
         const totalFeatures = features.length;
         
         if (e.deltaY > 0) {
           // Scrolling down
           if (activeFeatureIndex < totalFeatures - 1) {
             e.preventDefault();
-            setActiveFeatureIndex(prev => Math.min(prev + 1, totalFeatures - 1));
-            setScrollLocked(true);
-          } else {
-            setScrollLocked(false);
+            setActiveFeatureIndex(prev => prev + 1);
           }
+          // Don't prevent default on last feature, allow natural scroll
         } else {
           // Scrolling up
           if (activeFeatureIndex > 0) {
             e.preventDefault();
-            setActiveFeatureIndex(prev => Math.max(prev - 1, 0));
-            setScrollLocked(true);
-          } else if (rect.top < 0) {
-            e.preventDefault();
+            setActiveFeatureIndex(prev => prev - 1);
           }
+          // Don't prevent default on first feature, allow natural scroll up
         }
       }
     };
@@ -208,7 +203,7 @@ const Index = () => {
           addToRefs(el);
           if (el) featureSectionRef.current = el as HTMLDivElement;
         }} 
-        className="min-h-screen flex items-center py-12 md:py-16 px-4 md:px-8 opacity-0 sticky top-0"
+        className="min-h-screen flex items-center py-12 md:py-16 px-4 md:px-8 opacity-0"
       >
         <div className="container mx-auto max-w-7xl w-full">
           <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
