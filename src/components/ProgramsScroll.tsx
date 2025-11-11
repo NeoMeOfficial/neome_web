@@ -92,11 +92,12 @@ export const ProgramsScroll = () => {
         </Card>
 
         {/* Interactive Program Selection */}
-        <Card className="rounded-3xl shadow-xl overflow-hidden bg-white border-border/10">
-          <div className="grid lg:grid-cols-[400px,1fr] gap-0">
+        <Card className="rounded-3xl shadow-lg overflow-hidden bg-white border-border/5">
+          <div className="grid lg:grid-cols-[320px,1fr]">
             
             {/* Left Column - Accordion Navigation */}
-            <div className="border-r border-border/10 p-8 bg-muted/20">
+            <div className="border-r border-border/10 p-6 lg:p-8 bg-muted/10">
+              <h3 className="text-lg font-semibold mb-6 text-foreground">Vyber Program</h3>
               <Accordion 
                 type="single" 
                 collapsible 
@@ -105,17 +106,22 @@ export const ProgramsScroll = () => {
                   const index = parseInt(value.split('-')[1]);
                   if (!isNaN(index)) setSelectedProgram(index);
                 }}
+                className="space-y-2"
               >
                 {individualPrograms.map((prog, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger className="text-left hover:no-underline">
+                  <AccordionItem 
+                    key={index} 
+                    value={`item-${index}`}
+                    className="border-none"
+                  >
+                    <AccordionTrigger className="text-left hover:no-underline py-4 px-3 rounded-lg hover:bg-muted/30 data-[state=open]:bg-muted/40 transition-colors">
                       <div className="flex flex-col gap-1">
-                        <span className="text-sm font-semibold text-primary">{prog.level}</span>
-                        <span className="text-base font-medium text-foreground">{prog.tag}</span>
+                        <span className="text-xs font-semibold text-primary uppercase tracking-wide">{prog.level}</span>
+                        <span className="text-sm font-medium text-foreground">{prog.tag}</span>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent>
-                      <p className="text-sm text-muted-foreground pl-2">
+                    <AccordionContent className="px-3 pb-2">
+                      <p className="text-xs text-muted-foreground leading-relaxed">
                         {prog.description}
                       </p>
                     </AccordionContent>
@@ -124,75 +130,67 @@ export const ProgramsScroll = () => {
               </Accordion>
             </div>
 
-            {/* Right Column - Selected Program Card */}
-            <div className="p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-                
-                {/* Content */}
-                <div className="space-y-6 flex flex-col justify-center">
-                  {/* Tag */}
-                  <div className="inline-block">
-                    <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider ${program.accentColor} text-white`}>
-                      {program.level}
-                    </span>
-                  </div>
+            {/* Right Column - Selected Program Display */}
+            <div className="p-8 lg:p-12 xl:p-16">
+              <div className="max-w-4xl mx-auto">
+                <div className="grid md:grid-cols-[1fr,280px] lg:grid-cols-[1fr,320px] gap-8 lg:gap-12">
+                  
+                  {/* Content */}
+                  <div className="space-y-6">
+                    {/* Title */}
+                    <div>
+                      <h3 className="text-3xl lg:text-4xl xl:text-5xl font-light text-foreground mb-3">
+                        {program.title}
+                      </h3>
+                      <p className="text-base text-muted-foreground leading-relaxed">
+                        {program.description}
+                      </p>
+                    </div>
 
-                  {/* Title */}
-                  <h3 className="text-3xl lg:text-4xl font-light text-foreground">
-                    {program.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-                    {program.description}
-                  </p>
-
-                  {/* Features List */}
-                  <div className="space-y-3 py-4">
-                    {program.features.map((feature, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <div className={`flex-shrink-0 w-5 h-5 rounded-full ${program.accentColor} flex items-center justify-center mt-0.5`}>
-                          <Check size={12} className="text-white" />
+                    {/* Features List */}
+                    <div className="space-y-3 pt-2">
+                      {program.features.map((feature, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <div className={`flex-shrink-0 w-5 h-5 rounded-full ${program.accentColor} flex items-center justify-center mt-0.5`}>
+                            <Check size={12} className="text-white" />
+                          </div>
+                          <span className="text-sm text-foreground leading-relaxed">
+                            {feature}
+                          </span>
                         </div>
-                        <span className="text-sm text-foreground">
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
 
-                  {/* Duration Badge */}
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border text-muted-foreground text-sm w-fit">
-                    {program.duration}
-                  </div>
-
-                  {/* CTA Button */}
-                  <div className="pt-2">
-                    <Button 
-                      size="lg"
-                      className={`${program.accentColor} hover:opacity-90 text-white px-8 transition-all hover:scale-105`}
-                    >
-                      Zisti Viac
-                      <ArrowRight size={18} className="ml-2" />
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Image */}
-                <div className="relative flex items-center justify-center">
-                  <div className="relative rounded-2xl overflow-hidden shadow-xl w-full max-w-sm">
-                    <div className="aspect-[3/4] relative">
-                      <img 
-                        src={program.image} 
-                        alt={program.title}
-                        className="w-full h-full object-cover"
-                      />
-                      {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    {/* Bottom Row: Duration & CTA */}
+                    <div className="flex items-center gap-4 pt-4">
+                      <span className="px-4 py-2 rounded-full border border-border text-muted-foreground text-sm">
+                        {program.duration}
+                      </span>
+                      <Button 
+                        size="lg"
+                        className={`${program.accentColor} hover:opacity-90 text-white px-6 transition-all hover:scale-105`}
+                      >
+                        Zisti Viac
+                        <ArrowRight size={16} className="ml-2" />
+                      </Button>
                     </div>
                   </div>
-                </div>
 
+                  {/* Image */}
+                  <div className="relative flex items-start justify-center md:justify-end">
+                    <div className="relative rounded-2xl overflow-hidden shadow-lg w-full max-w-[280px] lg:max-w-[320px]">
+                      <div className="aspect-[3/4] relative">
+                        <img 
+                          src={program.image} 
+                          alt={program.title}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </div>
 
