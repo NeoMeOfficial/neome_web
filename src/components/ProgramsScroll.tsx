@@ -161,7 +161,7 @@ export const ProgramsScroll = () => {
                     <AccordionTrigger className="text-left hover:no-underline py-4 px-3 rounded-lg hover:bg-muted/30 data-[state=open]:bg-muted/40 transition-colors">
                       <div className="flex items-center gap-3">
                         <div className={`w-10 h-10 rounded-full ${prog.accentColor} flex items-center justify-center flex-shrink-0`}>
-                          <prog.icon size={20} className="text-white" />
+                          <prog.icon size={20} className={index === 0 ? "text-level-1-foreground" : "text-white"} />
                         </div>
                         <div className="flex flex-col gap-1">
                           <span className={`text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full ${prog.badgeColor}`}>{prog.level}</span>
@@ -196,7 +196,7 @@ export const ProgramsScroll = () => {
                   <div className="space-y-6">
                     {/* Icon Circle */}
                     <div className={`w-16 h-16 rounded-full ${program.accentColor} flex items-center justify-center shadow-lg ${program.glowColor}`}>
-                      <program.icon size={32} className="text-white" />
+                      <program.icon size={32} className={selectedProgram === 0 ? "text-level-1-foreground" : "text-white"} />
                     </div>
 
                     {/* Duration & Title */}
@@ -217,7 +217,7 @@ export const ProgramsScroll = () => {
                       {program.features.map((feature, i) => (
                         <div key={i} className="flex items-start gap-3">
                           <div className={`flex-shrink-0 w-5 h-5 rounded-full ${program.accentColor} flex items-center justify-center mt-0.5`}>
-                            <Check size={12} className="text-white" />
+                            <Check size={12} className={selectedProgram === 0 ? "text-level-1-foreground" : "text-white"} />
                           </div>
                           <span className="text-sm text-foreground leading-relaxed">
                             {feature}
@@ -230,7 +230,7 @@ export const ProgramsScroll = () => {
                     <div className="pt-4">
                       <Button 
                         size="lg"
-                        className={`${program.accentColor} hover:opacity-90 text-white px-6 transition-all hover:scale-105 shadow-lg ${program.glowColor}`}
+                        className={`${program.accentColor} hover:opacity-90 ${selectedProgram === 0 ? "text-level-1-foreground" : "text-white"} px-6 transition-all hover:scale-105 shadow-lg ${program.glowColor}`}
                       >
                         ZISTI VIAC O PROGRAME
                         <ArrowRight size={16} className="ml-2" />
