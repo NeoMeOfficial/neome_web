@@ -1,65 +1,64 @@
 import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { useCounterAnimation } from "@/hooks/use-counter-animation";
-
 export const StatsShowcase = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const { count: membersCount, setIsVisible: setMembersVisible } = useCounterAnimation(4000, 2000);
-  const { count: reviewsCount, setIsVisible: setReviewsVisible } = useCounterAnimation(230, 2000);
-  const { count: programsCount, setIsVisible: setProgramsVisible } = useCounterAnimation(5, 1500);
-  const { count: satisfactionCount, setIsVisible: setSatisfactionVisible } = useCounterAnimation(98, 2000);
-
+  const {
+    count: membersCount,
+    setIsVisible: setMembersVisible
+  } = useCounterAnimation(4000, 2000);
+  const {
+    count: reviewsCount,
+    setIsVisible: setReviewsVisible
+  } = useCounterAnimation(230, 2000);
+  const {
+    count: programsCount,
+    setIsVisible: setProgramsVisible
+  } = useCounterAnimation(5, 1500);
+  const {
+    count: satisfactionCount,
+    setIsVisible: setSatisfactionVisible
+  } = useCounterAnimation(98, 2000);
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setMembersVisible(true);
-            setReviewsVisible(true);
-            setProgramsVisible(true);
-            setSatisfactionVisible(true);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setMembersVisible(true);
+          setReviewsVisible(true);
+          setProgramsVisible(true);
+          setSatisfactionVisible(true);
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => observer.disconnect();
   }, [setMembersVisible, setReviewsVisible, setProgramsVisible, setSatisfactionVisible]);
-
-  const stats = [
-    {
-      value: membersCount,
-      suffix: "+",
-      label: "Aktívnych členiek",
-      decoration: "✦"
-    },
-    {
-      value: reviewsCount,
-      suffix: "",
-      label: "5★ Google Recenzií",
-      decoration: "★"
-    },
-    {
-      value: programsCount,
-      suffix: "",
-      label: "Holistických Programov",
-      decoration: "◆"
-    },
-    {
-      value: satisfactionCount,
-      suffix: "%",
-      label: "Spokojnosť",
-      decoration: "✓"
-    }
-  ];
-
-  return (
-    <section ref={sectionRef} className="py-16 md:py-20 px-4 bg-gradient-to-b from-background to-secondary/20">
+  const stats = [{
+    value: membersCount,
+    suffix: "+",
+    label: "Aktívnych členiek",
+    decoration: "✦"
+  }, {
+    value: reviewsCount,
+    suffix: "",
+    label: "5★ Google Recenzií",
+    decoration: "★"
+  }, {
+    value: programsCount,
+    suffix: "",
+    label: "Holistických Programov",
+    decoration: "◆"
+  }, {
+    value: satisfactionCount,
+    suffix: "%",
+    label: "Spokojnosť",
+    decoration: "✓"
+  }];
+  return <section ref={sectionRef} className="py-16 md:py-20 px-4 bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light mb-4">
@@ -71,15 +70,9 @@ export const StatsShowcase = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="relative text-center group"
-            >
+          {stats.map((stat, index) => <div key={index} className="relative text-center group">
               {/* Decorative element */}
-              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 text-primary/20 text-2xl font-light group-hover:text-primary/40 transition-colors">
-                {stat.decoration}
-              </div>
+              
               
               {/* Main content */}
               <div className="pt-6">
@@ -93,10 +86,8 @@ export const StatsShowcase = () => {
 
               {/* Bottom accent line */}
               <div className="mt-4 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent group-hover:via-primary/40 transition-colors" />
-            </div>
-          ))}
+            </div>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
