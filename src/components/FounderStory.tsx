@@ -32,7 +32,7 @@ export const FounderStory = () => {
                 <blockquote className="text-2xl md:text-3xl font-light italic leading-relaxed pl-6">
                   <span className="text-foreground">Verím, že pohyb je </span>
                   <span className="gradient-text font-medium">liek</span>
-                  <span className="text-foreground">. Ale nie každý pohyb je liečivý.</span>
+                  <span className="text-foreground">, ktorý máme všetci nadosah.</span>
                 </blockquote>
                 <Sparkle size={32} weight="fill" className="text-primary/30 absolute -bottom-2 -right-2 transform rotate-180" />
               </div>
