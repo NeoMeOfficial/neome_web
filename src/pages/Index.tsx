@@ -239,16 +239,22 @@ const Index = () => {
                       className={`sticky p-6 rounded-2xl border-2 transition-all duration-500 ${
                         activeFeatureIndex === index
                           ? 'border-primary/50 bg-white shadow-lg scale-[1.02] z-10'
-                          : 'border-border/20 bg-white/50 opacity-60'
+                          : 'border-border/20 bg-white/80 opacity-90'
                       }`}
                     >
                       <h3 className="text-2xl font-medium mb-2">{feature.title}</h3>
-                      <p className="text-sm text-muted-foreground font-light mb-4">
-                        {feature.subheading}
-                      </p>
-                      <p className="text-base text-muted-foreground leading-relaxed">
-                        {feature.desc}
-                      </p>
+                      <div className={`transition-all duration-500 overflow-hidden ${
+                        activeFeatureIndex === index
+                          ? 'max-h-96 opacity-100'
+                          : 'max-h-0 opacity-0'
+                      }`}>
+                        <p className="text-sm text-muted-foreground font-light mb-4">
+                          {feature.subheading}
+                        </p>
+                        <p className="text-base text-muted-foreground leading-relaxed">
+                          {feature.desc}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
