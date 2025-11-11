@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Sparkle, ArrowRight } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
+import founderImage from "@/assets/founder-gabi.png";
 
 export const FounderStory = () => {
   return (
@@ -13,11 +14,11 @@ export const FounderStory = () => {
             {/* Left: Image */}
             <div className="relative order-2 md:order-1">
               <div className="relative rounded-2xl overflow-hidden shadow-lg aspect-[3/4]">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <p className="text-foreground/60 text-center px-8">
-                    [Profesionálna fotka Gabi v akcii - tréning/teaching]
-                  </p>
-                </div>
+                <img 
+                  src={founderImage} 
+                  alt="Gabi, zakladateľka NeoMe" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                 <Sparkle size={24} weight="fill" className="text-primary" />
