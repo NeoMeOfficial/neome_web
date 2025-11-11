@@ -116,11 +116,11 @@ export const ProgramsScroll = () => {
   };
 
   return (
-    <section id="programy" className="py-12 md:py-16 px-4 md:px-8 bg-white">
+    <section id="programy" className="py-12 md:py-16 px-2 md:px-8 bg-white">
       <div className="container mx-auto max-w-7xl space-y-8 md:space-y-12">
         
         {/* Introduction Card */}
-        <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
+        <Card className="rounded-3xl shadow-xl p-4 md:p-12 lg:p-16 bg-white border-border/10">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-light mb-6">
               Chceš Cielenú Transformáciu?
@@ -140,7 +140,7 @@ export const ProgramsScroll = () => {
           <div className="flex flex-col lg:grid lg:grid-cols-[320px,1fr]">
             
             {/* Accordion Navigation - Stacked on mobile, sidebar on desktop */}
-            <div className="border-b lg:border-b-0 lg:border-r border-border/10 p-6 lg:p-8 bg-muted/10">
+            <div className="border-b lg:border-b-0 lg:border-r border-border/10 p-3 lg:p-8 bg-muted/10">
               <h3 className="text-lg font-semibold mb-6 text-foreground">Vyber Program</h3>
               <Accordion 
                 type="single" 
@@ -181,7 +181,7 @@ export const ProgramsScroll = () => {
 
             {/* Selected Program Display with transition */}
             <div 
-              className="p-8 lg:p-12 xl:p-16 touch-pan-y"
+              className="p-4 lg:p-12 xl:p-16 touch-pan-y"
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
