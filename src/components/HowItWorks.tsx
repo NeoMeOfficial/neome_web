@@ -1,12 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Download, Sparkles, Rocket, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 export const HowItWorks = () => {
   const steps = [
     {
       number: "01",
-      icon: Download,
       title: "Stiahni aplikáciu",
       description: "Začni zadarmo s prístupom k základným cvičeniam, receptom a meditáciám. Žiadna platobná karta nie je potrebná.",
       features: ["Dostupné na iOS aj Android", "Bezplatná registrácia", "Žiadne záväzky"],
@@ -14,20 +13,18 @@ export const HowItWorks = () => {
     },
     {
       number: "02",
-      icon: Sparkles,
       title: "Vyber si svoju cestu",
       description: "Rozhodni sa, čo ti vyhovuje – ostať v bezplatnej verzii alebo získať plný prístup k všetkým funkciám.",
       features: [
-        "🆓 Free: Obmedzený prístup",
-        "📅 Mesačne: 1 program + neobmedzený obsah",
-        "📆 Kvartálne: 2 programy + všetko",
-        "🔥 Ročne: Neobmedzené programy"
+        "Free: Obmedzený prístup",
+        "Mesačne: 1 program + neobmedzený obsah",
+        "Kvartálne: 2 programy + všetko",
+        "Ročne: Neobmedzené programy"
       ],
       color: "bg-accent/30 text-primary"
     },
     {
       number: "03",
-      icon: Rocket,
       title: "Začni svoju transformáciu",
       description: "Venuj si každý deň 15 minút. Sleduj svoj pokrok, pripoj sa ku komunite a začni sa cítiť lepšie už po prvom týždni.",
       features: ["Denné pripomienky", "Sledovanie pokroku", "Komunitná podpora"],
@@ -55,23 +52,15 @@ export const HowItWorks = () => {
           <div className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20 -z-10" />
 
           {steps.map((step, index) => {
-            const Icon = step.icon;
             return (
               <Card
                 key={index}
                 className="relative p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white border-border/20"
               >
-                {/* Step number badge */}
-                <div className="absolute -top-4 left-8">
-                  <div className={`${step.color} rounded-full w-12 h-12 flex items-center justify-center font-medium text-lg shadow-md`}>
+                {/* Step number badge - larger and more prominent */}
+                <div className="mb-6">
+                  <div className={`${step.color} rounded-full w-16 h-16 flex items-center justify-center font-semibold text-2xl shadow-md`}>
                     {step.number}
-                  </div>
-                </div>
-
-                {/* Icon */}
-                <div className="mb-6 mt-4">
-                  <div className={`inline-flex p-4 rounded-xl ${step.color}`}>
-                    <Icon size={32} />
                   </div>
                 </div>
 
@@ -99,7 +88,7 @@ export const HowItWorks = () => {
         <Card className="mt-12 p-8 bg-gradient-to-br from-primary/5 to-accent/10 border-primary/20">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-medium mb-4">🆓 Bezplatná verzia</h3>
+              <h3 className="text-xl font-medium mb-4">Bezplatná verzia</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <span className="text-primary">•</span>
@@ -112,7 +101,7 @@ export const HowItWorks = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-medium mb-4">💎 Prémiový prístup</h3>
+              <h3 className="text-xl font-medium mb-4">Prémiový prístup</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <span className="text-primary">•</span>
