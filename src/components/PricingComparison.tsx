@@ -94,7 +94,7 @@ export const PricingComparison = () => {
   ];
 
   return (
-    <section id="cennik" className="py-16 md:py-20 px-4 bg-white">
+    <section id="cennik" className="py-16 md:py-20 px-2 md:px-4 bg-white">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <Badge variant="secondary" className="mb-4 px-4 py-2">

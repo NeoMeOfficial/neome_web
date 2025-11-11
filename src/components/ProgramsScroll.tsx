@@ -187,6 +187,22 @@ export const ProgramsScroll = () => {
               onTouchEnd={onTouchEnd}
             >
               <div className="max-w-4xl mx-auto">
+                {/* Swipe Indicators - Mobile Only */}
+                <div className="flex lg:hidden justify-center gap-2 mb-6">
+                  {individualPrograms.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setSelectedProgram(index)}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        selectedProgram === index 
+                          ? 'w-8 bg-primary' 
+                          : 'w-2 bg-border hover:bg-primary/40'
+                      }`}
+                      aria-label={`Go to program ${index + 1}`}
+                    />
+                  ))}
+                </div>
+
                 <div 
                   key={selectedProgram}
                   className="grid md:grid-cols-[1fr,280px] lg:grid-cols-[1fr,320px] gap-8 lg:gap-12 animate-fade-in"

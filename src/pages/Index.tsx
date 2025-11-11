@@ -214,7 +214,7 @@ const Index = () => {
       {/* HERO Section */}
       <section 
         id="hero" 
-        className="relative min-h-screen flex items-center pt-20 px-4 overflow-hidden shadow-lg"
+        className="relative min-h-screen flex items-center pt-20 px-2 md:px-4 overflow-hidden shadow-lg"
         style={{
           backgroundImage: `url(${heroImage})`,
           backgroundSize: 'cover',
@@ -287,7 +287,7 @@ const Index = () => {
       </section>
 
       {/* Empathy Section */}
-      <section id="empatia" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0 bg-section-beige">
+      <section id="empatia" ref={addToRefs} className="py-12 md:py-16 px-2 md:px-8 opacity-0 bg-section-beige">
         <div className="container mx-auto max-w-4xl">
           <Card className="rounded-3xl shadow-xl p-10 md:p-16 text-center bg-primary border-0">
             <h2 className="text-4xl md:text-5xl font-light mb-8 text-white">
@@ -322,7 +322,7 @@ const Index = () => {
       <FounderStory />
 
       {/* Proof & Guarantee Section */}
-      <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0 bg-section-beige">
+      <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-2 md:px-8 opacity-0 bg-section-beige">
         <div className="container mx-auto max-w-6xl">
           <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
             <h2 className="text-4xl md:text-5xl font-light text-center mb-12">
@@ -355,7 +355,7 @@ const Index = () => {
         {/* Sticky Content */}
         <section 
           id="o-aplikacii" 
-          className="sticky top-0 min-h-screen flex items-center py-12 md:py-16 px-4 md:px-8"
+          className="sticky top-0 min-h-screen flex items-center py-12 md:py-16 px-2 md:px-8"
         >
           <div className="container mx-auto max-w-7xl w-full">
             <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">

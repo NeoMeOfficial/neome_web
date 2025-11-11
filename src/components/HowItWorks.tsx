@@ -33,7 +33,7 @@ export const HowItWorks = () => {
   ];
 
   return (
-    <section id="ako-to-funguje" className="py-16 md:py-20 px-4 bg-section-white">
+    <section id="ako-to-funguje" className="py-16 md:py-20 px-2 md:px-4 bg-section-white">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <Badge variant="secondary" className="mb-4 px-4 py-2">

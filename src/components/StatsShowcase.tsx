@@ -58,7 +58,7 @@ export const StatsShowcase = () => {
     label: "Spokojnosť",
     decoration: "✓"
   }];
-  return <section ref={sectionRef} className="py-16 md:py-20 px-4 bg-section-white">
+  return <section ref={sectionRef} className="py-16 md:py-20 px-2 md:px-4 bg-section-white">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light mb-4">

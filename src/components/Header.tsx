@@ -44,7 +44,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
+      <header className="fixed top-0 left-0 right-0 z-50 px-2 md:px-4 pt-4">
         <div
           className={cn(
             "glass-card rounded-full shadow-lg transition-all duration-300 mx-auto max-w-7xl",
