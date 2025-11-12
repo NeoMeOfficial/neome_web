@@ -48,6 +48,7 @@ const programs: Program[] = [
 export default function Checkout() {
   const [subscriptionPeriod, setSubscriptionPeriod] = useState<'monthly' | 'quarterly' | 'yearly'>('quarterly');
   const [selectedProgram, setSelectedProgram] = useState<string>("");
+  const [showForm, setShowForm] = useState(false);
 
   const subscriptionPlans = {
     monthly: {
@@ -74,6 +75,13 @@ export default function Checkout() {
   };
 
   const selectedPlan = subscriptionPlans[subscriptionPeriod];
+  const selectedProgramData = programs.find(p => p.id === selectedProgram);
+
+  const handleContinueToForm = () => {
+    if (selectedProgram) {
+      setShowForm(true);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-section-beige/30 to-background">
@@ -96,7 +104,9 @@ export default function Checkout() {
         <div className="grid lg:grid-cols-[1fr_400px] gap-8">
           {/* Main Content */}
           <div className="space-y-6">
-            {/* Step 1: Choose Subscription */}
+            {/* Step 1 & 2: Choose Subscription and Program */}
+            {!showForm && (
+              <div className="space-y-6 animate-fade-in">
             <Card>
               <CardHeader>
                 <div className="flex items-center gap-2">
@@ -264,7 +274,64 @@ export default function Checkout() {
               </CardContent>
             </Card>
 
+              </div>
+            )}
+
+            {/* Step 3: User Information Form */}
+            {showForm && (
+              <div className="space-y-6 animate-fade-in">
+                <Card>
+                  <CardHeader>
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-medium">
+                        3
+                      </div>
+                      <div>
+                        <CardTitle>Tvoje údaje</CardTitle>
+                        <CardDescription>Vyplň kontaktné informácie pre vytvorenie účtu</CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Meno a priezvisko</label>
+                      <input 
+                        type="text" 
+                        className="w-full px-4 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                        placeholder="Zadaj svoje meno"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Email</label>
+                      <input 
+                        type="email" 
+                        className="w-full px-4 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                        placeholder="tvoj@email.sk"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Heslo</label>
+                      <input 
+                        type="password" 
+                        className="w-full px-4 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                        placeholder="Minimálne 8 znakov"
+                      />
+                    </div>
+                    <div className="pt-2">
+                      <button 
+                        onClick={() => setShowForm(false)}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        ← Späť na výber programu
+                      </button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+
             {/* Trust Elements */}
+            {!showForm && (
             <div className="grid sm:grid-cols-3 gap-4">
               <Card className="text-center p-4">
                 <Shield className="mx-auto mb-2 text-primary" size={32} />
@@ -282,6 +349,7 @@ export default function Checkout() {
                 <p className="text-xs text-muted-foreground">Dôveruje nám</p>
               </Card>
             </div>
+            )}
           </div>
 
           {/* Sidebar */}
@@ -297,6 +365,12 @@ export default function Checkout() {
                     <span>Predplatné ({subscriptionPeriod === 'monthly' ? 'mesačne' : subscriptionPeriod === 'quarterly' ? 'kvartálne' : 'ročne'})</span>
                     <span className="font-medium">{selectedPlan.price}/mes.</span>
                   </div>
+                  {selectedProgramData && (
+                    <div className="flex justify-between text-sm">
+                      <span>Úvodný program</span>
+                      <span className="font-medium">{selectedProgramData.title}</span>
+                    </div>
+                  )}
                   {selectedPlan.savings && (
                     <div className="flex justify-between text-sm text-success">
                       <span>Úspora</span>
@@ -321,8 +395,9 @@ export default function Checkout() {
                   className="w-full h-12 text-base" 
                   size="lg"
                   disabled={!selectedProgram}
+                  onClick={handleContinueToForm}
                 >
-                  Dokončiť objednávku
+                  {showForm ? 'Prejsť na platbu' : 'Pokračovať'}
                 </Button>
 
                 {!selectedProgram && (
