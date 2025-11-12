@@ -51,7 +51,7 @@ export const ComparisonSection = () => {
         </div>
 
         {/* Main Grid Layout */}
-        <div className="grid lg:grid-cols-[450px_1fr] gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-[300px_1fr] gap-8 lg:gap-12 items-start">
           {/* Left Side - Clickable Options */}
           <div className="space-y-3">
             {comparisons.map((comparison, index) => {
