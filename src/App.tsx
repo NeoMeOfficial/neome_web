@@ -14,6 +14,7 @@ import Strava from "./pages/Strava";
 import Mysel from "./pages/Mysel";
 import Extras from "./pages/Extras";
 import Komunita from "./pages/Komunita";
+import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/mysel" element={<Mysel />} />
           <Route path="/extras" element={<Extras />} />
           <Route path="/komunita" element={<Komunita />} />
+          <Route path="/checkout" element={<Checkout />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

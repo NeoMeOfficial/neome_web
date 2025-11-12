@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Check, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 interface PricingTier {
   name: string;
   price: string;
@@ -18,6 +19,7 @@ interface PricingTier {
   savings?: string;
 }
 export const PricingComparison = () => {
+  const navigate = useNavigate();
   const [subscriptionPeriod, setSubscriptionPeriod] = useState<'monthly' | 'quarterly' | 'yearly'>('quarterly');
   const freeTier: PricingTier = {
     name: "Free",
@@ -292,7 +294,11 @@ export const PricingComparison = () => {
                         <div className="text-xs text-muted-foreground mb-4">
                           {tier.description}
                         </div>
-                        <Button className={cn("w-full", tier.popular && "bg-primary text-primary-foreground hover:bg-primary/90")} variant={tier.popular ? "default" : "outline"}>
+                        <Button 
+                          className={cn("w-full", tier.popular && "bg-primary text-primary-foreground hover:bg-primary/90")} 
+                          variant={tier.popular ? "default" : "outline"}
+                          onClick={() => tier.name !== "Free" && navigate('/checkout')}
+                        >
                           {tier.cta}
                         </Button>
                       </Card>
@@ -360,7 +366,11 @@ export const PricingComparison = () => {
                 {tier.description}
               </p>
 
-              <Button className={cn("w-full mb-6", tier.popular && "bg-primary text-primary-foreground hover:bg-primary/90")} variant={tier.popular ? "default" : "outline"}>
+              <Button 
+                className={cn("w-full mb-6", tier.popular && "bg-primary text-primary-foreground hover:bg-primary/90")} 
+                variant={tier.popular ? "default" : "outline"}
+                onClick={() => tier.name !== "Free" && navigate('/checkout')}
+              >
                 {tier.cta}
               </Button>
 
