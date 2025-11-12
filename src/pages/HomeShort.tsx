@@ -221,7 +221,7 @@ const HomeShort = () => {
       {/* Core Features - Interactive Scroll */}
       <div 
         ref={featureSectionRef}
-        style={{ height: `${features.length * 60}vh` }}
+        style={{ height: `${features.length * 30}vh` }}
         className="relative"
       >
         <section className="sticky top-0 min-h-screen flex items-center py-16 md:py-20 px-4 md:px-8">

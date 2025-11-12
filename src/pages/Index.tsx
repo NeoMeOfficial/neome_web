@@ -299,7 +299,7 @@ const Index = () => {
           addToRefs(el);
           if (el) featureSectionRef.current = el as HTMLDivElement;
         }}
-        style={{ height: `${features.length * 150}vh` }}
+        style={{ height: `${features.length * 75}vh` }}
         className="relative opacity-0"
       >
         {/* Sticky Content */}
