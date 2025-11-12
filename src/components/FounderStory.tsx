@@ -47,11 +47,11 @@ export const FounderStory = () => {
               <div className="space-y-4 pl-6 pt-2">
                 <p className="text-base leading-relaxed">
                   <strong className="font-medium text-foreground">15+ rokov skúseností</strong> v tanci a tréningu. 
-                  Sama som prešla materstvom a hľadaním rovnováhy medzi všetkými rolami, ktoré žena zohráva.
+                  Sama som prešla materstvom a hľadaním rovnováhy medzi všetkými rolami, ktoré žena žije.
                 </p>
                 <p className="text-base leading-relaxed">
                   Vytvorila som NeoMe pre <span className="font-medium text-foreground gradient-text">skutočné ženy s reálnymi životmi</span> – 
-                  pre tie, ktoré chcú byť silné, ale aj pokojné. Pre tie, ktoré si zaslúžia caring prístup k wellbeingu.
+                  pre tie, ktoré chcú byť silné, ale aj pokojné. Zaslúžime si caring prístup k wellbeingu.
                 </p>
               </div>
 

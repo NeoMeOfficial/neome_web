@@ -123,13 +123,13 @@ export const ProgramsScroll = () => {
         <Card className="rounded-3xl shadow-xl p-3 md:p-12 lg:p-16 bg-white border-border/10">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-light mb-6">
-              Chceš Cielenú Transformáciu?
+              Chceš cielenú transformáciu?
             </h2>
             <p className="text-xl text-muted-foreground mb-4">
-              Vyber si Štrukturovaný Program.
+              Vyber si štruktúrovaný program.
             </p>
             <p className="text-muted-foreground">
-              Tieto 6-8 týždňové programy sú voliteľné doplnky k tvojmu predplatnému. Každý program zahŕňa <strong className="text-foreground">plný prístup k celej aplikácii NeoMe</strong> plus štrukturovaný tréningový plán navrhnutý pre hlbšiu, garantovanú zmenu.
+              Tieto 6–8 týždňové programy môžeš absolvovať v rámci svojho členstva NeoMe+ (všetko v cene). Ak chceš, dá sa kúpiť aj samostatne ako jednorazový vstup — a neskôr plynule prejsť do NeoMe+, bez straty prístupu a pokroku.
             </p>
           </div>
         </Card>

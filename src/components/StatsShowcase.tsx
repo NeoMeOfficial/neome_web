@@ -45,12 +45,12 @@ export const StatsShowcase = () => {
   }, {
     value: reviewsCount,
     suffix: "",
-    label: "5★ Google Recenzií",
+    label: "5★ Google recenzií",
     decoration: "★"
   }, {
     value: programsCount,
     suffix: "",
-    label: "Holistických Programov",
+    label: "Holistických programov",
     decoration: "◆"
   }, {
     value: satisfactionCount,

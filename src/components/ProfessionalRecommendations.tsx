@@ -7,14 +7,14 @@ export const ProfessionalRecommendations = () => {
   const recommendations = [{
     name: "MUDr. Eva Nováková",
     title: "Gynekologička",
-    credentials: "15+ rokov praxe",
+    credentials: "(15+ rokov praxe)",
     quote: "NeoMe programy sú vynikajúco navrhnuté pre popôrodné obdobie. Cvičenia rešpektujú ženské telo a podporujú zdravé zotavenie po pôrode.",
     type: "text",
     image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop"
   }, {
     name: "Mgr. Petra Horváthová",
     title: "Fyzioterapeutka",
-    credentials: "Špecializácia: Dno panvy",
+    credentials: "(špecializácia: dno panvy)",
     quote: "Oceňujem holistický prístup NeoMe. Kombinácia pohybu, výživy a mentálneho zdravia je presne to, čo ženy potrebujú.",
     type: "video",
     videoId: "demo-video-1",
@@ -22,7 +22,7 @@ export const ProfessionalRecommendations = () => {
   }, {
     name: "PhDr. Lucia Kováčová",
     title: "Psychologička",
-    credentials: "Špecializácia: Materstvo",
+    credentials: "(špecializácia: materstvo)",
     quote: "Mentálne cvičenia v NeoMe pomáhajú ženám zvládať stres a nájsť vnútorný pokoj. Je to dôležitá súčasť celkového wellbeingu.",
     type: "text",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
