@@ -352,27 +352,45 @@ const Index = () => {
                   {/* Notebook-style Tabs Container */}
                   <div className="relative">
                     {/* Tabs - Behind the card */}
-                    <div className="flex gap-1 items-end relative z-0 pb-0">
-                      {features.map((feature, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setActiveFeatureIndex(index)}
-                          className={`
-                            relative px-3 md:px-5 py-2 md:py-3 text-xs md:text-sm font-medium 
-                            transition-all duration-300 cursor-pointer
-                            rounded-t-xl border-t border-x
-                            backdrop-blur-sm
-                            ${activeFeatureIndex === index 
-                              ? 'bg-white/40 text-primary border-white/30 shadow-[0_-3px_10px_rgba(0,0,0,0.04)]' 
-                              : 'bg-white/20 text-muted-foreground border-white/20 hover:bg-white/30 hover:text-foreground'
-                            }
-                          `}
-                        >
-                          <span className="block truncate max-w-[60px] md:max-w-none whitespace-nowrap">
-                            {feature.title}
-                          </span>
-                        </button>
-                      ))}
+                    <div className="relative">
+                      <div className="overflow-x-auto scroll-smooth scrollbar-hide pb-2">
+                        <div className="flex gap-1 items-end relative z-0 pb-0 w-max">
+                          {features.map((feature, index) => (
+                            <button
+                              key={index}
+                              onClick={() => setActiveFeatureIndex(index)}
+                              className={`
+                                relative px-3 md:px-5 py-2 md:py-3 text-xs md:text-sm font-medium 
+                                transition-all duration-300 cursor-pointer
+                                rounded-t-xl border-t border-x
+                                backdrop-blur-sm
+                                ${activeFeatureIndex === index 
+                                  ? 'bg-white/40 text-primary border-white/30 shadow-[0_-3px_10px_rgba(0,0,0,0.04)]' 
+                                  : 'bg-white/20 text-muted-foreground border-white/20 hover:bg-white/30 hover:text-foreground'
+                                }
+                              `}
+                            >
+                              <span className="block truncate max-w-[60px] md:max-w-none whitespace-nowrap">
+                                {feature.title}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      {/* Scroll Indicator */}
+                      <div className="flex justify-center gap-1 py-1">
+                        {features.map((_, index) => (
+                          <div
+                            key={index}
+                            className={`h-0.5 rounded-full transition-all duration-300 ${
+                              activeFeatureIndex === index 
+                                ? 'w-6 bg-primary' 
+                                : 'w-2 bg-primary/20'
+                            }`}
+                          />
+                        ))}
+                      </div>
                     </div>
                     
                     {/* Feature Card - Glass morphism on top */}
