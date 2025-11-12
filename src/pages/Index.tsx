@@ -377,20 +377,6 @@ const Index = () => {
                           ))}
                         </div>
                       </div>
-                      
-                      {/* Scroll Indicator */}
-                      <div className="flex justify-center gap-1 py-1">
-                        {features.map((_, index) => (
-                          <div
-                            key={index}
-                            className={`h-0.5 rounded-full transition-all duration-300 ${
-                              activeFeatureIndex === index 
-                                ? 'w-6 bg-primary' 
-                                : 'w-2 bg-primary/20'
-                            }`}
-                          />
-                        ))}
-                      </div>
                     </div>
                     
                     {/* Feature Card - Glass morphism on top */}
