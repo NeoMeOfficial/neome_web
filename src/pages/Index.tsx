@@ -40,8 +40,8 @@ const Index = () => {
   const features = [
     {
       title: "Cvičenie",
-      subheading: "5–15 minútové tréningy prispôsobené tvojmu rytmu a cieľom",
-      desc: "Tréningy na požiadanie, ktoré sadnú do akéhokoľvek dňa. Zamerané na ženské telo: brušný korzet, metabolizmus, mobilitu. Krátke = uskutočniteľné.",
+      subheading: "5-15 minútové tréningy prispôsobené tvojmu rytmu a cieľom",
+      desc: "Tréningy na požiadanie, ktoré sa prispôsobia tvojmu denníku. Cvičenia zamerané na ženské telo: spevnenie brušného korzetu, zlepšenie metabolizmu a mobility. Vďaka krátkym tréningom už nemáš výhovorky – nájdeš si čas aj vtedy, keď si myslíš, že ho nemáš.",
       image: appMockup1,
       link: "/cvicenie"
     },
@@ -61,15 +61,15 @@ const Index = () => {
     },
     {
       title: "Extras",
-      subheading: "Špeciálne programy, výzvy a exkluzívny obsah",
-      desc: "Tematické výzvy, bonusové workouty a obsah pre tvoj rast — stále niečo nové v NeoMe+.",
+      subheading: "Špeciálne programy, výzvy a exkluzívny obsah pre tvoj rast",
+      desc: "Prístup k špeciálnym programom, výzvám a exkluzívnemu obsahu. Nájdeš tu dodatočné nástroje pre tvoju osobnú transformáciu – od špeciálnych workoutov až po tematické výzvy, ktoré ťa posunú ďalej.",
       image: appMockupExtras,
       link: "/extras"
     },
     {
       title: "Komunita",
-      subheading: "Pripoj sa k tisíckam žien na podobnej ceste",
-      desc: "Zdieľaj malé víťazstvá, nájdi inšpiráciu a podporu v dňoch, keď je toho veľa. Spolu to ide lepšie.",
+      subheading: "Pripoj sa k tisíckam žien na podobnej transformačnej ceste",
+      desc: "Pripoj sa k tisíckam žien, ktoré sú na podobnej ceste ako ty. Zdieľaj svoje úspechy, nájdi inšpiráciu v príbehoch ostatných a cíť podporu komunity, ktorá ťa povzbudí aj v náročnejších dňoch. Spolu to ide lepšie.",
       image: appMockupCommunity,
       link: "/komunita"
     }
@@ -234,7 +234,7 @@ const Index = () => {
               </div>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm">
                 <StarIcon size={16} className="text-yellow-500 fill-yellow-500" />
-                <span className="text-sm font-light">⭐ 4.9 z 230 hodnotení</span>
+                <span className="text-sm font-light">4.9 hviezdičiek z 230 hodnotení</span>
               </div>
             </div>
             
@@ -249,7 +249,7 @@ const Index = () => {
             </p>
             
             <p className="text-lg text-white/90 mb-8 font-light">
-              Bez viny, bez extrémov — v rytme tvojho života.
+              Bez viny, bez extrémov.
             </p>
 
             {/* Primary CTA */}
@@ -261,11 +261,6 @@ const Index = () => {
             {/* Secondary CTA */}
             <p className="text-white/90 mb-6 text-sm">
               Vyskúšaj zadarmo 7 dní. Žiadna platobná karta potrebná.
-            </p>
-
-            {/* Microcopy */}
-            <p className="text-white/80 text-sm max-w-xl leading-relaxed">
-              S členstvom NeoMe+ získaš plný prístup k appke a všetkým programom. Ak chceš, môžeš začať aj samostatným 6–8 týždňovým programom.
             </p>
 
           </div>
@@ -280,13 +275,13 @@ const Index = () => {
               Si unavená. A aj tak sa snažíš...
             </h2>
             <p className="text-lg leading-relaxed mb-6 text-white opacity-90">
-              Viem to. Každá sekunda tvojho času je cenná a hľadať chvíľu pre seba je často zdrojom stresu, nie radosti.
+              Viem to. Každá sekunda tvojho času je cenná a snaha nájsť čas na seba je často zdrojom stresu, nie radosti.
             </p>
             <p className="text-lg leading-relaxed mb-6 text-white opacity-90">
-              V NeoMe veríme, že aj <strong className="font-medium text-white">15 minút denne je víťazstvo</strong>. Nie je to o dokonalosti — je to o tvojom rozhodnutí, že si to zaslúžiš.
+              U nás v NeoMe veríme, že aj <strong className="font-medium text-white">15 minút denne je víťazstvo</strong>. Nie je to o dokonalosti. Je to o tvojom rozhodnutí, že si to zaslúžiš.
             </p>
             <p className="text-xl font-light text-white">
-              NeoMe sa prispôsobí tebe: môžeš ísť voľne podľa nálady s NeoMe+ alebo si vybrať štruktúrovaný program s jasným cieľom.
+              NeoMe sa ti prispôsobí, nie naopak.
             </p>
           </Card>
         </div>
@@ -446,7 +441,8 @@ const Index = () => {
               <CheckCircle size={48} weight="fill" className="text-primary mx-auto mb-4" />
               <h3 className="text-2xl font-light mb-4">Nulové riziko. Pocit, že to funguje.</h3>
               <p className="text-lg max-w-2xl mx-auto">
-                S našou zárukou vrátenia peňazí do 30 dní neriskuješ nič. Dáme ti čas, aby si cítila zmenu.
+                S našou <strong className="font-medium">zárukou vrátenia peňazí do 30 dní</strong> neriskuješ nič. 
+                Dáme ti čas na to, aby si pocítila, ako sa meníš.
               </p>
             </div>
           </Card>
@@ -490,7 +486,7 @@ const Index = () => {
                 </div>
 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  "Po druhom pôrode som bola stratená. NeoMe ma vrátilo k sebe bez tlaku. Cítim sa silná v tele aj v mysli."
+                  "Po narodení druhého dieťaťa som sa cítila úplne stratená. NeoMe mi pomohlo vrátiť sa k sebe bez tlaku a výčitiek. Prvýkrát sa cítim silná v tele aj v mysli."
                 </p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">-8 kg</span>
@@ -532,7 +528,7 @@ const Index = () => {
                 </div>
 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  "Nemusím hodiny cvičiť. 15 minút denne stačí a rozdiel je obrovský."
+                  "Nemusím sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel. Konečne som našla niečo, čo sa hodí do môjho rýchleho života."
                 </p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Menej stresu</span>
@@ -574,12 +570,12 @@ const Index = () => {
                 </div>
 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  "Meditácie a dych zmenili môj deň. Viac pokoja a energie pre rodinu aj prácu."
+                  "Meditácie a dychové cvičenia zmenili môj prístup k životu. Už sa nenechám tak ľahko rozhodiť a mám viac energie na rodinu aj biznis. Je to o celej mne, nie len o cvičení."
                 </p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Pokojnejšia myseľ</span>
-                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Sústredenie</span>
-                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Radosť</span>
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Lepšia koncentrácia</span>
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Viac radosti</span>
                 </div>
 
                 {/* Hover Overlay */}
@@ -726,7 +722,7 @@ const Index = () => {
                   Ako funguje predplatné a môžem ho kedykoľvek zrušiť?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Predplatné sa obnovuje podľa zvoleného plánu (mesačne/kvartálne/ročne). Zrušiť môžeš kedykoľvek v nastaveniach — prístup ostáva do konca zaplateného obdobia.
+                  Predplatné sa automaticky obnovuje každý mesiac/kvartál/rok podľa zvoleného plánu. Môžeš ho zrušiť kedykoľvek v nastaveniach aplikácie a budeš mať prístup až do konca plateného obdobia.
                 </AccordionContent>
               </AccordionItem>
 
@@ -735,7 +731,7 @@ const Index = () => {
                   Ako funguje vaša záruka vrátenia peňazí?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Ak v prvých 30 dňoch zistíš, že NeoMe nie je pre teba, kontaktuj nás a vrátime ti peniaze. Bez otázok.
+                  Ak v priebehu prvých 30 dní zistíš, že NeoMe nie je pre teba, kontaktuj nás a vrátime ti peniaze. Žiadne otázky.
                 </AccordionContent>
               </AccordionItem>
 
@@ -744,7 +740,7 @@ const Index = () => {
                   K čomu mám prístup s predplatným?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Neobmedzene ku všetkým tréningom, receptom, meditáciám, programom a novému obsahu každý týždeň.
+                  S predplatným získaš neobmedzený prístup ku všetkým tréningom, receptom, meditáciám a exkluzívnemu obsahu. Každý týždeň pridávame nový obsah a budeš mať prístup ku celej knižnici.
                 </AccordionContent>
               </AccordionItem>
 
@@ -753,7 +749,7 @@ const Index = () => {
                   Aký je rozdiel medzi predplatným a programami?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Predplatné NeoMe+ = plný prístup ku všetkému. Programy = 6–8 týždňové cesty s jasným cieľom. Môžeš ich absolvovať v rámci členstva alebo kúpiť samostatne a prejsť do NeoMe+ neskôr.
+                  Predplatné ti dáva prístup ku všetkému obsahu v aplikácii. Programy sú špeciálne 6-8 týždňové cielené plány, ktoré si môžu existujúci predplatitelia zakúpiť ako bonus pre špecifické ciele.
                 </AccordionContent>
               </AccordionItem>
 
@@ -780,7 +776,7 @@ const Index = () => {
                   Ako dlho trvajú tréningy?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  5–15 minút. Krátke, reálne, udržateľné.
+                  Naše tréningy trvajú 5-15 minút. Veríme, že aj krátky čas venovaný sebe je lepší ako žiadny. Môžeš ich robiť kedykoľvek počas dňa.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

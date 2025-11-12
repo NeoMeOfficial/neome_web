@@ -62,7 +62,7 @@ export const PricingComparison = () => {
   };
   const subscriptionTiers = {
     monthly: {
-      name: "Predplatné NeoMe+",
+      name: "Predplatné",
       price: "14.99€",
       period: "mesačne",
       description: "Skvelý začiatok",
@@ -95,7 +95,7 @@ export const PricingComparison = () => {
         included: true
       }, {
         name: "Programy",
-        included: "Plný prístup + všetky programy + nové výzvy"
+        included: "1 program"
       }, {
         name: "Prioritná podpora",
         included: false
@@ -103,7 +103,7 @@ export const PricingComparison = () => {
       cta: "Vybrať predplatné"
     },
     quarterly: {
-      name: "Predplatné NeoMe+",
+      name: "Predplatné",
       price: "11.99€",
       period: "mesačne",
       popular: true,
@@ -138,7 +138,7 @@ export const PricingComparison = () => {
         included: true
       }, {
         name: "Programy",
-        included: "Plný prístup + všetky programy + prioritná podpora"
+        included: "2 programy"
       }, {
         name: "Prioritná podpora",
         included: true
@@ -146,7 +146,7 @@ export const PricingComparison = () => {
       cta: "Vybrať predplatné"
     },
     yearly: {
-      name: "Predplatné NeoMe+",
+      name: "Predplatné",
       price: "9.99€",
       period: "mesačne",
       description: "Najväčšia úspora",
@@ -180,7 +180,7 @@ export const PricingComparison = () => {
         included: true
       }, {
         name: "Programy",
-        included: "Plný prístup + neobmedzené programy + prioritná podpora"
+        included: "Neobmedzené"
       }, {
         name: "Prioritná podpora",
         included: true
@@ -385,14 +385,9 @@ export const PricingComparison = () => {
             💯 30-dňová záruka vrátenia peňazí
           </h3>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Nie si spokojná? Vrátime ti peniaze bez otázok. Tvoje zdravie a spokojnosť sú pre nás priorita.
+            Nie si spokojná? Vrátime ti peniaze bez otázok. Tvoje zdravie a spokojnosť sú pre nás prioritou.
           </p>
         </Card>
-
-        {/* Hybrid note */}
-        <p className="text-sm text-center text-muted-foreground mt-6">
-          Programy sú dostupné aj ako samostatný jednorazový nákup od 67 €. Ak sa neskôr pridáš do NeoMe+, tvoj pokrok zostáva.
-        </p>
       </div>
     </section>;
 };

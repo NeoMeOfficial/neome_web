@@ -13,19 +13,19 @@ const testimonials: Review[] = [
   {
     author_name: "Martina K.",
     rating: 5,
-    text: "NeoMe mi úplne zmenilo prístup k wellbeingu. 15 minút denne a vidím výsledky!",
+    text: "NeoMe mi úplne zmenilo prístup k wellbeingu. Konečne mám čas na seba aj s dvoma deťmi. 15 minút denne a vidím výsledky!",
     relative_time_description: "pred 2 týždňami"
   },
   {
     author_name: "Lucia P.",
     rating: 5,
-    text: "Najlepšia investícia do seba. Krátke tréningy a recepty pre celú rodinu. Cítim sa silnejšia a pokojnejšia.",
+    text: "Najlepšia investícia do seba. Tréningy sú krátke, efektívne a recepty chutia celej rodine. Cítim sa silnejšia a pokojnejšia.",
     relative_time_description: "pred mesiacom"
   },
   {
     author_name: "Simona H.",
     rating: 5,
-    text: "Konečne appka, ktorá ma neťahá k dokonalosti. Lepšie spím, mám viac energie — a baví ma to!",
+    text: "Konečne aplikácia, ktorá ma neťahá k dokonalosti. Mám viac energie, lepšie spím a hlavne - užívam si to!",
     relative_time_description: "pred 3 týždňami"
   }
 ];

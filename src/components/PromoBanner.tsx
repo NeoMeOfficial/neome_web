@@ -62,7 +62,8 @@ export const PromoBanner = () => {
             </div>
             
             <p className="text-base mb-4 leading-relaxed text-white">
-              Získaj <strong className="text-xl">30 % zľavu</strong> na ročné členstvo NeoMe+ a maj neobmedzený prístup ku všetkým programom, výzvam a knižnici. Platí len do 31. marca!
+              Získaj <strong className="text-xl">30% zľavu</strong> na ročný plán. 
+              Platí len do 31. marca!
             </p>
             
             <Button 

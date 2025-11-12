@@ -7,23 +7,26 @@ export const HowItWorks = () => {
     {
       number: "01",
       title: "Stiahni aplikáciu",
-      description: "Začni zadarmo s prístupom k základným cvičeniam, receptom a meditáciám. Žiadna karta.",
-      features: ["iOS/Android", "Bezplatná registrácia", "Žiadne záväzky"],
+      description: "Začni zadarmo s prístupom k základným cvičeniam, receptom a meditáciám. Žiadna platobná karta nie je potrebná.",
+      features: ["Dostupné na iOS aj Android", "Bezplatná registrácia", "Žiadne záväzky"],
       color: "bg-primary/10 text-primary"
     },
     {
       number: "02",
       title: "Vyber si svoju cestu",
-      description: "Ostaň vo free verzii alebo získaj plný prístup v NeoMe+. Môžeš začať aj samostatným programom a neskôr plynule prejsť do členstva.",
+      description: "Rozhodni sa, čo ti vyhovuje – ostať v bezplatnej verzii alebo získať plný prístup k všetkým funkciám.",
       features: [
-        "Free / Mesačne / Kvartálne / Ročne"
+        "Free: Obmedzený prístup",
+        "Mesačne: 1 program + neobmedzený obsah",
+        "Kvartálne: 2 programy + všetko",
+        "Ročne: Neobmedzené programy"
       ],
       color: "bg-accent/30 text-primary"
     },
     {
       number: "03",
       title: "Začni svoju transformáciu",
-      description: "Venuj si 15 minút denne. Sleduj progres, zapoj sa do komunity a cíť zmenu už po prvom týždni.",
+      description: "Venuj si každý deň 15 minút. Sleduj svoj pokrok, pripoj sa ku komunite a začni sa cítiť lepšie už po prvom týždni.",
       features: ["Denné pripomienky", "Sledovanie pokroku", "Komunitná podpora"],
       color: "bg-secondary text-primary"
     }
@@ -89,16 +92,28 @@ export const HowItWorks = () => {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <span className="text-primary">•</span>
-                  <span>Obmedzený prístup k cvičeniam, receptom a meditáciám — ideálne na vyskúšanie.</span>
+                  <span>Obmedzený prístup k cvičeniam, receptom a meditáciám</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span>Ideálne na vyskúšanie aplikácie</span>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-medium mb-4">Prémiový prístup (NeoMe+)</h3>
+              <h3 className="text-xl font-medium mb-4">Prémiový prístup</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <span className="text-primary">•</span>
-                  <span>Neobmedzený obsah + všetky programy a výzvy. Program si môžeš kúpiť aj samostatne.</span>
+                  <span><strong>Mesačne:</strong> 1 program + neobmedzený obsah</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span><strong>Kvartálne:</strong> 2 programy + všetko</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">•</span>
+                  <span><strong>Ročne:</strong> Neobmedzené programy + doživotný prístup</span>
                 </li>
               </ul>
             </div>
