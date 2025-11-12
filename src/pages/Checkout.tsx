@@ -18,30 +18,30 @@ const programs: Program[] = [
   {
     id: "postpartum",
     level: 1,
-    title: "Spolu s bábätkom",
-    description: "Jemný návrat k pohybu po pôrode, cvičenie s bábätkom pre nové mamičky",
-    duration: "6 týždňov"
-  },
-  {
-    id: "elasticbands",
-    level: 1,
-    title: "Gumičky",
-    description: "Efektívne tvarovanie postavy s gumičkami pre začiatočníčky",
+    title: "Postpartum",
+    description: "Program pre mamičky, ktoré potrebujú obnoviť silu brušného korzetu, riešiť diastázu a vrátiť sa k pohybu bezpečne a postupne.",
     duration: "8 týždňov"
   },
   {
     id: "bodyforming",
     level: 2,
-    title: "Formovanie tela",
-    description: "Intenzívne tvarovanie problémových partií pre mierne pokročilé",
-    duration: "10 týždňov"
+    title: "BodyForming",
+    description: "Ideálne pre formovanie tela a posilnenie svalov bez špeciálneho vybavenia. Zameraj sa na svaly, ktoré chceš definovať.",
+    duration: "6 týždňov"
+  },
+  {
+    id: "elasticbands",
+    level: 3,
+    title: "ElasticBands",
+    description: "Tréning s odporovými gumami pre svalovú definíciu a silu. Zvýš intenzitu a dosiahni vytvarované svaly.",
+    duration: "6 týždňov"
   },
   {
     id: "strongsexy",
-    level: 3,
-    title: "Silná & Sexy",
-    description: "Komplexný program pre pokročilé na budovanie sily a sebavedomia",
-    duration: "12 týždňov"
+    level: 4,
+    title: "Strong & Sexy",
+    description: "Pokročilý program pre kompletnú transformáciu tela a sebavedomia. Pre ženy pripravené posunúť sa na novú úroveň.",
+    duration: "8 týždňov"
   }
 ];
 
@@ -215,12 +215,12 @@ export default function Checkout() {
                   <SelectTrigger className="w-full h-auto py-4">
                     <SelectValue placeholder="Vyber program, ktorý ťa zaujíma" />
                   </SelectTrigger>
-                  <SelectContent className="bg-background z-50">
+                  <SelectContent className="bg-popover z-50">
                     {programs.map((program) => (
                       <SelectItem 
                         key={program.id} 
                         value={program.id}
-                        className="py-4 cursor-pointer"
+                        className="py-4 cursor-pointer hover:bg-muted/50 focus:bg-muted/50"
                       >
                         <div className="flex items-start gap-3">
                           <Badge 
@@ -249,11 +249,11 @@ export default function Checkout() {
                 </Select>
 
                 {selectedProgram && (
-                  <div className="mt-4 p-4 bg-success/10 border border-success/20 rounded-lg animate-fade-in">
+                  <div className="mt-4 p-4 bg-primary/5 border border-primary/20 rounded-lg animate-fade-in">
                     <div className="flex items-start gap-2">
-                      <Check size={20} className="text-success flex-shrink-0 mt-0.5" />
+                      <Check size={20} className="text-primary flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-medium text-success-foreground">Skvelá voľba!</p>
+                        <p className="font-medium text-foreground">Skvelá voľba!</p>
                         <p className="text-sm text-muted-foreground mt-1">
                           Tento program je ideálny pre tvoje ciele a začneš s ním hneď po aktivácii predplatného.
                         </p>
@@ -287,7 +287,7 @@ export default function Checkout() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Order Summary */}
-            <Card className="sticky top-24">
+            <Card className="lg:sticky lg:top-24">
               <CardHeader>
                 <CardTitle>Zhrnutie objednávky</CardTitle>
               </CardHeader>
@@ -349,7 +349,7 @@ export default function Checkout() {
             </Card>
 
             {/* Social Proof */}
-            <Card className="bg-gradient-to-br from-success/5 to-success/10 border-success/20">
+            <Card className="bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20">
               <CardContent className="pt-6">
                 <div className="flex items-start gap-3">
                   <div className="text-3xl">⭐</div>
