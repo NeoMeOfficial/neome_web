@@ -235,7 +235,7 @@ export default function Checkout() {
                             Level {program.level}
                           </Badge>
                           <div className="flex-1">
-                            <div className="font-medium mb-1">{program.title}</div>
+                            <div className="font-medium mb-1 text-foreground">{program.title}</div>
                             <div className="text-sm text-muted-foreground">{program.description}</div>
                             <div className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
                               <Clock size={12} />
@@ -287,7 +287,7 @@ export default function Checkout() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Order Summary */}
-            <Card className="lg:sticky lg:top-24">
+            <Card>
               <CardHeader>
                 <CardTitle>Zhrnutie objednávky</CardTitle>
               </CardHeader>
