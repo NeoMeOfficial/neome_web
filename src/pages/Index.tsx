@@ -305,7 +305,7 @@ const Index = () => {
           ref={addToRefs}
           className="py-8 px-0 opacity-0 bg-section-beige"
         >
-          <div className="container mx-auto max-w-lg">
+          <div className="mx-auto max-w-lg px-0">
             <Card className="rounded-3xl shadow-xl p-6 bg-[#F1EDE4] border-border/10">
               {/* Small highlight tag */}
               <div className="inline-block mb-4">
