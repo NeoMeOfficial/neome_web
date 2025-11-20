@@ -155,16 +155,17 @@ export const ProgramsScroll = () => {
                   <AccordionItem 
                     key={index} 
                     value={`item-${index}`}
+                    data-program={index}
                     className={`border-none border-l-4 ${selectedProgram === index ? prog.borderColor : 'border-transparent'} transition-all`}
                   >
                     <AccordionTrigger className="text-left hover:no-underline py-4 px-3 rounded-lg hover:bg-muted/30 data-[state=open]:bg-muted/40 transition-colors">
                       <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-full ${prog.accentColor} flex items-center justify-center flex-shrink-0`}>
-                          <prog.icon size={20} className={index === 0 ? "text-level-1-foreground" : "text-white"} />
+                        <div className={`accordion-icon-circle w-10 h-10 rounded-full ${prog.accentColor} flex items-center justify-center flex-shrink-0`}>
+                          <prog.icon size={20} className={`accordion-icon ${index === 0 ? "text-level-1-foreground" : "text-white"}`} />
                         </div>
                         <div className="flex flex-col gap-1">
-                          <span className={`text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full ${prog.badgeColor}`}>{prog.level}</span>
-                          <span className="text-sm font-medium text-foreground">{prog.tag}</span>
+                          <span className={`accordion-badge text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full ${prog.badgeColor}`}>{prog.level}</span>
+                          <span className="accordion-tag text-sm font-medium text-foreground">{prog.tag}</span>
                         </div>
                       </div>
                     </AccordionTrigger>

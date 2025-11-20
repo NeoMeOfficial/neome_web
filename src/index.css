@@ -4,6 +4,89 @@
 
 /* NeoMe Design System - Soft, Neutral, Feminine Palette */
 
+/* Mobile accordion color swap */
+@layer components {
+  /* Level 1 mobile accordion */
+  @media (max-width: 1023px) {
+    [data-program="0"] [data-state="open"] {
+      background-color: hsl(var(--level-1)) !important;
+    }
+    [data-program="0"] [data-state="open"] .accordion-icon-circle {
+      background-color: white !important;
+    }
+    [data-program="0"] [data-state="open"] .accordion-icon {
+      color: hsl(var(--level-1-foreground)) !important;
+    }
+    [data-program="0"] [data-state="open"] .accordion-badge {
+      background-color: white !important;
+      color: hsl(var(--level-1-foreground)) !important;
+    }
+    [data-program="0"] [data-state="open"] .accordion-tag {
+      color: hsl(var(--level-1-foreground)) !important;
+    }
+  }
+  
+  /* Level 2 mobile accordion */
+  @media (max-width: 1023px) {
+    [data-program="1"] [data-state="open"] {
+      background-color: hsl(var(--level-2)) !important;
+    }
+    [data-program="1"] [data-state="open"] .accordion-icon-circle {
+      background-color: white !important;
+    }
+    [data-program="1"] [data-state="open"] .accordion-icon {
+      color: hsl(var(--level-2)) !important;
+    }
+    [data-program="1"] [data-state="open"] .accordion-badge {
+      background-color: white !important;
+      color: hsl(var(--level-2)) !important;
+    }
+    [data-program="1"] [data-state="open"] .accordion-tag {
+      color: white !important;
+    }
+  }
+  
+  /* Level 3 mobile accordion */
+  @media (max-width: 1023px) {
+    [data-program="2"] [data-state="open"] {
+      background-color: hsl(var(--level-3)) !important;
+    }
+    [data-program="2"] [data-state="open"] .accordion-icon-circle {
+      background-color: white !important;
+    }
+    [data-program="2"] [data-state="open"] .accordion-icon {
+      color: hsl(var(--level-3)) !important;
+    }
+    [data-program="2"] [data-state="open"] .accordion-badge {
+      background-color: white !important;
+      color: hsl(var(--level-3)) !important;
+    }
+    [data-program="2"] [data-state="open"] .accordion-tag {
+      color: white !important;
+    }
+  }
+  
+  /* Level 4 mobile accordion */
+  @media (max-width: 1023px) {
+    [data-program="3"] [data-state="open"] {
+      background-color: hsl(var(--level-4)) !important;
+    }
+    [data-program="3"] [data-state="open"] .accordion-icon-circle {
+      background-color: white !important;
+    }
+    [data-program="3"] [data-state="open"] .accordion-icon {
+      color: hsl(var(--level-4)) !important;
+    }
+    [data-program="3"] [data-state="open"] .accordion-badge {
+      background-color: white !important;
+      color: hsl(var(--level-4)) !important;
+    }
+    [data-program="3"] [data-state="open"] .accordion-tag {
+      color: white !important;
+    }
+  }
+}
+
 @layer base {
   :root {
     /* Primary Brand Colors - Soft neutrals with warmth */
