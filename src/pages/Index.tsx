@@ -303,7 +303,7 @@ const Index = () => {
         <section 
           id="o-aplikacii" 
           ref={addToRefs}
-          className="py-8 px-1 opacity-0 bg-section-beige"
+          className="py-8 px-0 opacity-0 bg-section-beige"
         >
           <div className="container mx-auto max-w-lg">
             <Card className="rounded-3xl shadow-xl p-6 bg-[#F1EDE4] border-border/10">
