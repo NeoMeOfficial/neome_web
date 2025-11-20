@@ -307,23 +307,8 @@ const Index = () => {
         >
           <div className="mx-auto max-w-lg px-0">
             <Card className="rounded-3xl shadow-xl p-6 bg-[#F1EDE4] border-border/10">
-              {/* Small highlight tag */}
-              <div className="inline-block mb-4">
-                <span className="text-xs font-medium uppercase tracking-wider text-primary">
-                  Všetko na jednom mieste
-                </span>
-              </div>
-              
-              <h2 className="text-3xl font-light mb-2 text-foreground">
-                Holistická starostlivosť o ženu
-              </h2>
-              
-              <p className="text-sm text-muted-foreground mb-6">
-                Cvičenie, strava, myseľ, komunita – všetko v jednej aplikácii.
-              </p>
-
               {/* Dot Navigation */}
-              <div className="flex justify-center gap-2 mb-6">
+              <div className="flex justify-center gap-2 mb-4">
                 {features.map((_, index) => (
                   <button
                     key={index}
@@ -344,6 +329,21 @@ const Index = () => {
               {/* Progress Text */}
               <p className="text-center text-xs text-muted-foreground mb-6">
                 {activeFeatureIndex + 1} z {features.length}
+              </p>
+
+              {/* Small highlight tag */}
+              <div className="inline-block mb-4">
+                <span className="text-xs font-medium uppercase tracking-wider text-primary">
+                  Všetko na jednom mieste
+                </span>
+              </div>
+              
+              <h2 className="text-3xl font-light mb-2 text-foreground">
+                Holistická starostlivosť o ženu
+              </h2>
+              
+              <p className="text-sm text-muted-foreground mb-6">
+                Cvičenie, strava, myseľ, komunita – všetko v jednej aplikácii.
               </p>
 
               {/* Feature Content Card */}
