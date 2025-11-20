@@ -367,7 +367,7 @@ const Index = () => {
                 </div>
 
                 {/* Arrow Navigation */}
-                <div className="absolute -bottom-4 left-4 right-4 flex justify-between pointer-events-none">
+                <div className="absolute -bottom-16 left-4 right-4 flex justify-between pointer-events-none">
                   <button
                     onClick={() => {
                       if (activeFeatureIndex > 0) {
