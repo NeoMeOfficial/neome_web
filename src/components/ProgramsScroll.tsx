@@ -169,18 +169,49 @@ export const ProgramsScroll = () => {
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="px-3 pb-2">
-                      <p className="text-xs text-muted-foreground leading-relaxed">
+                      {/* Desktop: Short description only */}
+                      <p className="hidden lg:block text-xs text-muted-foreground leading-relaxed">
                         {prog.description}
                       </p>
+                      
+                      {/* Mobile: Full program details */}
+                      <div className="lg:hidden space-y-4">
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {prog.description}
+                        </p>
+                        
+                        {/* Features List */}
+                        <div className="space-y-2">
+                          {prog.features.map((feature, i) => (
+                            <div key={i} className="flex items-start gap-2">
+                              <div className={`flex-shrink-0 w-5 h-5 rounded-full ${prog.accentColor} flex items-center justify-center mt-0.5`}>
+                                <Check size={12} className={index === 0 ? "text-level-1-foreground" : "text-white"} />
+                              </div>
+                              <span className="text-sm text-foreground leading-relaxed">
+                                {feature}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        {/* CTA Button */}
+                        <Button 
+                          size="lg"
+                          className={`w-full ${prog.accentColor} hover:opacity-90 ${index === 0 ? "text-level-1-foreground" : "text-white"} transition-all`}
+                        >
+                          ZISTI VIAC O PROGRAME
+                          <ArrowRight size={16} className="ml-2" />
+                        </Button>
+                      </div>
                     </AccordionContent>
                   </AccordionItem>
                 ))}
               </Accordion>
             </div>
 
-            {/* Selected Program Display with transition */}
+            {/* Selected Program Display with transition - Hidden on mobile */}
             <div 
-              className="p-3 lg:p-12 xl:p-16 touch-pan-y"
+              className="hidden lg:block p-3 lg:p-12 xl:p-16 touch-pan-y"
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
