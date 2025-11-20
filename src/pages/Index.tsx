@@ -144,21 +144,17 @@ const Index = () => {
 
       // Check if it's primarily a vertical swipe (not horizontal)
       if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 50) {
-        setShowSwipeHint(false); // Hide hint after first swipe
-        if (deltaY > 0) {
+        setShowSwipeHint(false);
+        if (deltaY > 0 && activeFeatureIndex < features.length - 1) {
           // Swiped up - next feature
           setSwipeDirection('left');
-          setTimeout(() => {
-            setActiveFeatureIndex(prev => Math.min(prev + 1, features.length - 1));
-            setSwipeDirection(null);
-          }, 400);
-        } else {
+          setActiveFeatureIndex(prev => prev + 1);
+          setTimeout(() => setSwipeDirection(null), 300);
+        } else if (deltaY < 0 && activeFeatureIndex > 0) {
           // Swiped down - previous feature
           setSwipeDirection('right');
-          setTimeout(() => {
-            setActiveFeatureIndex(prev => Math.max(prev - 1, 0));
-            setSwipeDirection(null);
-          }, 400);
+          setActiveFeatureIndex(prev => prev - 1);
+          setTimeout(() => setSwipeDirection(null), 300);
         }
       }
     };
@@ -170,7 +166,7 @@ const Index = () => {
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [features.length]);
+  }, [features.length, activeFeatureIndex]);
 
   // Keyboard navigation support
   useEffect(() => {
@@ -373,10 +369,8 @@ const Index = () => {
                       if (activeFeatureIndex > 0) {
                         setSwipeDirection('right');
                         setShowSwipeHint(false);
-                        setTimeout(() => {
-                          setActiveFeatureIndex(prev => Math.max(prev - 1, 0));
-                          setSwipeDirection(null);
-                        }, 400);
+                        setActiveFeatureIndex(prev => prev - 1);
+                        setTimeout(() => setSwipeDirection(null), 300);
                       }
                     }}
                     disabled={activeFeatureIndex === 0}
@@ -392,10 +386,8 @@ const Index = () => {
                       if (activeFeatureIndex < features.length - 1) {
                         setSwipeDirection('left');
                         setShowSwipeHint(false);
-                        setTimeout(() => {
-                          setActiveFeatureIndex(prev => Math.min(prev + 1, features.length - 1));
-                          setSwipeDirection(null);
-                        }, 400);
+                        setActiveFeatureIndex(prev => prev + 1);
+                        setTimeout(() => setSwipeDirection(null), 300);
                       }
                     }}
                     disabled={activeFeatureIndex === features.length - 1}
