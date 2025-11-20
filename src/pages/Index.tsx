@@ -38,6 +38,7 @@ const Index = () => {
   const [currentVideoId, setCurrentVideoId] = useState<string | null>(null);
   const [currentVideoTitle, setCurrentVideoTitle] = useState<string>("");
   const [showSwipeHint, setShowSwipeHint] = useState(true);
+  const [swipeDirection, setSwipeDirection] = useState<'left' | 'right' | null>(null);
   const isMobile = useIsMobile();
 
   const features = [
@@ -146,10 +147,18 @@ const Index = () => {
         setShowSwipeHint(false); // Hide hint after first swipe
         if (deltaY > 0) {
           // Swiped up - next feature
-          setActiveFeatureIndex(prev => Math.min(prev + 1, features.length - 1));
+          setSwipeDirection('left');
+          setTimeout(() => {
+            setActiveFeatureIndex(prev => Math.min(prev + 1, features.length - 1));
+            setSwipeDirection(null);
+          }, 400);
         } else {
           // Swiped down - previous feature
-          setActiveFeatureIndex(prev => Math.max(prev - 1, 0));
+          setSwipeDirection('right');
+          setTimeout(() => {
+            setActiveFeatureIndex(prev => Math.max(prev - 1, 0));
+            setSwipeDirection(null);
+          }, 400);
         }
       }
     };
@@ -307,8 +316,101 @@ const Index = () => {
         >
           <div className="mx-auto max-w-lg px-0">
             <Card className="rounded-3xl shadow-xl p-6 bg-[#F1EDE4] border-border/10">
+              {/* Small highlight tag */}
+              <div className="inline-block mb-4">
+                <span className="text-xs font-medium uppercase tracking-wider text-primary">
+                  Všetko na jednom mieste
+                </span>
+              </div>
+              
+              <h2 className="text-3xl font-light mb-2 text-foreground">
+                Holistická starostlivosť o ženu
+              </h2>
+              
+              <p className="text-sm text-muted-foreground mb-6">
+                Cvičenie, strava, myseľ, komunita – všetko v jednej aplikácii.
+              </p>
+
+              {/* Feature Content Card with Swipe Animation */}
+              <div className="relative mb-6">
+                <div 
+                  key={activeFeatureIndex} 
+                  className={`relative p-6 rounded-2xl border border-white/30 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] ${
+                    swipeDirection === 'left' ? 'animate-swipe-out-left' : 
+                    swipeDirection === 'right' ? 'animate-swipe-out-right' : 
+                    'animate-fade-in'
+                  }`}
+                >
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-transparent pointer-events-none"></div>
+                  
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-semibold mb-2 text-foreground">
+                      {features[activeFeatureIndex].title}
+                    </h3>
+                    <p className="text-sm text-primary font-medium mb-3">
+                      {features[activeFeatureIndex].subheading}
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      {features[activeFeatureIndex].desc}
+                    </p>
+                    
+                    <Button 
+                      asChild
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md"
+                    >
+                      <a href={features[activeFeatureIndex].link}>
+                        Chcem vedieť viac
+                        <ArrowRight size={16} className="ml-2" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Arrow Navigation */}
+                <div className="absolute -bottom-4 left-4 right-4 flex justify-between pointer-events-none">
+                  <button
+                    onClick={() => {
+                      if (activeFeatureIndex > 0) {
+                        setSwipeDirection('right');
+                        setShowSwipeHint(false);
+                        setTimeout(() => {
+                          setActiveFeatureIndex(prev => Math.max(prev - 1, 0));
+                          setSwipeDirection(null);
+                        }, 400);
+                      }
+                    }}
+                    disabled={activeFeatureIndex === 0}
+                    className={`pointer-events-auto w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all hover:scale-110 ${
+                      activeFeatureIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
+                    }`}
+                    aria-label="Predchádzajúce"
+                  >
+                    <ChevronDown size={20} className="rotate-90" />
+                  </button>
+                  <button
+                    onClick={() => {
+                      if (activeFeatureIndex < features.length - 1) {
+                        setSwipeDirection('left');
+                        setShowSwipeHint(false);
+                        setTimeout(() => {
+                          setActiveFeatureIndex(prev => Math.min(prev + 1, features.length - 1));
+                          setSwipeDirection(null);
+                        }, 400);
+                      }
+                    }}
+                    disabled={activeFeatureIndex === features.length - 1}
+                    className={`pointer-events-auto w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all hover:scale-110 ${
+                      activeFeatureIndex === features.length - 1 ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
+                    }`}
+                    aria-label="Ďalšie"
+                  >
+                    <ChevronDown size={20} className="-rotate-90" />
+                  </button>
+                </div>
+              </div>
+
               {/* Dot Navigation */}
-              <div className="flex justify-center gap-2 mb-4">
+              <div className="flex justify-center gap-2 mb-3">
                 {features.map((_, index) => (
                   <button
                     key={index}
@@ -327,51 +429,9 @@ const Index = () => {
               </div>
 
               {/* Progress Text */}
-              <p className="text-center text-xs text-muted-foreground mb-6">
+              <p className="text-center text-xs text-muted-foreground">
                 {activeFeatureIndex + 1} z {features.length}
               </p>
-
-              {/* Small highlight tag */}
-              <div className="inline-block mb-4">
-                <span className="text-xs font-medium uppercase tracking-wider text-primary">
-                  Všetko na jednom mieste
-                </span>
-              </div>
-              
-              <h2 className="text-3xl font-light mb-2 text-foreground">
-                Holistická starostlivosť o ženu
-              </h2>
-              
-              <p className="text-sm text-muted-foreground mb-6">
-                Cvičenie, strava, myseľ, komunita – všetko v jednej aplikácii.
-              </p>
-
-              {/* Feature Content Card */}
-              <div className="relative p-6 rounded-2xl border border-white/30 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)]">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-transparent pointer-events-none"></div>
-                
-                <div key={activeFeatureIndex} className="animate-fade-in relative z-10">
-                  <h3 className="text-2xl font-semibold mb-2 text-foreground">
-                    {features[activeFeatureIndex].title}
-                  </h3>
-                  <p className="text-sm text-primary font-medium mb-3">
-                    {features[activeFeatureIndex].subheading}
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    {features[activeFeatureIndex].desc}
-                  </p>
-                  
-                  <Button 
-                    asChild
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md"
-                  >
-                    <a href={features[activeFeatureIndex].link}>
-                      Chcem vedieť viac
-                      <ArrowRight size={16} className="ml-2" />
-                    </a>
-                  </Button>
-                </div>
-              </div>
             </Card>
           </div>
         </section>
