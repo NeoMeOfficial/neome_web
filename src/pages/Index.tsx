@@ -306,7 +306,7 @@ const Index = () => {
           className="py-8 px-4 opacity-0 bg-section-beige"
         >
           <div className="container mx-auto max-w-lg">
-            <Card className="rounded-3xl shadow-xl p-6 bg-[#F1EDE4] border-border/10">
+            <Card className="rounded-3xl shadow-xl p-0 bg-[#F1EDE4] border-border/10">
               {/* Small highlight tag */}
               <div className="inline-block mb-4">
                 <span className="text-xs font-medium uppercase tracking-wider text-primary">
