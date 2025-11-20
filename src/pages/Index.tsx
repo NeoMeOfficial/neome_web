@@ -318,35 +318,9 @@ const Index = () => {
                 Holistická starostlivosť o ženu
               </h2>
               
-              <p className="text-sm text-muted-foreground mb-8">
+              <p className="text-sm text-muted-foreground mb-6">
                 Cvičenie, strava, myseľ, komunita – všetko v jednej aplikácii.
               </p>
-
-              {/* Phone Mockup - Above content on mobile */}
-              <div className="relative flex items-center justify-center mb-6 h-[340px]">
-                {features.map((feature, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${
-                      activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  >
-                    <img 
-                      src={feature.image} 
-                      alt={`NeoMe App - ${feature.title}`} 
-                      className="w-48 h-auto rounded-3xl shadow-2xl"
-                    />
-                  </div>
-                ))}
-                
-                {/* Swipe Hint - Show on first load */}
-                {showSwipeHint && (
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 text-xs text-muted-foreground bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-md animate-fade-in">
-                    <span>Potiahni pre ďalšie</span>
-                    <div className="animate-pulse">👆</div>
-                  </div>
-                )}
-              </div>
 
               {/* Dot Navigation */}
               <div className="flex justify-center gap-2 mb-6">
