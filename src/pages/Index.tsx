@@ -24,7 +24,8 @@ import { ComparisonSection } from "@/components/ComparisonSection";
 import { FounderStory } from "@/components/FounderStory";
 import { VideoPlayerModal } from "@/components/VideoPlayerModal";
 import { PromoBanner } from "@/components/PromoBanner";
-import { Apple, Star as StarIcon, Download } from "lucide-react";
+import { Apple, Star as StarIcon, Download, ChevronDown } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
   const sectionsRef = useRef<HTMLElement[]>([]);
@@ -36,6 +37,8 @@ const Index = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [currentVideoId, setCurrentVideoId] = useState<string | null>(null);
   const [currentVideoTitle, setCurrentVideoTitle] = useState<string>("");
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
+  const isMobile = useIsMobile();
 
   const features = [
     {
@@ -140,6 +143,7 @@ const Index = () => {
 
       // Check if it's primarily a vertical swipe (not horizontal)
       if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 50) {
+        setShowSwipeHint(false); // Hide hint after first swipe
         if (deltaY > 0) {
           // Swiped up - next feature
           setActiveFeatureIndex(prev => Math.min(prev + 1, features.length - 1));
@@ -293,127 +297,249 @@ const Index = () => {
       {/* Professional Recommendations Section */}
       <ProfessionalRecommendations />
 
-      {/* Holistic Value Section - Scroll Spacer Container */}
-      <div 
-        ref={(el) => {
-          addToRefs(el);
-          if (el) featureSectionRef.current = el as HTMLDivElement;
-        }}
-        style={{ height: `${features.length * 75}vh` }}
-        className="relative opacity-0"
-      >
-        {/* Sticky Content */}
+      {/* Holistic Value Section - Conditional Layout */}
+      {isMobile ? (
+        // MOBILE: Simple swipeable carousel layout
         <section 
           id="o-aplikacii" 
-          className="sticky top-0 min-h-screen flex items-center py-12 md:py-16 px-0 md:px-8"
+          ref={addToRefs}
+          className="py-8 px-4 opacity-0 bg-section-beige"
         >
-          <div className="container mx-auto max-w-7xl w-full">
-            <Card className="rounded-3xl shadow-xl p-3 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
-              <div className="grid lg:grid-cols-2 gap-16 items-center">
-                {/* Left: Dynamic Image */}
-                <div className="relative flex items-center justify-center order-2 lg:order-1 h-[600px]">
-                  {features.map((feature, index) => (
-                    <div
-                      key={index}
-                      className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${
-                        activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'
-                      }`}
-                    >
-                      <img 
-                        src={feature.image} 
-                        alt={`NeoMe App - ${feature.title}`} 
-                        className="w-72 h-auto rounded-3xl shadow-2xl"
-                      />
-                    </div>
-                  ))}
-                </div>
+          <div className="container mx-auto max-w-lg">
+            <Card className="rounded-3xl shadow-xl p-6 bg-[#F1EDE4] border-border/10">
+              {/* Small highlight tag */}
+              <div className="inline-block mb-4">
+                <span className="text-xs font-medium uppercase tracking-wider text-primary">
+                  Všetko na jednom mieste
+                </span>
+              </div>
+              
+              <h2 className="text-3xl font-light mb-2 text-foreground">
+                Holistická starostlivosť o ženu
+              </h2>
+              
+              <p className="text-sm text-muted-foreground mb-8">
+                Cvičenie, strava, myseľ, komunita – všetko v jednej aplikácii.
+              </p>
 
-                {/* Right: Single Card */}
-                <div className="space-y-8 order-1 lg:order-2 min-h-[600px] flex flex-col justify-center">
-                  {/* Small highlight tag */}
-                  <div className="inline-block">
-                    <span className="text-sm font-medium uppercase tracking-wider text-primary relative">
-                      Všetko na jednom mieste
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"></span>
-                    </span>
+              {/* Phone Mockup - Above content on mobile */}
+              <div className="relative flex items-center justify-center mb-6 h-[340px]">
+                {features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${
+                      activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <img 
+                      src={feature.image} 
+                      alt={`NeoMe App - ${feature.title}`} 
+                      className="w-48 h-auto rounded-3xl shadow-2xl"
+                    />
                   </div>
-                  
-                  {/* Large headline */}
-                  <h2 className="text-3xl md:text-5xl font-light leading-tight">
-                    Všetko, čo potrebuješ,<br />
-                    <span className="gradient-text font-normal">v jednej appke.</span>
-                  </h2>
-                  
-                  {/* Subheading */}
-                  <p className="text-lg text-muted-foreground font-light mb-2">
-                    Holistický prístup k wellbeingu. Telo, myseľ a komunita v jednej aplikácii.
+                ))}
+                
+                {/* Swipe Hint - Show on first load */}
+                {showSwipeHint && (
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 text-xs text-muted-foreground bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-md animate-fade-in">
+                    <span>Potiahni pre ďalšie</span>
+                    <div className="animate-pulse">👆</div>
+                  </div>
+                )}
+              </div>
+
+              {/* Dot Navigation */}
+              <div className="flex justify-center gap-2 mb-6">
+                {features.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setActiveFeatureIndex(index);
+                      setShowSwipeHint(false);
+                    }}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      activeFeatureIndex === index 
+                        ? 'w-8 bg-primary' 
+                        : 'w-2 bg-primary/30'
+                    }`}
+                    aria-label={`Prejsť na ${features[index].title}`}
+                  />
+                ))}
+              </div>
+
+              {/* Progress Text */}
+              <p className="text-center text-xs text-muted-foreground mb-6">
+                {activeFeatureIndex + 1} z {features.length}
+              </p>
+
+              {/* Feature Content Card */}
+              <div className="relative p-6 rounded-2xl border border-white/30 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)]">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-transparent pointer-events-none"></div>
+                
+                <div key={activeFeatureIndex} className="animate-fade-in relative z-10">
+                  <h3 className="text-2xl font-semibold mb-2 text-foreground">
+                    {features[activeFeatureIndex].title}
+                  </h3>
+                  <p className="text-sm text-primary font-medium mb-3">
+                    {features[activeFeatureIndex].subheading}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    {features[activeFeatureIndex].desc}
                   </p>
                   
-                  {/* Notebook-style Tabs Container */}
-                  <div className="relative">
-                    {/* Tabs - Behind the card */}
-                    <div className="relative">
-                      <div className="overflow-x-auto scroll-smooth scrollbar-hide">
-                        <div className="flex gap-1 items-end relative z-0 w-max">
-                          {features.map((feature, index) => (
-                            <button
-                              key={index}
-                              onClick={() => setActiveFeatureIndex(index)}
-                              className={`
-                                relative px-3 md:px-5 py-2 md:py-3 text-xs md:text-sm font-medium 
-                                transition-all duration-300 cursor-pointer
-                                rounded-t-xl border-t border-x
-                                backdrop-blur-sm
-                                ${activeFeatureIndex === index 
-                                  ? 'bg-white/40 text-primary border-white/30 shadow-[0_-3px_10px_rgba(0,0,0,0.04)]' 
-                                  : 'bg-white/20 text-muted-foreground border-white/20 hover:bg-white/30 hover:text-foreground'
-                                }
-                              `}
-                            >
-                              <span className="block truncate max-w-[60px] md:max-w-none whitespace-nowrap">
-                                {feature.title}
-                              </span>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Feature Card - Glass morphism on top */}
-                    <div className="relative z-10 -mt-[12px] p-6 md:p-8 rounded-2xl border border-white/30 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-700 min-h-[320px] flex flex-col">
-                      {/* Glass shine effect */}
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-transparent pointer-events-none"></div>
-                      
-                      {/* Animated content wrapper */}
-                      <div key={activeFeatureIndex} className="animate-fade-in relative z-10">
-                        <h3 className="text-2xl md:text-3xl font-semibold mb-3 text-foreground">
-                          {features[activeFeatureIndex].title}
-                        </h3>
-                        <p className="text-sm md:text-base text-primary font-medium mb-4">
-                          {features[activeFeatureIndex].subheading}
-                        </p>
-                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 flex-grow">
-                          {features[activeFeatureIndex].desc}
-                        </p>
-                      </div>
-                      
-                      <Button 
-                        asChild
-                        className="relative z-10 w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transition-all backdrop-blur-sm"
-                      >
-                        <a href={features[activeFeatureIndex].link}>
-                          Chcem vedieť viac
-                          <ArrowRight size={16} className="ml-2" />
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
+                  <Button 
+                    asChild
+                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md"
+                  >
+                    <a href={features[activeFeatureIndex].link}>
+                      Chcem vedieť viac
+                      <ArrowRight size={16} className="ml-2" />
+                    </a>
+                  </Button>
                 </div>
               </div>
             </Card>
           </div>
         </section>
-      </div>
+      ) : (
+        // DESKTOP: Sticky scroll layout with polish
+        <div 
+          ref={(el) => {
+            addToRefs(el);
+            if (el) featureSectionRef.current = el as HTMLDivElement;
+          }}
+          style={{ height: `${features.length * 75}vh` }}
+          className="relative opacity-0"
+        >
+          <section 
+            id="o-aplikacii" 
+            className="sticky top-0 min-h-screen flex items-center py-12 md:py-16 px-0 md:px-8"
+          >
+            <div className="container mx-auto max-w-7xl w-full">
+              <Card className="rounded-3xl shadow-xl p-3 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                  {/* Left: Dynamic Image */}
+                  <div className="relative flex items-center justify-center order-2 lg:order-1 h-[600px]">
+                    {features.map((feature, index) => (
+                      <div
+                        key={index}
+                        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${
+                          activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'
+                        }`}
+                      >
+                        <img 
+                          src={feature.image} 
+                          alt={`NeoMe App - ${feature.title}`} 
+                          className="w-72 h-auto rounded-3xl shadow-2xl"
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Right: Single Card */}
+                  <div className="space-y-8 order-1 lg:order-2 min-h-[600px] flex flex-col justify-center">
+                    {/* Small highlight tag */}
+                    <div className="inline-block">
+                      <span className="text-sm font-medium uppercase tracking-wider text-primary relative">
+                        Všetko na jednom mieste
+                        <span className="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-primary to-transparent"></span>
+                      </span>
+                    </div>
+                    
+                    {/* Heading */}
+                    <h2 className="text-4xl md:text-5xl font-light text-foreground leading-tight">
+                      Holistická starostlivosť o ženu
+                    </h2>
+                    
+                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                      Cvičenie, strava, myseľ, komunita – všetko v jednej aplikácii.
+                    </p>
+                    
+                    {/* Progress indicator for desktop */}
+                    <div className="flex items-center gap-3">
+                      <div className="flex-1 h-1 bg-white/40 rounded-full overflow-hidden">
+                        <div 
+                          className="h-full bg-primary transition-all duration-700"
+                          style={{ width: `${((activeFeatureIndex + 1) / features.length) * 100}%` }}
+                        />
+                      </div>
+                      <span className="text-sm text-muted-foreground">
+                        {activeFeatureIndex + 1}/{features.length}
+                      </span>
+                    </div>
+
+                    {/* Scroll hint */}
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground animate-pulse">
+                      <ChevronDown size={16} />
+                      <span>Skroluj pre viac funkcií</span>
+                    </div>
+                    
+                    {/* Notebook-style Tabs Container */}
+                    <div className="relative">
+                      {/* Tabs - Behind the card */}
+                      <div className="relative">
+                        <div className="overflow-x-auto scroll-smooth scrollbar-hide">
+                          <div className="flex gap-1 items-end relative z-0 w-max">
+                            {features.map((feature, index) => (
+                              <button
+                                key={index}
+                                onClick={() => setActiveFeatureIndex(index)}
+                                className={`
+                                  relative px-3 md:px-5 py-2 md:py-3 text-xs md:text-sm font-medium 
+                                  transition-all duration-300 cursor-pointer
+                                  rounded-t-xl border-t border-x
+                                  backdrop-blur-sm
+                                  ${activeFeatureIndex === index 
+                                    ? 'bg-white/40 text-primary border-white/30 shadow-[0_-3px_10px_rgba(0,0,0,0.04)]' 
+                                    : 'bg-white/20 text-muted-foreground border-white/20 hover:bg-white/30 hover:text-foreground'
+                                  }
+                                `}
+                              >
+                                <span className="block whitespace-nowrap">
+                                  {feature.title}
+                                </span>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Feature Card - Glass morphism on top */}
+                      <div className="relative z-10 -mt-[12px] p-6 md:p-8 rounded-2xl border border-white/30 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-700 min-h-[320px] flex flex-col">
+                        {/* Glass shine effect */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-transparent pointer-events-none"></div>
+                        
+                        {/* Animated content wrapper */}
+                        <div key={activeFeatureIndex} className="animate-fade-in relative z-10">
+                          <h3 className="text-2xl md:text-3xl font-semibold mb-3 text-foreground">
+                            {features[activeFeatureIndex].title}
+                          </h3>
+                          <p className="text-sm md:text-base text-primary font-medium mb-4">
+                            {features[activeFeatureIndex].subheading}
+                          </p>
+                          <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 flex-grow">
+                            {features[activeFeatureIndex].desc}
+                          </p>
+                        </div>
+                        
+                        <Button 
+                          asChild
+                          className="relative z-10 w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transition-all backdrop-blur-sm"
+                        >
+                          <a href={features[activeFeatureIndex].link}>
+                            Chcem vedieť viac
+                            <ArrowRight size={16} className="ml-2" />
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </section>
+        </div>
+      )}
 
       {/* Programs Section */}
       <ProgramsScroll />
