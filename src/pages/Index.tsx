@@ -511,7 +511,7 @@ const Index = () => {
                                 key={index}
                                 onClick={() => setActiveFeatureIndex(index)}
                                 className={`
-                                  relative px-3 md:px-5 py-2 md:py-3 text-xs md:text-sm font-medium 
+                                  relative px-3 md:px-5 py-4 md:py-5 text-xs md:text-sm font-medium 
                                   transition-all duration-300 cursor-pointer
                                   rounded-t-xl border-t border-x
                                   backdrop-blur-sm
@@ -531,7 +531,7 @@ const Index = () => {
                       </div>
                       
                       {/* Feature Card - Glass morphism on top */}
-                      <div className="relative z-10 mt-4 p-6 md:p-8 rounded-2xl border border-white/30 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-700 min-h-[320px] flex flex-col">
+                      <div className="relative z-10 mt-2 p-6 md:p-8 rounded-2xl border border-white/30 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-700 min-h-[320px] flex flex-col">
                         {/* Glass shine effect */}
                         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-transparent pointer-events-none"></div>
                         
