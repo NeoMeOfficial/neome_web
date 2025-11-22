@@ -156,23 +156,85 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Empathy Section */}
-      <section id="empatia" ref={addToRefs} className="py-12 md:py-16 px-0 md:px-8 opacity-0 bg-section-beige">
-        <div className="container mx-auto max-w-4xl bg-white">
-          <Card className="rounded-3xl shadow-xl p-4 md:p-16 text-center bg-primary border-0">
-            <h2 className="text-4xl md:text-5xl font-light mb-8 text-white">
-              Si unavená. A aj tak sa snažíš...
+      {/* Why Women Choose NeoMe Section */}
+      <section id="preco-neome" ref={addToRefs} className="py-16 md:py-24 px-4 md:px-8 opacity-0 bg-gradient-to-b from-section-beige to-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-light mb-6">
+              Prečo ženy volia <span className="gradient-text font-normal">NeoMe</span>
             </h2>
-            <p className="text-lg leading-relaxed mb-6 text-white opacity-90">
-              Viem to. Každá sekunda tvojho času je cenná a snaha nájsť čas na seba je často zdrojom stresu, nie radosti.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Pretože rozumieme skutočnému životu skutočných žien
             </p>
-            <p className="text-lg leading-relaxed mb-6 text-white opacity-90">
-              U nás v NeoMe veríme, že aj <strong className="font-medium text-white">15 minút denne je víťazstvo</strong>. Nie je to o dokonalosti. Je to o tvojom rozhodnutí, že si to zaslúžiš.
-            </p>
-            <p className="text-xl font-light text-white">
-              NeoMe sa ti prispôsobí, nie naopak.
-            </p>
-          </Card>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Benefit 1 */}
+            <Card className="p-8 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <CheckCircle size={24} className="text-primary" weight="fill" />
+              </div>
+              <h3 className="text-xl font-light mb-4">15 minút ti stačí</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Krátke, efektívne tréningy, ktoré sa zmestia do tvojho nabitého dňa. Žiadne výhovorky, žiadny stres.
+              </p>
+            </Card>
+
+            {/* Benefit 2 */}
+            <Card className="p-8 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Heart size={24} className="text-primary" />
+              </div>
+              <h3 className="text-xl font-light mb-4">Holistický prístup</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Telo, myseľ a duša na jednom mieste. Kompletná starostlivosť o tvoje wellbeing bez rozdrobenia medzi desiatky aplikácií.
+              </p>
+            </Card>
+
+            {/* Benefit 3 */}
+            <Card className="p-8 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Sparkle size={24} className="text-primary" weight="fill" />
+              </div>
+              <h3 className="text-xl font-light mb-4">Bez extrémov</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Žiadne drastické diéty, žiadne vysilujúce tréningy. Len udržateľný a láskavý prístup k sebe samej.
+              </p>
+            </Card>
+
+            {/* Benefit 4 */}
+            <Card className="p-8 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Star size={24} className="text-primary fill-primary" />
+              </div>
+              <h3 className="text-xl font-light mb-4">Expertka, ktorej dôveruješ</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Gabi rozumie ženám, pretože je sama mamou. Jej prístup je osobný, empatický a overený tisíckami žien.
+              </p>
+            </Card>
+
+            {/* Benefit 5 */}
+            <Card className="p-8 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <CheckCircle size={24} className="text-primary" weight="fill" />
+              </div>
+              <h3 className="text-xl font-light mb-4">Prispôsobí sa tvojej fáze</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Od post-partum po menopauzu. Programy navrhnuté pre konkrétne životné etapy ženy, nie univerzálne cvičenia.
+              </p>
+            </Card>
+
+            {/* Benefit 6 */}
+            <Card className="p-8 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Heart size={24} className="text-primary" />
+              </div>
+              <h3 className="text-xl font-light mb-4">Podporujúca komunita</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Tisíce žien na podobnej ceste. Vzájomná podpora, motivácia a inšpirácia v každom momente.
+              </p>
+            </Card>
+          </div>
         </div>
       </section>
 
