@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, CheckCircle, Sparkle } from "@phosphor-icons/react";
-import { Star, Play } from "lucide-react";
+import { Star, Play, Heart, Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-yoga.jpg";
 import appMockup1 from "@/assets/app-mockup-1.png";
 import appMockup2 from "@/assets/app-mockup-2.png";
@@ -86,88 +88,6 @@ const Index = () => {
     });
     return () => observer.disconnect();
   }, []);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!featureSectionRef.current) return;
-      const rect = featureSectionRef.current.getBoundingClientRect();
-      const sectionHeight = rect.height;
-
-      // Calculate scroll progress within the section
-      if (rect.top <= 0 && rect.bottom > 0) {
-        const scrollProgress = -rect.top;
-        const scrollPerFeature = sectionHeight / features.length;
-        const newIndex = Math.min(Math.floor(scrollProgress / scrollPerFeature), features.length - 1);
-        setActiveFeatureIndex(newIndex);
-      }
-    };
-    window.addEventListener('scroll', handleScroll, {
-      passive: true
-    });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [features.length]);
-
-  // Touch/swipe gesture support for mobile
-  useEffect(() => {
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartY.current = e.touches[0].clientY;
-      touchStartX.current = e.touches[0].clientX;
-    };
-    const handleTouchEnd = (e: TouchEvent) => {
-      if (!featureSectionRef.current) return;
-      const rect = featureSectionRef.current.getBoundingClientRect();
-      const isInSection = rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
-      if (!isInSection) return;
-      const touchEndY = e.changedTouches[0].clientY;
-      const touchEndX = e.changedTouches[0].clientX;
-      const deltaY = touchStartY.current - touchEndY;
-      const deltaX = touchStartX.current - touchEndX;
-
-      // Check if it's primarily a vertical swipe (not horizontal)
-      if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 50) {
-        setShowSwipeHint(false);
-        if (deltaY > 0 && activeFeatureIndex < features.length - 1) {
-          // Swiped up - next feature
-          setSwipeDirection('left');
-          setActiveFeatureIndex(prev => prev + 1);
-          setTimeout(() => setSwipeDirection(null), 300);
-        } else if (deltaY < 0 && activeFeatureIndex > 0) {
-          // Swiped down - previous feature
-          setSwipeDirection('right');
-          setActiveFeatureIndex(prev => prev - 1);
-          setTimeout(() => setSwipeDirection(null), 300);
-        }
-      }
-    };
-    window.addEventListener('touchstart', handleTouchStart, {
-      passive: true
-    });
-    window.addEventListener('touchend', handleTouchEnd, {
-      passive: true
-    });
-    return () => {
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [features.length, activeFeatureIndex]);
-
-  // Keyboard navigation support
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!featureSectionRef.current) return;
-      const rect = featureSectionRef.current.getBoundingClientRect();
-      const isInSection = rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
-      if (!isInSection) return;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-        e.preventDefault();
-        setActiveFeatureIndex(prev => Math.min(prev + 1, features.length - 1));
-      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-        e.preventDefault();
-        setActiveFeatureIndex(prev => Math.max(prev - 1, 0));
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [features.length]);
   const addToRefs = (el: HTMLElement | null) => {
     if (el && !sectionsRef.current.includes(el)) {
       sectionsRef.current.push(el);
@@ -267,188 +187,305 @@ const Index = () => {
       {/* Professional Recommendations Section */}
       <ProfessionalRecommendations />
 
-      {/* Holistic Value Section - Conditional Layout */}
-      {isMobile ?
-    // MOBILE: Simple swipeable carousel layout
-    <section id="o-aplikacii" ref={addToRefs} className="py-8 px-0 bg-section-beige">
-          <div className="mx-auto max-w-lg px-0">
-            <Card className="rounded-3xl shadow-xl p-6 bg-[#F1EDE4] border-border/10">
-              {/* Small highlight tag */}
-              <div className="inline-block mb-4">
-                <span className="text-xs font-medium uppercase tracking-wider text-primary">
-                  Všetko na jednom mieste
-                </span>
-              </div>
-              
-              <h2 className="text-3xl font-light mb-2 text-foreground">
-                Holistická starostlivosť o ženu
-              </h2>
-              
-              <p className="text-sm text-muted-foreground mb-6">
-                Cvičenie, strava, myseľ, komunita – všetko v jednej aplikácii.
-              </p>
-
-              {/* Feature Content Card with Swipe Animation */}
-              <div className="relative mb-6">
-                <div key={activeFeatureIndex} className={`relative p-6 rounded-2xl border border-white/30 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] ${swipeDirection === 'left' ? 'animate-swipe-out-left' : swipeDirection === 'right' ? 'animate-swipe-out-right' : 'animate-fade-in'}`}>
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-transparent pointer-events-none"></div>
-                  
-                  <div className="relative z-10">
-                    <h3 className="text-2xl font-semibold mb-2 text-foreground">
-                      {features[activeFeatureIndex].title}
-                    </h3>
-                    <p className="text-sm text-primary font-medium mb-3">
-                      {features[activeFeatureIndex].subheading}
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      {features[activeFeatureIndex].desc}
-                    </p>
-                    
-                    <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md">
-                      <a href={features[activeFeatureIndex].link}>
-                        Chcem vedieť viac
-                        <ArrowRight size={16} className="ml-2" />
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Arrow Navigation */}
-                <div className="absolute -bottom-16 left-4 right-4 flex justify-between pointer-events-none">
-                  <button onClick={() => {
-                if (activeFeatureIndex > 0) {
-                  setSwipeDirection('right');
-                  setShowSwipeHint(false);
-                  setActiveFeatureIndex(prev => prev - 1);
-                  setTimeout(() => setSwipeDirection(null), 300);
-                }
-              }} disabled={activeFeatureIndex === 0} className={`pointer-events-auto w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all hover:scale-110 ${activeFeatureIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}`} aria-label="Predchádzajúce">
-                    <ChevronDown size={20} className="rotate-90" />
-                  </button>
-                  <button onClick={() => {
-                if (activeFeatureIndex < features.length - 1) {
-                  setSwipeDirection('left');
-                  setShowSwipeHint(false);
-                  setActiveFeatureIndex(prev => prev + 1);
-                  setTimeout(() => setSwipeDirection(null), 300);
-                }
-              }} disabled={activeFeatureIndex === features.length - 1} className={`pointer-events-auto w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all hover:scale-110 ${activeFeatureIndex === features.length - 1 ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}`} aria-label="Ďalšie">
-                    <ChevronDown size={20} className="-rotate-90" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Dot Navigation */}
-              <div className="flex justify-center gap-2 mb-3">
-                {features.map((_, index) => <button key={index} onClick={() => {
-              setActiveFeatureIndex(index);
-              setShowSwipeHint(false);
-            }} className={`h-2 rounded-full transition-all duration-300 ${activeFeatureIndex === index ? 'w-8 bg-primary' : 'w-2 bg-primary/30'}`} aria-label={`Prejsť na ${features[index].title}`} />)}
-              </div>
-
-              {/* Progress Text */}
-              <p className="text-center text-xs text-muted-foreground">
-                {activeFeatureIndex + 1} z {features.length}
-              </p>
-            </Card>
+      {/* What's in the App - Timeline Section */}
+      <section id="o-aplikacii" ref={addToRefs} className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-b from-section-white to-transparent opacity-0">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-4 px-4 py-2">
+              Čo nájdeš v aplikácii
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-light mb-4">
+              Tvoja kompletná cesta k <span className="gradient-text font-normal">lepšiemu ja</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Všetko, čo potrebuješ pre telo, myseľ a ducha – na jednom mieste
+            </p>
           </div>
-        </section> :
-    // DESKTOP: Sticky scroll layout with polish
-    <div ref={el => {
-      addToRefs(el);
-      if (el) featureSectionRef.current = el as HTMLDivElement;
-    }} style={{
-      height: `${features.length * 75}vh`
-    }} className="relative opacity-0">
-          <section id="o-aplikacii" className="sticky top-0 min-h-screen flex items-center py-12 md:py-16 px-0 md:px-8">
-            <div className="container mx-auto max-w-7xl w-full">
-              <Card className="rounded-3xl shadow-xl p-3 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                  {/* Left: Dynamic Image */}
-                  <div className="relative flex items-center justify-center order-2 lg:order-1 h-[600px]">
-                    {features.map((feature, index) => <div key={index} className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'}`}>
-                        <img src={feature.image} alt={`NeoMe App - ${feature.title}`} className="w-72 h-auto rounded-3xl shadow-2xl" />
-                      </div>)}
-                  </div>
 
-                  {/* Right: Single Card */}
-                  <div className="space-y-8 order-1 lg:order-2 min-h-[600px] flex flex-col justify-center">
-                    {/* Small highlight tag */}
-                    <div className="inline-block">
-                      <span className="text-sm font-medium uppercase tracking-wider text-primary relative">
-                        Všetko na jednom mieste
-                        <span className="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-primary to-transparent"></span>
-                      </span>
-                    </div>
-                    
-                    {/* Heading */}
-                    <h2 className="text-4xl md:text-5xl font-light text-foreground leading-tight">
-                      Holistická starostlivosť o ženu
-                    </h2>
-                    
-                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                      Cvičenie, strava, myseľ, komunita – všetko v jednej aplikácii.
-                    </p>
-                    
-                    {/* Progress indicator for desktop */}
-                    
+          {/* Timeline Items */}
+          <div className="space-y-16 md:space-y-24 relative">
+            {/* Vertical line for desktop */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/20 via-primary/40 to-primary/20 -translate-x-1/2" />
 
-                    {/* Scroll hint */}
-                    
-                    
-                    {/* Notebook-style Tabs Container */}
-                    <div className="relative">
-                      {/* Tabs - Behind the card */}
-                      <div className="relative">
-                        <div className="overflow-x-auto scroll-smooth scrollbar-hide">
-                          <div className="flex gap-1 items-end relative z-0 w-max">
-                            {features.map((feature, index) => <button key={index} onClick={() => setActiveFeatureIndex(index)} className={`
-                                  relative px-3 md:px-5 py-4 text-xs md:text-sm font-medium 
-                                  transition-all duration-300 cursor-pointer
-                                  rounded-t-xl border-t border-x
-                                  backdrop-blur-sm
-                                  ${activeFeatureIndex === index ? 'bg-white/40 text-primary border-white/30 shadow-[0_-3px_10px_rgba(0,0,0,0.04)]' : 'bg-white/20 text-muted-foreground border-white/20 hover:bg-white/30 hover:text-foreground'}
-                                `}>
-                                <span className="block whitespace-nowrap">
-                                  {feature.title}
-                                </span>
-                              </button>)}
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Feature Card - Glass morphism on top */}
-                      <div className="relative z-10 -mt-px p-6 md:p-8 rounded-2xl border border-white/30 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-700 min-h-[320px] flex flex-col">
-                        {/* Glass shine effect */}
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-transparent pointer-events-none"></div>
-                        
-                        {/* Animated content wrapper */}
-                        <div key={activeFeatureIndex} className="animate-fade-in relative z-10">
-                          <h3 className="text-2xl md:text-3xl font-semibold mb-3 text-foreground">
-                            {features[activeFeatureIndex].title}
-                          </h3>
-                          <p className="text-sm md:text-base text-primary font-medium mb-4">
-                            {features[activeFeatureIndex].subheading}
-                          </p>
-                          <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 flex-grow">
-                            {features[activeFeatureIndex].desc}
-                          </p>
-                        </div>
-                        
-                        <Button asChild className="relative z-10 w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transition-all backdrop-blur-sm">
-                          <a href={features[activeFeatureIndex].link}>
-                            Chcem vedieť viac
-                            <ArrowRight size={16} className="ml-2" />
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
+            {/* Item 1 - Right */}
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="md:text-right md:pr-12">
+                <div className="inline-block md:float-right">
+                  <Badge className="mb-4">Cvičenie</Badge>
+                  <h3 className="text-2xl md:text-3xl font-light mb-4">
+                    Programy šité <span className="gradient-text font-normal">na mieru</span>
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Od post-partum po body-forming. Každý program je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.
+                  </p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2 md:justify-end">
+                      <CheckCircle size={16} className="text-primary mt-0.5 md:order-2" />
+                      <span>15-30 minútové tréningy</span>
+                    </li>
+                    <li className="flex items-start gap-2 md:justify-end">
+                      <CheckCircle size={16} className="text-primary mt-0.5 md:order-2" />
+                      <span>Pre všetky úrovne</span>
+                    </li>
+                    <li className="flex items-start gap-2 md:justify-end">
+                      <CheckCircle size={16} className="text-primary mt-0.5 md:order-2" />
+                      <span>Žiadne vybavenie</span>
+                    </li>
+                  </ul>
                 </div>
-              </Card>
-            </div>
-          </section>
-        </div>}
+              </div>
+              <div className="relative">
+                <div className="hidden md:block absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
+                <Card className="p-8 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
+                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                    <Heart size={32} className="text-primary" />
+                  </div>
+                  <p className="text-sm italic text-muted-foreground">
+                    "Nemusíš sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel."
+                  </p>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Item 2 - Left */}
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="md:col-start-2 md:pl-12">
+                <Badge className="mb-4">Strava</Badge>
+                <h3 className="text-2xl md:text-3xl font-light mb-4">
+                  Zdravé recepty <span className="gradient-text font-normal">pre reálny život</span>
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Jednoduché, chutné recepty, ktoré pripravíš aj s deťmi okolo. Bez extrémov, s láskyplným prístupom k strave.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-0.5" />
+                    <span>Rýchle a jednoduché</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-0.5" />
+                    <span>Pre celú rodinu</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-0.5" />
+                    <span>S nutričnými hodnotami</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="relative md:row-start-1 md:col-start-1">
+                <div className="hidden md:block absolute -right-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
+                <Card className="p-8 bg-gradient-to-br from-accent/10 to-primary/10 border-primary/20">
+                  <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-4">
+                    <Sparkle size={32} className="text-primary" />
+                  </div>
+                  <p className="text-sm italic text-muted-foreground">
+                    "Konečne recepty, ktoré sú zdravé, ale jednoduché. A moje deti ich jedia!"
+                  </p>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Item 3 - Right */}
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="md:text-right md:pr-12">
+                <div className="inline-block md:float-right">
+                  <Badge className="mb-4">Myseľ</Badge>
+                  <h3 className="text-2xl md:text-3xl font-light mb-4">
+                    Vnútorný pokoj <span className="gradient-text font-normal">každý deň</span>
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Meditácie, dychové cvičenia a mindfulness techniky, ktoré ti pomôžu nájsť kľud aj v chaose každodenného života.
+                  </p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2 md:justify-end">
+                      <CheckCircle size={16} className="text-primary mt-0.5 md:order-2" />
+                      <span>Vedené meditácie</span>
+                    </li>
+                    <li className="flex items-start gap-2 md:justify-end">
+                      <CheckCircle size={16} className="text-primary mt-0.5 md:order-2" />
+                      <span>Dychové cvičenia</span>
+                    </li>
+                    <li className="flex items-start gap-2 md:justify-end">
+                      <CheckCircle size={16} className="text-primary mt-0.5 md:order-2" />
+                      <span>5-15 minút</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="hidden md:block absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
+                <Card className="p-8 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
+                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                    <Heart size={32} className="text-primary" />
+                  </div>
+                  <p className="text-sm italic text-muted-foreground">
+                    "Meditácie mi pomohli nájsť pokoj, ktorý som stratila. Už sa necítim tak preťažená."
+                  </p>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Item 4 - Left */}
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="md:col-start-2 md:pl-12">
+                <Badge className="mb-4">Komunita</Badge>
+                <h3 className="text-2xl md:text-3xl font-light mb-4">
+                  Nie si v tom <span className="gradient-text font-normal">sama</span>
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Pripoj sa k tisíckam žien, ktoré sa navzájom podporujú, inšpirujú a vytvárajú priestor bez súdenia.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-0.5" />
+                    <span>Súkromná FB skupina</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-0.5" />
+                    <span>Live Q&A s Gabi</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-0.5" />
+                    <span>Vzájomná podpora</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="relative md:row-start-1 md:col-start-1">
+                <div className="hidden md:block absolute -right-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
+                <Card className="p-8 bg-gradient-to-br from-accent/10 to-primary/10 border-primary/20">
+                  <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-4">
+                    <Sparkle size={32} className="text-primary" />
+                  </div>
+                  <p className="text-sm italic text-muted-foreground">
+                    "Komunita je najlepšia časť. Konečne som našla ženy, ktoré ma chápú."
+                  </p>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Item 5 - Right */}
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="md:text-right md:pr-12">
+                <div className="inline-block md:float-right">
+                  <Badge className="mb-4">Extras</Badge>
+                  <h3 className="text-2xl md:text-3xl font-light mb-4">
+                    Doplnkové cvičenia a strečing
+                  </h3>
+                </div>
+              </div>
+              <div className="md:col-start-2">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 hidden md:block" />
+                <Card className="p-6 hover:shadow-lg transition-shadow">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing. 
+                    Objavuj nové cvičebné postupy, ktoré doplnia tvoju rutinu a pomôžu ti dosiahnuť tvoje ciele rýchlejšie a efektívnejšie.
+                  </p>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Item 6 - Left */}
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="md:col-start-2 md:pl-12">
+                <Badge className="mb-4">Denné návyky</Badge>
+                <h3 className="text-2xl md:text-3xl font-light mb-4">
+                  Denník návykov a reflexií
+                </h3>
+              </div>
+              <div className="md:col-start-1 md:row-start-1">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 hidden md:block" />
+                <Card className="p-6 hover:shadow-lg transition-shadow">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom. 
+                    Zapisuj si reflexie, sleduj svoje pocity a vytváraj si priestor pre osobný rast. 
+                    Malé každodenné kroky vedú k veľkým zmenám.
+                  </p>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Item 7 - Right */}
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="md:text-right md:pr-12">
+                <div className="inline-block md:float-right">
+                  <Badge className="mb-4">Periodka</Badge>
+                  <h3 className="text-2xl md:text-3xl font-light mb-4">
+                    Sledovanie menštruačného cyklu
+                  </h3>
+                </div>
+              </div>
+              <div className="md:col-start-2">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 hidden md:block" />
+                <Card className="p-6 hover:shadow-lg transition-shadow">
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Jednoducho a anonymne sleduj svoju periodu. Vždy budeš vedieť, čo ťa čaká a lepšie porozumieš svojmu telu.
+                  </p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <Check size={16} className="text-primary mt-0.5" />
+                      <span>Sleduj svoj cyklus a príznaky</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check size={16} className="text-primary mt-0.5" />
+                      <span>Pochop svoje príznaky</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check size={16} className="text-primary mt-0.5" />
+                      <span>Personalizované odporúčania</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check size={16} className="text-primary mt-0.5" />
+                      <span>Anonymný režim pre súkromie</span>
+                    </li>
+                  </ul>
+                </Card>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Programs Section */}
       <ProgramsScroll />
