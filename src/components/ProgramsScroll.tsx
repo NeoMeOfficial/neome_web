@@ -172,9 +172,7 @@ export const ProgramsScroll = () => {
                   {/* Content */}
                   <div className="space-y-6">
                     {/* Icon Circle */}
-                    <div className={`w-16 h-16 rounded-full ${program.accentColor} flex items-center justify-center shadow-lg ${program.glowColor}`}>
-                      <program.icon size={32} className={selectedProgram === 0 ? "text-level-1-foreground" : "text-white"} />
-                    </div>
+                    
 
                     {/* Duration & Title */}
                     <div>

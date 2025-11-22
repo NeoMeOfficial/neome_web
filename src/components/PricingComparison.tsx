@@ -294,11 +294,7 @@ export const PricingComparison = () => {
                         <div className="text-xs text-muted-foreground mb-4">
                           {tier.description}
                         </div>
-                        <Button 
-                          className={cn("w-full", tier.popular && "bg-primary text-primary-foreground hover:bg-primary/90")} 
-                          variant={tier.popular ? "default" : "outline"}
-                          onClick={() => tier.name !== "Free" && navigate('/checkout')}
-                        >
+                        <Button className={cn("w-full", tier.popular && "bg-primary text-primary-foreground hover:bg-primary/90")} variant={tier.popular ? "default" : "outline"} onClick={() => tier.name !== "Free" && navigate('/checkout')}>
                           {tier.cta}
                         </Button>
                       </Card>
@@ -366,11 +362,7 @@ export const PricingComparison = () => {
                 {tier.description}
               </p>
 
-              <Button 
-                className={cn("w-full mb-6", tier.popular && "bg-primary text-primary-foreground hover:bg-primary/90")} 
-                variant={tier.popular ? "default" : "outline"}
-                onClick={() => tier.name !== "Free" && navigate('/checkout')}
-              >
+              <Button className={cn("w-full mb-6", tier.popular && "bg-primary text-primary-foreground hover:bg-primary/90")} variant={tier.popular ? "default" : "outline"} onClick={() => tier.name !== "Free" && navigate('/checkout')}>
                 {tier.cta}
               </Button>
 
@@ -392,7 +384,7 @@ export const PricingComparison = () => {
         {/* Money-back guarantee */}
         <Card className="mt-12 p-4 md:p-8 bg-gradient-to-br from-primary/5 to-accent/10 border-primary/20 text-center">
           <h3 className="text-2xl font-light mb-3">
-            💯 30-dňová záruka vrátenia peňazí
+             30-dňová záruka vrátenia peňazí
           </h3>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Nie si spokojná? Vrátime ti peniaze bez otázok. Tvoje zdravie a spokojnosť sú pre nás prioritou.
