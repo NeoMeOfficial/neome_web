@@ -15,7 +15,7 @@ import appMockupCommunity from "@/assets/app-mockup-community.png";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ProgramsScroll } from "@/components/ProgramsScroll";
 import { FloatingCTA } from "@/components/FloatingCTA";
-import { StatsShowcase } from "@/components/StatsShowcase";
+
 import { ProfessionalRecommendations } from "@/components/ProfessionalRecommendations";
 import { PricingComparison } from "@/components/PricingComparison";
 import { ComparisonSection } from "@/components/ComparisonSection";
@@ -177,8 +177,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Showcase Section */}
-      <StatsShowcase />
+      {/* Google Reviews Carousel */}
+      <GoogleReviews />
 
       {/* Professional Recommendations Section */}
       <ProfessionalRecommendations />
