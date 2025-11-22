@@ -15,7 +15,6 @@ import appMockupCommunity from "@/assets/app-mockup-community.png";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ProgramsScroll } from "@/components/ProgramsScroll";
 import { FloatingCTA } from "@/components/FloatingCTA";
-
 import { ProfessionalRecommendations } from "@/components/ProfessionalRecommendations";
 import { PricingComparison } from "@/components/PricingComparison";
 import { ComparisonSection } from "@/components/ComparisonSection";
@@ -204,13 +203,19 @@ const Index = () => {
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/20 via-primary/40 to-primary/20 -translate-x-1/2" />
 
             {/* Item 1 - Right */}
-            <motion.div 
-              className="relative grid md:grid-cols-2 gap-8 items-center"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
+            <motion.div className="relative grid md:grid-cols-2 gap-8 items-center" initial={{
+            opacity: 0,
+            x: 50
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true,
+            margin: "-100px"
+          }} transition={{
+            duration: 0.6,
+            ease: "easeOut"
+          }}>
               <div className="md:text-right md:pr-12">
                 <div className="inline-block md:float-right">
                   <Badge className="mb-4">Cvičenie</Badge>
@@ -250,13 +255,19 @@ const Index = () => {
             </motion.div>
 
             {/* Item 2 - Left */}
-            <motion.div 
-              className="relative grid md:grid-cols-2 gap-8 items-center"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
+            <motion.div className="relative grid md:grid-cols-2 gap-8 items-center" initial={{
+            opacity: 0,
+            x: -50
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true,
+            margin: "-100px"
+          }} transition={{
+            duration: 0.6,
+            ease: "easeOut"
+          }}>
               <div className="md:col-start-2 md:pl-12">
                 <Badge className="mb-4">Strava</Badge>
                 <h3 className="text-2xl md:text-3xl font-light mb-4">
@@ -294,13 +305,19 @@ const Index = () => {
             </motion.div>
 
             {/* Item 3 - Right */}
-            <motion.div 
-              className="relative grid md:grid-cols-2 gap-8 items-center"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
+            <motion.div className="relative grid md:grid-cols-2 gap-8 items-center" initial={{
+            opacity: 0,
+            x: 50
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true,
+            margin: "-100px"
+          }} transition={{
+            duration: 0.6,
+            ease: "easeOut"
+          }}>
               <div className="md:text-right md:pr-12">
                 <div className="inline-block md:float-right">
                   <Badge className="mb-4">Myseľ</Badge>
@@ -340,13 +357,19 @@ const Index = () => {
             </motion.div>
 
             {/* Item 4 - Left */}
-            <motion.div 
-              className="relative grid md:grid-cols-2 gap-8 items-center"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
+            <motion.div className="relative grid md:grid-cols-2 gap-8 items-center" initial={{
+            opacity: 0,
+            x: -50
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true,
+            margin: "-100px"
+          }} transition={{
+            duration: 0.6,
+            ease: "easeOut"
+          }}>
               <div className="md:col-start-2 md:pl-12">
                 <Badge className="mb-4">Komunita</Badge>
                 <h3 className="text-2xl md:text-3xl font-light mb-4">
@@ -384,13 +407,19 @@ const Index = () => {
             </motion.div>
 
             {/* Item 5 - Right */}
-            <motion.div 
-              className="relative grid md:grid-cols-2 gap-8 items-center"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
+            <motion.div className="relative grid md:grid-cols-2 gap-8 items-center" initial={{
+            opacity: 0,
+            x: 50
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true,
+            margin: "-100px"
+          }} transition={{
+            duration: 0.6,
+            ease: "easeOut"
+          }}>
               <div className="md:text-right md:pr-12">
                 <div className="inline-block md:float-right">
                   <Badge className="mb-4">Extras</Badge>
@@ -411,13 +440,19 @@ const Index = () => {
             </motion.div>
 
             {/* Item 6 - Left */}
-            <motion.div 
-              className="relative grid md:grid-cols-2 gap-8 items-center"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
+            <motion.div className="relative grid md:grid-cols-2 gap-8 items-center" initial={{
+            opacity: 0,
+            x: -50
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true,
+            margin: "-100px"
+          }} transition={{
+            duration: 0.6,
+            ease: "easeOut"
+          }}>
               <div className="md:col-start-2 md:pl-12">
                 <Badge className="mb-4">Denné návyky</Badge>
                 <h3 className="text-2xl md:text-3xl font-light mb-4">
@@ -437,13 +472,19 @@ const Index = () => {
             </motion.div>
 
             {/* Item 7 - Right */}
-            <motion.div 
-              className="relative grid md:grid-cols-2 gap-8 items-center"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
+            <motion.div className="relative grid md:grid-cols-2 gap-8 items-center" initial={{
+            opacity: 0,
+            x: 50
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true,
+            margin: "-100px"
+          }} transition={{
+            duration: 0.6,
+            ease: "easeOut"
+          }}>
               <div className="md:text-right md:pr-12">
                 <div className="inline-block md:float-right">
                   <Badge className="mb-4">Periodka</Badge>
@@ -496,26 +537,7 @@ const Index = () => {
       <FounderStory />
 
       {/* Proof & Guarantee Section */}
-      <section id="dokaz" ref={addToRefs} className="py-12 md:py-16 px-0 md:px-8 opacity-0 bg-section-beige">
-        <div className="container mx-auto max-w-6xl">
-          <Card className="rounded-3xl shadow-xl p-4 md:p-12 lg:p-16 bg-white border-border/10">
-            <h2 className="text-3xl md:text-5xl font-light text-center mb-12">
-              Už <span className="gradient-text font-normal">4000 žien</span> pocítilo ten rozdiel.
-            </h2>
-
-            <GoogleReviews />
-
-            <div className="mt-12 bg-gradient-to-br from-primary/5 to-accent/10 border border-primary/20 p-8 md:p-10 rounded-2xl text-center">
-              <CheckCircle size={48} weight="fill" className="text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-light mb-4">Nulové riziko. Pocit, že to funguje.</h3>
-              <p className="text-lg max-w-2xl mx-auto">
-                S našou <strong className="font-medium">zárukou vrátenia peňazí do 30 dní</strong> neriskuješ nič. 
-                Dáme ti čas na to, aby si pocítila, ako sa meníš.
-              </p>
-            </div>
-          </Card>
-        </div>
-      </section>
+      
 
       {/* FAQ Section */}
       <section id="faq" ref={addToRefs} className="py-12 md:py-16 px-4 md:px-8 opacity-0">
