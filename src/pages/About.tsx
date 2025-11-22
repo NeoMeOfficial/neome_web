@@ -6,10 +6,8 @@ import gabiYogaMat from "@/assets/gabi-yoga-mat.png";
 import gabiStairs from "@/assets/gabi-stairs.png";
 import gabiBalance from "@/assets/gabi-balance.png";
 import gabiFamily from "@/assets/gabi-family.png";
-
 const About = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-accent/5">
+  return <div className="min-h-screen bg-gradient-to-b from-background to-accent/5">
       <main className="pt-32 pb-20 px-4">
         
         {/* Hero Section */}
@@ -26,12 +24,10 @@ const About = () => {
                 Byť vyrovnanou ženou, ktorá je odhodlaná a pripravená zvládnuť každodenné nástrahy s nadhľadom je skvelý pocit, ktorý by som dopriala každej mame.
               </p>
             </div>
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <img 
-                src={gabiYogaMat} 
-                alt="Gabi cvičenie"
-                className="w-full h-full object-cover"
-              />
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl animate-fade-in" style={{
+            animationDelay: '0.2s'
+          }}>
+              <img src={gabiYogaMat} alt="Gabi cvičenie" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -40,7 +36,7 @@ const About = () => {
         <div className="container mx-auto max-w-5xl mb-32">
           <Card className="glass-card p-12 md:p-16 bg-gradient-to-br from-primary/5 to-accent/10">
             <div className="text-center mb-12">
-              <Sparkle size={48} weight="fill" className="text-primary mx-auto mb-6" />
+              
               <h2 className="text-4xl md:text-5xl font-light mb-6">
                 Prečo <span className="gradient-text font-medium">NeoMe</span>
               </h2>
@@ -85,11 +81,7 @@ const About = () => {
             {/* Introduction */}
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
-                <img 
-                  src={gabiStairs} 
-                  alt="Gabi"
-                  className="w-full rounded-3xl shadow-xl"
-                />
+                <img src={gabiStairs} alt="Gabi" className="w-full rounded-3xl shadow-xl" />
               </div>
               <div className="order-1 md:order-2">
                 <h3 className="text-3xl font-light mb-6">Ahoj,</h3>
@@ -112,11 +104,7 @@ const About = () => {
             {/* Transformation */}
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <img 
-                  src={gabiBalance} 
-                  alt="Gabi cvičenie"
-                  className="w-full rounded-3xl shadow-xl"
-                />
+                <img src={gabiBalance} alt="Gabi cvičenie" className="w-full rounded-3xl shadow-xl" />
               </div>
               <div>
                 <p className="text-lg leading-relaxed mb-4">
@@ -144,11 +132,7 @@ const About = () => {
             {/* Creation of NeoMe */}
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
-                <img 
-                  src={gabiFamily} 
-                  alt="Gabi s rodinou"
-                  className="w-full rounded-3xl shadow-xl"
-                />
+                <img src={gabiFamily} alt="Gabi s rodinou" className="w-full rounded-3xl shadow-xl" />
               </div>
               <div className="order-1 md:order-2">
                 <p className="text-lg leading-relaxed mb-4">
@@ -188,11 +172,7 @@ const About = () => {
             <p className="text-xl font-medium text-primary mb-8">
               Z pohodlia tvojho domova.
             </p>
-            <Button 
-              asChild
-              size="lg" 
-              className="px-8 py-6 text-base hover:scale-105 transition-transform"
-            >
+            <Button asChild size="lg" className="px-8 py-6 text-base hover:scale-105 transition-transform">
               <Link to="/">
                 STIAHNUŤ APLIKÁCIU
               </Link>
@@ -219,8 +199,6 @@ const About = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default About;
