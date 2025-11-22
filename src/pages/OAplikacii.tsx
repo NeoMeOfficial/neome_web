@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { HowItWorks } from "@/components/HowItWorks";
-import { ArrowRight, Star, Play, Heart, Sparkle, CheckCircle } from "lucide-react";
+import { ArrowRight, Star, Play, Heart, Sparkle, CheckCircle, Check } from "lucide-react";
 import testimonialMartina from "@/assets/testimonial-martina.jpg";
 import testimonialLucia from "@/assets/testimonial-lucia.jpg";
 import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
@@ -265,6 +265,104 @@ const OAplikacii = () => {
                   <p className="text-sm italic text-muted-foreground">
                     "Komunita je najlepšia časť. Konečne som našla ženy, ktoré ma chápú."
                   </p>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Item 5 - Right */}
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="md:text-right md:pr-12">
+                <div className="inline-block md:float-right">
+                  <Badge className="mb-4">Extras</Badge>
+                  <h3 className="text-2xl md:text-3xl font-light mb-4">
+                    Doplnkové cvičenia a strečing
+                  </h3>
+                </div>
+              </div>
+              <div className="md:col-start-2">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 hidden md:block" />
+                <Card className="p-6 hover:shadow-lg transition-shadow">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing. 
+                    Objavuj nové cvičebné postupy, ktoré doplnia tvoju rutinu a pomôžu ti dosiahnuť tvoje ciele rýchlejšie a efektívnejšie.
+                  </p>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Item 6 - Left */}
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="md:col-start-2 md:pl-12">
+                <Badge className="mb-4">Denné návyky</Badge>
+                <h3 className="text-2xl md:text-3xl font-light mb-4">
+                  Denník návykov a reflexií
+                </h3>
+              </div>
+              <div className="md:col-start-1 md:row-start-1">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 hidden md:block" />
+                <Card className="p-6 hover:shadow-lg transition-shadow">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom. 
+                    Zapisuj si reflexie, sleduj svoje pocity a vytváraj si priestor pre osobný rast. 
+                    Malé každodenné kroky vedú k veľkým zmenám.
+                  </p>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Item 7 - Right */}
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="md:text-right md:pr-12">
+                <div className="inline-block md:float-right">
+                  <Badge className="mb-4">Periodka</Badge>
+                  <h3 className="text-2xl md:text-3xl font-light mb-4">
+                    Sledovanie menštruačného cyklu
+                  </h3>
+                </div>
+              </div>
+              <div className="md:col-start-2">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 hidden md:block" />
+                <Card className="p-6 hover:shadow-lg transition-shadow">
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Obľúbená aplikácia všetkých aktívnych žien. Jednoducho a anonymne sleduj svoju periodu. 
+                    Vždy budeš vedieť, čo ťa čaká a lepšie porozumieš svojmu telu.
+                  </p>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <span>Sleduj svoj cyklus a príznaky</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <span>Pochop svoje príznaky a signály tela</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <span>Personalizované odporúčania od odborníkov</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <span>Anonymný režim pre maximálne súkromie</span>
+                    </li>
+                  </ul>
                 </Card>
               </div>
             </motion.div>
