@@ -158,7 +158,7 @@ const Index = () => {
 
       {/* Empathy Section */}
       <section id="empatia" ref={addToRefs} className="py-12 md:py-16 px-0 md:px-8 opacity-0 bg-section-beige">
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-4xl bg-white">
           <Card className="rounded-3xl shadow-xl p-4 md:p-16 text-center bg-primary border-0">
             <h2 className="text-4xl md:text-5xl font-light mb-8 text-white">
               Si unavená. A aj tak sa snažíš...
