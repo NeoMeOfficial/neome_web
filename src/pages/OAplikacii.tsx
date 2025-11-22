@@ -8,6 +8,7 @@ import testimonialLucia from "@/assets/testimonial-lucia.jpg";
 import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
 import { useState } from "react";
 import { VideoPlayerModal } from "@/components/VideoPlayerModal";
+import { motion } from "framer-motion";
 
 const OAplikacii = () => {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
@@ -89,7 +90,13 @@ const OAplikacii = () => {
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/20 via-primary/40 to-primary/20 -translate-x-1/2" />
 
             {/* Item 1 - Right */}
-            <div className="relative grid md:grid-cols-2 gap-8 items-center">
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <div className="md:text-right md:pr-12">
                 <div className="inline-block md:float-right">
                   <Badge className="mb-4">Cvičenie</Badge>
@@ -126,10 +133,16 @@ const OAplikacii = () => {
                   </p>
                 </Card>
               </div>
-            </div>
+            </motion.div>
 
             {/* Item 2 - Left */}
-            <div className="relative grid md:grid-cols-2 gap-8 items-center">
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <div className="md:col-start-2 md:pl-12">
                 <Badge className="mb-4">Strava</Badge>
                 <h3 className="text-2xl md:text-3xl font-light mb-4">
@@ -164,10 +177,16 @@ const OAplikacii = () => {
                   </p>
                 </Card>
               </div>
-            </div>
+            </motion.div>
 
             {/* Item 3 - Right */}
-            <div className="relative grid md:grid-cols-2 gap-8 items-center">
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <div className="md:text-right md:pr-12">
                 <div className="inline-block md:float-right">
                   <Badge className="mb-4">Myseľ</Badge>
@@ -204,10 +223,16 @@ const OAplikacii = () => {
                   </p>
                 </Card>
               </div>
-            </div>
+            </motion.div>
 
             {/* Item 4 - Left */}
-            <div className="relative grid md:grid-cols-2 gap-8 items-center">
+            <motion.div 
+              className="relative grid md:grid-cols-2 gap-8 items-center"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <div className="md:col-start-2 md:pl-12">
                 <Badge className="mb-4">Komunita</Badge>
                 <h3 className="text-2xl md:text-3xl font-light mb-4">
@@ -242,7 +267,7 @@ const OAplikacii = () => {
                   </p>
                 </Card>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
