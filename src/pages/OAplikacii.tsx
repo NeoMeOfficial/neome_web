@@ -65,6 +65,188 @@ const OAplikacii = () => {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <HowItWorks />
+
+      {/* What's in the App - Timeline Section */}
+      <section className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-b from-section-white to-transparent">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-4 px-4 py-2">
+              Čo nájdeš v aplikácii
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-light mb-4">
+              Tvoja kompletná cesta k <span className="gradient-text font-normal">lepšiemu ja</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Všetko, čo potrebuješ pre telo, myseľ a ducha – na jednom mieste
+            </p>
+          </div>
+
+          {/* Timeline Items */}
+          <div className="space-y-16 md:space-y-24 relative">
+            {/* Vertical line for desktop */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/20 via-primary/40 to-primary/20 -translate-x-1/2" />
+
+            {/* Item 1 - Right */}
+            <div className="relative grid md:grid-cols-2 gap-8 items-center">
+              <div className="md:text-right md:pr-12">
+                <div className="inline-block md:float-right">
+                  <Badge className="mb-4">Cvičenie</Badge>
+                  <h3 className="text-2xl md:text-3xl font-light mb-4">
+                    Programy šité <span className="gradient-text font-normal">na mieru</span>
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Od post-partum po body-forming. Každý program je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.
+                  </p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2 md:justify-end">
+                      <CheckCircle size={16} className="text-primary mt-0.5 md:order-2" />
+                      <span>15-30 minútové tréningy</span>
+                    </li>
+                    <li className="flex items-start gap-2 md:justify-end">
+                      <CheckCircle size={16} className="text-primary mt-0.5 md:order-2" />
+                      <span>Pre všetky úrovne</span>
+                    </li>
+                    <li className="flex items-start gap-2 md:justify-end">
+                      <CheckCircle size={16} className="text-primary mt-0.5 md:order-2" />
+                      <span>Žiadne vybavenie</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="hidden md:block absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
+                <Card className="p-8 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
+                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                    <Heart size={32} className="text-primary" />
+                  </div>
+                  <p className="text-sm italic text-muted-foreground">
+                    "Nemusíš sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel."
+                  </p>
+                </Card>
+              </div>
+            </div>
+
+            {/* Item 2 - Left */}
+            <div className="relative grid md:grid-cols-2 gap-8 items-center">
+              <div className="md:col-start-2 md:pl-12">
+                <Badge className="mb-4">Strava</Badge>
+                <h3 className="text-2xl md:text-3xl font-light mb-4">
+                  Zdravé recepty <span className="gradient-text font-normal">pre reálny život</span>
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Jednoduché, chutné recepty, ktoré pripravíš aj s deťmi okolo. Bez extrémov, s láskyplným prístupom k strave.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-0.5" />
+                    <span>Rýchle a jednoduché</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-0.5" />
+                    <span>Pre celú rodinu</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-0.5" />
+                    <span>S nutričnými hodnotami</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="relative md:row-start-1 md:col-start-1">
+                <div className="hidden md:block absolute -right-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
+                <Card className="p-8 bg-gradient-to-br from-accent/10 to-primary/10 border-primary/20">
+                  <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-4">
+                    <Sparkle size={32} className="text-primary" />
+                  </div>
+                  <p className="text-sm italic text-muted-foreground">
+                    "Konečne recepty, ktoré sú zdravé, ale jednoduché. A moje deti ich jedia!"
+                  </p>
+                </Card>
+              </div>
+            </div>
+
+            {/* Item 3 - Right */}
+            <div className="relative grid md:grid-cols-2 gap-8 items-center">
+              <div className="md:text-right md:pr-12">
+                <div className="inline-block md:float-right">
+                  <Badge className="mb-4">Myseľ</Badge>
+                  <h3 className="text-2xl md:text-3xl font-light mb-4">
+                    Vnútorný pokoj <span className="gradient-text font-normal">každý deň</span>
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Meditácie, dychové cvičenia a mindfulness techniky, ktoré ti pomôžu nájsť kľud aj v chaose každodenného života.
+                  </p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2 md:justify-end">
+                      <CheckCircle size={16} className="text-primary mt-0.5 md:order-2" />
+                      <span>Vedené meditácie</span>
+                    </li>
+                    <li className="flex items-start gap-2 md:justify-end">
+                      <CheckCircle size={16} className="text-primary mt-0.5 md:order-2" />
+                      <span>Dychové cvičenia</span>
+                    </li>
+                    <li className="flex items-start gap-2 md:justify-end">
+                      <CheckCircle size={16} className="text-primary mt-0.5 md:order-2" />
+                      <span>5-15 minút</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="hidden md:block absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
+                <Card className="p-8 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
+                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                    <Heart size={32} className="text-primary" />
+                  </div>
+                  <p className="text-sm italic text-muted-foreground">
+                    "Meditácie mi pomohli nájsť pokoj, ktorý som stratila. Už sa necítim tak preťažená."
+                  </p>
+                </Card>
+              </div>
+            </div>
+
+            {/* Item 4 - Left */}
+            <div className="relative grid md:grid-cols-2 gap-8 items-center">
+              <div className="md:col-start-2 md:pl-12">
+                <Badge className="mb-4">Komunita</Badge>
+                <h3 className="text-2xl md:text-3xl font-light mb-4">
+                  Nie si v tom <span className="gradient-text font-normal">sama</span>
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Pripoj sa k tisíckam žien, ktoré sa navzájom podporujú, inšpirujú a vytvárajú priestor bez súdenia.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-0.5" />
+                    <span>Súkromná FB skupina</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-0.5" />
+                    <span>Live Q&A s Gabi</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="text-primary mt-0.5" />
+                    <span>Vzájomná podpora</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="relative md:row-start-1 md:col-start-1">
+                <div className="hidden md:block absolute -right-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
+                <Card className="p-8 bg-gradient-to-br from-accent/10 to-primary/10 border-primary/20">
+                  <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-4">
+                    <Sparkle size={32} className="text-primary" />
+                  </div>
+                  <p className="text-sm italic text-muted-foreground">
+                    "Komunita je najlepšia časť. Konečne som našla ženy, ktoré ma chápú."
+                  </p>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Empathy Section */}
       <section className="py-12 md:py-16 px-4 md:px-8">
         <div className="container mx-auto max-w-5xl">
@@ -114,9 +296,6 @@ const OAplikacii = () => {
           </div>
         </div>
       </section>
-
-      {/* How It Works Section */}
-      <HowItWorks />
 
       {/* Real Women Section */}
       <section className="py-12 md:py-16 px-4 md:px-8 bg-section-white">
