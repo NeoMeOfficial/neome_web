@@ -26,7 +26,6 @@ import { VideoPlayerModal } from "@/components/VideoPlayerModal";
 import { PromoBanner } from "@/components/PromoBanner";
 import { Apple, Star as StarIcon, Download, ChevronDown } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-
 const Index = () => {
   const sectionsRef = useRef<HTMLElement[]>([]);
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
@@ -40,85 +39,70 @@ const Index = () => {
   const [showSwipeHint, setShowSwipeHint] = useState(true);
   const [swipeDirection, setSwipeDirection] = useState<'left' | 'right' | null>(null);
   const isMobile = useIsMobile();
-
-  const features = [
-    {
-      title: "Cvičenie",
-      subheading: "5-15 minútové tréningy prispôsobené tvojmu rytmu a cieľom",
-      desc: "Tréningy na požiadanie, ktoré sa prispôsobia tvojmu denníku. Cvičenia zamerané na ženské telo: spevnenie brušného korzetu, zlepšenie metabolizmu a mobility. Vďaka krátkym tréningom už nemáš výhovorky – nájdeš si čas aj vtedy, keď si myslíš, že ho nemáš.",
-      image: appMockup1,
-      link: "/cvicenie"
-    },
-    {
-      title: "Strava",
-      subheading: "Jednoduché recepty pre hormonálnu rovnováhu a trvalú energiu",
-      desc: "Jednoduché a chutné recepty, ktoré zvládne celá rodina. Žiadne počítanie kalórií ani drastické obmedzenia. Zameraj sa na podporu hormonálnej rovnováhy, stabilnú energiu cez celý deň a jedlo, ktoré ťa naozaj zasýti a potešĺ.",
-      image: appMockup2,
-      link: "/strava"
-    },
-    {
-      title: "Myseľ",
-      subheading: "Denné meditácie a dychové cvičenia pre mentálny pokoj",
-      desc: "Krátke meditácie a dychové cvičenia na okamžité upokojenie mysle – aj keď máš len 3 minúty. Každý deň ti pripomíname, že si dosť presne taká, aká si. Získaj nástroje, ktoré ti pomôžu zvládnuť stres a vrátiť sa do svojho centra.",
-      image: appMockupMind,
-      link: "/mysel"
-    },
-    {
-      title: "Extras",
-      subheading: "Špeciálne programy, výzvy a exkluzívny obsah pre tvoj rast",
-      desc: "Prístup k špeciálnym programom, výzvám a exkluzívnemu obsahu. Nájdeš tu dodatočné nástroje pre tvoju osobnú transformáciu – od špeciálnych workoutov až po tematické výzvy, ktoré ťa posunú ďalej.",
-      image: appMockupExtras,
-      link: "/extras"
-    },
-    {
-      title: "Komunita",
-      subheading: "Pripoj sa k tisíckam žien na podobnej transformačnej ceste",
-      desc: "Pripoj sa k tisíckam žien, ktoré sú na podobnej ceste ako ty. Zdieľaj svoje úspechy, nájdi inšpiráciu v príbehoch ostatných a cíť podporu komunity, ktorá ťa povzbudí aj v náročnejších dňoch. Spolu to ide lepšie.",
-      image: appMockupCommunity,
-      link: "/komunita"
-    }
-  ];
-
+  const features = [{
+    title: "Cvičenie",
+    subheading: "5-15 minútové tréningy prispôsobené tvojmu rytmu a cieľom",
+    desc: "Tréningy na požiadanie, ktoré sa prispôsobia tvojmu denníku. Cvičenia zamerané na ženské telo: spevnenie brušného korzetu, zlepšenie metabolizmu a mobility. Vďaka krátkym tréningom už nemáš výhovorky – nájdeš si čas aj vtedy, keď si myslíš, že ho nemáš.",
+    image: appMockup1,
+    link: "/cvicenie"
+  }, {
+    title: "Strava",
+    subheading: "Jednoduché recepty pre hormonálnu rovnováhu a trvalú energiu",
+    desc: "Jednoduché a chutné recepty, ktoré zvládne celá rodina. Žiadne počítanie kalórií ani drastické obmedzenia. Zameraj sa na podporu hormonálnej rovnováhy, stabilnú energiu cez celý deň a jedlo, ktoré ťa naozaj zasýti a potešĺ.",
+    image: appMockup2,
+    link: "/strava"
+  }, {
+    title: "Myseľ",
+    subheading: "Denné meditácie a dychové cvičenia pre mentálny pokoj",
+    desc: "Krátke meditácie a dychové cvičenia na okamžité upokojenie mysle – aj keď máš len 3 minúty. Každý deň ti pripomíname, že si dosť presne taká, aká si. Získaj nástroje, ktoré ti pomôžu zvládnuť stres a vrátiť sa do svojho centra.",
+    image: appMockupMind,
+    link: "/mysel"
+  }, {
+    title: "Extras",
+    subheading: "Špeciálne programy, výzvy a exkluzívny obsah pre tvoj rast",
+    desc: "Prístup k špeciálnym programom, výzvám a exkluzívnemu obsahu. Nájdeš tu dodatočné nástroje pre tvoju osobnú transformáciu – od špeciálnych workoutov až po tematické výzvy, ktoré ťa posunú ďalej.",
+    image: appMockupExtras,
+    link: "/extras"
+  }, {
+    title: "Komunita",
+    subheading: "Pripoj sa k tisíckam žien na podobnej transformačnej ceste",
+    desc: "Pripoj sa k tisíckam žien, ktoré sú na podobnej ceste ako ty. Zdieľaj svoje úspechy, nájdi inšpiráciu v príbehoch ostatných a cíť podporu komunity, ktorá ťa povzbudí aj v náročnejších dňoch. Spolu to ide lepšie.",
+    image: appMockupCommunity,
+    link: "/komunita"
+  }];
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("opacity-0");
-            entry.target.classList.add("animate-fade-blur-in");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionsRef.current.forEach((section) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("opacity-0");
+          entry.target.classList.add("animate-fade-blur-in");
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    sectionsRef.current.forEach(section => {
       if (section) observer.observe(section);
     });
-
     return () => observer.disconnect();
   }, []);
-
   useEffect(() => {
     const handleScroll = () => {
       if (!featureSectionRef.current) return;
-      
       const rect = featureSectionRef.current.getBoundingClientRect();
       const sectionHeight = rect.height;
-      
+
       // Calculate scroll progress within the section
       if (rect.top <= 0 && rect.bottom > 0) {
         const scrollProgress = -rect.top;
         const scrollPerFeature = sectionHeight / features.length;
-        const newIndex = Math.min(
-          Math.floor(scrollProgress / scrollPerFeature),
-          features.length - 1
-        );
+        const newIndex = Math.min(Math.floor(scrollProgress / scrollPerFeature), features.length - 1);
         setActiveFeatureIndex(newIndex);
       }
     };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, {
+      passive: true
+    });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [features.length]);
 
@@ -128,15 +112,11 @@ const Index = () => {
       touchStartY.current = e.touches[0].clientY;
       touchStartX.current = e.touches[0].clientX;
     };
-
     const handleTouchEnd = (e: TouchEvent) => {
       if (!featureSectionRef.current) return;
-
       const rect = featureSectionRef.current.getBoundingClientRect();
       const isInSection = rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
-
       if (!isInSection) return;
-
       const touchEndY = e.changedTouches[0].clientY;
       const touchEndX = e.changedTouches[0].clientX;
       const deltaY = touchStartY.current - touchEndY;
@@ -158,10 +138,12 @@ const Index = () => {
         }
       }
     };
-
-    window.addEventListener('touchstart', handleTouchStart, { passive: true });
-    window.addEventListener('touchend', handleTouchEnd, { passive: true });
-
+    window.addEventListener('touchstart', handleTouchStart, {
+      passive: true
+    });
+    window.addEventListener('touchend', handleTouchEnd, {
+      passive: true
+    });
     return () => {
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchend', handleTouchEnd);
@@ -172,12 +154,9 @@ const Index = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!featureSectionRef.current) return;
-
       const rect = featureSectionRef.current.getBoundingClientRect();
       const isInSection = rect.top <= 100 && rect.bottom >= window.innerHeight - 100;
-
       if (!isInSection) return;
-
       if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
         e.preventDefault();
         setActiveFeatureIndex(prev => Math.min(prev + 1, features.length - 1));
@@ -186,25 +165,20 @@ const Index = () => {
         setActiveFeatureIndex(prev => Math.max(prev - 1, 0));
       }
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [features.length]);
-
   const addToRefs = (el: HTMLElement | null) => {
     if (el && !sectionsRef.current.includes(el)) {
       sectionsRef.current.push(el);
     }
   };
-
   const openVideoModal = (videoId: string, title: string) => {
     setCurrentVideoId(videoId);
     setCurrentVideoTitle(title);
     setIsVideoModalOpen(true);
   };
-
-  return (
-    <div className="min-h-screen bg-white text-foreground">
+  return <div className="min-h-screen bg-white text-foreground">
       {/* Promo Banner */}
       <PromoBanner />
       
@@ -212,24 +186,15 @@ const Index = () => {
       <FloatingCTA />
 
       {/* Video Player Modal */}
-      <VideoPlayerModal 
-        isOpen={isVideoModalOpen}
-        onClose={() => setIsVideoModalOpen(false)}
-        videoId={currentVideoId}
-        videoTitle={currentVideoTitle}
-      />
+      <VideoPlayerModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} videoId={currentVideoId} videoTitle={currentVideoTitle} />
 
       {/* HERO Section */}
-      <section 
-        id="hero" 
-        className="relative min-h-screen flex items-center pt-20 px-0 md:px-4 overflow-hidden shadow-lg"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <section id="hero" className="relative min-h-screen flex items-center pt-20 px-0 md:px-4 overflow-hidden shadow-lg" style={{
+      backgroundImage: `url(${heroImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center top',
+      backgroundRepeat: 'no-repeat'
+    }}>
         {/* Subtle gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
         
@@ -303,13 +268,9 @@ const Index = () => {
       <ProfessionalRecommendations />
 
       {/* Holistic Value Section - Conditional Layout */}
-      {isMobile ? (
-        // MOBILE: Simple swipeable carousel layout
-        <section 
-          id="o-aplikacii" 
-          ref={addToRefs}
-          className="py-8 px-0 bg-section-beige"
-        >
+      {isMobile ?
+    // MOBILE: Simple swipeable carousel layout
+    <section id="o-aplikacii" ref={addToRefs} className="py-8 px-0 bg-section-beige">
           <div className="mx-auto max-w-lg px-0">
             <Card className="rounded-3xl shadow-xl p-6 bg-[#F1EDE4] border-border/10">
               {/* Small highlight tag */}
@@ -329,14 +290,7 @@ const Index = () => {
 
               {/* Feature Content Card with Swipe Animation */}
               <div className="relative mb-6">
-                <div 
-                  key={activeFeatureIndex} 
-                  className={`relative p-6 rounded-2xl border border-white/30 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] ${
-                    swipeDirection === 'left' ? 'animate-swipe-out-left' : 
-                    swipeDirection === 'right' ? 'animate-swipe-out-right' : 
-                    'animate-fade-in'
-                  }`}
-                >
+                <div key={activeFeatureIndex} className={`relative p-6 rounded-2xl border border-white/30 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] ${swipeDirection === 'left' ? 'animate-swipe-out-left' : swipeDirection === 'right' ? 'animate-swipe-out-right' : 'animate-fade-in'}`}>
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-transparent to-transparent pointer-events-none"></div>
                   
                   <div className="relative z-10">
@@ -350,10 +304,7 @@ const Index = () => {
                       {features[activeFeatureIndex].desc}
                     </p>
                     
-                    <Button 
-                      asChild
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md"
-                    >
+                    <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md">
                       <a href={features[activeFeatureIndex].link}>
                         Chcem vedieť viac
                         <ArrowRight size={16} className="ml-2" />
@@ -364,38 +315,24 @@ const Index = () => {
 
                 {/* Arrow Navigation */}
                 <div className="absolute -bottom-16 left-4 right-4 flex justify-between pointer-events-none">
-                  <button
-                    onClick={() => {
-                      if (activeFeatureIndex > 0) {
-                        setSwipeDirection('right');
-                        setShowSwipeHint(false);
-                        setActiveFeatureIndex(prev => prev - 1);
-                        setTimeout(() => setSwipeDirection(null), 300);
-                      }
-                    }}
-                    disabled={activeFeatureIndex === 0}
-                    className={`pointer-events-auto w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all hover:scale-110 ${
-                      activeFeatureIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
-                    }`}
-                    aria-label="Predchádzajúce"
-                  >
+                  <button onClick={() => {
+                if (activeFeatureIndex > 0) {
+                  setSwipeDirection('right');
+                  setShowSwipeHint(false);
+                  setActiveFeatureIndex(prev => prev - 1);
+                  setTimeout(() => setSwipeDirection(null), 300);
+                }
+              }} disabled={activeFeatureIndex === 0} className={`pointer-events-auto w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all hover:scale-110 ${activeFeatureIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}`} aria-label="Predchádzajúce">
                     <ChevronDown size={20} className="rotate-90" />
                   </button>
-                  <button
-                    onClick={() => {
-                      if (activeFeatureIndex < features.length - 1) {
-                        setSwipeDirection('left');
-                        setShowSwipeHint(false);
-                        setActiveFeatureIndex(prev => prev + 1);
-                        setTimeout(() => setSwipeDirection(null), 300);
-                      }
-                    }}
-                    disabled={activeFeatureIndex === features.length - 1}
-                    className={`pointer-events-auto w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all hover:scale-110 ${
-                      activeFeatureIndex === features.length - 1 ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
-                    }`}
-                    aria-label="Ďalšie"
-                  >
+                  <button onClick={() => {
+                if (activeFeatureIndex < features.length - 1) {
+                  setSwipeDirection('left');
+                  setShowSwipeHint(false);
+                  setActiveFeatureIndex(prev => prev + 1);
+                  setTimeout(() => setSwipeDirection(null), 300);
+                }
+              }} disabled={activeFeatureIndex === features.length - 1} className={`pointer-events-auto w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all hover:scale-110 ${activeFeatureIndex === features.length - 1 ? 'opacity-30 cursor-not-allowed' : 'opacity-100'}`} aria-label="Ďalšie">
                     <ChevronDown size={20} className="-rotate-90" />
                   </button>
                 </div>
@@ -403,21 +340,10 @@ const Index = () => {
 
               {/* Dot Navigation */}
               <div className="flex justify-center gap-2 mb-3">
-                {features.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setActiveFeatureIndex(index);
-                      setShowSwipeHint(false);
-                    }}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      activeFeatureIndex === index 
-                        ? 'w-8 bg-primary' 
-                        : 'w-2 bg-primary/30'
-                    }`}
-                    aria-label={`Prejsť na ${features[index].title}`}
-                  />
-                ))}
+                {features.map((_, index) => <button key={index} onClick={() => {
+              setActiveFeatureIndex(index);
+              setShowSwipeHint(false);
+            }} className={`h-2 rounded-full transition-all duration-300 ${activeFeatureIndex === index ? 'w-8 bg-primary' : 'w-2 bg-primary/30'}`} aria-label={`Prejsť na ${features[index].title}`} />)}
               </div>
 
               {/* Progress Text */}
@@ -426,40 +352,23 @@ const Index = () => {
               </p>
             </Card>
           </div>
-        </section>
-      ) : (
-        // DESKTOP: Sticky scroll layout with polish
-        <div 
-          ref={(el) => {
-            addToRefs(el);
-            if (el) featureSectionRef.current = el as HTMLDivElement;
-          }}
-          style={{ height: `${features.length * 75}vh` }}
-          className="relative opacity-0"
-        >
-          <section 
-            id="o-aplikacii" 
-            className="sticky top-0 min-h-screen flex items-center py-12 md:py-16 px-0 md:px-8"
-          >
+        </section> :
+    // DESKTOP: Sticky scroll layout with polish
+    <div ref={el => {
+      addToRefs(el);
+      if (el) featureSectionRef.current = el as HTMLDivElement;
+    }} style={{
+      height: `${features.length * 75}vh`
+    }} className="relative opacity-0">
+          <section id="o-aplikacii" className="sticky top-0 min-h-screen flex items-center py-12 md:py-16 px-0 md:px-8">
             <div className="container mx-auto max-w-7xl w-full">
               <Card className="rounded-3xl shadow-xl p-3 md:p-12 lg:p-16 bg-[#F1EDE4] border-border/10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                   {/* Left: Dynamic Image */}
                   <div className="relative flex items-center justify-center order-2 lg:order-1 h-[600px]">
-                    {features.map((feature, index) => (
-                      <div
-                        key={index}
-                        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${
-                          activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'
-                        }`}
-                      >
-                        <img 
-                          src={feature.image} 
-                          alt={`NeoMe App - ${feature.title}`} 
-                          className="w-72 h-auto rounded-3xl shadow-2xl"
-                        />
-                      </div>
-                    ))}
+                    {features.map((feature, index) => <div key={index} className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${activeFeatureIndex === index ? 'opacity-100' : 'opacity-0'}`}>
+                        <img src={feature.image} alt={`NeoMe App - ${feature.title}`} className="w-72 h-auto rounded-3xl shadow-2xl" />
+                      </div>)}
                   </div>
 
                   {/* Right: Single Card */}
@@ -482,23 +391,10 @@ const Index = () => {
                     </p>
                     
                     {/* Progress indicator for desktop */}
-                    <div className="flex items-center gap-3">
-                      <div className="flex-1 h-1 bg-white/40 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-primary transition-all duration-700"
-                          style={{ width: `${((activeFeatureIndex + 1) / features.length) * 100}%` }}
-                        />
-                      </div>
-                      <span className="text-sm text-muted-foreground">
-                        {activeFeatureIndex + 1}/{features.length}
-                      </span>
-                    </div>
+                    
 
                     {/* Scroll hint */}
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground animate-pulse">
-                      <ChevronDown size={16} />
-                      <span>Skroluj pre viac funkcií</span>
-                    </div>
+                    
                     
                     {/* Notebook-style Tabs Container */}
                     <div className="relative">
@@ -506,26 +402,17 @@ const Index = () => {
                       <div className="relative">
                         <div className="overflow-x-auto scroll-smooth scrollbar-hide">
                           <div className="flex gap-1 items-end relative z-0 w-max">
-                            {features.map((feature, index) => (
-                              <button
-                                key={index}
-                                onClick={() => setActiveFeatureIndex(index)}
-                                className={`
+                            {features.map((feature, index) => <button key={index} onClick={() => setActiveFeatureIndex(index)} className={`
                                   relative px-3 md:px-5 py-4 text-xs md:text-sm font-medium 
                                   transition-all duration-300 cursor-pointer
                                   rounded-t-xl border-t border-x
                                   backdrop-blur-sm
-                                  ${activeFeatureIndex === index 
-                                    ? 'bg-white/40 text-primary border-white/30 shadow-[0_-3px_10px_rgba(0,0,0,0.04)]' 
-                                    : 'bg-white/20 text-muted-foreground border-white/20 hover:bg-white/30 hover:text-foreground'
-                                  }
-                                `}
-                              >
+                                  ${activeFeatureIndex === index ? 'bg-white/40 text-primary border-white/30 shadow-[0_-3px_10px_rgba(0,0,0,0.04)]' : 'bg-white/20 text-muted-foreground border-white/20 hover:bg-white/30 hover:text-foreground'}
+                                `}>
                                 <span className="block whitespace-nowrap">
                                   {feature.title}
                                 </span>
-                              </button>
-                            ))}
+                              </button>)}
                           </div>
                         </div>
                       </div>
@@ -548,10 +435,7 @@ const Index = () => {
                           </p>
                         </div>
                         
-                        <Button 
-                          asChild
-                          className="relative z-10 w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transition-all backdrop-blur-sm"
-                        >
+                        <Button asChild className="relative z-10 w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transition-all backdrop-blur-sm">
                           <a href={features[activeFeatureIndex].link}>
                             Chcem vedieť viac
                             <ArrowRight size={16} className="ml-2" />
@@ -564,8 +448,7 @@ const Index = () => {
               </Card>
             </div>
           </section>
-        </div>
-      )}
+        </div>}
 
       {/* Programs Section */}
       <ProgramsScroll />
@@ -619,11 +502,7 @@ const Index = () => {
               {/* Testimonial 1 */}
               <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent relative group overflow-hidden">
                 <div className="flex items-center gap-4 mb-4">
-                  <img 
-                    src={testimonialMartina} 
-                    alt="Martina" 
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
+                  <img src={testimonialMartina} alt="Martina" className="w-16 h-16 rounded-full object-cover" />
                   <div>
                     <h3 className="font-medium text-lg">Martina, 34</h3>
                     <p className="text-sm text-muted-foreground">Mamička dvoch detí</p>
@@ -632,9 +511,7 @@ const Index = () => {
                 
                 {/* Star Rating */}
                 <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />)}
                 </div>
 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -648,10 +525,7 @@ const Index = () => {
 
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-primary/95 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl">
-                  <Button 
-                    variant="outline" 
-                    className="bg-white text-primary hover:bg-white/90 border-white"
-                  >
+                  <Button variant="outline" className="bg-white text-primary hover:bg-white/90 border-white">
                     Prečítať celý príbeh
                     <ArrowRight size={16} className="ml-2" />
                   </Button>
@@ -661,11 +535,7 @@ const Index = () => {
               {/* Testimonial 2 */}
               <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent relative group overflow-hidden">
                 <div className="flex items-center gap-4 mb-4">
-                  <img 
-                    src={testimonialLucia} 
-                    alt="Lucia" 
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
+                  <img src={testimonialLucia} alt="Lucia" className="w-16 h-16 rounded-full object-cover" />
                   <div>
                     <h3 className="font-medium text-lg">Lucia, 29</h3>
                     <p className="text-sm text-muted-foreground">Kariérna žena</p>
@@ -674,9 +544,7 @@ const Index = () => {
                 
                 {/* Star Rating */}
                 <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />)}
                 </div>
 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -690,10 +558,7 @@ const Index = () => {
 
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-primary/95 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl">
-                  <Button 
-                    variant="outline" 
-                    className="bg-white text-primary hover:bg-white/90 border-white"
-                  >
+                  <Button variant="outline" className="bg-white text-primary hover:bg-white/90 border-white">
                     Prečítať celý príbeh
                     <ArrowRight size={16} className="ml-2" />
                   </Button>
@@ -703,11 +568,7 @@ const Index = () => {
               {/* Testimonial 3 */}
               <Card className="p-8 rounded-2xl border-2 border-border/20 hover:border-primary/30 transition-all bg-gradient-to-br from-primary/5 to-transparent relative group overflow-hidden">
                 <div className="flex items-center gap-4 mb-4">
-                  <img 
-                    src={testimonialZuzana} 
-                    alt="Zuzana" 
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
+                  <img src={testimonialZuzana} alt="Zuzana" className="w-16 h-16 rounded-full object-cover" />
                   <div>
                     <h3 className="font-medium text-lg">Zuzana, 41</h3>
                     <p className="text-sm text-muted-foreground">Podnikateľka</p>
@@ -716,9 +577,7 @@ const Index = () => {
                 
                 {/* Star Rating */}
                 <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />)}
                 </div>
 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -732,10 +591,7 @@ const Index = () => {
 
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-primary/95 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl">
-                  <Button 
-                    variant="outline" 
-                    className="bg-white text-primary hover:bg-white/90 border-white"
-                  >
+                  <Button variant="outline" className="bg-white text-primary hover:bg-white/90 border-white">
                     Prečítať celý príbeh
                     <ArrowRight size={16} className="ml-2" />
                   </Button>
@@ -769,16 +625,9 @@ const Index = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Video Card 1 */}
-              <div 
-                className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
-                onClick={() => openVideoModal("dQw4w9WgXcQ", "Martinina cesta - Ako som stratila 8 kg")}
-              >
+              <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow" onClick={() => openVideoModal("dQw4w9WgXcQ", "Martinina cesta - Ako som stratila 8 kg")}>
                 <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
-                  <img 
-                    src={testimonialMartina} 
-                    alt="Martina transformation video" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-80"
-                  />
+                  <img src={testimonialMartina} alt="Martina transformation video" className="absolute inset-0 w-full h-full object-cover opacity-80" />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
                   <div className="relative z-10 flex flex-col items-center">
                     <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -796,16 +645,9 @@ const Index = () => {
               </div>
 
               {/* Video Card 2 */}
-              <div 
-                className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
-                onClick={() => openVideoModal("dQw4w9WgXcQ", "Luciin príbeh - 15 minút denne")}
-              >
+              <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow" onClick={() => openVideoModal("dQw4w9WgXcQ", "Luciin príbeh - 15 minút denne")}>
                 <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
-                  <img 
-                    src={testimonialLucia} 
-                    alt="Lucia transformation video" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-80"
-                  />
+                  <img src={testimonialLucia} alt="Lucia transformation video" className="absolute inset-0 w-full h-full object-cover opacity-80" />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
                   <div className="relative z-10 flex flex-col items-center">
                     <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -823,16 +665,9 @@ const Index = () => {
               </div>
 
               {/* Video Card 3 */}
-              <div 
-                className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
-                onClick={() => openVideoModal("dQw4w9WgXcQ", "Zuzanina premena - Od vyhorenia k pokoju")}
-              >
+              <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow" onClick={() => openVideoModal("dQw4w9WgXcQ", "Zuzanina premena - Od vyhorenia k pokoju")}>
                 <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
-                  <img 
-                    src={testimonialZuzana} 
-                    alt="Zuzana transformation video" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-80"
-                  />
+                  <img src={testimonialZuzana} alt="Zuzana transformation video" className="absolute inset-0 w-full h-full object-cover opacity-80" />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
                   <div className="relative z-10 flex flex-col items-center">
                     <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -977,8 +812,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
