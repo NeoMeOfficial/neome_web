@@ -511,7 +511,7 @@ const Index = () => {
                                 key={index}
                                 onClick={() => setActiveFeatureIndex(index)}
                                 className={`
-                                  relative px-3 md:px-5 py-4 md:py-5 text-xs md:text-sm font-medium 
+                                  relative px-3 md:px-5 py-4 text-xs md:text-sm font-medium 
                                   transition-all duration-300 cursor-pointer
                                   rounded-t-xl border-t border-x
                                   backdrop-blur-sm
