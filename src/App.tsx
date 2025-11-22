@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import HomeShort from "./pages/HomeShort";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
+import OAplikacii from "./pages/OAplikacii";
 import Contact from "./pages/Contact";
 import Cvicenie from "./pages/Cvicenie";
 import Strava from "./pages/Strava";
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/home-shorter" element={<HomeShort />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/o-nas" element={<About />} />
+          <Route path="/o-aplikacii" element={<OAplikacii />} />
           <Route path="/kontakt" element={<Contact />} />
           <Route path="/cvicenie" element={<Cvicenie />} />
           <Route path="/strava" element={<Strava />} />
