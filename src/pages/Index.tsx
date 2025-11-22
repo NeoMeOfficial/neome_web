@@ -505,13 +505,13 @@ const Index = () => {
       </section>
 
       {/* Programs Section */}
-      <ProgramsScroll />
+      <ProgramsScroll className="bg-[F1EDE4] bg-[#f1ede4]" />
 
       {/* Pricing Section */}
       <PricingComparison />
 
       {/* Comparison Section */}
-      <ComparisonSection />
+      
 
       {/* Founder Story Section */}
       <FounderStory />
