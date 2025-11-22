@@ -599,7 +599,7 @@ const Index = () => {
       <section ref={addToRefs} className="py-16 md:py-20 px-4 md:px-8 opacity-0">
         <div className="container mx-auto max-w-4xl text-center">
           <Card className="rounded-3xl shadow-xl p-12 md:p-16 bg-gradient-to-br from-primary/10 to-accent/20 border-primary/20">
-            <Sparkle size={56} weight="fill" className="text-primary mx-auto mb-6" />
+            
             <h2 className="text-4xl md:text-5xl font-light mb-6">
               Pamätaj, že na tebe záleží.
             </h2>
