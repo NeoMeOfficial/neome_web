@@ -157,7 +157,7 @@ const Index = () => {
       </section>
 
       {/* Google Reviews Carousel */}
-      <GoogleReviews />
+      <GoogleReviews className="bg-[FFFFF] bg-white" />
 
       {/* Professional Recommendations Section */}
       <ProfessionalRecommendations />
