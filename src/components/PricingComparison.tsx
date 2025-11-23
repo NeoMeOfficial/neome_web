@@ -272,36 +272,26 @@ export const PricingComparison = ({
                               <button onClick={() => setSubscriptionPeriod('monthly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200", subscriptionPeriod === 'monthly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
                                 Mesačne
                               </button>
-                              <button onClick={() => setSubscriptionPeriod('quarterly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200", subscriptionPeriod === 'quarterly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
+                              <button onClick={() => setSubscriptionPeriod('quarterly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative", subscriptionPeriod === 'quarterly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
                                 Kvartálne
+                                <Badge className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0 bg-info text-info-foreground">
+                                  -20%
+                                </Badge>
                               </button>
-                              <button onClick={() => setSubscriptionPeriod('yearly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200", subscriptionPeriod === 'yearly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
+                              <button onClick={() => setSubscriptionPeriod('yearly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative", subscriptionPeriod === 'yearly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
                                 Ročne
+                                <Badge className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0 bg-info text-info-foreground">
+                                  -33%
+                                </Badge>
                               </button>
                             </div>
                           </div>}
-                        <div className="text-2xl font-light mb-2">{tier.name}</div>
-                        <div className="text-3xl font-medium gradient-text mb-2">
+                        <div className="text-2xl font-light mb-1">{tier.name}</div>
+                        <div className="text-3xl font-medium gradient-text mb-1">
                           {tier.price}
                         </div>
                         <div className="text-sm text-muted-foreground mb-3">
-                          {subscriptionPeriod === 'monthly' && 'Mesačne'}
-                          {subscriptionPeriod === 'quarterly' && (
-                            <span className="flex items-center justify-center gap-2">
-                              Kvartálne
-                              <Badge className="bg-info text-info-foreground text-[10px] px-1.5 py-0">
-                                -20%
-                              </Badge>
-                            </span>
-                          )}
-                          {subscriptionPeriod === 'yearly' && (
-                            <span className="flex items-center justify-center gap-2">
-                              Ročne
-                              <Badge className="bg-info text-info-foreground text-[10px] px-1.5 py-0">
-                                -33%
-                              </Badge>
-                            </span>
-                          )}
+                          {tier.period}
                         </div>
                         <div className="text-xs text-muted-foreground mb-4">
                           {tier.description}
@@ -349,42 +339,26 @@ export const PricingComparison = ({
                       <button onClick={() => setSubscriptionPeriod('monthly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200", subscriptionPeriod === 'monthly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
                         Mesačne
                       </button>
-                      <button onClick={() => setSubscriptionPeriod('quarterly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200", subscriptionPeriod === 'quarterly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
+                      <button onClick={() => setSubscriptionPeriod('quarterly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative", subscriptionPeriod === 'quarterly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
                         Kvartálne
+                        <Badge className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0 bg-info text-info-foreground">
+                          -20%
+                        </Badge>
                       </button>
-                      <button onClick={() => setSubscriptionPeriod('yearly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200", subscriptionPeriod === 'yearly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
+                      <button onClick={() => setSubscriptionPeriod('yearly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative", subscriptionPeriod === 'yearly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
                         Ročne
+                        <Badge className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0 bg-info text-info-foreground">
+                          -33%
+                        </Badge>
                       </button>
                     </div>
                   </div>}
                 <h3 className="text-2xl font-light mb-2">{tier.name}</h3>
-              <div className="text-3xl font-medium gradient-text mb-2">
+              <div className="text-3xl font-medium gradient-text mb-1">
                 {tier.price}
               </div>
               <div className="text-sm text-muted-foreground mb-3">
-                {index === 1 ? (
-                  <>
-                    {subscriptionPeriod === 'monthly' && 'Mesačne'}
-                    {subscriptionPeriod === 'quarterly' && (
-                      <span className="flex items-center gap-2">
-                        Kvartálne
-                        <Badge className="bg-info text-info-foreground text-[10px] px-1.5 py-0">
-                          -20%
-                        </Badge>
-                      </span>
-                    )}
-                    {subscriptionPeriod === 'yearly' && (
-                      <span className="flex items-center gap-2">
-                        Ročne
-                        <Badge className="bg-info text-info-foreground text-[10px] px-1.5 py-0">
-                          -33%
-                        </Badge>
-                      </span>
-                    )}
-                  </>
-                ) : (
-                  tier.period
-                )}
+                {tier.period}
               </div>
               <p className="text-sm text-muted-foreground mb-6">
                 {tier.description}
