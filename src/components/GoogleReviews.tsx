@@ -41,12 +41,14 @@ const googleReviews: Review[] = [{
   rating: 5,
   text: "Program postpartum odporúčam každej žene po pôrode. Na začiatku som mala obavy, či budem stíhať cvičiť každý deň, ale nakoniec som si vždy našla čas, nech som akokoľvek nestíhala popri 2 deťoch. Cvičenia ma bavili vrátane strečingových, zároveň boli najlepšou formou oddychu počas dňa a zlepšila sa mi diastáza. Super cesta ako sa nakopnúť po pôrode s cvičením a spraviť pre seba niečo."
 }];
-export const GoogleReviews = () => {
+import { cn } from "@/lib/utils";
+
+export const GoogleReviews = ({ className }: { className?: string }) => {
   const plugin = useRef(Autoplay({
     delay: 4000,
     stopOnInteraction: false
   }));
-  return <section className="py-16 md:py-20 px-4 md:px-8 bg-section-beige">
+  return <section className={cn("py-16 md:py-20 px-4 md:px-8 bg-section-beige", className)}>
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-light mb-4">

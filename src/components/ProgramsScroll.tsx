@@ -61,7 +61,9 @@ const individualPrograms = [{
   borderColor: "border-level-4",
   glowColor: "shadow-level-4/40"
 }];
-export const ProgramsScroll = () => {
+import { cn } from "@/lib/utils";
+
+export const ProgramsScroll = ({ className }: { className?: string }) => {
   const [selectedProgram, setSelectedProgram] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
@@ -86,7 +88,7 @@ export const ProgramsScroll = () => {
       setSelectedProgram(selectedProgram - 1);
     }
   };
-  return <section id="programy" className="py-12 md:py-16 px-0 md:px-8 bg-white">
+  return <section id="programy" className={cn("py-12 md:py-16 px-0 md:px-8 bg-white", className)}>
       <div className="container mx-auto max-w-7xl shadow-sm rounded-none">
         
         {/* Merged Program Card */}
