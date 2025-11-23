@@ -242,7 +242,7 @@ export const PricingComparison = ({
         <div className="text-center mb-12">
           
           <h2 className="text-3xl md:text-5xl font-light mb-4">
-            Vyber si <span className="gradient-text font-normal">čo ti vyhovuje</span>
+            Pridaj sa aj     <span className="gradient-text font-normal">ty k nám   </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Všetky plány zahŕňajú 30-dňovú záruku vrátenia peňazí
