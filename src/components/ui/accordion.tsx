@@ -15,9 +15,7 @@ const AccordionTrigger = React.forwardRef<React.ElementRef<typeof AccordionPrimi
 }, ref) => <AccordionPrimitive.Header className="flex">
     <AccordionPrimitive.Trigger ref={ref} className={cn("flex flex-1 items-center justify-between py-4 font-medium transition-all group [&[data-state=open]>div>svg]:rotate-180", className)} {...props}>
       {children}
-      <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors bg-[#89b0bc] text-yellow-50">
-        <ChevronDown className="h-5 w-5 transition-transform duration-200 text-amber-50" />
-      </div>
+      
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>);
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;

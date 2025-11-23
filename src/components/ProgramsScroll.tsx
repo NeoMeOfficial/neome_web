@@ -86,7 +86,7 @@ export const ProgramsScroll = () => {
       setSelectedProgram(selectedProgram - 1);
     }
   };
-    return <section id="programy" className="py-12 md:py-16 px-0 md:px-8 bg-white">
+  return <section id="programy" className="py-12 md:py-16 px-0 md:px-8 bg-white">
       <div className="container mx-auto max-w-7xl">
         
         {/* Merged Program Card */}
@@ -109,7 +109,7 @@ export const ProgramsScroll = () => {
             
             {/* Accordion Navigation - Stacked on mobile, sidebar on desktop */}
             <div className="border-b lg:border-b-0 lg:border-r border-border/10 p-2 lg:p-8 bg-muted/10">
-              <h3 className="text-lg font-semibold mb-6 text-foreground">Vyber Program</h3>
+              
               <Accordion type="single" collapsible value={`item-${selectedProgram}`} onValueChange={value => {
               const index = parseInt(value.split('-')[1]);
               if (!isNaN(index)) setSelectedProgram(index);
@@ -119,8 +119,8 @@ export const ProgramsScroll = () => {
                       <div className="flex items-center gap-3">
                         
                         <div className="flex flex-col gap-1">
-                          <span className="">{prog.level}</span>
-                          <span className="accordion-tag text-2xl font-semibold">{prog.tag}</span>
+                          <span className="text-sm">{prog.level}</span>
+                          <span className="accordion-tag text-2xl font-normal">{prog.tag}</span>
                         </div>
                       </div>
                     </AccordionTrigger>
