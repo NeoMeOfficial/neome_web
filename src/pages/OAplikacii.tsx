@@ -11,47 +11,33 @@ import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
 import { useState } from "react";
 import { VideoPlayerModal } from "@/components/VideoPlayerModal";
 import { motion } from "framer-motion";
-
 const OAplikacii = () => {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [currentVideoId, setCurrentVideoId] = useState<string | null>(null);
   const [currentVideoTitle, setCurrentVideoTitle] = useState("");
-
   const openVideoModal = (videoId: string, title: string) => {
     setCurrentVideoId(videoId);
     setCurrentVideoTitle(title);
     setVideoModalOpen(true);
   };
-
-  const trustPoints = [
-    {
-      icon: Heart,
-      title: "Nie si v tom sama",
-      description: "Pripoj sa k 4000+ ženám, ktoré už našli svoju cestu späť k sebe.",
-      quote: "Si žena, ktorá každý deň niečo nesie. Nie vždy je to vidieť, ale ty vieš, aké je to ťažké. A predsa ideš ďalej."
-    },
-    {
-      icon: Sparkle,
-      title: "Realita, nie dokonalosť",
-      description: "Cvičíme medzi realitou. S telefónom, čo pípa. S deťmi, ktoré skáču. A aj tak to funguje.",
-      quote: "Nezáleží na tom, či to vyzerá dobre. Záleží na tom, že to robíš pre seba."
-    },
-    {
-      icon: CheckCircle,
-      title: "Systém, ktorý funguje",
-      description: "Aj 15 minút denne má väčší zmysel ako dokonalé nič. NeoMe ti pomôže vytvoriť návyk, ktorý zostane.",
-      quote: "Motivácia prichádza a odchádza. Ale rutina, ktorú si vytvoríš z láskavosti k sebe, ostáva."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen">
-      <VideoPlayerModal
-        isOpen={videoModalOpen}
-        onClose={() => setVideoModalOpen(false)}
-        videoId={currentVideoId}
-        videoTitle={currentVideoTitle}
-      />
+  const trustPoints = [{
+    icon: Heart,
+    title: "Nie si v tom sama",
+    description: "Pripoj sa k 4000+ ženám, ktoré už našli svoju cestu späť k sebe.",
+    quote: "Si žena, ktorá každý deň niečo nesie. Nie vždy je to vidieť, ale ty vieš, aké je to ťažké. A predsa ideš ďalej."
+  }, {
+    icon: Sparkle,
+    title: "Realita, nie dokonalosť",
+    description: "Cvičíme medzi realitou. S telefónom, čo pípa. S deťmi, ktoré skáču. A aj tak to funguje.",
+    quote: "Nezáleží na tom, či to vyzerá dobre. Záleží na tom, že to robíš pre seba."
+  }, {
+    icon: CheckCircle,
+    title: "Systém, ktorý funguje",
+    description: "Aj 15 minút denne má väčší zmysel ako dokonalé nič. NeoMe ti pomôže vytvoriť návyk, ktorý zostane.",
+    quote: "Motivácia prichádza a odchádza. Ale rutina, ktorú si vytvoríš z láskavosti k sebe, ostáva."
+  }];
+  return <div className="min-h-screen">
+      <VideoPlayerModal isOpen={videoModalOpen} onClose={() => setVideoModalOpen(false)} videoId={currentVideoId} videoTitle={currentVideoTitle} />
 
       {/* Hero Section */}
       <section className="pt-32 pb-12 md:py-20 px-4 md:px-8 bg-gradient-to-b from-primary/5 to-transparent">
@@ -60,7 +46,7 @@ const OAplikacii = () => {
             O aplikácii NeoMe
           </Badge>
           <h1 className="text-4xl md:text-6xl font-light mb-6 leading-tight">
-            Nie si <span className="gradient-text font-normal">pokazená</span>, keď sa ti nechce
+            Začni tam, kde si.  <span className="gradient-text font-normal">Aj 15 minút sa počíta.</span> Stačí, ak urobíš prvý krok.
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
             Si len človek, ktorý už príliš dlho ignoruje vlastné potreby. NeoMe ti pomôže vrátiť sa k sebe – jemne, reálne a bez tlaku.
@@ -120,9 +106,8 @@ const OAplikacii = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {trustPoints.map((point, index) => {
-              const Icon = point.icon;
-              return (
-                <Card key={index} className="p-8 rounded-2xl border-border/20 hover:border-primary/30 transition-all hover:shadow-xl group">
+            const Icon = point.icon;
+            return <Card key={index} className="p-8 rounded-2xl border-border/20 hover:border-primary/30 transition-all hover:shadow-xl group">
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <Icon size={28} className="text-primary" />
                   </div>
@@ -133,9 +118,8 @@ const OAplikacii = () => {
                   <blockquote className="text-sm italic text-muted-foreground/80 border-l-2 border-primary/30 pl-4 mt-6">
                     "{point.quote}"
                   </blockquote>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
         </div>
       </section>
@@ -420,8 +404,6 @@ const OAplikacii = () => {
           </Card>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default OAplikacii;
