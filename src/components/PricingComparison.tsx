@@ -18,7 +18,11 @@ interface PricingTier {
   cta: string;
   savings?: string;
 }
-export const PricingComparison = ({ className }: { className?: string }) => {
+export const PricingComparison = ({
+  className
+}: {
+  className?: string;
+}) => {
   const navigate = useNavigate();
   const [subscriptionPeriod, setSubscriptionPeriod] = useState<'monthly' | 'quarterly' | 'yearly'>('quarterly');
   const freeTier: PricingTier = {
@@ -380,7 +384,7 @@ export const PricingComparison = ({ className }: { className?: string }) => {
         </div>
 
         {/* Money-back guarantee */}
-        <Card className="mt-12 p-4 md:p-8 bg-gradient-to-br from-primary/5 to-accent/10 border-primary/20 text-center">
+        <Card className="mt-12 p-4 md:p-8 bg-gradient-to-br from-primary/5 to-accent/10 border-primary/20 text-center bg-white text-black">
           <h3 className="text-2xl font-light mb-3">
              30-dňová záruka vrátenia peňazí
           </h3>
