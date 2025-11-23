@@ -160,7 +160,7 @@ const Index = () => {
       <ComparisonSection />
 
       {/* Google Reviews Carousel */}
-      <GoogleReviews />
+      <GoogleReviews className="bg-white" />
 
       {/* Professional Recommendations Section */}
       <ProfessionalRecommendations />
