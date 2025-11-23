@@ -119,7 +119,7 @@ export const ProgramsScroll = () => {
                       <div className="flex items-center gap-3">
                         
                         <div className="flex flex-col gap-1">
-                          <span className="text-sm">{prog.level}</span>
+                          <span className="text-xs">{prog.level}</span>
                           <span className="accordion-tag text-2xl font-normal">{prog.tag}</span>
                         </div>
                       </div>
