@@ -115,18 +115,12 @@ export const ProgramsScroll = () => {
               const index = parseInt(value.split('-')[1]);
               if (!isNaN(index)) setSelectedProgram(index);
             }} className="space-y-2">
-                {individualPrograms.map((prog, index) => <AccordionItem 
-                    key={index} 
-                    value={`item-${index}`} 
-                    data-program={index} 
-                    onMouseEnter={() => setSelectedProgram(index)}
-                    className={`border-none border-l-4 ${selectedProgram === index ? prog.borderColor : 'border-transparent'} transition-all`}
-                  >
+                {individualPrograms.map((prog, index) => <AccordionItem key={index} value={`item-${index}`} data-program={index} onMouseEnter={() => setSelectedProgram(index)} className={`border-none border-l-4 ${selectedProgram === index ? prog.borderColor : 'border-transparent'} transition-all`}>
                     <AccordionTrigger className={`text-left hover:no-underline py-4 px-3 rounded-lg transition-all duration-300 ${selectedProgram === index ? 'bg-[#5F3E31] text-white scale-[1.02] shadow-lg' : 'bg-muted/20 shadow-md hover:bg-muted/30 hover:scale-[1.02] hover:shadow-lg'}`}>
                       <div className="flex items-center gap-3">
                         
                         <div className="flex flex-col gap-1">
-                          <span className={`accordion-badge text-xl font-semibold capitalize tracking-wide px-2 py-0.5 rounded-full ${selectedProgram === index ? '' : prog.badgeColor}`}>{prog.level}</span>
+                          <span className="">{prog.level}</span>
                           <span className="accordion-tag text-2xl font-semibold">{prog.tag}</span>
                         </div>
                       </div>
@@ -173,14 +167,18 @@ export const ProgramsScroll = () => {
                 </div>
 
                 <AnimatePresence mode="wait">
-                  <motion.div 
-                    key={selectedProgram}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
-                    className="grid md:grid-cols-[1fr,280px] lg:grid-cols-[1fr,320px] gap-8 lg:gap-12"
-                  >
+                  <motion.div key={selectedProgram} initial={{
+                  opacity: 0,
+                  y: 20
+                }} animate={{
+                  opacity: 1,
+                  y: 0
+                }} exit={{
+                  opacity: 0,
+                  y: -20
+                }} transition={{
+                  duration: 0.3
+                }} className="grid md:grid-cols-[1fr,280px] lg:grid-cols-[1fr,320px] gap-8 lg:gap-12">
                   
                   {/* Content */}
                   <div className="space-y-6">
@@ -202,22 +200,23 @@ export const ProgramsScroll = () => {
 
                     {/* Features List */}
                     <div className="space-y-3 pt-2">
-                      {program.features.map((feature, i) => (
-                        <motion.div 
-                          key={i}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: i * 0.1, duration: 0.3 }}
-                          className="flex items-start gap-3"
-                        >
+                      {program.features.map((feature, i) => <motion.div key={i} initial={{
+                        opacity: 0,
+                        x: -20
+                      }} animate={{
+                        opacity: 1,
+                        x: 0
+                      }} transition={{
+                        delay: i * 0.1,
+                        duration: 0.3
+                      }} className="flex items-start gap-3">
                           <div className={`flex-shrink-0 w-5 h-5 rounded-full ${program.accentColor} flex items-center justify-center mt-0.5`}>
                             <Check size={12} className={selectedProgram === 0 ? "text-level-1-foreground" : "text-white"} />
                           </div>
                           <span className="text-sm text-foreground leading-relaxed">
                             {feature}
                           </span>
-                        </motion.div>
-                      ))}
+                        </motion.div>)}
                     </div>
 
                     {/* CTA Button */}
