@@ -122,12 +122,12 @@ export const ProgramsScroll = () => {
                     onMouseEnter={() => setSelectedProgram(index)}
                     className={`border-none border-l-4 ${selectedProgram === index ? prog.borderColor : 'border-transparent'} transition-all`}
                   >
-                    <AccordionTrigger className={`text-left hover:no-underline py-4 px-3 rounded-lg hover:bg-muted/30 data-[state=open]:bg-muted/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${selectedProgram === index ? prog.glowColor : ''}`}>
+                    <AccordionTrigger className={`text-left hover:no-underline py-4 px-3 rounded-lg transition-all duration-300 ${selectedProgram === index ? 'bg-[#5F3E31] text-white scale-[1.02] shadow-lg' : 'bg-muted/20 shadow-md hover:bg-muted/30 hover:scale-[1.02] hover:shadow-lg'}`}>
                       <div className="flex items-center gap-3">
                         
                         <div className="flex flex-col gap-1">
-                          <span className={`accordion-badge text-2xl font-semibold capitalize tracking-wide px-2 py-0.5 rounded-full ${prog.badgeColor}`}>{prog.level}</span>
-                          <span className="accordion-tag text-2xl font-semibold text-foreground">{prog.tag}</span>
+                          <span className={`accordion-badge text-xl font-semibold capitalize tracking-wide px-2 py-0.5 rounded-full ${selectedProgram === index ? '' : prog.badgeColor}`}>{prog.level}</span>
+                          <span className="accordion-tag text-2xl font-semibold">{prog.tag}</span>
                         </div>
                       </div>
                     </AccordionTrigger>
