@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, Check, Baby, Dumbbell, Zap, Crown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import postpartumImg from "@/assets/postpartum-program.jpg";
 import bodyformingImg from "@/assets/bodyforming-program.jpg";
 import elasticbandsImg from "@/assets/elasticbands-program.jpg";
@@ -165,7 +166,15 @@ export const ProgramsScroll = () => {
                   {individualPrograms.map((_, index) => <button key={index} onClick={() => setSelectedProgram(index)} className={`h-2 rounded-full transition-all duration-300 ${selectedProgram === index ? 'w-8 bg-primary' : 'w-2 bg-border hover:bg-primary/40'}`} aria-label={`Go to program ${index + 1}`} />)}
                 </div>
 
-                <div key={selectedProgram} className="grid md:grid-cols-[1fr,280px] lg:grid-cols-[1fr,320px] gap-8 lg:gap-12 animate-fade-in">
+                <AnimatePresence mode="wait">
+                  <motion.div 
+                    key={selectedProgram}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                    className="grid md:grid-cols-[1fr,280px] lg:grid-cols-[1fr,320px] gap-8 lg:gap-12"
+                  >
                   
                   {/* Content */}
                   <div className="space-y-6">
@@ -187,14 +196,22 @@ export const ProgramsScroll = () => {
 
                     {/* Features List */}
                     <div className="space-y-3 pt-2">
-                      {program.features.map((feature, i) => <div key={i} className="flex items-start gap-3">
+                      {program.features.map((feature, i) => (
+                        <motion.div 
+                          key={i}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.1, duration: 0.3 }}
+                          className="flex items-start gap-3"
+                        >
                           <div className={`flex-shrink-0 w-5 h-5 rounded-full ${program.accentColor} flex items-center justify-center mt-0.5`}>
                             <Check size={12} className={selectedProgram === 0 ? "text-level-1-foreground" : "text-white"} />
                           </div>
                           <span className="text-sm text-foreground leading-relaxed">
                             {feature}
                           </span>
-                        </div>)}
+                        </motion.div>
+                      ))}
                     </div>
 
                     {/* CTA Button */}
@@ -216,7 +233,8 @@ export const ProgramsScroll = () => {
                     </div>
                   </div>
 
-                </div>
+                </motion.div>
+                </AnimatePresence>
               </div>
             </div>
 
