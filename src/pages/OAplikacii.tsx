@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { HowItWorks } from "@/components/HowItWorks";
 import { AppFeaturesTabs } from "@/components/AppFeaturesTabs";
-import { ComparisonSection } from "@/components/ComparisonSection";
 import { ArrowRight, Star, Play, Heart, Sparkle, CheckCircle, Check } from "lucide-react";
 import testimonialMartina from "@/assets/testimonial-martina.jpg";
 import testimonialLucia from "@/assets/testimonial-lucia.jpg";
@@ -378,9 +377,6 @@ const OAplikacii = () => {
           </Card>
         </div>
       </section>
-
-      {/* Comparison Section */}
-      <ComparisonSection />
 
       {/* Final CTA */}
       <section className="py-16 md:py-20 px-4 md:px-8">
