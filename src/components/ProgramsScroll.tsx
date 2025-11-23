@@ -9,7 +9,7 @@ import elasticbandsImg from "@/assets/elasticbands-program.jpg";
 import strongsexyImg from "@/assets/strongsexy-program.jpg";
 const individualPrograms = [{
   level: "Level 1",
-  tag: "Obnova Po Pôrode",
+  tag: "Postpartum",
   title: "Postpartum",
   description: "Program pre mamičky, ktoré potrebujú obnoviť silu brušného korzetu, riešiť diastázu a vrátiť sa k pohybu bezpečne a postupne.",
   features: ["Špeciálne cvičenia pre posilnenie brušného korzetu", "Bezpečný návrat k pohybu po pôrode", "Riešenie diastázy pod vedením expertov"],
@@ -22,7 +22,7 @@ const individualPrograms = [{
   glowColor: "shadow-level-1/40"
 }, {
   level: "Level 2",
-  tag: "Formovanie Tela",
+  tag: "BodyForming",
   title: "BodyForming",
   description: "Ideálne pre formovanie tela a posilnenie svalov bez špeciálneho vybavenia. Zameraj sa na svaly, ktoré chceš definovať.",
   features: ["Efektívny tréning s vlastnou váhou", "Cielené formovanie problémových partií", "Žiadne špeciálne vybavenie potrebné"],
@@ -35,7 +35,7 @@ const individualPrograms = [{
   glowColor: "shadow-level-2/40"
 }, {
   level: "Level 3",
-  tag: "Odporové Pásy",
+  tag: "ElasticBands",
   title: "ElasticBands",
   description: "Tréning s odporovými gumami pre svalovú definíciu a silu. Zvýš intenzitu a dosiahni vytvarované svaly.",
   features: ["Profesionálny tréning s odporovými pásmi", "Maximálna svalová aktivácia", "Viditeľná definícia a sila"],
@@ -48,8 +48,8 @@ const individualPrograms = [{
   glowColor: "shadow-level-3/40"
 }, {
   level: "Level 4",
-  tag: "Pokročilá Transformácia",
-  title: "Strong & Sexy",
+  tag: "Strong&Sexy",
+  title: "Strong&Sexy",
   description: "Pokročilý program pre kompletnú transformáciu tela a sebavedomia. Pre ženy pripravené posunúť sa na novú úroveň.",
   features: ["Intenzívny pokročilý tréning", "Kompletná transformácia tela", "Maximálna sila a sebavedomie"],
   duration: "8 týždňov",
@@ -120,7 +120,7 @@ export const ProgramsScroll = () => {
                         
                         <div className="flex flex-col gap-1">
                           <span className={`accordion-badge text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full ${prog.badgeColor}`}>{prog.level}</span>
-                          <span className="accordion-tag text-sm font-medium text-foreground">{prog.tag}</span>
+                          <span className="accordion-tag text-base font-semibold text-foreground">{prog.tag}</span>
                         </div>
                       </div>
                     </AccordionTrigger>
@@ -177,7 +177,7 @@ export const ProgramsScroll = () => {
                       <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full ${program.badgeColor} text-xs mb-3 font-medium`}>
                         {program.duration}
                       </div>
-                      <h3 className="text-2xl lg:text-4xl xl:text-5xl font-light text-foreground mb-3">
+                      <h3 className="text-4xl lg:text-5xl xl:text-6xl font-light text-foreground mb-3">
                         {program.title}
                       </h3>
                       <p className="text-base text-muted-foreground leading-relaxed">
