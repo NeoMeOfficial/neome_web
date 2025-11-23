@@ -509,7 +509,7 @@ const Index = () => {
       <ProgramsScroll className="bg-white" />
 
       {/* Pricing Section */}
-      <PricingComparison />
+      <PricingComparison className="bg-[#f1ede4]" />
 
       {/* Comparison Section */}
       
