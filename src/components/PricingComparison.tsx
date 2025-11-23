@@ -281,13 +281,13 @@ export const PricingComparison = ({
                               </button>
                               <button onClick={() => setSubscriptionPeriod('quarterly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative", subscriptionPeriod === 'quarterly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
                                 Kvartálne
-                                <Badge className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0 bg-info text-info-foreground">
+                                <Badge className="absolute -top-3 -right-4 text-[10px] px-1.5 py-0 bg-info text-info-foreground">
                                   -20%
                                 </Badge>
                               </button>
                               <button onClick={() => setSubscriptionPeriod('yearly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative", subscriptionPeriod === 'yearly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
                                 Ročne
-                                <Badge className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0 bg-info text-info-foreground">
+                                <Badge className="absolute -top-3 -right-4 text-[10px] px-1.5 py-0 bg-info text-info-foreground">
                                   -33%
                                 </Badge>
                               </button>
@@ -346,13 +346,13 @@ export const PricingComparison = ({
                       </button>
                       <button onClick={() => setSubscriptionPeriod('quarterly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative", subscriptionPeriod === 'quarterly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
                         Kvartálne
-                        <Badge className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0 bg-info text-info-foreground">
+                        <Badge className="absolute -top-3 -right-4 text-[10px] px-1.5 py-0 bg-info text-info-foreground">
                           -20%
                         </Badge>
                       </button>
                       <button onClick={() => setSubscriptionPeriod('yearly')} className={cn("px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative", subscriptionPeriod === 'yearly' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")}>
                         Ročne
-                        <Badge className="absolute -top-2 -right-2 text-[10px] px-1.5 py-0 bg-info text-info-foreground">
+                        <Badge className="absolute -top-3 -right-4 text-[10px] px-1.5 py-0 bg-info text-info-foreground">
                           -33%
                         </Badge>
                       </button>
