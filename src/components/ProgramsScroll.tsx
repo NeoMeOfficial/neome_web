@@ -115,7 +115,13 @@ export const ProgramsScroll = () => {
               const index = parseInt(value.split('-')[1]);
               if (!isNaN(index)) setSelectedProgram(index);
             }} className="space-y-2">
-                {individualPrograms.map((prog, index) => <AccordionItem key={index} value={`item-${index}`} data-program={index} className={`border-none border-l-4 ${selectedProgram === index ? prog.borderColor : 'border-transparent'} transition-all`}>
+                {individualPrograms.map((prog, index) => <AccordionItem 
+                    key={index} 
+                    value={`item-${index}`} 
+                    data-program={index} 
+                    onMouseEnter={() => setSelectedProgram(index)}
+                    className={`border-none border-l-4 ${selectedProgram === index ? prog.borderColor : 'border-transparent'} transition-all`}
+                  >
                     <AccordionTrigger className={`text-left hover:no-underline py-4 px-3 rounded-lg hover:bg-muted/30 data-[state=open]:bg-muted/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${selectedProgram === index ? prog.glowColor : ''}`}>
                       <div className="flex items-center gap-3">
                         
