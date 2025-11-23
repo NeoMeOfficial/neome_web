@@ -1,6 +1,7 @@
 import { CheckCircle, X, Dumbbell, User, Smartphone, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export const ComparisonSection = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -43,17 +44,29 @@ export const ComparisonSection = () => {
     <section className="py-16 md:py-20 px-4 md:px-8 bg-section-beige">
       <div className="max-w-7xl mx-auto">
         {/* Centered Heading */}
-        <div className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
             Prečo ženy{" "}
             <span className="gradient-text font-normal">volia NeoMe</span>
           </h2>
-        </div>
+        </motion.div>
 
         {/* Main Grid Layout */}
         <div className="grid lg:grid-cols-[500px_1fr] gap-8 lg:gap-12 items-start">
           {/* Left Side - Clickable Options */}
-          <div className="space-y-3">
+          <motion.div 
+            className="space-y-3"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             {comparisons.map((comparison, index) => {
               const Icon = comparison.icon;
               const isSelected = selectedIndex === index;
@@ -86,10 +99,16 @@ export const ComparisonSection = () => {
                 </button>
               );
             })}
-          </div>
+          </motion.div>
 
           {/* Right Side - Floating Card with Details */}
-          <Card className="overflow-hidden border border-border/20 bg-white/90 backdrop-blur-sm shadow-2xl sticky top-24">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Card className="overflow-hidden border border-border/20 bg-white/90 backdrop-blur-sm shadow-2xl sticky top-24">
             <div className="p-6 md:p-8">
               {/* Header with Icon */}
               <div className="flex items-center gap-4 mb-6">
@@ -131,6 +150,7 @@ export const ComparisonSection = () => {
               </div>
             </div>
           </Card>
+          </motion.div>
         </div>
       </div>
     </section>
