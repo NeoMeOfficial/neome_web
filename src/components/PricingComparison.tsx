@@ -265,7 +265,7 @@ export const PricingComparison = ({
                           </Badge>}
                         {tier.savings && !tier.popular}
                       </div>
-                      <Card className={cn("p-4 md:p-6 text-center w-full", tier.popular && "border-2 border-primary shadow-lg")}>
+                      <Card className={cn("p-4 md:p-6 text-center w-full glass-card", tier.popular && "border-2 border-primary shadow-lg")}>
                         <div className="text-2xl font-light mb-1">{tier.name}</div>
                         <div className="text-3xl font-medium gradient-text mb-1">
                           {tier.price}
@@ -294,7 +294,11 @@ export const PricingComparison = ({
                             </div>
                           </div>}
                         
-                        <Button className={cn("w-full bg-cta-teal text-cta-teal-foreground hover:bg-primary hover:text-primary-foreground")} onClick={() => tier.name !== "Free" && navigate('/checkout')}>
+                        <Button 
+                          className={cn("w-full", index === 1 && "bg-cta-teal text-cta-teal-foreground hover:bg-primary hover:text-primary-foreground")} 
+                          variant={index === 0 ? "outline" : "default"}
+                          onClick={() => tier.name !== "Free" && navigate('/checkout')}
+                        >
                           {tier.cta}
                         </Button>
                       </Card>
@@ -330,7 +334,7 @@ export const PricingComparison = ({
                     {tier.savings}
                   </Badge>}
               </div>
-              <Card className={cn("p-4 md:p-6 flex-1", tier.popular && "border-2 border-primary shadow-lg")}>
+              <Card className={cn("p-4 md:p-6 flex-1 glass-card", tier.popular && "border-2 border-primary shadow-lg")}>
                 <h3 className="text-2xl font-light mb-2">{tier.name}</h3>
               <div className="text-3xl font-medium gradient-text mb-1">
                 {tier.price}
@@ -362,7 +366,11 @@ export const PricingComparison = ({
                 {tier.description}
               </p>
 
-              <Button className={cn("w-full mb-6 bg-cta-teal text-cta-teal-foreground hover:bg-primary hover:text-primary-foreground")} onClick={() => tier.name !== "Free" && navigate('/checkout')}>
+              <Button 
+                className={cn("w-full mb-6", index === 1 && "bg-cta-teal text-cta-teal-foreground hover:bg-primary hover:text-primary-foreground")} 
+                variant={index === 0 ? "outline" : "default"}
+                onClick={() => tier.name !== "Free" && navigate('/checkout')}
+              >
                 {tier.cta}
               </Button>
 
