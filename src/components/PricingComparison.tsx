@@ -266,6 +266,13 @@ export const PricingComparison = ({
                         {tier.savings && !tier.popular}
                       </div>
                       <Card className={cn("p-4 md:p-6 text-center w-full", tier.popular && "border-2 border-primary shadow-lg")}>
+                        <div className="text-2xl font-light mb-1">{tier.name}</div>
+                        <div className="text-3xl font-medium gradient-text mb-1">
+                          {tier.price}
+                        </div>
+                        <div className="text-sm text-muted-foreground mb-3">
+                          {tier.period}
+                        </div>
                         {/* Subscription Period Toggle - only for subscription tier */}
                         {index === 1 && <div className="flex justify-center mb-4">
                             <div className="inline-flex items-center bg-muted/50 backdrop-blur-sm rounded-full p-1 gap-1">
@@ -286,13 +293,6 @@ export const PricingComparison = ({
                               </button>
                             </div>
                           </div>}
-                        <div className="text-2xl font-light mb-1">{tier.name}</div>
-                        <div className="text-3xl font-medium gradient-text mb-1">
-                          {tier.price}
-                        </div>
-                        <div className="text-sm text-muted-foreground mb-3">
-                          {tier.period}
-                        </div>
                         <div className="text-xs text-muted-foreground mb-4">
                           {tier.description}
                         </div>
@@ -333,6 +333,13 @@ export const PricingComparison = ({
                   </Badge>}
               </div>
               <Card className={cn("p-4 md:p-6 flex-1", tier.popular && "border-2 border-primary shadow-lg")}>
+                <h3 className="text-2xl font-light mb-2">{tier.name}</h3>
+              <div className="text-3xl font-medium gradient-text mb-1">
+                {tier.price}
+              </div>
+              <div className="text-sm text-muted-foreground mb-3">
+                {tier.period}
+              </div>
                 {/* Subscription Period Toggle - only for subscription tier */}
                 {index === 1 && <div className="flex justify-center mb-4">
                     <div className="inline-flex items-center bg-muted/50 backdrop-blur-sm rounded-full p-1 gap-1">
@@ -353,13 +360,6 @@ export const PricingComparison = ({
                       </button>
                     </div>
                   </div>}
-                <h3 className="text-2xl font-light mb-2">{tier.name}</h3>
-              <div className="text-3xl font-medium gradient-text mb-1">
-                {tier.price}
-              </div>
-              <div className="text-sm text-muted-foreground mb-3">
-                {tier.period}
-              </div>
               <p className="text-sm text-muted-foreground mb-6">
                 {tier.description}
               </p>
