@@ -294,7 +294,7 @@ export const PricingComparison = ({
                             </div>
                           </div>}
                         
-                        <Button className={cn("w-full", tier.popular && "bg-primary text-primary-foreground hover:bg-primary/90")} variant={tier.popular ? "default" : "outline"} onClick={() => tier.name !== "Free" && navigate('/checkout')}>
+                        <Button className={cn("w-full bg-cta-teal text-cta-teal-foreground hover:bg-primary hover:text-primary-foreground")} onClick={() => tier.name !== "Free" && navigate('/checkout')}>
                           {tier.cta}
                         </Button>
                       </Card>
@@ -362,7 +362,7 @@ export const PricingComparison = ({
                 {tier.description}
               </p>
 
-              <Button className={cn("w-full mb-6", tier.popular && "bg-primary text-primary-foreground hover:bg-primary/90")} variant={tier.popular ? "default" : "outline"} onClick={() => tier.name !== "Free" && navigate('/checkout')}>
+              <Button className={cn("w-full mb-6 bg-cta-teal text-cta-teal-foreground hover:bg-primary hover:text-primary-foreground")} onClick={() => tier.name !== "Free" && navigate('/checkout')}>
                 {tier.cta}
               </Button>
 
