@@ -157,56 +157,9 @@ const Programy = () => {
         </div>
       </section>
 
-      {/* Level Cards */}
-      <section className="py-16 px-4">
+      {/* Unified Program Journey Section */}
+      <section className="py-16 px-4 bg-gradient-to-b from-muted/30 to-background">
         <div className="max-w-7xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {programs.map((program, idx) => (
-              <motion.div
-                key={program.level}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
-              >
-                <Card 
-                  className={`glass-card p-6 cursor-pointer transition-all hover:scale-105 ${
-                    selectedLevel === program.level ? 'ring-2 ring-primary' : ''
-                  }`}
-                  onClick={() => scrollToLevel(program.level)}
-                >
-                  <Badge 
-                    className="mb-3"
-                    style={{ backgroundColor: program.color }}
-                  >
-                    Level {program.level}
-                  </Badge>
-                  <h3 className="text-xl font-light mb-2">{program.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {program.shortDesc}
-                  </p>
-                  <div className="text-2xl font-medium gradient-text mb-4">
-                    €{program.price}
-                  </div>
-                  <Button 
-                    variant="outline" 
-                    className="w-full"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      scrollToLevel(program.level);
-                    }}
-                  >
-                    Zistiť viac
-                  </Button>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Journey Visualization */}
-      <section className="py-16 px-4 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-light mb-4">
               Progresívna cesta <span className="gradient-text font-medium">krok za krokom</span>
@@ -216,52 +169,159 @@ const Programy = () => {
             </p>
           </div>
 
-          {/* Desktop Timeline */}
-          <div className="hidden md:flex items-center justify-center gap-4 mb-8">
-            {programs.map((program, idx) => (
-              <div key={program.level} className="flex items-center">
-                <button
-                  onClick={() => scrollToLevel(program.level)}
-                  className={`flex flex-col items-center gap-2 p-4 rounded-lg transition-all ${
-                    selectedLevel === program.level ? 'bg-primary/10 scale-110' : 'hover:bg-muted'
-                  }`}
-                >
-                  <div 
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium"
-                    style={{ backgroundColor: program.color }}
+          {/* Desktop Journey View */}
+          <div className="hidden lg:block">
+            <div className="relative">
+              {/* Connection Line */}
+              <div className="absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-level-1 via-level-2 via-level-3 to-level-4 opacity-20" />
+              
+              <div className="grid grid-cols-4 gap-6">
+                {programs.map((program, idx) => (
+                  <motion.div
+                    key={program.level}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
                   >
-                    {program.level}
-                  </div>
-                  <span className="text-sm font-light">{program.name}</span>
-                </button>
-                {idx < programs.length - 1 && (
-                  <ArrowRight className="h-6 w-6 text-muted-foreground mx-2" />
-                )}
+                    <Card 
+                      className={`glass-card p-6 cursor-pointer transition-all hover:scale-105 relative ${
+                        selectedLevel === program.level ? 'ring-2 ring-primary shadow-lg' : ''
+                      }`}
+                      onClick={() => scrollToLevel(program.level)}
+                    >
+                      {/* Level Badge */}
+                      <div className="flex items-center justify-center mb-4">
+                        <div 
+                          className="w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-medium shadow-lg"
+                          style={{ backgroundColor: program.color }}
+                        >
+                          {program.level}
+                        </div>
+                      </div>
+
+                      <h3 className="text-2xl font-light text-center mb-2">{program.name}</h3>
+                      
+                      <p className="text-sm text-muted-foreground text-center mb-4 min-h-[60px]">
+                        {program.shortDesc}
+                      </p>
+
+                      <div className="space-y-2 mb-4">
+                        <div className="text-xs text-muted-foreground">Vhodný pre:</div>
+                        <p className="text-sm">{program.suitable}</p>
+                      </div>
+
+                      <div className="border-t border-border/50 pt-4 mb-4">
+                        <div className="text-xs text-muted-foreground mb-2">Hlavné výhody:</div>
+                        <div className="space-y-1">
+                          {program.benefits.slice(0, 3).map((benefit, i) => (
+                            <div key={i} className="flex items-start gap-2">
+                              <CheckCircle className="h-3 w-3 text-primary shrink-0 mt-0.5" />
+                              <span className="text-xs">{benefit}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex items-baseline justify-center gap-2 mb-4">
+                        <span className="text-3xl font-medium gradient-text">€{program.price}</span>
+                        <span className="text-sm text-muted-foreground">/ {program.duration}</span>
+                      </div>
+
+                      <Button 
+                        className="w-full"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          scrollToLevel(program.level);
+                        }}
+                      >
+                        Zistiť viac
+                      </Button>
+                    </Card>
+                  </motion.div>
+                ))}
               </div>
-            ))}
+
+              {/* Arrow Indicators */}
+              <div className="flex justify-center gap-8 mt-6">
+                {programs.slice(0, -1).map((_, idx) => (
+                  <ArrowRight 
+                    key={idx} 
+                    className="h-6 w-6 text-primary/40"
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Mobile Timeline */}
-          <div className="flex md:hidden flex-col gap-4 mb-8">
-            {programs.map((program) => (
-              <button
+          {/* Mobile/Tablet Journey View */}
+          <div className="lg:hidden space-y-6">
+            {programs.map((program, idx) => (
+              <motion.div
                 key={program.level}
-                onClick={() => scrollToLevel(program.level)}
-                className={`flex items-center gap-4 p-4 rounded-lg transition-all ${
-                  selectedLevel === program.level ? 'bg-primary/10 scale-105' : 'hover:bg-muted'
-                }`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
               >
-                <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium shrink-0"
-                  style={{ backgroundColor: program.color }}
+                <Card 
+                  className={`glass-card p-6 cursor-pointer transition-all ${
+                    selectedLevel === program.level ? 'ring-2 ring-primary shadow-lg' : ''
+                  }`}
+                  onClick={() => scrollToLevel(program.level)}
                 >
-                  {program.level}
-                </div>
-                <div className="text-left flex-1">
-                  <div className="font-medium">{program.name}</div>
-                  <div className="text-sm text-muted-foreground">€{program.price} • {program.duration}</div>
-                </div>
-              </button>
+                  <div className="flex items-start gap-4 mb-4">
+                    <div 
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium shrink-0"
+                      style={{ backgroundColor: program.color }}
+                    >
+                      {program.level}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-light mb-1">{program.name}</h3>
+                      <p className="text-sm text-muted-foreground">{program.shortDesc}</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 mb-4">
+                    <div>
+                      <div className="text-xs text-muted-foreground mb-1">Vhodný pre:</div>
+                      <p className="text-sm">{program.suitable}</p>
+                    </div>
+
+                    <div>
+                      <div className="text-xs text-muted-foreground mb-2">Hlavné výhody:</div>
+                      <div className="space-y-1">
+                        {program.benefits.map((benefit, i) => (
+                          <div key={i} className="flex items-start gap-2">
+                            <CheckCircle className="h-3 w-3 text-primary shrink-0 mt-0.5" />
+                            <span className="text-xs">{benefit}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-2xl font-medium gradient-text">€{program.price}</span>
+                      <span className="text-sm text-muted-foreground">/ {program.duration}</span>
+                    </div>
+                    <Button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        scrollToLevel(program.level);
+                      }}
+                    >
+                      Zistiť viac
+                    </Button>
+                  </div>
+                </Card>
+
+                {idx < programs.length - 1 && (
+                  <div className="flex justify-center py-2">
+                    <ArrowRight className="h-6 w-6 text-primary/40 rotate-90" />
+                  </div>
+                )}
+              </motion.div>
             ))}
           </div>
         </div>
