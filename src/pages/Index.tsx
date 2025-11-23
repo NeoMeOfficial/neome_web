@@ -156,8 +156,11 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Comparison Section */}
+      <ComparisonSection />
+
       {/* Google Reviews Carousel */}
-      <GoogleReviews className="bg-[FFFFF] bg-white" />
+      <GoogleReviews />
 
       {/* Professional Recommendations Section */}
       <ProfessionalRecommendations />
@@ -505,7 +508,7 @@ const Index = () => {
       </section>
 
       {/* Programs Section */}
-      <ProgramsScroll className="bg-[F1EDE4] bg-[#f1ede4]" />
+      <ProgramsScroll />
 
       {/* Pricing Section */}
       <PricingComparison />
