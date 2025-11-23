@@ -169,9 +169,7 @@ const Index = () => {
       <section id="o-aplikacii" ref={addToRefs} className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-b from-section-white to-transparent opacity-0">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4 px-4 py-2">
-              Čo nájdeš v aplikácii
-            </Badge>
+            
             <h2 className="text-3xl md:text-5xl font-light mb-4">
               Tvoja kompletná cesta k <span className="gradient-text font-normal">lepšiemu ja</span>
             </h2>
@@ -508,7 +506,7 @@ const Index = () => {
       </section>
 
       {/* Programs Section */}
-      <ProgramsScroll />
+      <ProgramsScroll className="bg-white" />
 
       {/* Pricing Section */}
       <PricingComparison />

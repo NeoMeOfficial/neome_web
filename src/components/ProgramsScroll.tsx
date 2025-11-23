@@ -87,7 +87,7 @@ export const ProgramsScroll = () => {
     }
   };
   return <section id="programy" className="py-12 md:py-16 px-0 md:px-8 bg-white">
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-7xl shadow-sm rounded-none">
         
         {/* Merged Program Card */}
         <Card className="rounded-3xl shadow-xl overflow-hidden bg-white border-border/10">

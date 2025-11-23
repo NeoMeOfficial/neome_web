@@ -236,9 +236,7 @@ export const PricingComparison = () => {
   return <section id="cennik" className="py-16 md:py-20 px-0 md:px-4 bg-white">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4 px-4 py-2">
-            Transparentné ceny
-          </Badge>
+          
           <h2 className="text-3xl md:text-5xl font-light mb-4">
             Vyber si <span className="gradient-text font-normal">čo ti vyhovuje</span>
           </h2>
