@@ -293,9 +293,7 @@ export const PricingComparison = ({
                               </button>
                             </div>
                           </div>}
-                        <div className="text-xs text-muted-foreground mb-4">
-                          {tier.description}
-                        </div>
+                        
                         <Button className={cn("w-full", tier.popular && "bg-primary text-primary-foreground hover:bg-primary/90")} variant={tier.popular ? "default" : "outline"} onClick={() => tier.name !== "Free" && navigate('/checkout')}>
                           {tier.cta}
                         </Button>
