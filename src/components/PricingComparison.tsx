@@ -18,7 +18,7 @@ interface PricingTier {
   cta: string;
   savings?: string;
 }
-export const PricingComparison = () => {
+export const PricingComparison = ({ className }: { className?: string }) => {
   const navigate = useNavigate();
   const [subscriptionPeriod, setSubscriptionPeriod] = useState<'monthly' | 'quarterly' | 'yearly'>('quarterly');
   const freeTier: PricingTier = {
@@ -233,7 +233,7 @@ export const PricingComparison = () => {
   };
   const subscriptionTier = subscriptionTiers[subscriptionPeriod];
   const tiers: PricingTier[] = [freeTier, subscriptionTier];
-  return <section id="cennik" className="py-16 md:py-20 px-0 md:px-4 bg-white">
+  return <section id="cennik" className={cn("py-16 md:py-20 px-0 md:px-4 bg-white", className)}>
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           
@@ -301,7 +301,7 @@ export const PricingComparison = () => {
               </tr>
             </thead>
             <tbody>
-              {tiers[0].features.map((_, featureIndex) => <tr key={featureIndex} className="border-t border-border/20">
+              {tiers[0].features.map((_, featureIndex) => <tr key={featureIndex} className="border-t border-primary">
                   <td className="p-4 font-light">
                     {tiers[0].features[featureIndex].name}
                   </td>
