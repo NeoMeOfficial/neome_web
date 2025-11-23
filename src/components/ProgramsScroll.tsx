@@ -86,12 +86,13 @@ export const ProgramsScroll = () => {
       setSelectedProgram(selectedProgram - 1);
     }
   };
-  return <section id="programy" className="py-12 md:py-16 px-0 md:px-8 bg-white">
-      <div className="container mx-auto max-w-7xl space-y-8 md:space-y-12">
+    return <section id="programy" className="py-12 md:py-16 px-0 md:px-8 bg-white">
+      <div className="container mx-auto max-w-7xl">
         
-        {/* Introduction Card */}
-        <Card className="rounded-3xl shadow-xl p-3 md:p-12 lg:p-16 bg-white border-border/10">
-          <div className="text-center max-w-4xl mx-auto">
+        {/* Merged Program Card */}
+        <Card className="rounded-3xl shadow-xl overflow-hidden bg-white border-border/10">
+          {/* Introduction Section */}
+          <div className="text-center max-w-4xl mx-auto p-8 md:p-12 lg:p-16">
             <h2 className="text-3xl md:text-5xl font-light mb-6">
               Chceš Cielenú Transformáciu?
             </h2>
@@ -102,10 +103,8 @@ export const ProgramsScroll = () => {
               Tieto 6-8 týždňové programy sú voliteľné doplnky k tvojmu predplatnému. Každý program zahŕňa <strong className="text-foreground">plný prístup k celej aplikácii NeoMe</strong> plus štrukturovaný tréningový plán navrhnutý pre hlbšiu, garantovanú zmenu.
             </p>
           </div>
-        </Card>
 
-        {/* Interactive Program Selection */}
-        <Card className="rounded-3xl shadow-lg overflow-hidden bg-white border-border/5">
+          {/* Interactive Program Selection */}
           <div className="flex flex-col lg:grid lg:grid-cols-[320px,1fr]">
             
             {/* Accordion Navigation - Stacked on mobile, sidebar on desktop */}
