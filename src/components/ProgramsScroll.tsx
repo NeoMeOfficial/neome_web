@@ -115,7 +115,7 @@ export const ProgramsScroll = () => {
               if (!isNaN(index)) setSelectedProgram(index);
             }} className="space-y-2">
                 {individualPrograms.map((prog, index) => <AccordionItem key={index} value={`item-${index}`} data-program={index} className={`border-none border-l-4 ${selectedProgram === index ? prog.borderColor : 'border-transparent'} transition-all`}>
-                    <AccordionTrigger className="text-left hover:no-underline py-4 px-3 rounded-lg hover:bg-muted/30 data-[state=open]:bg-muted/40 transition-colors">
+                    <AccordionTrigger className={`text-left hover:no-underline py-4 px-3 rounded-lg hover:bg-muted/30 data-[state=open]:bg-muted/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${selectedProgram === index ? prog.glowColor : ''}`}>
                       <div className="flex items-center gap-3">
                         
                         <div className="flex flex-col gap-1">
@@ -206,9 +206,9 @@ export const ProgramsScroll = () => {
                     </div>
                   </div>
 
-                  {/* Image */}
-                  <div className="relative flex items-start justify-center md:justify-end">
-                    <div className={`relative rounded-2xl overflow-hidden shadow-xl w-full max-w-[280px] lg:max-w-[320px] border-t-4 ${program.borderColor}`}>
+                   {/* Image */}
+                   <div className="relative flex items-start justify-center md:justify-end">
+                    <div className={`relative rounded-2xl overflow-hidden shadow-xl w-full max-w-[280px] lg:max-w-[320px] border-t-4 ${program.borderColor} transition-all duration-300 hover:scale-105 hover:shadow-2xl ${program.glowColor}`}>
                       <div className="aspect-[3/4] relative group">
                         <img src={program.image} alt={program.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110" />
                         <div className={`absolute inset-0 bg-gradient-to-t from-${program.accentColor.split('-')[1]}-500/40 to-transparent`} />
