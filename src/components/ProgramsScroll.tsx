@@ -126,8 +126,8 @@ export const ProgramsScroll = () => {
                       <div className="flex items-center gap-3">
                         
                         <div className="flex flex-col gap-1">
-                          <span className={`accordion-badge text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full ${prog.badgeColor}`}>{prog.level}</span>
-                          <span className="accordion-tag text-base font-semibold text-foreground">{prog.tag}</span>
+                          <span className={`accordion-badge text-2xl font-semibold capitalize tracking-wide px-2 py-0.5 rounded-full ${prog.badgeColor}`}>{prog.level}</span>
+                          <span className="accordion-tag text-2xl font-semibold text-foreground">{prog.tag}</span>
                         </div>
                       </div>
                     </AccordionTrigger>
