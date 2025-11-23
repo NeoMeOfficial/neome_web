@@ -2,7 +2,6 @@ import { CheckCircle, X, Dumbbell, User, Smartphone, Sparkles } from "lucide-rea
 import { Card } from "@/components/ui/card";
 import { useState } from "react";
 import { motion } from "framer-motion";
-
 export const ComparisonSection = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const comparisons = [{
@@ -36,21 +35,23 @@ export const ComparisonSection = () => {
     advantages: ["Špecificky pre mamičky a ženy - nie generické fitness", "Holistický prístup - telo + myseľ + komunita", "V slovenskom jazyku - rozumieš každému slovu", "Aktívna komunita - podpora skutočných žien", "Hormonálna rovnováha - nie len chudnutie", "Recepty pre celú rodinu - nie extrémy", "Meditácie a mindfulness - nie len cviky"],
     disadvantages: ["Generické, pre všetkých", "Len fitness, bez holistického prístupu", "Často v angličtine", "Malá alebo žiadna komunita", "Zamerané len na kalórie a výzor"]
   }];
-
   const selectedComparison = comparisons[selectedIndex];
   const SelectedIcon = selectedComparison.icon;
-
-  return (
-    <section className="py-16 md:py-20 px-4 md:px-8 bg-section-beige">
+  return <section className="py-16 md:py-20 px-4 md:px-8 bg-section-beige">
       <div className="max-w-7xl mx-auto">
         {/* Centered Heading */}
-        <motion.div 
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
+        <motion.div className="text-center mb-12" initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true,
+        margin: "-100px"
+      }} transition={{
+        duration: 0.6
+      }}>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
             Prečo ženy{" "}
             <span className="gradient-text font-normal">volia NeoMe</span>
@@ -60,31 +61,25 @@ export const ComparisonSection = () => {
         {/* Main Grid Layout */}
         <div className="grid lg:grid-cols-[500px_1fr] gap-8 lg:gap-12 items-start">
           {/* Left Side - Clickable Options */}
-          <motion.div 
-            className="space-y-3"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <motion.div className="space-y-3" initial={{
+          opacity: 0,
+          x: -30
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} viewport={{
+          once: true,
+          margin: "-100px"
+        }} transition={{
+          duration: 0.6,
+          delay: 0.2
+        }}>
             {comparisons.map((comparison, index) => {
-              const Icon = comparison.icon;
-              const isSelected = selectedIndex === index;
-              
-              return (
-                <button
-                  key={index}
-                  onClick={() => setSelectedIndex(index)}
-                  className={`w-full text-left p-4 rounded-lg border transition-all duration-300 ${
-                    isSelected 
-                      ? 'bg-primary text-primary-foreground border-primary shadow-lg' 
-                      : 'bg-white/50 hover:bg-white/80 border-border/20 hover:shadow-md'
-                  }`}
-                >
+            const Icon = comparison.icon;
+            const isSelected = selectedIndex === index;
+            return <button key={index} onClick={() => setSelectedIndex(index)} className={`w-full text-left p-4 rounded-lg border transition-all duration-300 ${isSelected ? 'bg-primary text-primary-foreground border-primary shadow-lg' : 'bg-white/50 hover:bg-white/80 border-border/20 hover:shadow-md'}`}>
                   <div className="flex items-center gap-3">
-                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
-                      isSelected ? 'bg-primary-foreground text-primary' : 'bg-primary/10 text-primary'
-                    }`}>
+                    <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-semibold ${isSelected ? 'bg-primary-foreground text-primary' : 'bg-primary/10 text-primary'}`}>
                       {comparison.number}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -96,18 +91,24 @@ export const ComparisonSection = () => {
                       </p>
                     </div>
                   </div>
-                </button>
-              );
-            })}
+                </button>;
+          })}
           </motion.div>
 
           {/* Right Side - Floating Card with Details */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          x: 30
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} viewport={{
+          once: true,
+          margin: "-100px"
+        }} transition={{
+          duration: 0.6,
+          delay: 0.4
+        }}>
             <Card className="overflow-hidden border border-border/20 bg-white/90 backdrop-blur-sm shadow-2xl sticky top-24">
             <div className="p-6 md:p-8">
               {/* Header with Icon */}
@@ -115,7 +116,7 @@ export const ComparisonSection = () => {
                 <div className={`p-3 rounded-full ${selectedComparison.iconBg}`}>
                   <SelectedIcon size={28} className={selectedComparison.iconColor} />
                 </div>
-                <h3 className="text-2xl font-semibold">{selectedComparison.title}</h3>
+                <h3 className="text-2xl font-normal">{selectedComparison.title}</h3>
               </div>
 
               {/* NeoMe Advantages */}
@@ -125,12 +126,10 @@ export const ComparisonSection = () => {
                   NeoMe
                 </h4>
                 <ul className="space-y-3">
-                  {selectedComparison.advantages.map((advantage, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-foreground">
+                  {selectedComparison.advantages.map((advantage, i) => <li key={i} className="flex items-start gap-3 text-sm text-foreground">
                       <CheckCircle size={18} className="text-primary flex-shrink-0 mt-0.5" />
                       <span>{advantage}</span>
-                    </li>
-                  ))}
+                    </li>)}
                 </ul>
               </div>
 
@@ -140,12 +139,10 @@ export const ComparisonSection = () => {
                   {selectedComparison.competitor}
                 </h4>
                 <ul className="space-y-3">
-                  {selectedComparison.disadvantages.map((disadvantage, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                  {selectedComparison.disadvantages.map((disadvantage, i) => <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
                       <X size={18} className="text-muted-foreground/50 flex-shrink-0 mt-0.5" />
                       <span>{disadvantage}</span>
-                    </li>
-                  ))}
+                    </li>)}
                 </ul>
               </div>
             </div>
@@ -153,6 +150,5 @@ export const ComparisonSection = () => {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
