@@ -127,11 +127,11 @@ const Programy = () => {
 
   return (
     <div className="min-h-screen bg-background relative">
-      {/* Grainy Texture Overlay */}
+      {/* Grainy Texture Overlay - Brown on White */}
       <div 
-        className="fixed inset-0 pointer-events-none opacity-[0.4] mix-blend-overlay z-50"
+        className="fixed inset-0 pointer-events-none opacity-[0.25] mix-blend-multiply z-50"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' fill='%238B7355'/%3E%3C/svg%3E")`,
           backgroundRepeat: 'repeat',
         }}
       />
@@ -205,11 +205,11 @@ const Programy = () => {
 
       {/* Main Journey Layout */}
       <section className="py-12 px-4 relative">
-        {/* Grainy Background Effect */}
+        {/* Grainy Background Effect - Brown on White */}
         <div 
-          className="absolute inset-0 pointer-events-none opacity-[0.4] mix-blend-overlay"
+          className="absolute inset-0 pointer-events-none opacity-[0.25] mix-blend-multiply"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' fill='%238B7355'/%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat',
           }}
         />
