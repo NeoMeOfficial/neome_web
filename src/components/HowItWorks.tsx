@@ -1,121 +1,122 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Dumbbell, Brain, UtensilsCrossed, Users, Sparkles } from "lucide-react";
 
 export const HowItWorks = () => {
-  const steps = [
+  const holisticBenefits = [
     {
-      number: "01",
-      title: "Stiahni aplikáciu",
-      description: "Začni zadarmo s prístupom k základným cvičeniam, receptom a meditáciám. Žiadna platobná karta nie je potrebná.",
-      features: ["Dostupné na iOS aj Android", "Bezplatná registrácia", "Žiadne záväzky"],
-      color: "bg-primary/10 text-primary"
+      icon: Dumbbell,
+      title: "Cvičenie pre každú ženu",
+      description: "Profesionálne programy navrhnuté pre ženy v každom období života",
+      features: ["Tehotenstvo a poôrodné cvičenia", "Bodyforming a posilňovanie", "Cvičenia s gumou", "Joga a strečing"],
+      color: "from-primary/10 to-primary/5"
     },
     {
-      number: "02",
-      title: "Vyber si svoju cestu",
-      description: "Rozhodni sa, čo ti vyhovuje – ostať v bezplatnej verzii alebo získať plný prístup k všetkým funkciám.",
-      features: [
-        "Free: Obmedzený prístup",
-        "Mesačne: 1 program + neobmedzený obsah",
-        "Kvartálne: 2 programy + všetko",
-        "Ročne: Neobmedzené programy"
-      ],
-      color: "bg-accent/30 text-primary"
+      icon: UtensilsCrossed,
+      title: "Výživa pre tvoje ciele",
+      description: "Chutné recepty a jedálničky prispôsobené tvojmu životnému štýlu",
+      features: ["Zdravé a jednoduché recepty", "Plány stravovania", "Nutričné tipy", "Prispôsobené potrebám žien"],
+      color: "from-accent/20 to-accent/10"
     },
     {
-      number: "03",
-      title: "Začni svoju transformáciu",
-      description: "Venuj si každý deň 15 minút. Sleduj svoj pokrok, pripoj sa ku komunite a začni sa cítiť lepšie už po prvom týždni.",
-      features: ["Denné pripomienky", "Sledovanie pokroku", "Komunitná podpora"],
-      color: "bg-secondary text-primary"
+      icon: Brain,
+      title: "Starostlivosť o myseľ",
+      description: "Meditácie a techniky pre vnútorný pokoj a mentálnu pohodu",
+      features: ["Denné meditácie", "Relaxačné techniky", "Manažment stresu", "Spánkové rituály"],
+      color: "from-secondary/30 to-secondary/10"
+    },
+    {
+      icon: Users,
+      title: "Komunita žien",
+      description: "Nebud' v tom sama – pripoj sa k ženám, ktoré to chápu",
+      features: ["Vzájomná podpora", "Zdieľanie skúseností", "Motivácia a inšpirácia", "Spoločné výzvy"],
+      color: "from-primary/15 to-accent/10"
     }
   ];
 
   return (
     <section id="ako-to-funguje" className="py-16 md:py-20 px-0 md:px-4 bg-section-white">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4 px-4 py-2">
-            Jednoduché ako 1-2-3
+        <div className="text-center mb-16">
+          <Badge variant="secondary" className="mb-4 px-4 py-2 text-base">
+            <Sparkles className="inline-block w-4 h-4 mr-2" />
+            Všetko na jednom mieste
           </Badge>
-          <h2 className="text-3xl md:text-5xl font-light mb-4">
-            Ako <span className="gradient-text font-normal">NeoMe funguje</span>
+          <h2 className="text-3xl md:text-5xl font-light mb-6 leading-tight">
+            Jeden program.<br />
+            <span className="gradient-text font-normal text-4xl md:text-6xl">Celá tvoja transformácia.</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tvoja cesta k lepšiemu wellbeingu začína v troch jednoduchých krokoch
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            NeoMe je kompletný holistický program pre ženy. Cvičenie, výživa, mentálna pohoda a podpora komunity – všetko v jednej aplikácii. Žiadne skákanie medzi aplikáciami, žiadne hľadanie. Len ty a tvoja cesta k lepšiemu životu.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 relative">
-          {/* Connection lines for desktop */}
-          <div className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20 -z-10" />
-
-          {steps.map((step, index) => {
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          {holisticBenefits.map((benefit, index) => {
+            const Icon = benefit.icon;
             return (
               <Card
                 key={index}
-                className="relative p-4 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white border-border/20"
+                className={`relative p-6 md:p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br ${benefit.color} border-border/20 overflow-hidden group`}
               >
-                {/* Step number badge - larger and more prominent */}
-                <div className="mb-6">
-                  <div className={`${step.color} rounded-full w-16 h-16 flex items-center justify-center font-semibold text-2xl shadow-md`}>
-                    {step.number}
+                {/* Decorative gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Icon */}
+                <div className="relative mb-6">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Icon size={32} className="text-primary" strokeWidth={1.5} />
                   </div>
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-light mb-3">{step.title}</h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {step.description}
-                </p>
+                <div className="relative">
+                  <h3 className="text-2xl font-medium mb-3 text-foreground group-hover:text-primary transition-colors">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-base">
+                    {benefit.description}
+                  </p>
 
-                {/* Features list */}
-                <ul className="space-y-2">
-                  {step.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-start gap-2 text-sm">
-                      <CheckCircle size={16} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground/80">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                  {/* Features list */}
+                  <ul className="space-y-3">
+                    {benefit.features.map((feature, fIndex) => (
+                      <li key={fIndex} className="flex items-start gap-3">
+                        <CheckCircle size={18} className="text-primary mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" strokeWidth={2} />
+                        <span className="text-foreground/90 text-sm leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </Card>
             );
           })}
         </div>
 
-        {/* Access levels explanation */}
-        <Card className="mt-12 p-4 md:p-8 bg-gradient-to-br from-primary/5 to-accent/10 border-primary/20">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-medium mb-4">Bezplatná verzia</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">•</span>
-                  <span>Obmedzený prístup k cvičeniam, receptom a meditáciám</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">•</span>
-                  <span>Ideálne na vyskúšanie aplikácie</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-medium mb-4">Prémiový prístup</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">•</span>
-                  <span><strong>Mesačne:</strong> 1 program + neobmedzený obsah</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">•</span>
-                  <span><strong>Kvartálne:</strong> 2 programy + všetko</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">•</span>
-                  <span><strong>Ročne:</strong> Neobmedzené programy + doživotný prístup</span>
-                </li>
-              </ul>
+        {/* Clear Value Proposition */}
+        <Card className="mt-12 md:mt-16 p-6 md:p-12 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 border-primary/20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(var(--primary-rgb),0.1),transparent_50%)]" />
+          <div className="relative text-center max-w-4xl mx-auto">
+            <h3 className="text-2xl md:text-4xl font-light mb-6">
+              Prečo sa rozhodovať medzi aplikáciami, keď môžeš mať <span className="gradient-text font-medium">všetko naraz</span>?
+            </h3>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+              Iné ženy používajú 5-7 aplikácií na to, čo ty nájdeš v jednej. Menej chaosu. Viac výsledkov. Všetko synchronized pre tvoj holistický wellbeing.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+              <div className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm">
+                <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">1</div>
+                <div className="text-sm text-muted-foreground">Aplikácia namiesto 5-7</div>
+              </div>
+              <div className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm">
+                <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">4</div>
+                <div className="text-sm text-muted-foreground">Oblasti wellbeingu pokryté</div>
+              </div>
+              <div className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm">
+                <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">100%</div>
+                <div className="text-sm text-muted-foreground">Holistický prístup k zdraviu</div>
+              </div>
             </div>
           </div>
         </Card>
