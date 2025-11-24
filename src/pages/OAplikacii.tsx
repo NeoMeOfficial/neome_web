@@ -54,10 +54,10 @@ const OAplikacii = () => {
       </section>
 
       {/* How It Works Section */}
-      <HowItWorks />
+      <HowItWorks className="py-0 pt-[60px] pb-[14px]" />
 
       {/* What's in the App - Tabs Section */}
-      <section className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-b from-section-white to-transparent">
+      <section className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-b from-section-white to-transparent pt-0">
         <div className="container mx-auto max-w-6xl">
           
 
