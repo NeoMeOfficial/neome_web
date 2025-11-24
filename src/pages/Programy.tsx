@@ -232,21 +232,11 @@ const Programy = () => {
                       whileTap={{ scale: 0.98 }}
                     >
                       <div className="flex items-center gap-3">
-                        <div className="relative">
-                          <div
-                            className="w-12 h-12 rounded-full flex items-center justify-center text-white text-sm font-medium shrink-0 shadow-md"
-                            style={{ backgroundColor: program.color }}
-                          >
-                            {program.level}
-                          </div>
-                          {activeLevel === program.level && (
-                            <motion.div
-                              className="absolute inset-0 rounded-full"
-                              style={{ backgroundColor: program.color }}
-                              animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }}
-                              transition={{ duration: 2, repeat: Infinity }}
-                            />
-                          )}
+                        <div
+                          className="w-12 h-12 rounded-full flex items-center justify-center text-[#8B4513] text-sm font-medium shrink-0 shadow-md"
+                          style={{ backgroundColor: program.color }}
+                        >
+                          {program.level}
                         </div>
                         <div className="flex-1">
                           <div className="font-medium text-sm">{program.name}</div>
