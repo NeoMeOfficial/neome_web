@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { CheckCircle, Star, ArrowRight, Sparkles, Target, Dumbbell, Heart, TrendingUp } from "lucide-react";
+import { CheckCircle, Star, ArrowRight, Sparkles, Target, Dumbbell, Heart, TrendingUp, Clock, Play } from "lucide-react";
 import { Header } from "@/components/Header";
 import { FloatingCTA } from "@/components/FloatingCTA";
 import { ProgramQuiz } from "@/components/ProgramQuiz";
@@ -13,64 +13,72 @@ const programs = [
     level: "1",
     name: "Postpartum",
     shortDesc: "Program pre maminy, ktoré potrebujú spevniť brušný korzet, vyriešiť diastázu či inkontinenciu",
-    suitable: "Vhodný pre maminy, ktoré potrebujú spevniť brušný korzet, vyriešiť diastázu či inkontinenciu, mesiace aj roky po pôrode.",
+    forWhom: "Pre maminy 6+ týždňov po pôrode, ktoré chcú bezpečne začať cvičiť a posilniť brušný korzet",
+    whenToChoose: "Ak si nedávno porodila, trpíš diastázou, inkontinenciou alebo bolesťami chrbta a potrebuješ špeciálne prispôsobený program",
     duration: "8 týždňov",
     image: "/src/assets/postpartum-program.jpg",
+    videoUrl: "https://www.youtube.com/embed/example1",
     color: "hsl(var(--level-1))",
     benefits: [
-      "Bezpečné cvičenia aj po pôrode",
-      "Posilnenie brušného korzetu",
-      "Riešenie diastázy",
+      "Bezpečné cvičenia špeciálne po pôrode",
+      "Postupné posilnenie brušného korzetu",
+      "Účinné riešenie diastázy",
       "Pomoc pri inkontinencii",
-      "Odstránenie bolestí chrbta"
+      "Odstránenie bolestí chrbta a panvy"
     ]
   },
   {
     level: "2", 
     name: "BodyForming",
     shortDesc: "Ideálny program, keď chceš začať formovať a posilňovať celé telo a netrpíš diastázou",
-    suitable: "Vhodný pre ženy, ktoré začínajú so spevňovaním celého tela a netrpia diastázou.",
+    forWhom: "Pre ženy, ktoré chcú začať so spevňovaním celého tela a netrpia diastázou",
+    whenToChoose: "Ak hľadáš komplexný program na formovanie postavy, chceš začať cvičiť pravidelne a budovať základnú silu",
     duration: "6 týždňov",
     image: "/src/assets/bodyforming-program.jpg",
+    videoUrl: "https://www.youtube.com/embed/example2",
     color: "hsl(var(--level-2))",
     benefits: [
-      "Komplexné spevnenie tela",
-      "Formovanie postavy",
-      "Zvýšenie energie",
-      "Zlepšenie kondície",
-      "Jednoduché začiatky"
+      "Komplexné spevnenie celého tela",
+      "Viditeľné formovanie postavy",
+      "Výrazné zvýšenie energie",
+      "Zlepšenie celkovej kondície",
+      "Jednoduché cviky pre začiatočníčky"
     ]
   },
   {
     level: "3",
     name: "ElasticBands",
     shortDesc: "Ideálny program, keď chceš zvýšiť intenzitu a pridať dynamický odpor s elastickými gumami",
-    suitable: "Vhodný pre ženy, ktoré chcú vyformovať postavu a zvýšiť intenzitu cvičenia s použitím dynamického odporu elastických gúm.",
+    forWhom: "Pre ženy, ktoré už majú základnú kondíciu a chcú zvýšiť intenzitu tréningu",
+    whenToChoose: "Ak Ti už základné cviky nestačia a chceš pridať odpor, formovať svaly a posunúť sa na vyššiu úroveň",
     duration: "6 týždňov",
     image: "/src/assets/elasticbands-program.jpg",
+    videoUrl: "https://www.youtube.com/embed/example3",
     color: "hsl(var(--level-3))",
     benefits: [
-      "Zvýšenie intenzity",
-      "Dynamický odpor",
-      "Formovanie svalov",
-      "Progresívny tréning",
-      "Komplexné cviky"
+      "Výrazné zvýšenie intenzity tréningu",
+      "Efektívny dynamický odpor",
+      "Detailné formovanie svalov",
+      "Progresívny nárast záťaže",
+      "Komplexné a náročnejšie cviky"
     ]
   },
   {
     level: "4",
     name: "Strong&Sexy",
     shortDesc: "Ideálny program, keď chceš posunúť svoje hranice a formovať postavu s jednoručkami",
-    suitable: "Vhodný pre ženy, ktoré chcú posunúť svoje hranice, získať silnejšie a vyformovanejšie telo a začať cvičiť s jednoručkami.",
+    forWhom: "Pre ženy, ktoré chcú maximálne výsledky a neboja sa výziev",
+    whenToChoose: "Ak chceš budovať silu, pracovať s jednoručkami a dosiahnuť maximálnu transformáciu svojho tela",
     duration: "6 týždňov",
     image: "/src/assets/strongsexy-program.jpg",
+    videoUrl: "https://www.youtube.com/embed/example4",
     color: "hsl(var(--level-4))",
     benefits: [
-      "Budovanie sily",
-      "Cvičenie s jednoručkami",
-      "Maximálne výsledky",
-      "Vysoká intenzita",
-      "Pevné a silné telo"
+      "Maximálne budovanie sily",
+      "Práca s jednoručkami a závažiami",
+      "Viditeľné svalové definície",
+      "Vysoká intenzita pre pokročilé",
+      "Pevné, silné a vyformované telo"
     ]
   }
 ];
@@ -78,7 +86,6 @@ const programs = [
 const Programy = () => {
   const [activeLevel, setActiveLevel] = useState("1");
   const [showQuiz, setShowQuiz] = useState(false);
-  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -119,7 +126,16 @@ const Programy = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Grainy Texture Overlay */}
+      <div 
+        className="fixed inset-0 pointer-events-none opacity-[0.15] mix-blend-overlay z-50"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          backgroundRepeat: 'repeat',
+        }}
+      />
+      
       <Header />
       
       {showQuiz && (
@@ -159,8 +175,6 @@ const Programy = () => {
             transition={{ delay: 0.2 }}
           >
             Štyri úrovne, jeden cieľ. Nemusíš rozmýšlať, čo ďalej - každý program ťa pripraví na ďalší krok.
-            <br className="hidden md:block" />
-            <strong className="font-medium">Stačí vedieť, kde si teraz.</strong> Zvyšok je na nás.
           </motion.p>
 
           <motion.div
@@ -196,10 +210,7 @@ const Programy = () => {
             
             {/* Left Sidebar - Sticky Navigation */}
             <aside className="lg:sticky lg:top-24 lg:self-start hidden lg:block">
-              <Card className="glass-card p-6 relative overflow-hidden">
-                {/* Progress Line */}
-                <div className="absolute left-[52px] top-[100px] bottom-[100px] w-0.5 bg-gradient-to-b from-primary/20 via-primary/40 to-primary/20" />
-                
+              <Card className="glass-card p-6">
                 <div className="mb-6">
                   <h3 className="text-lg font-light mb-2">Tvoja cesta</h3>
                   <p className="text-sm text-muted-foreground">
@@ -207,52 +218,42 @@ const Programy = () => {
                   </p>
                 </div>
 
-                <nav className="space-y-3 relative">
-                  {programs.map((program, idx) => (
-                    <div key={program.level} className="relative">
-                      <motion.button
-                        onClick={() => scrollToLevel(program.level)}
-                        className={`w-full text-left p-4 rounded-lg transition-all relative ${
-                          activeLevel === program.level
-                            ? 'bg-primary/10 ring-2 ring-primary/20 shadow-lg'
-                            : 'hover:bg-muted/50'
-                        }`}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <div className="flex items-center gap-3">
-                          {/* Program Image Thumbnail */}
-                          <div className="relative">
-                            <div
-                              className="w-12 h-12 rounded-full flex items-center justify-center text-white text-sm font-medium shrink-0 shadow-md"
+                <nav className="space-y-4">
+                  {programs.map((program) => (
+                    <motion.button
+                      key={program.level}
+                      onClick={() => scrollToLevel(program.level)}
+                      className={`w-full text-left p-4 rounded-lg transition-all ${
+                        activeLevel === program.level
+                          ? 'bg-primary/10 ring-2 ring-primary/20 shadow-lg'
+                          : 'hover:bg-muted/50'
+                      }`}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="relative">
+                          <div
+                            className="w-12 h-12 rounded-full flex items-center justify-center text-white text-sm font-medium shrink-0 shadow-md"
+                            style={{ backgroundColor: program.color }}
+                          >
+                            {program.level}
+                          </div>
+                          {activeLevel === program.level && (
+                            <motion.div
+                              className="absolute inset-0 rounded-full"
                               style={{ backgroundColor: program.color }}
-                            >
-                              {program.level}
-                            </div>
-                            {activeLevel === program.level && (
-                              <motion.div
-                                className="absolute inset-0 rounded-full"
-                                style={{ backgroundColor: program.color }}
-                                animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                              />
-                            )}
-                          </div>
-                          <div className="flex-1">
-                            <div className="font-medium text-sm">{program.name}</div>
-                            <div className="text-xs text-muted-foreground">{program.duration}</div>
-                          </div>
+                              animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }}
+                              transition={{ duration: 2, repeat: Infinity }}
+                            />
+                          )}
                         </div>
-                      </motion.button>
-                      
-                      {idx < programs.length - 1 && (
-                        <div className="flex justify-center py-2 relative z-10">
-                          <div className="w-8 h-8 rounded-full bg-background flex items-center justify-center">
-                            <ArrowRight className="h-4 w-4 text-primary rotate-90" />
-                          </div>
+                        <div className="flex-1">
+                          <div className="font-medium text-sm">{program.name}</div>
+                          <div className="text-xs text-muted-foreground">{program.duration}</div>
                         </div>
-                      )}
-                    </div>
+                      </div>
+                    </motion.button>
                   ))}
                 </nav>
 
@@ -270,231 +271,159 @@ const Programy = () => {
             </aside>
 
             {/* Right Content - Scrollable Program Details */}
-            <div className="space-y-32">
-              {programs.map((program, idx) => {
-                const isEven = idx % 2 === 1;
-                
-                return (
-                  <motion.div
-                    key={program.level}
-                    id={`level-${program.level}`}
-                    initial={{ opacity: 0, y: 60 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="scroll-mt-24"
-                  >
-                    {/* Alternating Layouts */}
-                    {isEven ? (
-                      // Even: Split Layout (Image + Content Side by Side)
-                      <Card className="glass-card overflow-hidden">
-                        <div className="grid md:grid-cols-2 gap-0">
-                          {/* Image Side */}
-                          <motion.div 
-                            className="relative h-[400px] md:h-full overflow-hidden"
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.6 }}
-                          >
-                            <div 
-                              className="absolute inset-0 bg-gradient-to-br opacity-20"
-                              style={{ 
-                                background: `linear-gradient(135deg, ${program.color} 0%, transparent 100%)`
-                              }}
-                            />
-                            <img
-                              src={program.image}
-                              alt={program.name}
-                              className="w-full h-full object-cover"
-                            />
-                            <div className="absolute top-6 left-6">
-                              <Badge className="text-white" style={{ backgroundColor: program.color }}>
-                                Level {program.level}
-                              </Badge>
-                            </div>
-                          </motion.div>
+            <div className="space-y-24">
+              {programs.map((program) => (
+                <motion.div
+                  key={program.level}
+                  id={`level-${program.level}`}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6 }}
+                  className="scroll-mt-24"
+                >
+                  <Card className="glass-card overflow-hidden">
+                    {/* Hero Image */}
+                    <div className="relative h-[400px] overflow-hidden">
+                      <img
+                        src={program.image}
+                        alt={program.name}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+                      
+                      {/* Header Overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <Badge className="mb-4 text-white" style={{ backgroundColor: program.color }}>
+                          Level {program.level}
+                        </Badge>
+                        <h2 className="text-4xl md:text-5xl font-light text-white mb-3 drop-shadow-lg">
+                          {program.name}
+                        </h2>
+                        <p className="text-lg text-white/90 max-w-2xl drop-shadow-md">
+                          {program.shortDesc}
+                        </p>
+                      </div>
+                    </div>
 
-                          {/* Content Side */}
-                          <div className="p-8 md:p-12 flex flex-col justify-center">
-                            <motion.div
-                              initial={{ opacity: 0, x: 20 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ delay: 0.2 }}
-                            >
-                              <h2 className="text-3xl md:text-4xl font-light mb-4">{program.name}</h2>
-                              <p className="text-muted-foreground mb-6">{program.shortDesc}</p>
-
-                              {/* Who Is This For */}
-                              <div className="mb-6 p-4 rounded-lg bg-muted/30">
-                                <div className="flex items-start gap-3">
-                                  <Target className="h-5 w-5 text-primary shrink-0 mt-1" style={{ color: program.color }} />
-                                  <div>
-                                    <h3 className="text-sm font-medium mb-1">Pre koho?</h3>
-                                    <p className="text-sm text-muted-foreground">{program.suitable}</p>
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Benefits */}
-                              <div className="space-y-2">
-                                {program.benefits.slice(0, 3).map((benefit, i) => (
-                                  <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.3 + i * 0.1 }}
-                                    className="flex items-center gap-2"
-                                  >
-                                    <CheckCircle className="h-4 w-4 shrink-0" style={{ color: program.color }} />
-                                    <span className="text-sm">{benefit}</span>
-                                  </motion.div>
-                                ))}
-                              </div>
-
-                              <div className="mt-6 pt-6 border-t border-border/50">
-                                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                  <Dumbbell className="h-4 w-4" />
-                                  <span>{program.duration} program</span>
-                                </div>
-                              </div>
-                            </motion.div>
-                          </div>
-                        </div>
-                      </Card>
-                    ) : (
-                      // Odd: Hero Image on Top with Content Below
-                      <Card className="glass-card overflow-hidden">
-                        {/* Hero Image with Overlay */}
-                        <motion.div 
-                          className="relative h-[500px] overflow-hidden"
-                          initial={{ scale: 1.1 }}
-                          whileInView={{ scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.2, ease: "easeOut" }}
-                        >
-                          <img
-                            src={program.image}
-                            alt={program.name}
-                            className="w-full h-full object-cover"
-                          />
-                          {/* Gradient Overlay */}
-                          <div 
-                            className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"
-                          />
-                          {/* Content Overlay */}
-                          <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-                            <Badge className="mb-4 text-white" style={{ backgroundColor: program.color }}>
-                              Level {program.level}
-                            </Badge>
-                            <h2 className="text-4xl md:text-5xl font-light text-white mb-4 drop-shadow-lg">
-                              {program.name}
-                            </h2>
-                            <p className="text-lg text-white/90 max-w-2xl drop-shadow-md">
-                              {program.shortDesc}
-                            </p>
-                          </div>
-                        </motion.div>
-
-                        {/* Content Below Image */}
-                        <div className="p-8 md:p-12">
-                          {/* Who Is This For */}
-                          <motion.div 
-                            className="mb-8 p-6 rounded-xl bg-muted/30"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                          >
-                            <div className="flex items-start gap-4">
-                              <div 
-                                className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
-                                style={{ backgroundColor: `${program.color}20` }}
-                              >
-                                <Target className="h-6 w-6" style={{ color: program.color }} />
-                              </div>
-                              <div className="flex-1">
-                                <h3 className="text-lg font-medium mb-2">Pre koho je tento program?</h3>
-                                <p className="text-muted-foreground">{program.suitable}</p>
-                              </div>
-                            </div>
-                          </motion.div>
-
-                          {/* Benefits Grid */}
-                          <div className="mb-8">
-                            <div className="flex items-center gap-3 mb-6">
-                              <div 
-                                className="w-10 h-10 rounded-full flex items-center justify-center"
-                                style={{ backgroundColor: `${program.color}20` }}
-                              >
-                                <Dumbbell className="h-5 w-5" style={{ color: program.color }} />
-                              </div>
-                              <h3 className="text-xl font-medium">Čo získaš</h3>
-                            </div>
-                            <div className="grid sm:grid-cols-2 gap-4">
-                              {program.benefits.map((benefit, i) => (
-                                <motion.div
-                                  key={i}
-                                  initial={{ opacity: 0, y: 20 }}
-                                  whileInView={{ opacity: 1, y: 0 }}
-                                  viewport={{ once: true }}
-                                  transition={{ delay: 0.3 + i * 0.1 }}
-                                  whileHover={{ scale: 1.03, y: -4 }}
-                                  className="flex items-start gap-3 p-5 rounded-xl bg-background/50 border border-border/50 hover:border-primary/30 transition-all"
-                                >
-                                  <CheckCircle className="h-6 w-6 shrink-0 mt-0.5" style={{ color: program.color }} />
-                                  <span className="text-sm font-medium">{benefit}</span>
-                                </motion.div>
-                              ))}
-                            </div>
-                          </div>
-
-                          {/* Duration Info */}
-                          <motion.div 
-                            className="flex items-center justify-center gap-3 p-4 rounded-lg bg-muted/30"
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.5 }}
-                          >
-                            <TrendingUp className="h-5 w-5" style={{ color: program.color }} />
-                            <span className="text-sm font-medium">{program.duration} transformačný program</span>
-                          </motion.div>
-                        </div>
-                      </Card>
-                    )}
-
-                    {/* Journey Connector */}
-                    {idx < programs.length - 1 && (
-                      <motion.div 
-                        className="mt-16 text-center"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
+                    {/* Content Grid */}
+                    <div className="p-8 md:p-12 space-y-10">
+                      {/* 1. Pre koho je tento program? */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        className="p-6 rounded-xl bg-muted/30"
                       >
-                        <div className="relative inline-block">
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-px h-24 bg-gradient-to-b from-primary/40 via-primary/60 to-primary/40" />
-                          </div>
-                          <motion.div
-                            className="relative bg-background px-6 py-3 rounded-full border border-primary/20"
-                            whileHover={{ scale: 1.05 }}
+                        <div className="flex items-start gap-4">
+                          <div 
+                            className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+                            style={{ backgroundColor: `${program.color}20` }}
                           >
-                            <button
-                              onClick={() => scrollToLevel(programs[idx + 1].level)}
-                              className="flex items-center gap-2 text-sm font-medium"
-                            >
-                              <span className="text-muted-foreground">Ďalší krok:</span>
-                              <span className="gradient-text">{programs[idx + 1].name}</span>
-                              <ArrowRight className="h-4 w-4 text-primary" />
-                            </button>
-                          </motion.div>
+                            <Target className="h-6 w-6" style={{ color: program.color }} />
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-xl font-semibold mb-3">Pre koho je tento program?</h3>
+                            <p className="text-muted-foreground text-base leading-relaxed">{program.forWhom}</p>
+                          </div>
                         </div>
                       </motion.div>
-                    )}
-                  </motion.div>
-                );
-              })}
+
+                      {/* 2. Kedy si tento program vybrať? */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="p-6 rounded-xl bg-muted/30"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div 
+                            className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+                            style={{ backgroundColor: `${program.color}20` }}
+                          >
+                            <Clock className="h-6 w-6" style={{ color: program.color }} />
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-xl font-semibold mb-3">Kedy si tento program vybrať?</h3>
+                            <p className="text-muted-foreground text-base leading-relaxed">{program.whenToChoose}</p>
+                          </div>
+                        </div>
+                      </motion.div>
+
+                      {/* 3. Čo získaš */}
+                      <div>
+                        <div className="flex items-center gap-3 mb-6">
+                          <div 
+                            className="w-12 h-12 rounded-full flex items-center justify-center"
+                            style={{ backgroundColor: `${program.color}20` }}
+                          >
+                            <Dumbbell className="h-6 w-6" style={{ color: program.color }} />
+                          </div>
+                          <h3 className="text-xl font-semibold">Čo získaš</h3>
+                        </div>
+                        <div className="grid sm:grid-cols-2 gap-4">
+                          {program.benefits.map((benefit, i) => (
+                            <motion.div
+                              key={i}
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: 0.2 + i * 0.05 }}
+                              className="flex items-start gap-3 p-5 rounded-xl bg-background/50 border border-border/50 hover:border-primary/20 transition-all"
+                            >
+                              <CheckCircle className="h-5 w-5 shrink-0 mt-0.5" style={{ color: program.color }} />
+                              <span className="text-sm leading-relaxed">{benefit}</span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 4. Video Examples Section */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="p-6 rounded-xl bg-muted/30"
+                      >
+                        <div className="flex items-center gap-3 mb-6">
+                          <div 
+                            className="w-12 h-12 rounded-full flex items-center justify-center"
+                            style={{ backgroundColor: `${program.color}20` }}
+                          >
+                            <Play className="h-6 w-6" style={{ color: program.color }} />
+                          </div>
+                          <h3 className="text-xl font-semibold">Ukážka cvičení</h3>
+                        </div>
+                        
+                        <div className="aspect-video w-full rounded-lg overflow-hidden bg-muted">
+                          <iframe
+                            width="100%"
+                            height="100%"
+                            src={program.videoUrl}
+                            title={`${program.name} video example`}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="w-full h-full"
+                          />
+                        </div>
+                        
+                        <p className="text-sm text-muted-foreground mt-4 text-center">
+                          Pozri si, ako vyzerajú cvičenia v praxi
+                        </p>
+                      </motion.div>
+
+                      {/* Duration Badge */}
+                      <div className="flex items-center justify-center gap-3 p-4 rounded-lg bg-muted/30">
+                        <TrendingUp className="h-5 w-5" style={{ color: program.color }} />
+                        <span className="text-sm font-medium">{program.duration} transformačný program</span>
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
 
               {/* Final CTA */}
               <motion.div
