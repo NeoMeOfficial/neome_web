@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Dumbbell, Brain, UtensilsCrossed, Users, Sparkles } from "lucide-react";
+import lifestyleCollage from "@/assets/lifestyle-collage.png";
 export const HowItWorks = () => {
   const holisticBenefits = [{
     icon: Dumbbell,
@@ -27,8 +28,19 @@ export const HowItWorks = () => {
     features: ["Vzájomná podpora", "Zdieľanie skúseností", "Motivácia a inšpirácia", "Spoločné výzvy"],
     color: "from-primary/15 to-accent/10"
   }];
-  return <section id="ako-to-funguje" className="py-16 md:py-20 px-0 md:px-4 bg-section-white">
-      <div className="container mx-auto max-w-6xl pb-0">
+  return <section id="ako-to-funguje" className="relative py-16 md:py-20 px-0 md:px-4 bg-section-white overflow-hidden">
+      {/* Collage Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute right-0 top-0 w-full lg:w-3/4 h-full opacity-[0.06]">
+          <img 
+            src={lifestyleCollage} 
+            alt="" 
+            className="w-full h-full object-cover object-left"
+          />
+        </div>
+      </div>
+      
+      <div className="container mx-auto max-w-6xl pb-0 relative z-10">
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4 px-4 py-2 text-base">
             <Sparkles className="inline-block w-4 h-4 mr-2" />
