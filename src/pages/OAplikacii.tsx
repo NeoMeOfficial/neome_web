@@ -42,155 +42,260 @@ const OAplikacii = () => {
   return <div className="min-h-screen">
       <VideoPlayerModal isOpen={videoModalOpen} onClose={() => setVideoModalOpen(false)} videoId={currentVideoId} videoTitle={currentVideoTitle} />
 
-      {/* Hero Section with Background Image */}
-      <section className="relative pt-32 pb-12 md:py-20 px-4 md:px-8 overflow-hidden">
-        {/* Background Image Layer */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute right-0 top-0 w-1/3 h-full opacity-[0.08]">
-            <img 
-              src={lifestyleYogaMat} 
-              alt="" 
-              className="w-full h-full object-cover"
-            />
+      {/* Hero Split Section */}
+      <section className="pt-24 md:pt-32">
+        <div className="container mx-auto max-w-7xl px-4 md:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-12rem)]">
+            {/* Left Content */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="order-2 lg:order-1"
+            >
+              <Badge variant="secondary" className="mb-6 px-4 py-2">
+                O aplikácii NeoMe
+              </Badge>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-[1.1]">
+                Začni tam, kde si. <span className="gradient-text font-normal block mt-2">Aj 15 minút sa počíta.</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+                Stačí, ak urobíš prvý krok.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                Si len človek, ktorý už príliš dlho ignoruje vlastné potreby. NeoMe ti pomôže vrátiť sa k sebe – jemne, reálne a bez tlaku.
+              </p>
+            </motion.div>
+
+            {/* Right Image */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="order-1 lg:order-2"
+            >
+              <div className="relative rounded-3xl overflow-hidden aspect-[3/4] shadow-2xl">
+                <img 
+                  src={lifestyleYogaMat} 
+                  alt="Žena pripravujúca podložku na cvičenie" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              </div>
+            </motion.div>
           </div>
         </div>
-        
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <Badge variant="secondary" className="mb-6 px-4 py-2">
-            O aplikácii NeoMe
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-light mb-6 leading-tight">
-            Začni tam, kde si.  <span className="gradient-text font-normal">Aj 15 minút sa počíta.</span> Stačí, ak urobíš prvý krok.
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
-            Si len človek, ktorý už príliš dlho ignoruje vlastné potreby. NeoMe ti pomôže vrátiť sa k sebe – jemne, reálne a bez tlaku.
-          </p>
+      </section>
+
+      {/* Empathy Quote Section */}
+      <section className="py-20 md:py-28 px-4 md:px-8 bg-gradient-to-b from-primary/5 to-transparent">
+        <div className="container mx-auto max-w-4xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-3xl md:text-5xl font-light leading-relaxed mb-8">
+              Unavená si preto, že <span className="gradient-text font-normal">dáváš</span>.
+            </p>
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              Dáváš rodine, práci, okoliu. Dovoľ teraz dať aj sebe. Niekedy nepotrebuješ nový plán. Potrebuješ len pocit, že niekomu na tebe záleží.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Empathy Section */}
-      <section className="py-12 md:py-16 px-4 md:px-8">
-        <div className="container mx-auto max-w-5xl">
-          <Card className="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
-            <div className="text-center mb-12">
-              <p className="text-2xl md:text-3xl font-light leading-relaxed mb-6">
-                Unavená si preto, že <span className="gradient-text font-normal">dáváš</span>.
-              </p>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Dáváš rodine, práci, okoliu. Dovoľ teraz dať aj sebe. Niekedy nepotrebuješ nový plán. Potrebuješ len pocit, že niekomu na tebe záleží.
-              </p>
-            </div>
-          </Card>
-        </div>
-      </section>
-
-      {/* Why NeoMe Matters with Background Layer */}
-      <section className="relative py-12 md:py-16 px-4 md:px-8 overflow-hidden">
-        {/* Background Image Layer */}
-        <div className="absolute left-0 top-1/4 w-1/4 h-1/2 opacity-[0.06] z-0">
-          <img 
-            src={lifestyleCoreWorkout} 
-            alt="" 
-            className="w-full h-full object-cover rounded-r-3xl"
-          />
-        </div>
-        
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-light mb-4">
+      {/* Why NeoMe - Image & Content Grid */}
+      <section className="py-20 md:py-28 px-4 md:px-8">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-light mb-6">
               Prečo práve <span className="gradient-text font-normal">NeoMe</span>?
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Lebo rozumieme tomu, čo prežívaš. A vieme, že zmena začína malými krokmi.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {trustPoints.map((point, index) => {
-            const Icon = point.icon;
-            return <Card key={index} className="p-8 rounded-2xl border-border/20 hover:border-primary/30 transition-all hover:shadow-xl group">
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Icon size={28} className="text-primary" />
-                  </div>
-                  <h3 className="text-xl font-medium mb-3">{point.title}</h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {point.description}
-                  </p>
-                  <blockquote className="text-sm italic text-muted-foreground/80 border-l-2 border-primary/30 pl-4 mt-6">
-                    "{point.quote}"
-                  </blockquote>
-                </Card>;
-          })}
+          {/* Split Layout with Image */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative rounded-2xl overflow-hidden aspect-[4/5]"
+            >
+              <img 
+                src={lifestyleCoreWorkout} 
+                alt="Žena cvičiaca s odhodlaním" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+
+            <div className="space-y-8">
+              {trustPoints.map((point, index) => {
+                const Icon = point.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Card className="p-6 rounded-xl border-border/20 hover:border-primary/30 transition-all hover:shadow-lg group">
+                      <div className="flex gap-4">
+                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                          <Icon size={24} className="text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-lg font-medium mb-2">{point.title}</h3>
+                          <p className="text-muted-foreground text-sm mb-3 leading-relaxed">
+                            {point.description}
+                          </p>
+                          <blockquote className="text-xs italic text-muted-foreground/70 border-l-2 border-primary/30 pl-3">
+                            "{point.quote}"
+                          </blockquote>
+                        </div>
+                      </div>
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Real Women Section with Collage Background */}
-      <section className="relative py-12 md:py-16 px-4 md:px-8 overflow-hidden">
-        {/* Large Collage Background */}
-        <div className="absolute right-0 top-0 w-1/2 h-full opacity-[0.04] z-0 hidden lg:block">
-          <img 
-            src={lifestyleCollage} 
-            alt="" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-light mb-4">
+      {/* Real Women Section - Magazine Style */}
+      <section className="py-20 md:py-28 px-4 md:px-8 bg-gradient-to-b from-section-white/50 to-transparent">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-light mb-6">
               Pre <span className="gradient-text font-normal">skutočné ženy</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Nie inštagram fotky. Ale reálny život medzi varením, e-mailami, únavou a túžbou byť chvíľu sama.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <Card className="p-8 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent border-border/20">
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                "Aj keď si to dnes nedala naplno – dala si zo seba všetko, čo si mala. <span className="font-medium text-foreground">A to je dosť.</span>"
-              </p>
-            </Card>
-            <Card className="p-8 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent border-border/20">
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                "Začni tam, kde si. <span className="font-medium text-foreground">Aj 15 minút sa počíta.</span> Nehľadaj ideálny deň. Začni v ten, ktorý máš."
-              </p>
-            </Card>
-            <Card className="p-8 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent border-border/20">
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                "Tvoje tempo je správne tempo. <span className="font-medium text-foreground">Nikto iný nemá tvoj život.</span>"
-              </p>
-            </Card>
-            <Card className="p-8 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent border-border/20">
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                "Dnes nemáš energiu? Tak si daj len strečing. <span className="font-medium text-foreground">Aj to sa počíta.</span>"
-              </p>
-            </Card>
+          {/* Quote Cards Grid */}
+          <div className="grid md:grid-cols-2 gap-6 mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <Card className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border-border/20 hover:border-primary/20 transition-all h-full">
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  "Aj keď si to dnes nedala naplno – dala si zo seba všetko, čo si mala. <span className="font-medium text-foreground">A to je dosť.</span>"
+                </p>
+              </Card>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <Card className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border-border/20 hover:border-primary/20 transition-all h-full">
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  "Začni tam, kde si. <span className="font-medium text-foreground">Aj 15 minút sa počíta.</span> Nehľadaj ideálny deň. Začni v ten, ktorý máš."
+                </p>
+              </Card>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Card className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border-border/20 hover:border-primary/20 transition-all h-full">
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  "Tvoje tempo je správne tempo. <span className="font-medium text-foreground">Nikto iný nemá tvoj život.</span>"
+                </p>
+              </Card>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Card className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border-border/20 hover:border-primary/20 transition-all h-full">
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  "Dnes nemáš energiu? Tak si daj len strečing. <span className="font-medium text-foreground">Aj to sa počíta.</span>"
+                </p>
+              </Card>
+            </motion.div>
           </div>
 
-          <div className="relative">
-            <Card className="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 text-center relative overflow-hidden">
-              {/* Subtle Pregnancy Image in Card Background */}
-              <div className="absolute bottom-0 left-0 w-1/3 h-full opacity-[0.08] z-0">
+          {/* Featured Section with Pregnancy Image */}
+          <div className="grid lg:grid-cols-5 gap-8 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-2"
+            >
+              <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
                 <img 
                   src={lifestylePregnancy} 
-                  alt="" 
-                  className="w-full h-full object-cover object-top"
+                  alt="Žena v tehotenstve" 
+                  className="w-full h-full object-cover"
                 />
               </div>
-              
-              <div className="relative z-10">
-                <Heart size={48} className="text-primary mx-auto mb-6" />
-                <h3 className="text-2xl md:text-3xl font-light mb-4">
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="lg:col-span-3"
+            >
+              <Card className="p-8 md:p-12 rounded-2xl border-border/20 bg-gradient-to-br from-primary/5 to-accent/5">
+                <Heart size={40} className="text-primary mb-6" />
+                <h3 className="text-3xl md:text-4xl font-light mb-6 leading-tight">
                   Nie si len mama, partnerka, zamestnankyňa
                 </h3>
-                <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                <p className="text-xl text-muted-foreground leading-relaxed">
                   Si žena. A to je viac než dosť. Tvoja hodnota nerastie s počtom odcvičených tréningov. Ale s každým momentom, keď sa rozhodneš nezabudnúť na seba.
                 </p>
-              </div>
-            </Card>
+              </Card>
+            </motion.div>
           </div>
+
+          {/* Collage Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mt-16"
+          >
+            <div className="relative rounded-3xl overflow-hidden aspect-[16/7] hidden lg:block">
+              <img 
+                src={lifestyleCollage} 
+                alt="Ženy v rôznych fázach života" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-background/30 flex items-center">
+                <div className="pl-12 lg:pl-20 max-w-2xl">
+                  <p className="text-2xl md:text-4xl font-light text-foreground mb-4">
+                    V každej fáze tvojho života
+                  </p>
+                  <p className="text-lg text-muted-foreground">
+                    Či si mamička, kariéristka, alebo niekde medzi tým – NeoMe je tu pre teba.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
