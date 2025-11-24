@@ -310,9 +310,9 @@ const Programy = () => {
                         <div className="flex items-start gap-4">
                           <div 
                             className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
-                            style={{ backgroundColor: `${program.color}20` }}
+                            style={{ backgroundColor: `${program.level === "1" ? "hsl(var(--level-3))" : program.color}20` }}
                           >
-                            <Target className="h-6 w-6" style={{ color: program.color }} />
+                            <Target className="h-6 w-6" style={{ color: program.level === "1" ? "hsl(var(--level-3))" : program.color }} />
                           </div>
                           <div className="flex-1">
                             <h3 className="text-xl font-semibold mb-3">Pre koho je tento program?</h3>
@@ -332,9 +332,9 @@ const Programy = () => {
                         <div className="flex items-start gap-4">
                           <div 
                             className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
-                            style={{ backgroundColor: `${program.color}20` }}
+                            style={{ backgroundColor: `${program.level === "1" ? "hsl(var(--level-3))" : program.color}20` }}
                           >
-                            <Clock className="h-6 w-6" style={{ color: program.color }} />
+                            <Clock className="h-6 w-6" style={{ color: program.level === "1" ? "hsl(var(--level-3))" : program.color }} />
                           </div>
                           <div className="flex-1">
                             <h3 className="text-xl font-semibold mb-3">Kedy si tento program vybrať?</h3>
@@ -348,9 +348,9 @@ const Programy = () => {
                         <div className="flex items-center gap-3 mb-6">
                           <div 
                             className="w-12 h-12 rounded-full flex items-center justify-center"
-                            style={{ backgroundColor: `${program.color}20` }}
+                            style={{ backgroundColor: `${program.level === "1" ? "hsl(var(--level-3))" : program.color}20` }}
                           >
-                            <Dumbbell className="h-6 w-6" style={{ color: program.color }} />
+                            <Dumbbell className="h-6 w-6" style={{ color: program.level === "1" ? "hsl(var(--level-3))" : program.color }} />
                           </div>
                           <h3 className="text-xl font-semibold">Čo získaš</h3>
                         </div>
@@ -364,7 +364,7 @@ const Programy = () => {
                               transition={{ delay: 0.2 + i * 0.05 }}
                               className="flex items-start gap-3 p-5 rounded-xl bg-background/50 border border-border/50 hover:border-primary/20 transition-all"
                             >
-                              <CheckCircle className="h-5 w-5 shrink-0 mt-0.5" style={{ color: program.color }} />
+                              <CheckCircle className="h-5 w-5 shrink-0 mt-0.5" style={{ color: program.level === "1" ? "hsl(var(--level-3))" : program.color }} />
                               <span className="text-sm leading-relaxed">{benefit}</span>
                             </motion.div>
                           ))}
@@ -382,9 +382,9 @@ const Programy = () => {
                         <div className="flex items-center gap-3 mb-6">
                           <div 
                             className="w-12 h-12 rounded-full flex items-center justify-center"
-                            style={{ backgroundColor: `${program.color}20` }}
+                            style={{ backgroundColor: `${program.level === "1" ? "hsl(var(--level-3))" : program.color}20` }}
                           >
-                            <Play className="h-6 w-6" style={{ color: program.color }} />
+                            <Play className="h-6 w-6" style={{ color: program.level === "1" ? "hsl(var(--level-3))" : program.color }} />
                           </div>
                           <h3 className="text-xl font-semibold">Ukážka cvičení</h3>
                         </div>
@@ -409,7 +409,7 @@ const Programy = () => {
 
                       {/* Duration Badge */}
                       <div className="flex items-center justify-center gap-3 p-4 rounded-lg bg-muted/30">
-                        <TrendingUp className="h-5 w-5" style={{ color: program.color }} />
+                        <TrendingUp className="h-5 w-5" style={{ color: program.level === "1" ? "hsl(var(--level-3))" : program.color }} />
                         <span className="text-sm font-medium">{program.duration} transformačný program</span>
                       </div>
                     </div>
