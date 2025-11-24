@@ -45,9 +45,29 @@ export const HowItWorks = () => {
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {holisticBenefits.map((benefit, index) => {
-          const Icon = benefit.icon;
-          return;
-        })}
+            const Icon = benefit.icon;
+            return (
+              <Card key={index} className={`p-8 rounded-2xl border-border/20 hover:border-primary/30 transition-all relative overflow-hidden bg-gradient-to-br ${benefit.color}`}>
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                    <Icon size={28} className="text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-medium mb-3">{benefit.title}</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {benefit.description}
+                  </p>
+                  <ul className="space-y-3">
+                    {benefit.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <CheckCircle size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Card>
+            );
+          })}
         </div>
 
         {/* Clear Value Proposition */}
