@@ -233,7 +233,9 @@ const Programy = () => {
                     >
                       <div className="flex items-center gap-3">
                         <div
-                          className="w-12 h-12 rounded-full flex items-center justify-center text-[#8B4513] text-sm font-medium shrink-0 shadow-md"
+                          className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-medium shrink-0 shadow-md ${
+                            program.level === "1" ? "text-[#8B4513]" : "text-white"
+                          }`}
                           style={{ backgroundColor: program.color }}
                         >
                           {program.level}
