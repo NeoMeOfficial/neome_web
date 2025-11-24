@@ -147,7 +147,7 @@ const Programy = () => {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 md:px-8">
-        <div className="bg-white rounded-3xl p-8 md:p-16 mx-4 md:mx-8 my-8">
+        <div className="bg-white rounded-3xl p-8 md:p-16 mx-4 md:mx-8 my-8 relative z-10">
           <div className="max-w-6xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
