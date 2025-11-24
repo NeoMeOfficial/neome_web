@@ -146,60 +146,62 @@ const Programy = () => {
       )}
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-background to-muted/30">
-        <div className="max-w-6xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-6"
-          >
-            <Badge className="mb-4">
-              <Sparkles className="h-3 w-3 mr-1" />
-              Progresívna cesta k lepšej ja
-            </Badge>
-          </motion.div>
-          
-          <motion.h1 
-            className="text-4xl md:text-6xl font-light mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-          >
-            Tvoja cesta začína <span className="gradient-text font-medium">tu</span>
-          </motion.h1>
-          
-          <motion.p 
-            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            Štyri úrovne, jeden cieľ. Nemusíš rozmýšlať, čo ďalej - každý program ťa pripraví na ďalší krok.
-          </motion.p>
+      <section className="pt-32 pb-20 px-4 md:px-8">
+        <div className="bg-white rounded-3xl p-8 md:p-16 mx-4 md:mx-8 my-8">
+          <div className="max-w-6xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-6"
+            >
+              <Badge className="mb-4">
+                <Sparkles className="h-3 w-3 mr-1" />
+                Progresívna cesta k lepšej ja
+              </Badge>
+            </motion.div>
+            
+            <motion.h1 
+              className="text-4xl md:text-6xl font-light mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+            >
+              Tvoja cesta začína <span className="gradient-text font-medium">tu</span>
+            </motion.h1>
+            
+            <motion.p 
+              className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              Štyri úrovne, jeden cieľ. Nemusíš rozmýšlať, čo ďalej - každý program ťa pripraví na ďalší krok.
+            </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Button 
-              size="lg"
-              onClick={() => setShowQuiz(true)}
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Sparkles className="h-4 w-4 mr-2" />
-              Nájdi svoj program
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => scrollToLevel("1")}
-            >
-              Preskúmaj programy
-              <ArrowRight className="h-4 w-4 ml-2" />
-            </Button>
-          </motion.div>
+              <Button 
+                size="lg"
+                onClick={() => setShowQuiz(true)}
+                className="bg-primary text-primary-foreground hover:bg-primary/90"
+              >
+                <Sparkles className="h-4 w-4 mr-2" />
+                Nájdi svoj program
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => scrollToLevel("1")}
+              >
+                Preskúmaj programy
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </section>
 
