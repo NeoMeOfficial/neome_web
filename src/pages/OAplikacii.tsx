@@ -10,6 +10,7 @@ import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
 import lifestyleYogaMat from "@/assets/lifestyle-yoga-mat.webp";
 import lifestyleCoreWorkout from "@/assets/lifestyle-core-workout.jpg";
 import lifestylePregnancy from "@/assets/lifestyle-pregnancy.jpg";
+import lifestyleCollage from "@/assets/lifestyle-collage.png";
 import { useState } from "react";
 import { VideoPlayerModal } from "@/components/VideoPlayerModal";
 import { motion } from "framer-motion";
@@ -41,9 +42,20 @@ const OAplikacii = () => {
   return <div className="min-h-screen">
       <VideoPlayerModal isOpen={videoModalOpen} onClose={() => setVideoModalOpen(false)} videoId={currentVideoId} videoTitle={currentVideoTitle} />
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-12 md:py-20 px-4 md:px-8 bg-gradient-to-b from-primary/5 to-transparent">
-        <div className="container mx-auto max-w-4xl text-center">
+      {/* Hero Section with Background Image */}
+      <section className="relative pt-32 pb-12 md:py-20 px-4 md:px-8 overflow-hidden">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute right-0 top-0 w-1/3 h-full opacity-[0.08]">
+            <img 
+              src={lifestyleYogaMat} 
+              alt="" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        
+        <div className="container mx-auto max-w-4xl text-center relative z-10">
           <Badge variant="secondary" className="mb-6 px-4 py-2">
             O aplikácii NeoMe
           </Badge>
@@ -72,9 +84,18 @@ const OAplikacii = () => {
         </div>
       </section>
 
-      {/* Why NeoMe Matters */}
-      <section className="py-12 md:py-16 px-4 md:px-8">
-        <div className="container mx-auto max-w-6xl">
+      {/* Why NeoMe Matters with Background Layer */}
+      <section className="relative py-12 md:py-16 px-4 md:px-8 overflow-hidden">
+        {/* Background Image Layer */}
+        <div className="absolute left-0 top-1/4 w-1/4 h-1/2 opacity-[0.06] z-0">
+          <img 
+            src={lifestyleCoreWorkout} 
+            alt="" 
+            className="w-full h-full object-cover rounded-r-3xl"
+          />
+        </div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-light mb-4">
               Prečo práve <span className="gradient-text font-normal">NeoMe</span>?
@@ -104,9 +125,18 @@ const OAplikacii = () => {
         </div>
       </section>
 
-      {/* Real Women Section */}
-      <section className="py-12 md:py-16 px-4 md:px-8 bg-section-white">
-        <div className="container mx-auto max-w-6xl">
+      {/* Real Women Section with Collage Background */}
+      <section className="relative py-12 md:py-16 px-4 md:px-8 overflow-hidden">
+        {/* Large Collage Background */}
+        <div className="absolute right-0 top-0 w-1/2 h-full opacity-[0.04] z-0 hidden lg:block">
+          <img 
+            src={lifestyleCollage} 
+            alt="" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-light mb-4">
               Pre <span className="gradient-text font-normal">skutočné ženy</span>
@@ -139,68 +169,27 @@ const OAplikacii = () => {
             </Card>
           </div>
 
-          <Card className="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 text-center">
-            <Heart size={48} className="text-primary mx-auto mb-6" />
-            <h3 className="text-2xl md:text-3xl font-light mb-4">
-              Nie si len mama, partnerka, zamestnankyňa
-            </h3>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Si žena. A to je viac než dosť. Tvoja hodnota nerastie s počtom odcvičených tréningov. Ale s každým momentom, keď sa rozhodneš nezabudnúť na seba.
-            </p>
-          </Card>
-
-          {/* Authentic Lifestyle Images */}
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative rounded-2xl overflow-hidden group"
-            >
-              <img 
-                src={lifestyleYogaMat} 
-                alt="Žena pripravujúca podložku na cvičenie" 
-                className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent flex items-end p-6">
-                <p className="text-foreground font-medium">Každý začiatok sa počíta</p>
+          <div className="relative">
+            <Card className="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 text-center relative overflow-hidden">
+              {/* Subtle Pregnancy Image in Card Background */}
+              <div className="absolute bottom-0 left-0 w-1/3 h-full opacity-[0.08] z-0">
+                <img 
+                  src={lifestylePregnancy} 
+                  alt="" 
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative rounded-2xl overflow-hidden group"
-            >
-              <img 
-                src={lifestyleCoreWorkout} 
-                alt="Žena počas cvičenia" 
-                className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent flex items-end p-6">
-                <p className="text-foreground font-medium">Tvoje tempo, tvoja cesta</p>
+              
+              <div className="relative z-10">
+                <Heart size={48} className="text-primary mx-auto mb-6" />
+                <h3 className="text-2xl md:text-3xl font-light mb-4">
+                  Nie si len mama, partnerka, zamestnankyňa
+                </h3>
+                <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                  Si žena. A to je viac než dosť. Tvoja hodnota nerastie s počtom odcvičených tréningov. Ale s každým momentom, keď sa rozhodneš nezabudnúť na seba.
+                </p>
               </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative rounded-2xl overflow-hidden group"
-            >
-              <img 
-                src={lifestylePregnancy} 
-                alt="Žena v tehotenstve počas jemného cvičenia" 
-                className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent flex items-end p-6">
-                <p className="text-foreground font-medium">V každej fáze života</p>
-              </div>
-            </motion.div>
+            </Card>
           </div>
         </div>
       </section>
@@ -215,9 +204,25 @@ const OAplikacii = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-12 md:py-16 px-4 md:px-8">
-        <div className="container mx-auto max-w-7xl">
+      {/* Testimonials Section with Background Layers */}
+      <section id="testimonials" className="relative py-12 md:py-16 px-4 md:px-8 overflow-hidden">
+        {/* Decorative Background Images */}
+        <div className="absolute left-0 bottom-0 w-1/5 h-1/3 opacity-[0.05] z-0 hidden xl:block">
+          <img 
+            src={lifestyleYogaMat} 
+            alt="" 
+            className="w-full h-full object-cover rounded-tr-3xl"
+          />
+        </div>
+        <div className="absolute right-0 top-0 w-1/5 h-1/3 opacity-[0.05] z-0 hidden xl:block">
+          <img 
+            src={lifestyleCoreWorkout} 
+            alt="" 
+            className="w-full h-full object-cover rounded-bl-3xl"
+          />
+        </div>
+        
+        <div className="container mx-auto max-w-7xl relative z-10">
           <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
             <h2 className="text-3xl md:text-5xl font-light text-center mb-4">
               Príbehy, ktoré inšpirujú
