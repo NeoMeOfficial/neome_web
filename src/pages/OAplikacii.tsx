@@ -59,17 +59,7 @@ const OAplikacii = () => {
       {/* What's in the App - Tabs Section */}
       <section className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-b from-section-white to-transparent">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4 px-4 py-2">
-              Čo nájdeš v aplikácii
-            </Badge>
-            <h2 className="text-3xl md:text-5xl font-light mb-4">
-              Tvoja kompletná cesta k <span className="gradient-text font-normal">lepšiemu ja</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Všetko, čo potrebuješ pre telo, myseľ a ducha – na jednom mieste
-            </p>
-          </div>
+          
 
           <AppFeaturesTabs />
         </div>
