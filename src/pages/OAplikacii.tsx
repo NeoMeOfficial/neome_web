@@ -7,6 +7,9 @@ import { ArrowRight, Star, Play, Heart, Sparkle, CheckCircle, Check } from "luci
 import testimonialMartina from "@/assets/testimonial-martina.jpg";
 import testimonialLucia from "@/assets/testimonial-lucia.jpg";
 import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
+import lifestyleYogaMat from "@/assets/lifestyle-yoga-mat.webp";
+import lifestyleCoreWorkout from "@/assets/lifestyle-core-workout.jpg";
+import lifestylePregnancy from "@/assets/lifestyle-pregnancy.jpg";
 import { useState } from "react";
 import { VideoPlayerModal } from "@/components/VideoPlayerModal";
 import { motion } from "framer-motion";
@@ -145,6 +148,60 @@ const OAplikacii = () => {
               Si žena. A to je viac než dosť. Tvoja hodnota nerastie s počtom odcvičených tréningov. Ale s každým momentom, keď sa rozhodneš nezabudnúť na seba.
             </p>
           </Card>
+
+          {/* Authentic Lifestyle Images */}
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative rounded-2xl overflow-hidden group"
+            >
+              <img 
+                src={lifestyleYogaMat} 
+                alt="Žena pripravujúca podložku na cvičenie" 
+                className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent flex items-end p-6">
+                <p className="text-foreground font-medium">Každý začiatok sa počíta</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative rounded-2xl overflow-hidden group"
+            >
+              <img 
+                src={lifestyleCoreWorkout} 
+                alt="Žena počas cvičenia" 
+                className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent flex items-end p-6">
+                <p className="text-foreground font-medium">Tvoje tempo, tvoja cesta</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative rounded-2xl overflow-hidden group"
+            >
+              <img 
+                src={lifestylePregnancy} 
+                alt="Žena v tehotenstve počas jemného cvičenia" 
+                className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent flex items-end p-6">
+                <p className="text-foreground font-medium">V každej fáze života</p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
