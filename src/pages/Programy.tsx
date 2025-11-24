@@ -3,10 +3,17 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { CheckCircle, Star, ArrowRight, Sparkles, Target, Dumbbell, Heart, TrendingUp, Clock, Play } from "lucide-react";
+import { CheckCircle, Star, ArrowRight, Sparkles, Target, Dumbbell, Heart, TrendingUp, Clock, Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { FloatingCTA } from "@/components/FloatingCTA";
 import { ProgramQuiz } from "@/components/ProgramQuiz";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const programs = [
   {
@@ -17,7 +24,11 @@ const programs = [
     whenToChoose: "Ak si nedávno porodila, trpíš diastázou, inkontinenciou alebo bolesťami chrbta a potrebuješ špeciálne prispôsobený program",
     duration: "8 týždňov",
     image: "/src/assets/postpartum-program.jpg",
-    videoUrl: "https://www.youtube.com/embed/example1",
+    videoUrls: [
+      "https://www.youtube.com/embed/example1",
+      "https://www.youtube.com/embed/example1-2",
+      "https://www.youtube.com/embed/example1-3"
+    ],
     color: "hsl(var(--level-1))",
     benefits: [
       "Bezpečné cvičenia špeciálne po pôrode",
@@ -35,7 +46,11 @@ const programs = [
     whenToChoose: "Ak hľadáš komplexný program na formovanie postavy, chceš začať cvičiť pravidelne a budovať základnú silu",
     duration: "6 týždňov",
     image: "/src/assets/bodyforming-program.jpg",
-    videoUrl: "https://www.youtube.com/embed/example2",
+    videoUrls: [
+      "https://www.youtube.com/embed/example2",
+      "https://www.youtube.com/embed/example2-2",
+      "https://www.youtube.com/embed/example2-3"
+    ],
     color: "hsl(var(--level-2))",
     benefits: [
       "Komplexné spevnenie celého tela",
@@ -53,7 +68,11 @@ const programs = [
     whenToChoose: "Ak Ti už základné cviky nestačia a chceš pridať odpor, formovať svaly a posunúť sa na vyššiu úroveň",
     duration: "6 týždňov",
     image: "/src/assets/elasticbands-program.jpg",
-    videoUrl: "https://www.youtube.com/embed/example3",
+    videoUrls: [
+      "https://www.youtube.com/embed/example3",
+      "https://www.youtube.com/embed/example3-2",
+      "https://www.youtube.com/embed/example3-3"
+    ],
     color: "hsl(var(--level-3))",
     benefits: [
       "Výrazné zvýšenie intenzity tréningu",
@@ -71,7 +90,11 @@ const programs = [
     whenToChoose: "Ak chceš budovať silu, pracovať s jednoručkami a dosiahnuť maximálnu transformáciu svojho tela",
     duration: "6 týždňov",
     image: "/src/assets/strongsexy-program.jpg",
-    videoUrl: "https://www.youtube.com/embed/example4",
+    videoUrls: [
+      "https://www.youtube.com/embed/example4",
+      "https://www.youtube.com/embed/example4-2",
+      "https://www.youtube.com/embed/example4-3"
+    ],
     color: "hsl(var(--level-4))",
     benefits: [
       "Maximálne budovanie sily",
@@ -391,22 +414,38 @@ const Programy = () => {
                           <h3 className="text-xl font-semibold">Ukážka cvičení</h3>
                         </div>
                         
-                        <div className="aspect-video w-full rounded-lg overflow-hidden bg-muted">
-                          <iframe
-                            width="100%"
-                            height="100%"
-                            src={program.videoUrl}
-                            title={`${program.name} video example`}
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            className="w-full h-full"
-                          />
-                        </div>
+                        <Carousel className="w-full">
+                          <CarouselContent>
+                            {program.videoUrls.map((videoUrl, index) => (
+                              <CarouselItem key={index}>
+                                <div className="aspect-video w-full rounded-lg overflow-hidden bg-muted">
+                                  <iframe
+                                    width="100%"
+                                    height="100%"
+                                    src={videoUrl}
+                                    title={`${program.name} video example ${index + 1}`}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    className="w-full h-full"
+                                  />
+                                </div>
+                              </CarouselItem>
+                            ))}
+                          </CarouselContent>
+                          <CarouselPrevious className="left-2" />
+                          <CarouselNext className="right-2" />
+                        </Carousel>
                         
-                        <p className="text-sm text-muted-foreground mt-4 text-center">
-                          Pozri si, ako vyzerajú cvičenia v praxi
-                        </p>
+                        <div className="flex items-center justify-center gap-2 mt-4">
+                          <p className="text-sm text-muted-foreground text-center">
+                            Pozri si, ako vyzerajú cvičenia v praxi
+                          </p>
+                          <div className="flex gap-1">
+                            <ChevronLeft className="h-4 w-4 text-muted-foreground animate-pulse" />
+                            <ChevronRight className="h-4 w-4 text-muted-foreground animate-pulse" />
+                          </div>
+                        </div>
                       </motion.div>
 
                       {/* Duration Badge */}
