@@ -149,9 +149,9 @@ const Programy = () => {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative">
       {/* Apple-style Gradient Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-[#f5f1ed] via-[#ede7e0] to-[#e8dfd5] -z-20" />
+      <div className="fixed inset-0 bg-gradient-to-br from-[#e8ddd3] via-[#d4c4b0] to-[#c4b59e] -z-20" />
       
       {/* Grainy Texture on Background Only */}
       <div 
