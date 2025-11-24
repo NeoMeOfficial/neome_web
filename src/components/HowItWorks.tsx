@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Dumbbell, Brain, UtensilsCrossed, Users, Sparkles } from "lucide-react";
-import lifestyleCollage from "@/assets/lifestyle-collage.png";
+import lifestyleYogaPose from "@/assets/lifestyle-yoga-pose.jpg";
 export const HowItWorks = () => {
   const holisticBenefits = [{
     icon: Dumbbell,
@@ -29,14 +29,15 @@ export const HowItWorks = () => {
     color: "from-primary/15 to-accent/10"
   }];
   return <section id="ako-to-funguje" className="relative py-20 md:py-28 px-4 md:px-8 overflow-hidden">
-      {/* Collage Background with Overlay */}
+      {/* Yoga Pose Background with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={lifestyleCollage} 
+          src={lifestyleYogaPose} 
           alt="" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/96 via-background/88 to-background/96" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-transparent to-background/95" />
       </div>
       
       <div className="container mx-auto max-w-7xl relative z-10">
