@@ -28,29 +28,28 @@ export const HowItWorks = () => {
     features: ["Vzájomná podpora", "Zdieľanie skúseností", "Motivácia a inšpirácia", "Spoločné výzvy"],
     color: "from-primary/15 to-accent/10"
   }];
-  return <section id="ako-to-funguje" className="relative py-16 md:py-20 px-0 md:px-4 bg-section-white overflow-hidden">
-      {/* Collage Background */}
+  return <section id="ako-to-funguje" className="relative py-20 md:py-28 px-4 md:px-8 overflow-hidden">
+      {/* Collage Background with Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute right-0 top-0 w-full lg:w-3/4 h-full opacity-[0.06]">
-          <img 
-            src={lifestyleCollage} 
-            alt="" 
-            className="w-full h-full object-cover object-left"
-          />
-        </div>
+        <img 
+          src={lifestyleCollage} 
+          alt="" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background/95" />
       </div>
       
-      <div className="container mx-auto max-w-6xl pb-0 relative z-10">
+      <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4 px-4 py-2 text-base">
+          <Badge variant="secondary" className="mb-6 px-4 py-2 text-base backdrop-blur-sm bg-background/80">
             <Sparkles className="inline-block w-4 h-4 mr-2" />
             Všetko na jednom mieste
           </Badge>
-          <h2 className="text-3xl md:text-5xl font-light mb-6 leading-tight">
+          <h2 className="text-4xl md:text-6xl font-light mb-6 leading-tight">
             Jeden program.<br />
-            <span className="gradient-text font-normal text-4xl md:text-6xl">Celá tvoja transformácia.</span>
+            <span className="gradient-text font-normal text-4xl md:text-7xl">Celá tvoja transformácia.</span>
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed pb-0">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             NeoMe je kompletný holistický program pre ženy. Cvičenie, výživa, mentálna pohoda a podpora komunity – všetko v jednej aplikácii. Žiadne skákanie medzi aplikáciami, žiadne hľadanie. Len ty a tvoja cesta k lepšiemu životu.
           </p>
         </div>
@@ -59,24 +58,30 @@ export const HowItWorks = () => {
           {holisticBenefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
-              <Card key={index} className={`p-8 rounded-2xl border-border/20 hover:border-primary/30 transition-all relative overflow-hidden bg-gradient-to-br ${benefit.color}`}>
+              <Card 
+                key={index} 
+                className="p-8 rounded-2xl border-border/30 hover:border-primary/50 transition-all relative overflow-hidden backdrop-blur-md bg-background/70 hover:bg-background/80 shadow-xl hover:shadow-2xl group"
+              >
                 <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                    <Icon size={28} className="text-primary" />
+                  <div className="w-16 h-16 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <Icon size={32} className="text-primary" />
                   </div>
-                  <h3 className="text-2xl font-medium mb-3">{benefit.title}</h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <h3 className="text-2xl md:text-3xl font-medium mb-4">{benefit.title}</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-base">
                     {benefit.description}
                   </p>
                   <ul className="space-y-3">
                     {benefit.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <CheckCircle size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
+                        <span className="text-sm leading-relaxed">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
+                
+                {/* Subtle gradient overlay on card */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-30 -z-10`} />
               </Card>
             );
           })}
