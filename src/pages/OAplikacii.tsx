@@ -47,12 +47,15 @@ const OAplikacii = () => {
         <div className="container mx-auto max-w-7xl px-4 md:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-12rem)]">
             {/* Left Content */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="order-2 lg:order-1"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: -30
+          }} animate={{
+            opacity: 1,
+            x: 0
+          }} transition={{
+            duration: 0.8
+          }} className="order-2 lg:order-1">
               <Badge variant="secondary" className="mb-6 px-4 py-2">
                 O aplikácii NeoMe
               </Badge>
@@ -68,18 +71,18 @@ const OAplikacii = () => {
             </motion.div>
 
             {/* Right Image */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="order-1 lg:order-2"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: 30
+          }} animate={{
+            opacity: 1,
+            x: 0
+          }} transition={{
+            duration: 0.8,
+            delay: 0.2
+          }} className="order-1 lg:order-2">
               <div className="relative rounded-3xl overflow-hidden aspect-[3/4] shadow-2xl">
-                <img 
-                  src={lifestyleYogaMat} 
-                  alt="Žena pripravujúca podložku na cvičenie" 
-                  className="w-full h-full object-cover"
-                />
+                <img src={lifestyleYogaMat} alt="Žena pripravujúca podložku na cvičenie" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
               </div>
             </motion.div>
@@ -88,26 +91,10 @@ const OAplikacii = () => {
       </section>
 
       {/* Empathy Quote Section */}
-      <section className="py-20 md:py-28 px-4 md:px-8 bg-gradient-to-b from-primary/5 to-transparent">
-        <div className="container mx-auto max-w-4xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-3xl md:text-5xl font-light leading-relaxed mb-8">
-              Unavená si preto, že <span className="gradient-text font-normal">dáváš</span>.
-            </p>
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Dáváš rodine, práci, okoliu. Dovoľ teraz dať aj sebe. Niekedy nepotrebuješ nový plán. Potrebuješ len pocit, že niekomu na tebe záleží.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      
 
       {/* Why NeoMe - Image & Content Grid */}
-      <section className="py-20 md:py-28 px-4 md:px-8">
+      <section className="py-20 md:py-28 px-4 md:px-8 pt-[133px]">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-light mb-6">
@@ -120,31 +107,35 @@ const OAplikacii = () => {
 
           {/* Split Layout with Image */}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative rounded-2xl overflow-hidden aspect-[4/5]"
-            >
-              <img 
-                src={lifestyleCoreWorkout} 
-                alt="Žena cvičiaca s odhodlaním" 
-                className="w-full h-full object-cover"
-              />
+            <motion.div initial={{
+            opacity: 0,
+            x: -30
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6
+          }} className="relative rounded-2xl overflow-hidden aspect-[4/5]">
+              <img src={lifestyleCoreWorkout} alt="Žena cvičiaca s odhodlaním" className="w-full h-full object-cover" />
             </motion.div>
 
             <div className="space-y-8">
               {trustPoints.map((point, index) => {
-                const Icon = point.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
+              const Icon = point.icon;
+              return <motion.div key={index} initial={{
+                opacity: 0,
+                y: 20
+              }} whileInView={{
+                opacity: 1,
+                y: 0
+              }} viewport={{
+                once: true
+              }} transition={{
+                duration: 0.5,
+                delay: index * 0.1
+              }}>
                     <Card className="p-6 rounded-xl border-border/20 hover:border-primary/30 transition-all hover:shadow-lg group">
                       <div className="flex gap-4">
                         <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -161,9 +152,8 @@ const OAplikacii = () => {
                         </div>
                       </div>
                     </Card>
-                  </motion.div>
-                );
-              })}
+                  </motion.div>;
+            })}
             </div>
           </div>
         </div>
@@ -183,48 +173,71 @@ const OAplikacii = () => {
 
           {/* Quote Cards Grid */}
           <div className="grid md:grid-cols-2 gap-6 mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.5
+          }}>
               <Card className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border-border/20 hover:border-primary/20 transition-all h-full">
                 <p className="text-lg leading-relaxed text-muted-foreground">
                   "Aj keď si to dnes nedala naplno – dala si zo seba všetko, čo si mala. <span className="font-medium text-foreground">A to je dosť.</span>"
                 </p>
               </Card>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.5,
+            delay: 0.1
+          }}>
               <Card className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border-border/20 hover:border-primary/20 transition-all h-full">
                 <p className="text-lg leading-relaxed text-muted-foreground">
                   "Začni tam, kde si. <span className="font-medium text-foreground">Aj 15 minút sa počíta.</span> Nehľadaj ideálny deň. Začni v ten, ktorý máš."
                 </p>
               </Card>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.5,
+            delay: 0.2
+          }}>
               <Card className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border-border/20 hover:border-primary/20 transition-all h-full">
                 <p className="text-lg leading-relaxed text-muted-foreground">
                   "Tvoje tempo je správne tempo. <span className="font-medium text-foreground">Nikto iný nemá tvoj život.</span>"
                 </p>
               </Card>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.5,
+            delay: 0.3
+          }}>
               <Card className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border-border/20 hover:border-primary/20 transition-all h-full">
                 <p className="text-lg leading-relaxed text-muted-foreground">
                   "Dnes nemáš energiu? Tak si daj len strečing. <span className="font-medium text-foreground">Aj to sa počíta.</span>"
@@ -235,29 +248,34 @@ const OAplikacii = () => {
 
           {/* Featured Section with Pregnancy Image */}
           <div className="grid lg:grid-cols-5 gap-8 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-2"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: -30
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6
+          }} className="lg:col-span-2">
               <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
-                <img 
-                  src={lifestylePregnancy} 
-                  alt="Žena v tehotenstve" 
-                  className="w-full h-full object-cover"
-                />
+                <img src={lifestylePregnancy} alt="Žena v tehotenstve" className="w-full h-full object-cover" />
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:col-span-3"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: 30
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6,
+            delay: 0.2
+          }} className="lg:col-span-3">
               <Card className="p-8 md:p-12 rounded-2xl border-border/20 bg-gradient-to-br from-primary/5 to-accent/5">
                 <Heart size={40} className="text-primary mb-6" />
                 <h3 className="text-3xl md:text-4xl font-light mb-6 leading-tight">
@@ -271,13 +289,17 @@ const OAplikacii = () => {
           </div>
 
           {/* Simple Text Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mt-16 text-center"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }} className="mt-16 text-center">
             <Card className="p-12 md:p-16 rounded-3xl bg-gradient-to-br from-primary/5 to-accent/5 border-border/20">
               <p className="text-3xl md:text-5xl font-light text-foreground mb-6">
                 V každej fáze tvojho života
@@ -304,18 +326,10 @@ const OAplikacii = () => {
       <section id="testimonials" className="relative py-12 md:py-16 px-4 md:px-8 overflow-hidden">
         {/* Decorative Background Images */}
         <div className="absolute left-0 bottom-0 w-1/5 h-1/3 opacity-[0.05] z-0 hidden xl:block">
-          <img 
-            src={lifestyleYogaMat} 
-            alt="" 
-            className="w-full h-full object-cover rounded-tr-3xl"
-          />
+          <img src={lifestyleYogaMat} alt="" className="w-full h-full object-cover rounded-tr-3xl" />
         </div>
         <div className="absolute right-0 top-0 w-1/5 h-1/3 opacity-[0.05] z-0 hidden xl:block">
-          <img 
-            src={lifestyleCoreWorkout} 
-            alt="" 
-            className="w-full h-full object-cover rounded-bl-3xl"
-          />
+          <img src={lifestyleCoreWorkout} alt="" className="w-full h-full object-cover rounded-bl-3xl" />
         </div>
         
         <div className="container mx-auto max-w-7xl relative z-10">
