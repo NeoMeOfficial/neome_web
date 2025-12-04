@@ -2,9 +2,18 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Quote, Play } from "lucide-react";
 import { useState } from "react";
+import csoltiImage from "@/assets/recommendation-csolti.png";
+
 export const ProfessionalRecommendations = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const recommendations = [{
+    name: "PhDr. Magdaléna Csolti",
+    title: "Fyzioterapeutka",
+    credentials: "Auramedica",
+    quote: "Postpartum program od NeoMe je navrhnutý presne pre potreby mám po pôrode – pomáha regenerovať panvové dno a brušné svaly bezpečným, postupným spôsobom. Je flexibilný, prístupný online a šetrný k telu. Fantastická podpora pre každú mamu.",
+    type: "text",
+    image: csoltiImage
+  }, {
     name: "MUDr. Eva Nováková",
     title: "Gynekologička",
     credentials: "15+ rokov praxe",
@@ -39,7 +48,7 @@ export const ProfessionalRecommendations = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {recommendations.map((rec, index) => <Card key={index} className="p-4 md:p-6 hover:shadow-lg transition-all duration-300 border-border/20 bg-white overflow-hidden group">
               {rec.type === "video" ? <div className="relative mb-4 rounded-lg overflow-hidden cursor-pointer">
                   <img src={rec.thumbnail} alt={rec.name} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
