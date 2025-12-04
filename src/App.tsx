@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "@/components/Header";
 import CookieConsent from "@/components/CookieConsent";
+import SocialProofNotification from "@/components/SocialProofNotification";
 import Index from "./pages/Index";
 import HomeShort from "./pages/HomeShort";
 import Blog from "./pages/Blog";
@@ -47,6 +48,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         <CookieConsent />
+        <SocialProofNotification />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
