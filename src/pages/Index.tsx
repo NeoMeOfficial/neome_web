@@ -231,12 +231,10 @@ const Index = () => {
                     alt="" 
                     className="absolute inset-0 w-full h-full object-cover object-left"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
                   <div className="relative p-8 z-10">
-                    <div className="w-16 h-16 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center mb-4">
-                      <Heart size={32} className="text-primary" />
-                    </div>
-                    <p className="text-sm italic text-foreground max-w-[280px]">
+                    <Heart size={28} className="text-primary mb-4 drop-shadow-md" />
+                    <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
                       "Nemusíš sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel."
                     </p>
                   </div>
