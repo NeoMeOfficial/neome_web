@@ -1,49 +1,92 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ShoppingBag } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 interface Purchase {
-  name: string;
-  location: string;
-  product: string;
-  timeAgo: string;
+  id: string;
+  first_name: string;
+  city: string;
+  product_name: string;
+  created_at: string;
 }
 
-const purchases: Purchase[] = [
-  { name: "Martina", location: "Bratislava", product: "NeoMe Premium", timeAgo: "pred 2 minútami" },
-  { name: "Lucia", location: "Košice", product: "NeoMe Premium", timeAgo: "pred 5 minútami" },
-  { name: "Zuzana", location: "Žilina", product: "NeoMe Premium", timeAgo: "pred 8 minútami" },
-  { name: "Katarína", location: "Nitra", product: "NeoMe Premium", timeAgo: "pred 12 minútami" },
-  { name: "Jana", location: "Prešov", product: "NeoMe Premium", timeAgo: "pred 15 minútami" },
-  { name: "Michaela", location: "Trnava", product: "NeoMe Premium", timeAgo: "pred 18 minútami" },
-  { name: "Simona", location: "Banská Bystrica", product: "NeoMe Premium", timeAgo: "pred 23 minútami" },
-  { name: "Petra", location: "Martin", product: "NeoMe Premium", timeAgo: "pred 27 minútami" },
-  { name: "Veronika", location: "Trenčín", product: "NeoMe Premium", timeAgo: "pred 32 minútami" },
-  { name: "Dominika", location: "Poprad", product: "NeoMe Premium", timeAgo: "pred 38 minútami" },
-];
+const getTimeAgo = (dateString: string): string => {
+  const now = new Date();
+  const purchaseDate = new Date(dateString);
+  const diffInMinutes = Math.floor((now.getTime() - purchaseDate.getTime()) / (1000 * 60));
+  
+  if (diffInMinutes < 1) return "práve teraz";
+  if (diffInMinutes < 60) return `pred ${diffInMinutes} minútami`;
+  
+  const diffInHours = Math.floor(diffInMinutes / 60);
+  if (diffInHours < 24) return `pred ${diffInHours} hodinami`;
+  
+  const diffInDays = Math.floor(diffInHours / 24);
+  return `pred ${diffInDays} dňami`;
+};
 
 const SocialProofNotification = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentPurchase, setCurrentPurchase] = useState<Purchase | null>(null);
+  const [purchases, setPurchases] = useState<Purchase[]>([]);
   const [purchaseIndex, setPurchaseIndex] = useState(0);
 
+  // Fetch recent purchases
   useEffect(() => {
-    // Check if user has dismissed notifications this session
+    const fetchPurchases = async () => {
+      const { data, error } = await supabase
+        .from("purchases")
+        .select("id, first_name, city, product_name, created_at")
+        .order("created_at", { ascending: false })
+        .limit(20);
+
+      if (!error && data && data.length > 0) {
+        setPurchases(data);
+      }
+    };
+
+    fetchPurchases();
+
+    // Subscribe to realtime updates
+    const channel = supabase
+      .channel("purchases-realtime")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "purchases" },
+        (payload) => {
+          const newPurchase = payload.new as Purchase;
+          setPurchases((prev) => [newPurchase, ...prev.slice(0, 19)]);
+          // Show new purchase immediately
+          setCurrentPurchase(newPurchase);
+          setIsVisible(true);
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, []);
+
+  // Initial delay before first notification
+  useEffect(() => {
+    if (purchases.length === 0) return;
+    
     const dismissed = sessionStorage.getItem("social-proof-dismissed");
     if (dismissed) return;
 
-    // Initial delay before first notification
     const initialDelay = setTimeout(() => {
       showNotification();
     }, 8000);
 
     return () => clearTimeout(initialDelay);
-  }, []);
+  }, [purchases]);
 
+  // Auto-hide after 5 seconds
   useEffect(() => {
     if (!isVisible) return;
 
-    // Auto-hide after 5 seconds
     const hideTimer = setTimeout(() => {
       setIsVisible(false);
     }, 5000);
@@ -51,21 +94,23 @@ const SocialProofNotification = () => {
     return () => clearTimeout(hideTimer);
   }, [isVisible, currentPurchase]);
 
+  // Show next notification after delay
   useEffect(() => {
-    if (isVisible) return;
+    if (isVisible || purchases.length === 0) return;
 
     const dismissed = sessionStorage.getItem("social-proof-dismissed");
     if (dismissed) return;
 
-    // Show next notification after delay
     const nextTimer = setTimeout(() => {
       showNotification();
-    }, 25000 + Math.random() * 15000); // 25-40 seconds
+    }, 25000 + Math.random() * 15000);
 
     return () => clearTimeout(nextTimer);
-  }, [isVisible, purchaseIndex]);
+  }, [isVisible, purchaseIndex, purchases]);
 
   const showNotification = () => {
+    if (purchases.length === 0) return;
+    
     const randomIndex = Math.floor(Math.random() * purchases.length);
     setCurrentPurchase(purchases[randomIndex]);
     setPurchaseIndex((prev) => prev + 1);
@@ -76,6 +121,9 @@ const SocialProofNotification = () => {
     setIsVisible(false);
     sessionStorage.setItem("social-proof-dismissed", "true");
   };
+
+  // Don't render if no purchases
+  if (purchases.length === 0) return null;
 
   return (
     <AnimatePresence>
@@ -97,13 +145,13 @@ const SocialProofNotification = () => {
               {/* Content */}
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-foreground">
-                  {currentPurchase.name} z {currentPurchase.location}
+                  {currentPurchase.first_name} z {currentPurchase.city}
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  práve zakúpila <span className="font-medium text-primary">{currentPurchase.product}</span>
+                  práve zakúpila <span className="font-medium text-primary">{currentPurchase.product_name}</span>
                 </p>
                 <p className="text-xs text-muted-foreground/70 mt-1">
-                  {currentPurchase.timeAgo}
+                  {getTimeAgo(currentPurchase.created_at)}
                 </p>
               </div>
 
