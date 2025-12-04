@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-yoga.jpg";
 import testimonialWorkout from "@/assets/testimonial-workout.jpg";
 import testimonialRecipe from "@/assets/testimonial-recipe.jpg";
+import testimonialMeditation from "@/assets/testimonial-meditation.jpg";
 import appMockup1 from "@/assets/app-mockup-1.png";
 import appMockup2 from "@/assets/app-mockup-2.png";
 import appMockupMind from "@/assets/app-mockup-mind.png";
@@ -340,13 +341,19 @@ const Index = () => {
               </div>
               <div className="relative">
                 <div className="hidden md:block absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
-                <Card className="p-8 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
-                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                    <Heart size={32} className="text-primary" />
+                <Card className="relative p-0 overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 min-h-[180px]">
+                  <img 
+                    src={testimonialMeditation} 
+                    alt="" 
+                    className="absolute inset-0 w-full h-full object-cover object-left"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
+                  <div className="relative p-8 z-10">
+                    <Heart size={28} className="text-primary mb-4 drop-shadow-md" />
+                    <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
+                      "Meditácie mi pomohli nájsť pokoj, ktorý som stratila. Už sa necítim tak preťažená."
+                    </p>
                   </div>
-                  <p className="text-sm italic text-muted-foreground">
-                    "Meditácie mi pomohli nájsť pokoj, ktorý som stratila. Už sa necítim tak preťažená."
-                  </p>
                 </Card>
               </div>
             </motion.div>
