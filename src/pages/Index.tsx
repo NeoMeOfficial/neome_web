@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, CheckCircle, Sparkle } from "@phosphor-icons/react";
-import { Star, Play, Heart, Check } from "lucide-react";
+import { Star, Play, Heart, Check, Dumbbell } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-yoga.jpg";
@@ -446,11 +446,11 @@ const Index = () => {
                     alt="" 
                     className="absolute inset-0 w-full h-full object-cover object-left"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
-                  <div className="relative p-6 z-10 flex flex-col items-end text-right">
-                    <p className="text-foreground leading-relaxed max-w-[320px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
-                      Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing. 
-                      Objavuj nové cvičebné postupy, ktoré doplnia tvoju rutinu a pomôžu ti dosiahnuť tvoje ciele rýchlejšie a efektívnejšie.
+                  <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
+                  <div className="relative p-8 z-10">
+                    <Dumbbell size={28} className="text-primary mb-4 drop-shadow-md" />
+                    <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
+                      "Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing. Objavuj nové cvičebné postupy."
                     </p>
                   </div>
                 </Card>
