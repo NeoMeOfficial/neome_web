@@ -10,30 +10,24 @@ export const ComparisonSection = () => {
     iconColor: "text-primary",
     number: "1",
     title: "NeoMe vs. Gym členstvo",
-    competitor: "Gym členstvo",
     summary: "Šetrenie času a nákladov - cvič z pohodlia domova, kedykoľvek potrebuješ, bez mesačných poplatkov.",
-    advantages: ["Šetrenie času - žiadne cestovanie, cvič kedykoľvek", "Z pohodlia domova - bez hanby či stresu z verejného priestoru", "Flexibilita - pauza kedykoľvek potrebuješ (deti, práca)", "Cenovo efektívne - žiadne mesačné vysoké poplatky", "Priateľské k mamičkám - cvič s deťmi doma"],
-    disadvantages: ["Časovo náročné (cestovanie, čakanie na stroje)", "Fixné otváracie hodiny", "Sociálny tlak a porovnávanie sa", "Vysoké mesačné poplatky"]
+    advantages: ["Šetrenie času - žiadne cestovanie, cvič kedykoľvek", "Z pohodlia domova - bez hanby či stresu z verejného priestoru", "Flexibilita - pauza kedykoľvek potrebuješ (deti, práca)", "Cenovo efektívne - žiadne mesačné vysoké poplatky", "Priateľské k mamičkám - cvič s deťmi doma"]
   }, {
     icon: User,
     iconBg: "bg-accent/30",
     iconColor: "text-accent",
     number: "2",
     title: "NeoMe vs. Osobný tréner",
-    competitor: "Osobný tréner",
     summary: "Expert-designed programy za zlomok ceny osobného trénera, k dispozícii 24/7 priamo v tvojom mobile.",
-    advantages: ["Expert-designed programy od profesionálky s 15-ročnou praxou", "Zlomok ceny osobného trénera", "K dispozícii 24/7 - nie podľa kalendára trénera", "Vždy po ruke - v mobile, bez dohadovania termínov", "Prispôsobené špecificky ženám a mamičkám"],
-    disadvantages: ["Extrémne drahé (50-100€+ za hodinu)", "Limitované časové sloty", "Nutnosť plánovať dopredu", "Nie vždy špecializovaný na ženy/mamičky"]
+    advantages: ["Expert-designed programy od profesionálky s 15-ročnou praxou", "Zlomok ceny osobného trénera", "K dispozícii 24/7 - nie podľa kalendára trénera", "Vždy po ruke - v mobile, bez dohadovania termínov", "Prispôsobené špecificky ženám a mamičkám"]
   }, {
     icon: Smartphone,
     iconBg: "bg-secondary",
     iconColor: "text-secondary-foreground",
     number: "3",
     title: "NeoMe vs. Iné fitness aplikácie",
-    competitor: "Iné fitness aplikácie",
     summary: "Holistický prístup v slovenskom jazyku - špecificky pre mamičky a ženy, s aktívnou komunitou.",
-    advantages: ["Špecificky pre mamičky a ženy - nie generické fitness", "Holistický prístup - telo + myseľ + komunita", "V slovenskom jazyku - rozumieš každému slovu", "Aktívna komunita - podpora skutočných žien", "Hormonálna rovnováha - nie len chudnutie", "Recepty pre celú rodinu - nie extrémy", "Meditácie a mindfulness - nie len cviky"],
-    disadvantages: ["Generické, pre všetkých", "Len fitness, bez holistického prístupu", "Často v angličtine", "Malá alebo žiadna komunita", "Zamerané len na kalórie a výzor"]
+    advantages: ["Špecificky pre mamičky a ženy - nie generické fitness", "Holistický prístup - telo + myseľ + komunita", "V slovenskom jazyku - rozumieš každému slovu", "Aktívna komunita - podpora skutočných žien", "Hormonálna rovnováha - nie len chudnutie", "Recepty pre celú rodinu - nie extrémy", "Meditácie a mindfulness - nie len cviky"]
   }];
   const selectedComparison = comparisons[selectedIndex];
   const SelectedIcon = selectedComparison.icon;
@@ -133,18 +127,6 @@ export const ComparisonSection = () => {
                 </ul>
               </div>
 
-              {/* Competitor Disadvantages */}
-              <div className="bg-muted/30 rounded-xl p-5">
-                <h4 className="font-semibold text-muted-foreground mb-4">
-                  {selectedComparison.competitor}
-                </h4>
-                <ul className="space-y-3">
-                  {selectedComparison.disadvantages.map((disadvantage, i) => <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <X size={18} className="text-muted-foreground/50 flex-shrink-0 mt-0.5" />
-                      <span>{disadvantage}</span>
-                    </li>)}
-                </ul>
-              </div>
             </div>
           </Card>
           </motion.div>
