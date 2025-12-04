@@ -3,8 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Check, Sparkles, Shield, Award, Heart, Clock, ChevronDown } from "lucide-react";
+import { Check, Sparkles, Shield, Award, Heart, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 interface Program {
   id: string;
@@ -49,12 +51,21 @@ export default function Checkout() {
   const [subscriptionPeriod, setSubscriptionPeriod] = useState<'monthly' | 'quarterly' | 'yearly'>('quarterly');
   const [selectedProgram, setSelectedProgram] = useState<string>("");
   const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    city: ""
+  });
+  const [isProcessing, setIsProcessing] = useState(false);
+  const { toast } = useToast();
 
   const subscriptionPlans = {
     monthly: {
       price: "14.99€",
       billingText: "Účtované mesačne",
       total: "14.99€",
+      totalAmount: 14.99,
       programs: 1,
       savings: null
     },
@@ -62,6 +73,7 @@ export default function Checkout() {
       price: "11.99€",
       billingText: "Účtované kvartálne (35.97€)",
       total: "35.97€",
+      totalAmount: 35.97,
       programs: 2,
       savings: "20%"
     },
@@ -69,6 +81,7 @@ export default function Checkout() {
       price: "9.99€",
       billingText: "Účtované ročne (119.88€)",
       total: "119.88€",
+      totalAmount: 119.88,
       programs: "neobmedzene",
       savings: "33%"
     }
@@ -80,6 +93,53 @@ export default function Checkout() {
   const handleContinueToForm = () => {
     if (selectedProgram) {
       setShowForm(true);
+    }
+  };
+
+  const handleSubmit = async () => {
+    if (!formData.name || !formData.email || !formData.city) {
+      toast({
+        title: "Vyplň všetky údaje",
+        description: "Prosím vyplň meno, email a mesto.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsProcessing(true);
+
+    try {
+      // Extract first name
+      const firstName = formData.name.split(" ")[0];
+
+      // Record the purchase
+      const { error } = await supabase.from("purchases").insert({
+        first_name: firstName,
+        city: formData.city,
+        product_name: "NeoMe Premium",
+        amount: selectedPlan.totalAmount
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Ďakujeme za objednávku!",
+        description: "Čoskoro ťa budeme kontaktovať s ďalšími inštrukciami."
+      });
+
+      // Reset form
+      setFormData({ name: "", email: "", password: "", city: "" });
+      setShowForm(false);
+      setSelectedProgram("");
+    } catch (error) {
+      console.error("Purchase error:", error);
+      toast({
+        title: "Nastala chyba",
+        description: "Prosím skús to znova.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsProcessing(false);
     }
   };
 
@@ -297,6 +357,8 @@ export default function Checkout() {
                       <label className="text-sm font-medium">Meno a priezvisko</label>
                       <input 
                         type="text" 
+                        value={formData.name}
+                        onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                         className="w-full px-4 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                         placeholder="Zadaj svoje meno"
                       />
@@ -305,14 +367,28 @@ export default function Checkout() {
                       <label className="text-sm font-medium">Email</label>
                       <input 
                         type="email" 
+                        value={formData.email}
+                        onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                         className="w-full px-4 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                         placeholder="tvoj@email.sk"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Mesto</label>
+                      <input 
+                        type="text" 
+                        value={formData.city}
+                        onChange={(e) => setFormData(prev => ({ ...prev, city: e.target.value }))}
+                        className="w-full px-4 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                        placeholder="Napr. Bratislava"
                       />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium">Heslo</label>
                       <input 
                         type="password" 
+                        value={formData.password}
+                        onChange={(e) => setFormData(prev => ({ ...prev, password: e.target.value }))}
                         className="w-full px-4 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                         placeholder="Minimálne 8 znakov"
                       />
@@ -394,10 +470,10 @@ export default function Checkout() {
                 <Button 
                   className="w-full h-12 text-base" 
                   size="lg"
-                  disabled={!selectedProgram}
-                  onClick={handleContinueToForm}
+                  disabled={!selectedProgram || isProcessing}
+                  onClick={showForm ? handleSubmit : handleContinueToForm}
                 >
-                  {showForm ? 'Prejsť na platbu' : 'Pokračovať'}
+                  {isProcessing ? 'Spracúvam...' : showForm ? 'Dokončiť objednávku' : 'Pokračovať'}
                 </Button>
 
                 {!selectedProgram && (
