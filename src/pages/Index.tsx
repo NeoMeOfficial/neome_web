@@ -11,6 +11,7 @@ import testimonialWorkout from "@/assets/testimonial-workout.jpg";
 import testimonialRecipe from "@/assets/testimonial-recipe.jpg";
 import testimonialMeditation from "@/assets/testimonial-meditation.jpg";
 import testimonialCommunity from "@/assets/testimonial-community.png";
+import testimonialExtras from "@/assets/testimonial-extras.jpg";
 import appMockup1 from "@/assets/app-mockup-1.png";
 import appMockup2 from "@/assets/app-mockup-2.png";
 import appMockupMind from "@/assets/app-mockup-mind.png";
@@ -439,11 +440,19 @@ const Index = () => {
               </div>
               <div className="md:col-start-2">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 hidden md:block" />
-                <Card className="p-6 hover:shadow-lg transition-shadow">
-                  <p className="text-muted-foreground leading-relaxed">
-                    Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing. 
-                    Objavuj nové cvičebné postupy, ktoré doplnia tvoju rutinu a pomôžu ti dosiahnuť tvoje ciele rýchlejšie a efektívnejšie.
-                  </p>
+                <Card className="relative p-0 overflow-hidden hover:shadow-lg transition-shadow min-h-[180px]">
+                  <img 
+                    src={testimonialExtras} 
+                    alt="" 
+                    className="absolute inset-0 w-full h-full object-cover object-left"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
+                  <div className="relative p-6 z-10 flex flex-col items-end text-right">
+                    <p className="text-foreground leading-relaxed max-w-[320px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
+                      Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing. 
+                      Objavuj nové cvičebné postupy, ktoré doplnia tvoju rutinu a pomôžu ti dosiahnuť tvoje ciele rýchlejšie a efektívnejšie.
+                    </p>
+                  </div>
                 </Card>
               </div>
             </motion.div>
