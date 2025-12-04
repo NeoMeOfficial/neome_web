@@ -14,13 +14,6 @@ export const ProfessionalRecommendations = () => {
     type: "text",
     image: csoltiImage
   }, {
-    name: "MUDr. Eva Nováková",
-    title: "Gynekologička",
-    credentials: "15+ rokov praxe",
-    quote: "NeoMe programy sú vynikajúco navrhnuté pre popôrodné obdobie. Cvičenia rešpektujú ženské telo a podporujú zdravé zotavenie po pôrode.",
-    type: "text",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop"
-  }, {
     name: "Mgr. Petra Horváthová",
     title: "Fyzioterapeutka",
     credentials: "Špecializácia: Dno panvy",
@@ -48,7 +41,7 @@ export const ProfessionalRecommendations = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {recommendations.map((rec, index) => <Card key={index} className="p-4 md:p-6 hover:shadow-lg transition-all duration-300 border-border/20 bg-white overflow-hidden group">
               {rec.type === "video" ? <div className="relative mb-4 rounded-lg overflow-hidden cursor-pointer">
                   <img src={rec.thumbnail} alt={rec.name} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
