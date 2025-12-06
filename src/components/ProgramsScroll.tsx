@@ -96,11 +96,8 @@ export const ProgramsScroll = ({ className }: { className?: string }) => {
           {/* Introduction Section */}
           <div className="text-center max-w-4xl mx-auto p-8 md:p-12 lg:p-16">
             <h2 className="text-3xl md:text-5xl font-light mb-6">
-              Chceš Cielenú Transformáciu?
+              Pre cielenú transformáciu nasleduj štrukturovaný program.
             </h2>
-            <p className="text-xl text-muted-foreground mb-4">
-              Vyber si Štrukturovaný Program.
-            </p>
             <p className="text-muted-foreground">
               Tieto 6-8 týždňové programy sú voliteľné doplnky k tvojmu predplatnému. Každý program zahŕňa <strong className="text-foreground">plný prístup k celej aplikácii NeoMe</strong> plus štrukturovaný tréningový plán navrhnutý pre hlbšiu, garantovanú zmenu.
             </p>
