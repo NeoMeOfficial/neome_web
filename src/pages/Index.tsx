@@ -206,7 +206,7 @@ const Index = () => {
           }}>
               <div className="md:text-right md:pr-12">
                 <div className="inline-block md:float-right">
-                  <Badge className="mb-4">Cvičenie</Badge>
+                  
                   <h3 className="text-2xl md:text-3xl font-light mb-4">
                     Programy šité <span className="gradient-text font-normal">na mieru</span>
                   </h3>
@@ -232,11 +232,7 @@ const Index = () => {
               <div className="relative">
                 <div className="hidden md:block absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
                 <Card className="relative overflow-hidden border-primary/20">
-                  <img 
-                    src={testimonialWorkout} 
-                    alt="" 
-                    className="absolute inset-0 w-full h-full object-cover object-left"
-                  />
+                  <img src={testimonialWorkout} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
                   <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
                   <div className="relative p-8 z-10">
                     <Badge className="mb-4 drop-shadow-md">Cvičenie</Badge>
@@ -263,7 +259,7 @@ const Index = () => {
             ease: "easeOut"
           }}>
               <div className="md:col-start-2 md:pl-12">
-                <Badge className="mb-4">Strava</Badge>
+                
                 <h3 className="text-2xl md:text-3xl font-light mb-4">
                   Zdravé recepty <span className="gradient-text font-normal">pre reálny život</span>
                 </h3>
@@ -288,11 +284,7 @@ const Index = () => {
               <div className="relative md:row-start-1 md:col-start-1">
                 <div className="hidden md:block absolute -right-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
                 <Card className="relative p-0 overflow-hidden bg-gradient-to-br from-accent/10 to-primary/10 border-primary/20 min-h-[180px]">
-                  <img 
-                    src={testimonialRecipe} 
-                    alt="" 
-                    className="absolute inset-0 w-full h-full object-cover object-left"
-                  />
+                  <img src={testimonialRecipe} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
                   <div className="relative p-8 z-10 flex flex-col items-end text-right">
                     <Badge className="mb-4 drop-shadow-md">Strava</Badge>
@@ -320,7 +312,7 @@ const Index = () => {
           }}>
               <div className="md:text-right md:pr-12">
                 <div className="inline-block md:float-right">
-                  <Badge className="mb-4">Myseľ</Badge>
+                  
                   <h3 className="text-2xl md:text-3xl font-light mb-4">
                     Vnútorný pokoj <span className="gradient-text font-normal">každý deň</span>
                   </h3>
@@ -346,11 +338,7 @@ const Index = () => {
               <div className="relative">
                 <div className="hidden md:block absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
                 <Card className="relative p-0 overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 min-h-[180px]">
-                  <img 
-                    src={testimonialMeditation} 
-                    alt="" 
-                    className="absolute inset-0 w-full h-full object-cover object-left"
-                  />
+                  <img src={testimonialMeditation} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
                   <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
                   <div className="relative p-8 z-10">
                     <Badge className="mb-4 drop-shadow-md">Myseľ</Badge>
@@ -377,7 +365,7 @@ const Index = () => {
             ease: "easeOut"
           }}>
               <div className="md:col-start-2 md:pl-12">
-                <Badge className="mb-4">Komunita</Badge>
+                
                 <h3 className="text-2xl md:text-3xl font-light mb-4">
                   Nie si v tom <span className="gradient-text font-normal">sama</span>
                 </h3>
@@ -402,11 +390,7 @@ const Index = () => {
               <div className="relative md:row-start-1 md:col-start-1">
                 <div className="hidden md:block absolute -right-12 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/20 border-4 border-background z-10" />
                 <Card className="relative p-0 overflow-hidden bg-gradient-to-br from-accent/10 to-primary/10 border-primary/20 min-h-[180px]">
-                  <img 
-                    src={testimonialCommunity} 
-                    alt="" 
-                    className="absolute inset-0 w-full h-full object-cover object-left"
-                  />
+                  <img src={testimonialCommunity} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
                   <div className="relative p-8 z-10 flex flex-col items-end text-right">
                     <Badge className="mb-4 drop-shadow-md">Komunita</Badge>
@@ -434,7 +418,7 @@ const Index = () => {
           }}>
               <div className="md:text-right md:pr-12">
                 <div className="inline-block md:float-right">
-                  <Badge className="mb-4">Extras</Badge>
+                  
                   <h3 className="text-2xl md:text-3xl font-light mb-4">
                     Doplnkové cvičenia a strečing
                   </h3>
@@ -443,11 +427,7 @@ const Index = () => {
               <div className="md:col-start-2">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 hidden md:block" />
                 <Card className="relative p-0 overflow-hidden hover:shadow-lg transition-shadow min-h-[180px]">
-                  <img 
-                    src={testimonialExtras} 
-                    alt="" 
-                    className="absolute inset-0 w-full h-full object-cover object-left"
-                  />
+                  <img src={testimonialExtras} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
                   <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
                   <div className="relative p-8 z-10">
                     <Badge className="mb-4 drop-shadow-md">Extras</Badge>
@@ -474,7 +454,7 @@ const Index = () => {
             ease: "easeOut"
           }}>
               <div className="md:col-start-2 md:pl-12">
-                <Badge className="mb-4">Denné návyky</Badge>
+                
                 <h3 className="text-2xl md:text-3xl font-light mb-4">
                   Denník návykov a reflexií
                 </h3>
@@ -482,11 +462,7 @@ const Index = () => {
               <div className="md:col-start-1 md:row-start-1">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 hidden md:block" />
                 <Card className="relative overflow-hidden h-48 hover:shadow-lg transition-shadow">
-                  <img 
-                    src={testimonialJournal} 
-                    alt="" 
-                    className="absolute inset-0 w-full h-full object-cover object-left"
-                  />
+                  <img src={testimonialJournal} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
                   <div className="relative p-8 z-10 flex flex-col items-end text-right h-full justify-center">
                     <Badge className="mb-4 drop-shadow-md">Denné návyky</Badge>
@@ -514,7 +490,7 @@ const Index = () => {
           }}>
               <div className="md:text-right md:pr-12">
                 <div className="inline-block md:float-right">
-                  <Badge className="mb-4">Periodka</Badge>
+                  
                   <h3 className="text-2xl md:text-3xl font-light mb-4">
                     Sledovanie menštruačného cyklu
                   </h3>
@@ -523,11 +499,7 @@ const Index = () => {
               <div className="md:col-start-2">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 hidden md:block" />
                 <Card className="relative overflow-hidden h-48 hover:shadow-lg transition-shadow">
-                  <img 
-                    src={testimonialPeriod} 
-                    alt="" 
-                    className="absolute inset-0 w-full h-full object-cover object-left"
-                  />
+                  <img src={testimonialPeriod} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
                   <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/40 to-background/70" />
                   <div className="relative p-8 z-10 flex flex-col items-start text-left h-full justify-center">
                     <Badge className="mb-4 drop-shadow-md">Periodka</Badge>
