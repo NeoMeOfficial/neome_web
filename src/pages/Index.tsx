@@ -426,16 +426,17 @@ const Index = () => {
               </div>
               <div className="md:col-start-2">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary z-10 hidden md:block" />
-                <Card className="relative p-0 overflow-hidden hover:shadow-lg transition-shadow min-h-[180px]">
+                <div className="relative overflow-hidden rounded-xl min-h-[180px]">
                   <img src={testimonialExtras} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-l from-background/80 to-transparent" />
                   <div className="relative p-8 z-10">
                     <Badge className="mb-4 drop-shadow-md">Extras</Badge>
                     <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
                       "Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing. Objavuj nové cvičebné postupy."
                     </p>
                   </div>
-                </Card>
+                </div>
               </div>
             </motion.div>
 
@@ -461,16 +462,17 @@ const Index = () => {
               </div>
               <div className="md:col-start-1 md:row-start-1">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary z-10 hidden md:block" />
-                <Card className="relative overflow-hidden h-48 hover:shadow-lg transition-shadow">
+                <div className="relative overflow-hidden rounded-xl h-48">
                   <img src={testimonialJournal} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
+                  <div className="absolute inset-0 bg-gradient-to-l from-background via-background/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent" />
                   <div className="relative p-8 z-10 flex flex-col items-end text-right h-full justify-center">
                     <Badge className="mb-4 drop-shadow-md">Denné návyky</Badge>
                     <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
                       "Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom. Malé každodenné kroky vedú k veľkým zmenám."
                     </p>
                   </div>
-                </Card>
+                </div>
               </div>
             </motion.div>
 
@@ -498,16 +500,17 @@ const Index = () => {
               </div>
               <div className="md:col-start-2">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary z-10 hidden md:block" />
-                <Card className="relative overflow-hidden h-48 hover:shadow-lg transition-shadow">
+                <div className="relative overflow-hidden rounded-xl h-48">
                   <img src={testimonialPeriod} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
-                  <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/40 to-background/70" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-l from-background/80 to-transparent" />
                   <div className="relative p-8 z-10 flex flex-col items-start text-left h-full justify-center">
                     <Badge className="mb-4 drop-shadow-md">Periodka</Badge>
                     <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
                       "Jednoducho a anonymne sleduj svoju periodu. Vždy budeš vedieť, čo ťa čaká a lepšie porozumieš svojmu telu."
                     </p>
                   </div>
-                </Card>
+                </div>
               </div>
             </motion.div>
           </div>
