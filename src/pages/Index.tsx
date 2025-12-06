@@ -230,7 +230,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="relative">
-                <div className="hidden md:block absolute -left-12 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-primary z-10" />
+                <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary z-10" style={{ left: 'calc(-2rem - 6px)' }} />
                 <Card className="relative overflow-hidden border-primary/20">
                   <img src={testimonialWorkout} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
                   <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
@@ -282,7 +282,7 @@ const Index = () => {
                 </ul>
               </div>
               <div className="relative md:row-start-1 md:col-start-1">
-                <div className="hidden md:block absolute -right-12 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-primary z-10" />
+                <div className="hidden md:block absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary z-10" style={{ right: 'calc(-2rem - 6px)' }} />
                 <Card className="relative p-0 overflow-hidden bg-gradient-to-br from-accent/10 to-primary/10 border-primary/20 min-h-[180px]">
                   <img src={testimonialRecipe} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
@@ -336,7 +336,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="relative">
-                <div className="hidden md:block absolute -left-12 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-primary z-10" />
+                <div className="hidden md:block absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary z-10" style={{ left: 'calc(-2rem - 6px)' }} />
                 <Card className="relative p-0 overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 min-h-[180px]">
                   <img src={testimonialMeditation} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
                   <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
@@ -388,7 +388,7 @@ const Index = () => {
                 </ul>
               </div>
               <div className="relative md:row-start-1 md:col-start-1">
-                <div className="hidden md:block absolute -right-12 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-primary z-10" />
+                <div className="hidden md:block absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary z-10" style={{ right: 'calc(-2rem - 6px)' }} />
                 <Card className="relative p-0 overflow-hidden bg-gradient-to-br from-accent/10 to-primary/10 border-primary/20 min-h-[180px]">
                   <img src={testimonialCommunity} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
