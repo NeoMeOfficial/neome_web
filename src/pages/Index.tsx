@@ -231,17 +231,16 @@ const Index = () => {
               </div>
               {/* Dot on vertical line */}
               <div className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary z-10" />
-              <div className="relative">
-                <Card className="relative overflow-hidden border-primary/20">
-                  <img src={testimonialWorkout} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
-                  <div className="relative p-8 z-10">
-                    <Badge className="mb-4 drop-shadow-md">Cvičenie</Badge>
-                    <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
-                      "Nemusíš sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel."
-                    </p>
-                  </div>
-                </Card>
+              <div className="relative overflow-hidden rounded-xl min-h-[180px]">
+                <img src={testimonialWorkout} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-l from-background/80 to-transparent" />
+                <div className="relative p-8 z-10">
+                  <Badge className="mb-4 drop-shadow-md">Cvičenie</Badge>
+                  <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
+                    "Nemusíš sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel."
+                  </p>
+                </div>
               </div>
             </motion.div>
 
@@ -284,17 +283,16 @@ const Index = () => {
                   </li>
                 </ul>
               </div>
-              <div className="relative md:row-start-1 md:col-start-1">
-                <Card className="relative p-0 overflow-hidden bg-gradient-to-br from-accent/10 to-primary/10 border-primary/20 min-h-[180px]">
-                  <img src={testimonialRecipe} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
-                  <div className="relative p-8 z-10 flex flex-col items-end text-right">
-                    <Badge className="mb-4 drop-shadow-md">Strava</Badge>
-                    <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
-                      "Konečne recepty, ktoré sú zdravé, ale jednoduché. A moje deti ich jedia!"
-                    </p>
-                  </div>
-                </Card>
+              <div className="relative md:row-start-1 md:col-start-1 overflow-hidden rounded-xl min-h-[180px]">
+                <img src={testimonialRecipe} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
+                <div className="absolute inset-0 bg-gradient-to-l from-background via-background/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent" />
+                <div className="relative p-8 z-10 flex flex-col items-end text-right">
+                  <Badge className="mb-4 drop-shadow-md">Strava</Badge>
+                  <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
+                    "Konečne recepty, ktoré sú zdravé, ale jednoduché. A moje deti ich jedia!"
+                  </p>
+                </div>
               </div>
             </motion.div>
 
@@ -339,17 +337,16 @@ const Index = () => {
                   </ul>
                 </div>
               </div>
-              <div className="relative">
-                <Card className="relative p-0 overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 min-h-[180px]">
-                  <img src={testimonialMeditation} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
-                  <div className="relative p-8 z-10">
-                    <Badge className="mb-4 drop-shadow-md">Myseľ</Badge>
-                    <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
-                      "Meditácie mi pomohli nájsť pokoj, ktorý som stratila. Už sa necítim tak preťažená."
-                    </p>
-                  </div>
-                </Card>
+              <div className="relative overflow-hidden rounded-xl min-h-[180px]">
+                <img src={testimonialMeditation} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-l from-background/80 to-transparent" />
+                <div className="relative p-8 z-10">
+                  <Badge className="mb-4 drop-shadow-md">Myseľ</Badge>
+                  <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
+                    "Meditácie mi pomohli nájsť pokoj, ktorý som stratila. Už sa necítim tak preťažená."
+                  </p>
+                </div>
               </div>
             </motion.div>
 
@@ -392,17 +389,16 @@ const Index = () => {
                   </li>
                 </ul>
               </div>
-              <div className="relative md:row-start-1 md:col-start-1">
-                <Card className="relative p-0 overflow-hidden bg-gradient-to-br from-accent/10 to-primary/10 border-primary/20 min-h-[180px]">
-                  <img src={testimonialCommunity} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
-                  <div className="relative p-8 z-10 flex flex-col items-end text-right">
-                    <Badge className="mb-4 drop-shadow-md">Komunita</Badge>
-                    <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
-                      "Komunita je najlepšia časť. Konečne som našla ženy, ktoré ma chápú."
-                    </p>
-                  </div>
-                </Card>
+              <div className="relative md:row-start-1 md:col-start-1 overflow-hidden rounded-xl min-h-[180px]">
+                <img src={testimonialCommunity} alt="" className="absolute inset-0 w-full h-full object-cover object-left" />
+                <div className="absolute inset-0 bg-gradient-to-l from-background via-background/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent" />
+                <div className="relative p-8 z-10 flex flex-col items-end text-right">
+                  <Badge className="mb-4 drop-shadow-md">Komunita</Badge>
+                  <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
+                    "Komunita je najlepšia časť. Konečne som našla ženy, ktoré ma chápú."
+                  </p>
+                </div>
               </div>
             </motion.div>
 
