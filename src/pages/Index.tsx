@@ -239,7 +239,7 @@ const Index = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
                   <div className="relative p-8 z-10">
-                    <span className="text-sm font-medium mb-4 block drop-shadow-md" style={{ color: '#89B0BC' }}>Cvičenie</span>
+                    <Badge className="mb-4 drop-shadow-md">Cvičenie</Badge>
                     <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
                       "Nemusíš sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel."
                     </p>
@@ -295,7 +295,7 @@ const Index = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
                   <div className="relative p-8 z-10 flex flex-col items-end text-right">
-                    <span className="text-sm font-medium mb-4 block drop-shadow-md" style={{ color: '#89B0BC' }}>Strava</span>
+                    <Badge className="mb-4 drop-shadow-md">Strava</Badge>
                     <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
                       "Konečne recepty, ktoré sú zdravé, ale jednoduché. A moje deti ich jedia!"
                     </p>
@@ -353,7 +353,7 @@ const Index = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
                   <div className="relative p-8 z-10">
-                    <span className="text-sm font-medium mb-4 block drop-shadow-md" style={{ color: '#89B0BC' }}>Myseľ</span>
+                    <Badge className="mb-4 drop-shadow-md">Myseľ</Badge>
                     <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
                       "Meditácie mi pomohli nájsť pokoj, ktorý som stratila. Už sa necítim tak preťažená."
                     </p>
@@ -409,7 +409,7 @@ const Index = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
                   <div className="relative p-8 z-10 flex flex-col items-end text-right">
-                    <span className="text-sm font-medium mb-4 block drop-shadow-md" style={{ color: '#89B0BC' }}>Komunita</span>
+                    <Badge className="mb-4 drop-shadow-md">Komunita</Badge>
                     <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
                       "Komunita je najlepšia časť. Konečne som našla ženy, ktoré ma chápú."
                     </p>
@@ -450,7 +450,7 @@ const Index = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
                   <div className="relative p-8 z-10">
-                    <span className="text-sm font-medium mb-4 block drop-shadow-md" style={{ color: '#89B0BC' }}>Extras</span>
+                    <Badge className="mb-4 drop-shadow-md">Extras</Badge>
                     <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
                       "Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing. Objavuj nové cvičebné postupy."
                     </p>
@@ -489,7 +489,7 @@ const Index = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
                   <div className="relative p-8 z-10 flex flex-col items-end text-right h-full justify-center">
-                    <span className="text-sm font-medium mb-4 block drop-shadow-md" style={{ color: '#89B0BC' }}>Denné návyky</span>
+                    <Badge className="mb-4 drop-shadow-md">Denné návyky</Badge>
                     <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
                       "Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom. Malé každodenné kroky vedú k veľkým zmenám."
                     </p>
@@ -530,7 +530,7 @@ const Index = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/40 to-background/70" />
                   <div className="relative p-8 z-10 flex flex-col items-start text-left h-full justify-center">
-                    <span className="text-sm font-medium mb-4 block drop-shadow-md" style={{ color: '#89B0BC' }}>Periodka</span>
+                    <Badge className="mb-4 drop-shadow-md">Periodka</Badge>
                     <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
                       "Jednoducho a anonymne sleduj svoju periodu. Vždy budeš vedieť, čo ťa čaká a lepšie porozumieš svojmu telu."
                     </p>
