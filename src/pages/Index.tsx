@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, CheckCircle, Sparkle } from "@phosphor-icons/react";
-import { Star, Play, Heart, Check, Dumbbell } from "lucide-react";
+import { Star, Play, Heart, Check, Dumbbell, BookOpen } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-yoga.jpg";
@@ -12,6 +12,7 @@ import testimonialRecipe from "@/assets/testimonial-recipe.jpg";
 import testimonialMeditation from "@/assets/testimonial-meditation.jpg";
 import testimonialCommunity from "@/assets/testimonial-community.png";
 import testimonialExtras from "@/assets/testimonial-extras.jpg";
+import testimonialJournal from "@/assets/testimonial-journal.jpg";
 import appMockup1 from "@/assets/app-mockup-1.png";
 import appMockup2 from "@/assets/app-mockup-2.png";
 import appMockupMind from "@/assets/app-mockup-mind.png";
@@ -479,10 +480,19 @@ const Index = () => {
               </div>
               <div className="md:col-start-1 md:row-start-1">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 hidden md:block" />
-                <Card className="p-6 hover:shadow-lg transition-shadow flex flex-col items-end text-right">
-                  <p className="text-sm italic text-foreground max-w-[280px] font-medium">
-                    "Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom. Malé každodenné kroky vedú k veľkým zmenám."
-                  </p>
+                <Card className="relative overflow-hidden h-48 hover:shadow-lg transition-shadow">
+                  <img 
+                    src={testimonialJournal} 
+                    alt="" 
+                    className="absolute inset-0 w-full h-full object-cover object-left"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
+                  <div className="relative p-8 z-10 flex flex-col items-end text-right h-full justify-center">
+                    <BookOpen size={28} className="text-primary mb-4 drop-shadow-md" />
+                    <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
+                      "Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom. Malé každodenné kroky vedú k veľkým zmenám."
+                    </p>
+                  </div>
                 </Card>
               </div>
             </motion.div>
