@@ -291,8 +291,8 @@ const Index = () => {
                     alt="" 
                     className="absolute inset-0 w-full h-full object-cover object-left"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
-                  <div className="relative p-8 z-10">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/40 to-background/70" />
+                  <div className="relative p-8 z-10 flex flex-col items-end text-right">
                     <Sparkle size={28} className="text-primary mb-4 drop-shadow-md" />
                     <p className="text-sm italic text-foreground max-w-[280px] font-medium drop-shadow-sm [text-shadow:_0_1px_8px_rgb(255_255_255_/_80%)]">
                       "Konečne recepty, ktoré sú zdravé, ale jednoduché. A moje deti ich jedia!"
@@ -479,11 +479,9 @@ const Index = () => {
               </div>
               <div className="md:col-start-1 md:row-start-1">
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 hidden md:block" />
-                <Card className="p-6 hover:shadow-lg transition-shadow">
-                  <p className="text-muted-foreground leading-relaxed">
-                    Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom. 
-                    Zapisuj si reflexie, sleduj svoje pocity a vytváraj si priestor pre osobný rast. 
-                    Malé každodenné kroky vedú k veľkým zmenám.
+                <Card className="p-6 hover:shadow-lg transition-shadow flex flex-col items-end text-right">
+                  <p className="text-sm italic text-foreground max-w-[280px] font-medium">
+                    "Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom. Malé každodenné kroky vedú k veľkým zmenám."
                   </p>
                 </Card>
               </div>
