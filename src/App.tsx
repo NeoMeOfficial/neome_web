@@ -9,6 +9,7 @@ import SocialProofNotification from "@/components/SocialProofNotification";
 import Index from "./pages/Index";
 import HomeShort from "./pages/HomeShort";
 import Blog from "./pages/Blog";
+import BlogEditor from "./pages/BlogEditor";
 import About from "./pages/About";
 import OAplikacii from "./pages/OAplikacii";
 import Contact from "./pages/Contact";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/home-shorter" element={<HomeShort />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/editor" element={<BlogEditor />} />
           <Route path="/o-nas" element={<About />} />
           <Route path="/o-aplikacii" element={<OAplikacii />} />
           <Route path="/kontakt" element={<Contact />} />
