@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      app_settings: {
+        Row: {
+          created_at: string
+          id: string
+          key: string
+          updated_at: string
+          value: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          key: string
+          updated_at?: string
+          value?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          key?: string
+          updated_at?: string
+          value?: string | null
+        }
+        Relationships: []
+      }
       blog_posts: {
         Row: {
           category: string
@@ -55,25 +79,34 @@ export type Database = {
           amount: number | null
           city: string
           created_at: string
+          email: string | null
           first_name: string
           id: string
           product_name: string
+          program_id: string | null
+          subscription_type: string | null
         }
         Insert: {
           amount?: number | null
           city: string
           created_at?: string
+          email?: string | null
           first_name: string
           id?: string
           product_name?: string
+          program_id?: string | null
+          subscription_type?: string | null
         }
         Update: {
           amount?: number | null
           city?: string
           created_at?: string
+          email?: string | null
           first_name?: string
           id?: string
           product_name?: string
+          program_id?: string | null
+          subscription_type?: string | null
         }
         Relationships: []
       }

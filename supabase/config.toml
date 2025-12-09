@@ -2,3 +2,6 @@ project_id = "jqyqyiwkiygaafovxpvv"
 
 [functions.fetch-google-reviews]
 verify_jwt = false
+
+[functions.checkout-webhook]
+verify_jwt = false
