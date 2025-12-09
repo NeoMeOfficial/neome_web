@@ -112,15 +112,47 @@ export default function Checkout() {
       // Extract first name
       const firstName = formData.name.split(" ")[0];
 
-      // Record the purchase
+      // Record the purchase with program and subscription info
       const { error } = await supabase.from("purchases").insert({
         first_name: firstName,
         city: formData.city,
         product_name: "NeoMe Premium",
-        amount: selectedPlan.totalAmount
+        amount: selectedPlan.totalAmount,
+        program_id: selectedProgram,
+        subscription_type: subscriptionPeriod,
+        email: formData.email
       });
 
       if (error) throw error;
+
+      // Trigger webhook with checkout data
+      const checkoutData = {
+        customer: {
+          name: formData.name,
+          email: formData.email,
+          city: formData.city
+        },
+        program: {
+          id: selectedProgram,
+          title: selectedProgramData?.title || '',
+          level: selectedProgramData?.level || 0
+        },
+        subscription: {
+          type: subscriptionPeriod,
+          price: selectedPlan.price,
+          total: selectedPlan.total
+        },
+        timestamp: new Date().toISOString()
+      };
+
+      // Call webhook edge function (don't block checkout on webhook failure)
+      supabase.functions.invoke('checkout-webhook', {
+        body: checkoutData
+      }).then(response => {
+        console.log('Webhook response:', response);
+      }).catch(err => {
+        console.error('Webhook error:', err);
+      });
 
       toast({
         title: "Ďakujeme za objednávku!",
