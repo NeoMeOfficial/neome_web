@@ -6,17 +6,17 @@ export const ComparisonSection = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const comparisons = [{
     number: "1",
-    title: "NeoMe vs. Gym členstvo",
+    title: "NeoMe alebo členstvo v gyme?",
     summary: "Šetrenie času a nákladov - cvič z pohodlia domova, kedykoľvek potrebuješ, bez mesačných poplatkov.",
     advantages: ["Šetrenie času - žiadne cestovanie, cvič kedykoľvek", "Z pohodlia domova - bez hanby či stresu z verejného priestoru", "Flexibilita - pauza kedykoľvek potrebuješ (deti, práca)", "Cenovo efektívne - žiadne mesačné vysoké poplatky", "Priateľské k mamičkám - cvič s deťmi doma"]
   }, {
     number: "2",
-    title: "NeoMe vs. Osobný tréner",
+    title: "NeoMe alebo osobný tréner?",
     summary: "Expert-designed programy za zlomok ceny osobného trénera, k dispozícii 24/7 priamo v tvojom mobile.",
     advantages: ["Expert-designed programy od profesionálky s 15-ročnou praxou", "Zlomok ceny osobného trénera", "K dispozícii 24/7 - nie podľa kalendára trénera", "Vždy po ruke - v mobile, bez dohadovania termínov", "Prispôsobené špecificky ženám a mamičkám"]
   }, {
     number: "3",
-    title: "NeoMe vs. Iné fitness aplikácie",
+    title: "NeoMe alebo iné fitness aplikácie?",
     summary: "Holistický prístup v slovenskom jazyku - špecificky pre mamičky a ženy, s aktívnou komunitou.",
     advantages: ["Špecificky pre mamičky a ženy - nie generické fitness", "Holistický prístup - telo + myseľ + komunita", "V slovenskom jazyku - rozumieš každému slovu", "Aktívna komunita - podpora skutočných žien", "Hormonálna rovnováha - nie len chudnutie", "Recepty pre celú rodinu - nie extrémy", "Meditácie a mindfulness - nie len cviky"]
   }];
