@@ -43,7 +43,7 @@ export const ComparisonSection = () => {
         </motion.div>
 
         {/* Main Grid Layout */}
-        <div className="grid lg:grid-cols-[500px_1fr] gap-8 lg:gap-12 items-start">
+        <div className="grid lg:grid-cols-[500px_1fr] gap-8 lg:gap-12 items-center">
           {/* Left Side - Clickable Options */}
           <motion.div className="space-y-3" initial={{
           opacity: 0,
