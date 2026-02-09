@@ -163,11 +163,11 @@ export const AppOverview = () => {
                     alt={activeFeature.badge}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent lg:bg-gradient-to-t lg:from-black/70 lg:via-black/30 lg:to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-background/40" />
                   
                   {/* Quote overlay on image */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                    <blockquote className="text-white text-lg md:text-xl font-light italic leading-relaxed [text-shadow:_0_2px_12px_rgb(0_0_0_/_60%),_0_1px_3px_rgb(0_0_0_/_40%)]">
+                    <blockquote className="text-white text-lg md:text-xl font-light italic leading-relaxed drop-shadow-lg">
                       "{activeFeature.quote}"
                     </blockquote>
                   </div>
