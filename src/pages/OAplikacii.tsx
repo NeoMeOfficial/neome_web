@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { HowItWorks } from "@/components/HowItWorks";
-import { AppFeaturesTabs } from "@/components/AppFeaturesTabs";
+import { AppOverview } from "@/components/AppOverview";
 import { ArrowRight, Star, Play, Heart, Sparkle, CheckCircle, Check } from "lucide-react";
 import testimonialMartina from "@/assets/testimonial-martina.jpg";
 import testimonialLucia from "@/assets/testimonial-lucia.jpg";
@@ -315,12 +315,8 @@ const OAplikacii = () => {
       {/* How It Works Section */}
       <HowItWorks />
 
-      {/* What's in the App - Tabs Section */}
-      <section className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-b from-section-white to-transparent">
-        <div className="container mx-auto max-w-6xl">
-          <AppFeaturesTabs />
-        </div>
-      </section>
+      {/* What's in the App - Full Overview Section */}
+      <AppOverview />
 
       {/* Testimonials Section with Background Layers */}
       <section id="testimonials" className="relative py-12 md:py-16 px-4 md:px-8 overflow-hidden">
