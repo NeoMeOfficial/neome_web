@@ -31,12 +31,8 @@ export const HowItWorks = () => {
   return <section id="ako-to-funguje" className="relative py-20 md:py-28 px-4 md:px-8 overflow-hidden">
       {/* Core Exercise Background with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={lifestyleCoreExercise} 
-          alt="" 
-          className="w-full h-full object-cover object-center opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/40" />
+        <img src={lifestyleCoreExercise} alt="" className="w-full h-full object-cover object-center opacity-20" />
+        
       </div>
       
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -56,12 +52,8 @@ export const HowItWorks = () => {
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {holisticBenefits.map((benefit, index) => {
-            const Icon = benefit.icon;
-            return (
-              <Card 
-                key={index} 
-                className="p-8 rounded-2xl border-border/30 hover:border-primary/50 transition-all relative overflow-hidden backdrop-blur-md bg-background/70 hover:bg-background/80 shadow-xl hover:shadow-2xl group"
-              >
+          const Icon = benefit.icon;
+          return <Card key={index} className="p-8 rounded-2xl border-border/30 hover:border-primary/50 transition-all relative overflow-hidden backdrop-blur-md bg-background/70 hover:bg-background/80 shadow-xl hover:shadow-2xl group">
                 <div className="relative z-10">
                   <div className="w-16 h-16 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <Icon size={32} className="text-primary" />
@@ -71,20 +63,17 @@ export const HowItWorks = () => {
                     {benefit.description}
                   </p>
                   <ul className="space-y-3">
-                    {benefit.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
+                    {benefit.features.map((feature, idx) => <li key={idx} className="flex items-start gap-3">
                         <CheckCircle size={20} className="text-primary mt-0.5 flex-shrink-0" />
                         <span className="text-sm leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
                 
                 {/* Subtle gradient overlay on card */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-30 -z-10`} />
-              </Card>
-            );
-          })}
+              </Card>;
+        })}
         </div>
 
         {/* Clear Value Proposition */}
