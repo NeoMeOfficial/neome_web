@@ -90,6 +90,9 @@ const OAplikacii = () => {
         </div>
       </section>
 
+      {/* What's in the App - Full Overview Section */}
+      <AppOverview />
+
       {/* Empathy Quote Section */}
       
 
@@ -314,9 +317,6 @@ const OAplikacii = () => {
 
       {/* How It Works Section */}
       <HowItWorks />
-
-      {/* What's in the App - Full Overview Section */}
-      <AppOverview />
 
       {/* Testimonials Section with Background Layers */}
       <section id="testimonials" className="relative py-12 md:py-16 px-4 md:px-8 overflow-hidden">
