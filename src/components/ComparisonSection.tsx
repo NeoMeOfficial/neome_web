@@ -87,9 +87,6 @@ export const ComparisonSection = () => {
         }}>
             <Card className="overflow-hidden border border-border/20 bg-white/90 backdrop-blur-sm shadow-2xl sticky top-24">
             <div className="p-6 md:p-8">
-              {/* Header */}
-              <h3 className="text-2xl font-normal mb-6">{selectedComparison.title}</h3>
-
               {/* NeoMe Advantages */}
               <div className="bg-primary/5 rounded-xl p-5 mb-6">
                 <ul className="space-y-3">
