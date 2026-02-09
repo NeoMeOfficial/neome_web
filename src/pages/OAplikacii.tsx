@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AppOverview } from "@/components/AppOverview";
-import { ArrowRight, Star, Play, Heart, CheckCircle, Check } from "lucide-react";
+import { ArrowRight, Star, Play, Heart, CheckCircle, Check, Sparkle } from "lucide-react";
 import testimonialMartina from "@/assets/testimonial-martina.jpg";
 import testimonialLucia from "@/assets/testimonial-lucia.jpg";
 import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
