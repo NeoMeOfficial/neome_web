@@ -167,7 +167,7 @@ export const AppOverview = () => {
                   
                   {/* Quote overlay on image */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                    <blockquote className="text-white text-lg md:text-xl font-light italic leading-relaxed drop-shadow-lg">
+                  <blockquote className="text-primary text-lg md:text-xl font-light italic leading-relaxed drop-shadow-lg">
                       "{activeFeature.quote}"
                     </blockquote>
                   </div>
