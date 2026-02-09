@@ -65,9 +65,7 @@ export const ComparisonSection = () => {
                     <h3 className={`font-medium text-sm mb-1 ${isSelected ? 'text-primary-foreground' : 'text-foreground'}`}>
                       {comparison.title}
                     </h3>
-                    <p className={`text-xs line-clamp-2 ${isSelected ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
-                      {comparison.summary}
-                    </p>
+                    
                   </div>
                 </button>;
           })}
