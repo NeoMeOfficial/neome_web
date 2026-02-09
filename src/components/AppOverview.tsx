@@ -1,12 +1,9 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
-import { cn } from "@/lib/utils";
 
-// Import images
 import testimonialWorkout from "@/assets/testimonial-workout.jpg";
 import testimonialRecipe from "@/assets/testimonial-recipe.jpg";
 import testimonialMeditation from "@/assets/testimonial-meditation.jpg";
@@ -15,19 +12,7 @@ import testimonialExtras from "@/assets/testimonial-extras.jpg";
 import testimonialJournal from "@/assets/testimonial-journal.jpg";
 import testimonialPeriod from "@/assets/testimonial-period.jpg";
 
-interface AppFeature {
-  id: string;
-  badge: string;
-  title: string;
-  highlight: string;
-  description: string;
-  features: string[];
-  quote: string;
-  image: string;
-  link: string;
-}
-
-const appFeatures: AppFeature[] = [
+const appFeatures = [
   {
     id: "cvicenie",
     badge: "Cvičenie",
@@ -108,9 +93,6 @@ const appFeatures: AppFeature[] = [
 ];
 
 export const AppOverview = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeFeature = appFeatures[activeIndex];
-
   return (
     <section className="py-20 md:py-28 px-4 md:px-8">
       <div className="container mx-auto max-w-7xl">
@@ -127,111 +109,78 @@ export const AppOverview = () => {
           </p>
         </div>
 
-        {/* Navigation Pills */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {appFeatures.map((feature, index) => (
-            <button
-              key={feature.id}
-              onClick={() => setActiveIndex(index)}
-              className={cn(
-                "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
-                activeIndex === index
-                  ? "bg-primary text-primary-foreground shadow-lg scale-105"
-                  : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              {feature.badge}
-            </button>
-          ))}
-        </div>
+        {/* All features stacked */}
+        <div className="space-y-12 md:space-y-16">
+          {appFeatures.map((feature, index) => {
+            const imageFirst = index % 2 === 0;
 
-        {/* Feature Display */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-          >
-            <Card className="overflow-hidden border-border/20 bg-white shadow-xl rounded-3xl">
-              <div className="grid lg:grid-cols-2">
-                {/* Image Side */}
-                <div className="relative h-[300px] lg:h-[500px] overflow-hidden">
-                  <img
-                    src={activeFeature.image}
-                    alt={activeFeature.badge}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-background/40" />
-                  
-                  {/* Quote overlay on image */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                  <blockquote className="text-primary text-lg md:text-xl font-light italic leading-relaxed drop-shadow-lg">
-                      "{activeFeature.quote}"
-                    </blockquote>
+            return (
+              <motion.div
+                key={feature.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <Card className="overflow-hidden border-border/20 bg-white shadow-xl rounded-3xl">
+                  <div className={`grid lg:grid-cols-2 ${!imageFirst ? "lg:[direction:rtl]" : ""}`}>
+                    {/* Image Side */}
+                    <div className="relative h-[300px] lg:h-[480px] overflow-hidden lg:[direction:ltr]">
+                      <img
+                        src={feature.image}
+                        alt={feature.badge}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-background/40" />
+
+                      {/* Quote overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+                        <blockquote className="text-primary text-lg md:text-xl font-light italic leading-relaxed drop-shadow-lg">
+                          "{feature.quote}"
+                        </blockquote>
+                      </div>
+                    </div>
+
+                    {/* Content Side */}
+                    <div className="p-8 lg:p-12 flex flex-col justify-center lg:[direction:ltr]">
+                      <Badge className="w-fit mb-4 bg-primary/10 text-primary border-0">
+                        {feature.badge}
+                      </Badge>
+
+                      <h3 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 leading-tight">
+                        {feature.title}{" "}
+                        <span className="gradient-text font-normal">{feature.highlight}</span>
+                      </h3>
+
+                      <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                        {feature.description}
+                      </p>
+
+                      {/* Features List */}
+                      <div className="space-y-3 mb-8">
+                        {feature.features.map((feat, i) => (
+                          <div key={i} className="flex items-center gap-3">
+                            <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                              <Check size={14} className="text-primary" />
+                            </div>
+                            <span className="text-foreground">{feat}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* CTA Button */}
+                      <Button asChild size="lg" className="w-fit">
+                        <a href={feature.link}>
+                          Zistiť viac
+                          <ArrowRight size={18} className="ml-2" />
+                        </a>
+                      </Button>
+                    </div>
                   </div>
-                </div>
-
-                {/* Content Side */}
-                <div className="p-8 lg:p-12 flex flex-col justify-center">
-                  <Badge className="w-fit mb-4 bg-primary/10 text-primary border-0">
-                    {activeFeature.badge}
-                  </Badge>
-                  
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 leading-tight">
-                    {activeFeature.title}{" "}
-                    <span className="gradient-text font-normal">{activeFeature.highlight}</span>
-                  </h3>
-                  
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                    {activeFeature.description}
-                  </p>
-
-                  {/* Features List */}
-                  <div className="space-y-3 mb-8">
-                    {activeFeature.features.map((feature, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.1, duration: 0.3 }}
-                        className="flex items-center gap-3"
-                      >
-                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                          <Check size={14} className="text-primary" />
-                        </div>
-                        <span className="text-foreground">{feature}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* CTA Button */}
-                  <Button asChild size="lg" className="w-fit">
-                    <a href={activeFeature.link}>
-                      Zistiť viac
-                      <ArrowRight size={18} className="ml-2" />
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Progress Dots - Mobile */}
-        <div className="flex justify-center gap-2 mt-8 lg:hidden">
-          {appFeatures.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveIndex(index)}
-              className={cn(
-                "h-2 rounded-full transition-all duration-300",
-                activeIndex === index ? "w-8 bg-primary" : "w-2 bg-border hover:bg-primary/40"
-              )}
-              aria-label={`Go to feature ${index + 1}`}
-            />
-          ))}
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
