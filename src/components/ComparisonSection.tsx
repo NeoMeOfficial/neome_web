@@ -88,7 +88,7 @@ export const ComparisonSection = () => {
             <Card className="overflow-hidden border border-border/20 bg-white/90 backdrop-blur-sm shadow-2xl sticky top-24">
             <div className="p-6 md:p-8">
               {/* NeoMe Advantages */}
-              <div className="bg-primary/5 rounded-xl p-5 mb-6">
+              <div className="bg-primary/5 rounded-xl p-5">
                 <ul className="space-y-3">
                   {selectedComparison.advantages.map((advantage, i) => <li key={i} className="flex items-start gap-3 text-sm text-foreground">
                       <CheckCircle size={18} className="text-primary flex-shrink-0 mt-0.5" />
