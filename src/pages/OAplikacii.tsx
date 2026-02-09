@@ -1,9 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
 import { AppOverview } from "@/components/AppOverview";
-import { ArrowRight, Star, Play, Heart, Sparkle, CheckCircle, Check } from "lucide-react";
+import { ArrowRight, Star, Play, Heart, CheckCircle, Check } from "lucide-react";
 import testimonialMartina from "@/assets/testimonial-martina.jpg";
 import testimonialLucia from "@/assets/testimonial-lucia.jpg";
 import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
@@ -536,7 +535,7 @@ const OAplikacii = () => {
       <section className="py-16 md:py-20 px-4 md:px-8">
         <div className="container mx-auto max-w-4xl text-center">
           <Card className="rounded-3xl shadow-xl p-12 md:p-16 bg-gradient-to-br from-primary/10 to-accent/20 border-primary/20">
-            <Sparkle size={56} className="text-primary mx-auto mb-6" />
+            
             <h2 className="text-4xl md:text-5xl font-light mb-6">
               Aj ty si dôležitá. Aj ty máš právo byť prioritou.
             </h2>
