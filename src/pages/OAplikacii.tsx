@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { HowItWorks } from "@/components/HowItWorks";
+
 import { AppOverview } from "@/components/AppOverview";
 import { ArrowRight, Star, Play, Heart, Sparkle, CheckCircle, Check } from "lucide-react";
 import testimonialMartina from "@/assets/testimonial-martina.jpg";
@@ -315,8 +315,6 @@ const OAplikacii = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <HowItWorks />
 
       {/* Testimonials Section with Background Layers */}
       <section id="testimonials" className="relative py-12 md:py-16 px-4 md:px-8 overflow-hidden">
