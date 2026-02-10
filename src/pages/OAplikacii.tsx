@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AppOverview } from "@/components/AppOverview";
-import { ArrowRight, Star, Play, Heart, CheckCircle, Check, Sparkle } from "lucide-react";
+import { ArrowRight, Star, Play, Heart, Check } from "lucide-react";
 import testimonialMartina from "@/assets/testimonial-martina.jpg";
 import testimonialLucia from "@/assets/testimonial-lucia.jpg";
 import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
@@ -22,22 +22,6 @@ const OAplikacii = () => {
     setCurrentVideoTitle(title);
     setVideoModalOpen(true);
   };
-  const trustPoints = [{
-    icon: Heart,
-    title: "Nie si v tom sama",
-    description: "Pripoj sa k 4000+ ženám, ktoré už našli svoju cestu späť k sebe.",
-    quote: "Si žena, ktorá každý deň niečo nesie. Nie vždy je to vidieť, ale ty vieš, aké je to ťažké. A predsa ideš ďalej."
-  }, {
-    icon: Sparkle,
-    title: "Realita, nie dokonalosť",
-    description: "Cvičíme medzi realitou. S telefónom, čo pípa. S deťmi, ktoré skáču. A aj tak to funguje.",
-    quote: "Nezáleží na tom, či to vyzerá dobre. Záleží na tom, že to robíš pre seba."
-  }, {
-    icon: CheckCircle,
-    title: "Systém, ktorý funguje",
-    description: "Aj 15 minút denne má väčší zmysel ako dokonalé nič. NeoMe ti pomôže vytvoriť návyk, ktorý zostane.",
-    quote: "Motivácia prichádza a odchádza. Ale rutina, ktorú si vytvoríš z láskavosti k sebe, ostáva."
-  }];
   return <div className="min-h-screen">
       <VideoPlayerModal isOpen={videoModalOpen} onClose={() => setVideoModalOpen(false)} videoId={currentVideoId} videoTitle={currentVideoTitle} />
 
@@ -95,71 +79,6 @@ const OAplikacii = () => {
       {/* Empathy Quote Section */}
       
 
-      {/* Why NeoMe - Image & Content Grid */}
-      <section className="py-20 md:py-28 px-4 md:px-8 pt-[133px]">
-        <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-light mb-6">
-              Prečo práve <span className="gradient-text font-normal">NeoMe</span>?
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Lebo rozumieme tomu, čo prežívaš. A vieme, že zmena začína malými krokmi.
-            </p>
-          </div>
-
-          {/* Split Layout with Image */}
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
-            <motion.div initial={{
-            opacity: 0,
-            x: -30
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.6
-          }} className="relative rounded-2xl overflow-hidden aspect-[4/5]">
-              <img src={lifestyleCoreWorkout} alt="Žena cvičiaca s odhodlaním" className="w-full h-full object-cover" />
-            </motion.div>
-
-            <div className="space-y-8">
-              {trustPoints.map((point, index) => {
-              const Icon = point.icon;
-              return <motion.div key={index} initial={{
-                opacity: 0,
-                y: 20
-              }} whileInView={{
-                opacity: 1,
-                y: 0
-              }} viewport={{
-                once: true
-              }} transition={{
-                duration: 0.5,
-                delay: index * 0.1
-              }}>
-                    <Card className="p-6 rounded-xl border-border/20 hover:border-primary/30 transition-all hover:shadow-lg group">
-                      <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                          <Icon size={24} className="text-primary" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-lg font-medium mb-2">{point.title}</h3>
-                          <p className="text-muted-foreground text-sm mb-3 leading-relaxed">
-                            {point.description}
-                          </p>
-                          <blockquote className="text-xs italic text-muted-foreground/70 border-l-2 border-primary/30 pl-3">
-                            "{point.quote}"
-                          </blockquote>
-                        </div>
-                      </div>
-                    </Card>
-                  </motion.div>;
-            })}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Real Women Section - Magazine Style */}
       <section className="py-20 md:py-28 px-4 md:px-8 bg-gradient-to-b from-section-white/50 to-transparent">
