@@ -129,17 +129,15 @@ export const AppOverview = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="flex items-end gap-4 md:gap-6"
+                  className="space-y-1"
                 >
                   <span className="text-6xl md:text-8xl font-extralight text-primary/15 leading-none">
                     {feature.number}
                   </span>
-                  <div className="flex items-center gap-4 flex-1 pb-2">
-                    <span className="text-2xl md:text-3xl font-light text-foreground whitespace-nowrap">
-                      {feature.badge}
-                    </span>
-                    <div className="h-px bg-border flex-1" />
-                  </div>
+                  <span className="text-3xl md:text-5xl font-normal text-foreground block">
+                    {feature.badge}
+                  </span>
+                  <div className="h-px bg-border w-full !mt-4" />
                 </motion.div>
 
                 {/* Card */}
