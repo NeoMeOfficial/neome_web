@@ -15,6 +15,7 @@ import testimonialPeriod from "@/assets/testimonial-period.jpg";
 const appFeatures = [
   {
     id: "cvicenie",
+    number: "01",
     badge: "Cvičenie",
     title: "Programy šité",
     highlight: "na mieru",
@@ -26,6 +27,7 @@ const appFeatures = [
   },
   {
     id: "strava",
+    number: "02",
     badge: "Strava",
     title: "Zdravé recepty pre",
     highlight: "reálny život",
@@ -37,6 +39,7 @@ const appFeatures = [
   },
   {
     id: "mysel",
+    number: "03",
     badge: "Myseľ",
     title: "Vnútorný pokoj",
     highlight: "každý deň",
@@ -48,6 +51,7 @@ const appFeatures = [
   },
   {
     id: "komunita",
+    number: "04",
     badge: "Komunita",
     title: "Nie si v tom",
     highlight: "sama",
@@ -59,6 +63,7 @@ const appFeatures = [
   },
   {
     id: "extras",
+    number: "05",
     badge: "Extras",
     title: "Doplnkové cvičenia",
     highlight: "a strečing",
@@ -70,6 +75,7 @@ const appFeatures = [
   },
   {
     id: "navyky",
+    number: "06",
     badge: "Denné návyky",
     title: "Denník návykov",
     highlight: "a reflexií",
@@ -81,6 +87,7 @@ const appFeatures = [
   },
   {
     id: "periodka",
+    number: "07",
     badge: "Periodka",
     title: "Sledovanie",
     highlight: "menštruačného cyklu",
@@ -115,13 +122,33 @@ export const AppOverview = () => {
             const imageFirst = index % 2 === 0;
 
             return (
-              <motion.div
-                key={feature.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-              >
+              <div key={feature.id} className="space-y-6">
+                {/* Editorial Section Header */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="flex items-end gap-4 md:gap-6"
+                >
+                  <span className="text-6xl md:text-8xl font-extralight text-primary/15 leading-none">
+                    {feature.number}
+                  </span>
+                  <div className="flex items-center gap-4 flex-1 pb-2">
+                    <span className="text-2xl md:text-3xl font-light text-foreground whitespace-nowrap">
+                      {feature.badge}
+                    </span>
+                    <div className="h-px bg-border flex-1" />
+                  </div>
+                </motion.div>
+
+                {/* Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                >
                 <Card className="overflow-hidden border-border/20 bg-white shadow-xl rounded-3xl">
                   <div className={`grid lg:grid-cols-2 ${!imageFirst ? "lg:[direction:rtl]" : ""}`}>
                     {/* Image Side */}
@@ -178,7 +205,8 @@ export const AppOverview = () => {
                     </div>
                   </div>
                 </Card>
-              </motion.div>
+                </motion.div>
+              </div>
             );
           })}
         </div>
