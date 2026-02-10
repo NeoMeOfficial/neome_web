@@ -170,9 +170,6 @@ export const AppOverview = () => {
 
                     {/* Content Side */}
                     <div className="p-8 lg:p-12 flex flex-col justify-center lg:[direction:ltr]">
-                      <Badge className="w-fit mb-4 bg-primary/10 text-primary border-0">
-                        {feature.badge}
-                      </Badge>
 
                       <h3 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 leading-tight">
                         {feature.title}{" "}
