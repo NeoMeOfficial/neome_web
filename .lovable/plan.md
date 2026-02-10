@@ -1,35 +1,48 @@
 
 
 ## Goal
-Make the category name (e.g. "Cvičenie") more prominent and visually distinct in the editorial section headers, so it doesn't get lost next to the oversized number.
+Add a prominent, visually distinct section divider/label for each category (Cvicenie, Strava, Mysel, Komunita, etc.) so users clearly see when they scroll into a new part of the app overview.
 
-## Proposed Approach: Stack Number Above Name
+## Design Approach: Full-Width Category Header with Number + Decorative Line
 
-Instead of placing the number and name side-by-side (where the large faded number dominates), stack them vertically -- number on top as a subtle label, category name below it in a larger, bolder style, with the decorative line underneath.
+Before each card, add a full-width header strip that includes:
+- A large step number (01, 02, 03...) in a light, oversized font for modern visual impact
+- The category name displayed prominently
+- A thin decorative horizontal line extending from the text to the edge
+- Subtle scroll-reveal animation
+
+This creates a magazine/editorial feel where each section is clearly delineated.
 
 ```text
-  01
-  Cvičenie
-  ─────────────────────────────
+  01 ─────────────────────────
+  Cvicenie
 
-  [  Card  ]
+  [  Card with image + content  ]
+
+
+  02 ─────────────────────────
+  Strava
+
+  [  Card with image + content  ]
 ```
 
-## Visual Details
+## Technical Details
 
-- **Number**: Keep `text-6xl md:text-8xl font-extralight text-primary/15` but as a top label
-- **Category name**: Increase to `text-3xl md:text-5xl font-normal text-foreground` -- larger and slightly heavier weight so it clearly reads as the section title
-- **Decorative line**: Moves below both elements as a full-width separator
-- **Layout**: Switch from `flex items-end` (horizontal) to a vertical stack with tight spacing
+**File: `src/components/AppOverview.tsx`**
 
-## Technical Changes
+1. Add a `number` field to each feature in `appFeatures` array (formatted as "01", "02", etc.)
 
-**File: `src/components/AppOverview.tsx`** (lines 132-142)
+2. Before each `<Card>`, render a section header inside the existing `motion.div`:
+   - Large number in `text-6xl md:text-8xl font-extralight text-primary/15` (very light, oversized)
+   - Category badge name in `text-2xl md:text-3xl font-light text-foreground` next to or below the number
+   - A horizontal `<div>` line using `h-px bg-border flex-1` stretching to the right
+   - The number and name sit on the left, the line extends right -- creating a clean editorial separator
 
-Replace the current horizontal flex layout with a vertical stack:
-- Change container from `flex items-end gap-4 md:gap-6` to `space-y-1`
-- Move the number span above the name (keep existing styling)
-- Bump the category name from `text-2xl md:text-3xl font-light` to `text-3xl md:text-5xl font-normal`
-- Place the decorative `h-px` line below both, full-width (remove the inner flex wrapper)
+3. The layout per feature becomes:
+   - Step number + category name + decorative line (the new divider)
+   - Existing Card with image/content (unchanged)
 
-No new files or dependencies needed. Single file change.
+4. Add staggered animation: the divider fades in slightly before the card
+
+No new files, no new dependencies. Only changes to `AppOverview.tsx`.
+
