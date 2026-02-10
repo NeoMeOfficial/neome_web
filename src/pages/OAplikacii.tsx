@@ -281,27 +281,6 @@ const OAplikacii = () => {
             </motion.div>
           </div>
 
-          {/* Simple Text Section */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8
-        }} className="mt-16 text-center">
-            <Card className="p-12 md:p-16 rounded-3xl bg-gradient-to-br from-primary/5 to-accent/5 border-border/20">
-              <p className="text-3xl md:text-5xl font-light text-foreground mb-6">
-                V každej fáze tvojho života
-              </p>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-                Či si mamička, kariéristka, alebo niekde medzi tým – NeoMe je tu pre teba.
-              </p>
-            </Card>
-          </motion.div>
         </div>
       </section>
 
