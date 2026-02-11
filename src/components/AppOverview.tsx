@@ -109,7 +109,7 @@ export const AppOverview = () => {
             Čo v aplikácii nájdeš
           </Badge>
           <h2 className="text-4xl md:text-6xl font-light mb-6">
-            <span className="text-2xl md:text-3xl lg:text-4xl block mb-2">Začni budovať svoju Novú Ja už dnes.</span><span className="gradient-text font-normal">SILNÚ – ZDRAVÚ – SEBAVEDOMÚ.</span>
+            <span className="text-2xl md:text-3xl lg:text-4xl block mb-2">Začni budovať svoju Novú Ja už dnes.</span><span className="gradient-text font-normal">SILNÚ – ZDRAVÚ – SEBAVEDOMÚ</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Komplexná starostlivosť o tvoje telo a myseľ.
 Navrhnutá pre skutočné ženy.
