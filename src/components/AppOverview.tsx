@@ -13,91 +13,91 @@ import testimonialJournal from "@/assets/testimonial-journal.jpg";
 import testimonialPeriod from "@/assets/testimonial-period.jpg";
 
 const appFeatures = [
-  {
-    id: "cvicenie",
-    number: "01",
-    badge: "Cvičenie",
-    title: "Programy šité",
-    highlight: "na mieru",
-    description: "Od post-partum po body-forming. Každý program je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
-    features: ["15-30 minútové tréningy", "Pre všetky úrovne", "Žiadne vybavenie"],
-    quote: "Nemusíš sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel.",
-    image: testimonialWorkout,
-    link: "/cvicenie"
-  },
-  {
-    id: "strava",
-    number: "02",
-    badge: "Strava",
-    title: "Zdravé recepty pre",
-    highlight: "reálny život",
-    description: "Jednoduché, chutné recepty, ktoré pripravíš aj s deťmi okolo. Bez extrémov, s láskyplným prístupom k strave.",
-    features: ["Rýchle a jednoduché", "Pre celú rodinu", "S nutričnými hodnotami"],
-    quote: "Konečne recepty, ktoré sú zdravé, ale jednoduché. A moje deti ich jedia!",
-    image: testimonialRecipe,
-    link: "/strava"
-  },
-  {
-    id: "mysel",
-    number: "03",
-    badge: "Myseľ",
-    title: "Vnútorný pokoj",
-    highlight: "každý deň",
-    description: "Meditácie, dychové cvičenia a mindfulness techniky, ktoré ti pomôžu nájsť kľud aj v chaose každodenného života.",
-    features: ["Vedené meditácie", "Dychové cvičenia", "5-15 minút"],
-    quote: "Meditácie mi pomohli nájsť pokoj, ktorý som stratila. Už sa necítim tak preťažená.",
-    image: testimonialMeditation,
-    link: "/mysel"
-  },
-  {
-    id: "komunita",
-    number: "04",
-    badge: "Komunita",
-    title: "Nie si v tom",
-    highlight: "sama",
-    description: "Pripoj sa k tisíckam žien, ktoré sa navzájom podporujú, inšpirujú a vytvárajú priestor bez súdenia.",
-    features: ["Súkromná FB skupina", "Live Q&A s Gabi", "Vzájomná podpora"],
-    quote: "Komunita je najlepšia časť. Konečne som našla ženy, ktoré ma chápú.",
-    image: testimonialCommunity,
-    link: "/komunita"
-  },
-  {
-    id: "extras",
-    number: "05",
-    badge: "Extras",
-    title: "Doplnkové cvičenia",
-    highlight: "a strečing",
-    description: "Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing.",
-    features: ["Špecializované workouty", "Mobilita a flexibilita", "Bonusový obsah"],
-    quote: "Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing.",
-    image: testimonialExtras,
-    link: "/extras"
-  },
-  {
-    id: "navyky",
-    number: "06",
-    badge: "Denné návyky",
-    title: "Denník návykov",
-    highlight: "a reflexií",
-    description: "Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom. Malé každodenné kroky vedú k veľkým zmenám.",
-    features: ["Sledovanie pokroku", "Denné reflexie", "Motivácia"],
-    quote: "Malé každodenné kroky vedú k veľkým zmenám.",
-    image: testimonialJournal,
-    link: "/extras"
-  },
-  {
-    id: "periodka",
-    number: "07",
-    badge: "Periodka",
-    title: "Sledovanie",
-    highlight: "menštruačného cyklu",
-    description: "Jednoducho a anonymne sleduj svoju periodu. Vždy budeš vedieť, čo ťa čaká a lepšie porozumieš svojmu telu.",
-    features: ["Anonymné sledovanie", "Predpovede cyklu", "Pochopenie tela"],
-    quote: "Vždy budeš vedieť, čo ťa čaká a lepšie porozumieš svojmu telu.",
-    image: testimonialPeriod,
-    link: "/extras"
-  }
-];
+{
+  id: "cvicenie",
+  number: "01",
+  badge: "Cvičenie",
+  title: "Programy šité",
+  highlight: "na mieru",
+  description: "Od post-partum po body-forming. Každý program je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
+  features: ["15-30 minútové tréningy", "Pre všetky úrovne", "Žiadne vybavenie"],
+  quote: "Nemusíš sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel.",
+  image: testimonialWorkout,
+  link: "/cvicenie"
+},
+{
+  id: "strava",
+  number: "02",
+  badge: "Strava",
+  title: "Zdravé recepty pre",
+  highlight: "reálny život",
+  description: "Jednoduché, chutné recepty, ktoré pripravíš aj s deťmi okolo. Bez extrémov, s láskyplným prístupom k strave.",
+  features: ["Rýchle a jednoduché", "Pre celú rodinu", "S nutričnými hodnotami"],
+  quote: "Konečne recepty, ktoré sú zdravé, ale jednoduché. A moje deti ich jedia!",
+  image: testimonialRecipe,
+  link: "/strava"
+},
+{
+  id: "mysel",
+  number: "03",
+  badge: "Myseľ",
+  title: "Vnútorný pokoj",
+  highlight: "každý deň",
+  description: "Meditácie, dychové cvičenia a mindfulness techniky, ktoré ti pomôžu nájsť kľud aj v chaose každodenného života.",
+  features: ["Vedené meditácie", "Dychové cvičenia", "5-15 minút"],
+  quote: "Meditácie mi pomohli nájsť pokoj, ktorý som stratila. Už sa necítim tak preťažená.",
+  image: testimonialMeditation,
+  link: "/mysel"
+},
+{
+  id: "komunita",
+  number: "04",
+  badge: "Komunita",
+  title: "Nie si v tom",
+  highlight: "sama",
+  description: "Pripoj sa k tisíckam žien, ktoré sa navzájom podporujú, inšpirujú a vytvárajú priestor bez súdenia.",
+  features: ["Súkromná FB skupina", "Live Q&A s Gabi", "Vzájomná podpora"],
+  quote: "Komunita je najlepšia časť. Konečne som našla ženy, ktoré ma chápú.",
+  image: testimonialCommunity,
+  link: "/komunita"
+},
+{
+  id: "extras",
+  number: "05",
+  badge: "Extras",
+  title: "Doplnkové cvičenia",
+  highlight: "a strečing",
+  description: "Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing.",
+  features: ["Špecializované workouty", "Mobilita a flexibilita", "Bonusový obsah"],
+  quote: "Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing.",
+  image: testimonialExtras,
+  link: "/extras"
+},
+{
+  id: "navyky",
+  number: "06",
+  badge: "Denné návyky",
+  title: "Denník návykov",
+  highlight: "a reflexií",
+  description: "Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom. Malé každodenné kroky vedú k veľkým zmenám.",
+  features: ["Sledovanie pokroku", "Denné reflexie", "Motivácia"],
+  quote: "Malé každodenné kroky vedú k veľkým zmenám.",
+  image: testimonialJournal,
+  link: "/extras"
+},
+{
+  id: "periodka",
+  number: "07",
+  badge: "Periodka",
+  title: "Sledovanie",
+  highlight: "menštruačného cyklu",
+  description: "Jednoducho a anonymne sleduj svoju periodu. Vždy budeš vedieť, čo ťa čaká a lepšie porozumieš svojmu telu.",
+  features: ["Anonymné sledovanie", "Predpovede cyklu", "Pochopenie tela"],
+  quote: "Vždy budeš vedieť, čo ťa čaká a lepšie porozumieš svojmu telu.",
+  image: testimonialPeriod,
+  link: "/extras"
+}];
+
 
 export const AppOverview = () => {
   return (
@@ -111,8 +111,8 @@ export const AppOverview = () => {
           <h2 className="text-4xl md:text-6xl font-light mb-6">
             Všetko pre tvoju <span className="gradient-text font-normal">transformáciu</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Komplexná starostlivosť o telo, myseľ a ducha – navrhnutá pre skutočné ženy
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Komplexná starostlivosť o tvoje telo a myseľ.
+Navrhnutá pre skutočné ženy.
           </p>
         </div>
 
@@ -129,8 +129,8 @@ export const AppOverview = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="flex items-end gap-4 md:gap-6"
-                >
+                  className="flex items-end gap-4 md:gap-6">
+
                   <span className="text-6xl md:text-8xl font-extralight text-primary/15 leading-none">
                     {feature.number}
                   </span>
@@ -147,17 +147,17 @@ export const AppOverview = () => {
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-                >
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}>
+
                 <Card className="overflow-hidden border-border/20 bg-white shadow-xl rounded-3xl">
                   <div className={`grid lg:grid-cols-2 ${!imageFirst ? "lg:[direction:rtl]" : ""}`}>
                     {/* Image Side */}
                     <div className="relative h-[300px] lg:h-[480px] overflow-hidden lg:[direction:ltr]">
                       <img
-                        src={feature.image}
-                        alt={feature.badge}
-                        className="w-full h-full object-cover"
-                      />
+                          src={feature.image}
+                          alt={feature.badge}
+                          className="w-full h-full object-cover" />
+
                       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-background/40" />
 
                       {/* Quote overlay */}
@@ -182,14 +182,14 @@ export const AppOverview = () => {
 
                       {/* Features List */}
                       <div className="space-y-3 mb-8">
-                        {feature.features.map((feat, i) => (
+                        {feature.features.map((feat, i) =>
                           <div key={i} className="flex items-center gap-3">
                             <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                               <Check size={14} className="text-primary" />
                             </div>
                             <span className="text-foreground">{feat}</span>
                           </div>
-                        ))}
+                          )}
                       </div>
 
                       {/* CTA Button */}
@@ -203,11 +203,11 @@ export const AppOverview = () => {
                   </div>
                 </Card>
                 </motion.div>
-              </div>
-            );
+              </div>);
+
           })}
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
