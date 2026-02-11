@@ -17,7 +17,7 @@ const appFeatures = [
   id: "cvicenie",
   number: "01",
   badge: "Cvičenie",
-  title: "Programy šité",
+  title: "Online programy",
   highlight: "na mieru",
   description: "Či už si po pôrode alebo chceš formovať telo do plaviek.\nKaždý program je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
   features: ["15-30 minútové tréningy", "Pre všetky úrovne", "Žiadne vybavenie"],
