@@ -45,8 +45,7 @@ const OAplikacii = () => {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-[1.1]">
                 Pomôžeme ti začať tam, kde si.<span className="gradient-text font-normal mt-3 block text-2xl md:text-4xl lg:text-5xl">Každý deň aspoň 15-min pre seba!</span>
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">Začni budovať svoju Novú Ja už dnes.
-SILNÚ -  ZDRAVÚ -  SEBAVEDOMÚ.
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">Každý deň aspoň 15-min pre seba!
             </p>
               
 
