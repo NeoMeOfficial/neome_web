@@ -18,7 +18,7 @@ const appFeatures = [
   number: "01",
   badge: "Cvičenie",
   title: "Online programy",
-  highlight: "na mieru",
+  highlight: "pre zaneprázdnenú ženu",
   description: "Či už si po pôrode alebo chceš formovať telo do plaviek.\nKaždý program je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
   features: ["15-30 minútové tréningy", "Pre všetky úrovne", "Žiadne vybavenie"],
   quote: "Nemusíš sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel.",
