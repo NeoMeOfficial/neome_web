@@ -43,7 +43,7 @@ const OAplikacii = () => {
                 O aplikácii NeoMe
               </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-[1.1]">
-                Pomôžeme ti začať tam, kde si. Začni<br /><span className="gradient-text font-normal">s 15-min denne.</span>
+                Pomôžeme ti začať tam, kde si. <span className="gradient-text font-normal">Začni</span><br /><span className="gradient-text font-normal">s 15-min denne.</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">Začni budovať svoju Novú Ja už dnes.
 SILNÚ -  ZDRAVÚ -  SEBAVEDOMÚ.
