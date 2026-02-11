@@ -172,7 +172,8 @@ Navrhnutá pre skutočné ženy.
                     <div className="p-8 lg:p-12 flex flex-col justify-center lg:[direction:ltr]">
 
                       <h3 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 leading-tight">
-                        {feature.title}{" "}
+                        {feature.title}
+                        <br />
                         <span className="gradient-text font-normal">{feature.highlight}</span>
                       </h3>
 
