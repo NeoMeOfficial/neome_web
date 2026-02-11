@@ -20,7 +20,7 @@ const appFeatures = [
   title: "Online programy",
   highlight: "pre busy ženy",
   description: "Či už si po pôrode alebo chceš formovať telo do plaviek.\nKaždý program je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
-  features: ["15-minútové tréningy", "Pre všetky úrovne", "Žiadne vybavenie"],
+  features: ["15-minútové tréningy", "Pre všetky úrovne", "Z pohodlia domova"],
   quote: "Nemusíš sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel.",
   image: testimonialWorkout,
   link: "/cvicenie"
