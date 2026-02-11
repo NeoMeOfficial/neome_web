@@ -45,12 +45,12 @@ const OAplikacii = () => {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-[1.1]">
                 Pomôžeme ti začať tam, kde si. <span className="gradient-text font-normal block mt-2">Aj 15 minút sa počíta.</span>
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">Začni budovať svoju Novú Ja -
-silnú, zdravú a sebavedomú už dnes.
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">Začni budovať svoju Novú Ja už dnes -
+SILNÚ -  ZDRAVÚ -  SEBAVEDOMÚ.
             </p>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                Si len človek, ktorý už príliš dlho ignoruje vlastné potreby. NeoMe ti pomôže vrátiť sa k sebe – jemne, reálne a bez tlaku.
-              </p>
+              
+
+
             </motion.div>
 
             {/* Right Image */}
