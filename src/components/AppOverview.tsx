@@ -112,7 +112,7 @@ export const AppOverview = () => {
           <h2 className="text-4xl md:text-6xl font-light mb-2">Buduj svoju
             <span className="gradient-text font-normal"> Novú Ja</span>
           </h2>
-          <p className="text-2xl md:text-3xl font-light text-muted-foreground mb-6">Silnú – Zdravú – Sebavedomú</p>
+          <p className="text-2xl md:text-3xl font-light mb-6"><span className="gradient-text">Silnú – Zdravú – Sebavedomú</span></p>
         </div>
 
         {/* All features stacked */}
