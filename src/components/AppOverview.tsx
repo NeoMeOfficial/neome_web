@@ -21,7 +21,7 @@ const appFeatures = [
   highlight: "na mieru",
   description: "Od post-partum po body-forming. Každý program je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
   features: ["15-30 minútové tréningy", "Pre všetky úrovne", "Žiadne vybavenie"],
-  quote: "Venovať si 15-min každý deň nie je veľa, avšak má to fantastické účinky na moje telo aj myseľ.",
+  quote: "Venovať si 15-min nie je veľa.  Keď to je však pravidelne - každý deň, má to fantastické účinky na moje telo aj myseľ.",
   image: testimonialWorkout,
   link: "/cvicenie"
 },
