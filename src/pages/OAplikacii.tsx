@@ -10,11 +10,11 @@ const OAplikacii = () => {
   return <div className="min-h-screen">
       {/* Hero Section - Fullscreen with background image */}
       <section className="relative min-h-screen flex items-center pt-20 px-0 md:px-4 overflow-hidden shadow-lg" style={{
-        backgroundImage: `url(${heroImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center top',
-        backgroundRepeat: 'no-repeat'
-      }}>
+      backgroundImage: `url(${heroImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center top',
+      backgroundRepeat: 'no-repeat'
+    }}>
         {/* Gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
         
@@ -32,8 +32,9 @@ const OAplikacii = () => {
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-7xl font-light mb-6 leading-tight text-white">
-              Pomôžeme ti začať<br />
+            <h1 className="text-4xl md:text-7xl font-light mb-6 leading-tight text-white">Pomôžem ti získať pevné telo a
+pokojnú myseľ.
+            <br />
               <span className="text-white font-normal">tam, kde si.</span>
             </h1>
             
@@ -84,6 +85,5 @@ const OAplikacii = () => {
           </Card>
         </div>
       </section>
-    </div>;
-};
+    </div>;};
 export default OAplikacii;
