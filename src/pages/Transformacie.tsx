@@ -66,9 +66,6 @@ const Transformacie = () => {
             <h2 className="text-3xl md:text-5xl font-light text-center mb-4">
               Príbehy, ktoré inšpirujú
             </h2>
-            <p className="text-lg md:text-xl text-center text-muted-foreground mb-16">
-              Skutočné ženy, skutočné výsledky.
-            </p>
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* Testimonial 1 */}
