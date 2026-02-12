@@ -11,26 +11,26 @@ import { useState, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 
-import t1Before from "@/assets/transformation-1-before.jpg";
-import t1After from "@/assets/transformation-1-after.jpg";
-import t2Before from "@/assets/transformation-2-before.jpg";
-import t2After from "@/assets/transformation-2-after.jpg";
-import t3Before from "@/assets/transformation-3-before.jpg";
-import t3After from "@/assets/transformation-3-after.jpg";
-import t4Before from "@/assets/transformation-4-before.jpg";
-import t4After from "@/assets/transformation-4-after.jpg";
-import t5Before from "@/assets/transformation-5-before.jpg";
-import t5After from "@/assets/transformation-5-after.jpg";
-import t6Before from "@/assets/transformation-6-before.jpg";
-import t6After from "@/assets/transformation-6-after.jpg";
+import lauraBefore from "@/assets/transformation-laura-before.jpg";
+import lauraAfter from "@/assets/transformation-laura-after.jpg";
+import anonBefore from "@/assets/transformation-anon-before.jpg";
+import anonAfter from "@/assets/transformation-anon-after.jpg";
+import danielkaCombined from "@/assets/transformation-danielka.png";
+import eliskaCombined from "@/assets/transformation-eliska.jpg";
+import katarinaCombined from "@/assets/transformation-katarina.webp";
+import simonaCombined from "@/assets/transformation-simona.jpg";
 
-const transformations = [
-  { name: "Martina, 34", desc: "Po 6 mesiacoch pravidelnosti", before: t1Before, after: t1After, tags: ["Pevnejšie telo", "Viac energie"] },
-  { name: "Lucia, 29", desc: "Po 5 mesiacoch s NeoMe", before: t2Before, after: t2After, tags: ["Lepšie držanie tela", "Menej bolesti chrbta"] },
-  { name: "Zuzana, 41", desc: "Po 8 mesiacoch cvičenia", before: t3Before, after: t3After, tags: ["Silnejší stred", "Pokojnejšia myseľ"] },
-  { name: "Katarína, 36", desc: "Po 6 mesiacoch tréningov", before: t4Before, after: t4After, tags: ["Lepšie držanie tela", "Viac sily"] },
-  { name: "Jana, 38", desc: "Po 7 mesiacoch s aplikáciou", before: t5Before, after: t5After, tags: ["Viac sebavedomia", "Lepší spánok"] },
-  { name: "Petra, 32", desc: "Po 5 mesiacoch zmeny", before: t6Before, after: t6After, tags: ["Pevnejšie brucho", "Zdravšie návyky"] },
+type Transformation = 
+  | { type: "separate"; name: string; desc: string; before: string; after: string; tags: string[] }
+  | { type: "combined"; name: string; desc: string; image: string; tags: string[] };
+
+const transformations: Transformation[] = [
+  { type: "separate", name: "Laura", desc: "Po 4 mesiacoch s NeoMe PP a BF", before: lauraBefore, after: lauraAfter, tags: ["Postpartum program", "Bodyforming"] },
+  { type: "combined", name: "Danielka", desc: "Výsledok PP po 2 mesiacoch", image: danielkaCombined, tags: ["Postpartum program", "2 mesiace"] },
+  { type: "separate", name: "Klientka NeoMe", desc: "Premena s NeoMe", before: anonBefore, after: anonAfter, tags: ["Viditeľné výsledky"] },
+  { type: "combined", name: "Eliška", desc: "Premena s NeoMe", image: eliskaCombined, tags: ["Pevnejšie telo"] },
+  { type: "combined", name: "Katarína", desc: "Progres s NeoMe", image: katarinaCombined, tags: ["Viditeľný progres"] },
+  { type: "combined", name: "Simona", desc: "Postpartum premena", image: simonaCombined, tags: ["Postpartum program"] },
 ];
 
 const Transformacie = () => {
@@ -215,18 +215,22 @@ const Transformacie = () => {
                   {transformations.map((t, i) => (
                     <div key={i} className="min-w-0 shrink-0 grow-0 basis-full md:basis-1/2 lg:basis-1/3 pl-4">
                       <Card className="rounded-2xl overflow-hidden shadow-lg border-border/20">
-                        <div className="flex">
-                          {/* Before */}
-                          <div className="relative w-1/2">
-                            <img src={t.before} alt={`${t.name} pred`} className="w-full aspect-[3/4] object-cover" />
-                            <span className="absolute top-2 left-2 bg-foreground/80 text-background text-xs font-medium px-2 py-1 rounded">PRED</span>
+                        {t.type === "separate" ? (
+                          <div className="flex">
+                            <div className="relative w-1/2">
+                              <img src={t.before} alt={`${t.name} pred`} className="w-full aspect-[3/4] object-cover" />
+                              <span className="absolute top-2 left-2 bg-foreground/80 text-background text-xs font-medium px-2 py-1 rounded">PRED</span>
+                            </div>
+                            <div className="relative w-1/2">
+                              <img src={t.after} alt={`${t.name} po`} className="w-full aspect-[3/4] object-cover" />
+                              <span className="absolute top-2 right-2 bg-primary text-primary-foreground text-xs font-medium px-2 py-1 rounded">PO</span>
+                            </div>
                           </div>
-                          {/* After */}
-                          <div className="relative w-1/2">
-                            <img src={t.after} alt={`${t.name} po`} className="w-full aspect-[3/4] object-cover" />
-                            <span className="absolute top-2 right-2 bg-primary text-primary-foreground text-xs font-medium px-2 py-1 rounded">PO</span>
+                        ) : (
+                          <div className="relative">
+                            <img src={t.image} alt={`${t.name} premena`} className="w-full aspect-[3/4] object-cover" />
                           </div>
-                        </div>
+                        )}
                         <div className="p-4">
                           <h3 className="font-medium text-base">{t.name}</h3>
                           <p className="text-sm text-muted-foreground mb-2">{t.desc}</p>
