@@ -179,9 +179,6 @@ const Transformacie = () => {
             <h2 className="text-4xl md:text-5xl font-light text-center mb-4">
               Pozri ich transformácie
             </h2>
-            <p className="text-xl text-center text-muted-foreground mb-16">
-              Nech ich príbehy ťa inšpirujú k vlastnej zmene.
-            </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div
