@@ -63,7 +63,7 @@ const Transformacie = () => {
 
         <div className="container mx-auto max-w-7xl relative z-10">
           <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-white border-border/10">
-            <h2 className="text-3xl md:text-5xl font-light text-center mb-4">
+            <h2 className="text-3xl md:text-5xl font-light text-center mb-12">
               Príbehy, ktoré inšpirujú
             </h2>
 
