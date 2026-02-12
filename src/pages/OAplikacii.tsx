@@ -32,9 +32,7 @@ const OAplikacii = () => {
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-7xl font-light mb-6 leading-tight text-white">Pomôžem ti
-byť FIT.
-          </h1>
+            <h1 className="text-4xl md:text-7xl font-light mb-6 leading-tight text-white">Pomôžem ti<br />byť FIT.<br />Fyzicky aj mentálne.</h1>
             
             <p className="text-lg md:text-2xl mb-8 font-light text-white">Začni s 15-minútami denne a<br />buduj udržateľné zmeny</p>
 
