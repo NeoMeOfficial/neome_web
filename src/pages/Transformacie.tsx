@@ -25,12 +25,12 @@ import t6Before from "@/assets/transformation-6-before.jpg";
 import t6After from "@/assets/transformation-6-after.jpg";
 
 const transformations = [
-  { name: "Martina, 34", desc: "Po 3 mesiacoch cvičenia", before: t1Before, after: t1After, tags: ["-8 kg", "Viac energie"] },
-  { name: "Lucia, 29", desc: "Po 4 mesiacoch s NeoMe", before: t2Before, after: t2After, tags: ["Pevnejšie telo", "Menej stresu"] },
-  { name: "Zuzana, 41", desc: "Po 6 mesiacoch pravidelnosti", before: t3Before, after: t3After, tags: ["Lepšia kondícia", "Pokojnejšia myseľ"] },
-  { name: "Katarína, 36", desc: "Po 5 mesiacoch tréningov", before: t4Before, after: t4After, tags: ["-6 kg", "Silnejší core"] },
-  { name: "Jana, 38", desc: "Po 4 mesiacoch s aplikáciou", before: t5Before, after: t5After, tags: ["Lepší spánok", "Viac sebavedomia"] },
-  { name: "Petra, 32", desc: "Po 3 mesiacoch zmeny", before: t6Before, after: t6After, tags: ["-5 kg", "Zdravšie návyky"] },
+  { name: "Martina, 34", desc: "Po 6 mesiacoch pravidelnosti", before: t1Before, after: t1After, tags: ["Pevnejšie telo", "Viac energie"] },
+  { name: "Lucia, 29", desc: "Po 5 mesiacoch s NeoMe", before: t2Before, after: t2After, tags: ["Lepšie držanie tela", "Menej bolesti chrbta"] },
+  { name: "Zuzana, 41", desc: "Po 8 mesiacoch cvičenia", before: t3Before, after: t3After, tags: ["Silnejší stred", "Pokojnejšia myseľ"] },
+  { name: "Katarína, 36", desc: "Po 6 mesiacoch tréningov", before: t4Before, after: t4After, tags: ["Lepšie držanie tela", "Viac sily"] },
+  { name: "Jana, 38", desc: "Po 7 mesiacoch s aplikáciou", before: t5Before, after: t5After, tags: ["Viac sebavedomia", "Lepší spánok"] },
+  { name: "Petra, 32", desc: "Po 5 mesiacoch zmeny", before: t6Before, after: t6After, tags: ["Pevnejšie brucho", "Zdravšie návyky"] },
 ];
 
 const Transformacie = () => {
