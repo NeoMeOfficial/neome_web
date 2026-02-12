@@ -77,7 +77,7 @@ const appFeatures = [
   id: "navyky",
   number: "06",
   badge: "Denné návyky",
-  title: "Osobný denník",
+  title: "Tvoj osobný denník",
   highlight: "návykov a reflexií",
   description: "Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom.",
   features: ["Sleduj svoj progres – kroky, zdravé jedlá, cvičenie...", "Denné reflexie", "Motivácia"],
