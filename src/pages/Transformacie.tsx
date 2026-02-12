@@ -28,8 +28,8 @@ const Transformacie = () => {
         isOpen={videoModalOpen}
         onClose={() => setVideoModalOpen(false)}
         videoId={currentVideoId}
-        videoTitle={currentVideoTitle}
-      />
+        videoTitle={currentVideoTitle} />
+
 
       {/* Hero */}
       <section className="pt-24 md:pt-32 pb-12 md:pb-16 px-4 md:px-8">
@@ -37,8 +37,8 @@ const Transformacie = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+            transition={{ duration: 0.6 }}>
+
             <Badge variant="secondary" className="mb-6 px-4 py-2">
               Transformácie
             </Badge>
@@ -46,7 +46,7 @@ const Transformacie = () => {
               Skutočné ženy, <span className="gradient-text font-normal">skutočné výsledky</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              Príbehy žien, ktoré sa rozhodli investovať do seba.
+
             </p>
           </motion.div>
         </div>
@@ -81,9 +81,9 @@ const Transformacie = () => {
                   </div>
                 </div>
                 <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />
-                  ))}
+                  {[...Array(5)].map((_, i) =>
+                  <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />
+                  )}
                 </div>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   "Po narodení druhého dieťaťa som sa cítila úplne stratená. NeoMe mi pomohlo vrátiť sa k sebe bez tlaku a výčitiek. Prvýkrát sa cítim silná v tele aj v mysli."
@@ -111,9 +111,9 @@ const Transformacie = () => {
                   </div>
                 </div>
                 <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />
-                  ))}
+                  {[...Array(5)].map((_, i) =>
+                  <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />
+                  )}
                 </div>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   "Nemusím sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel. Konečne som našla niečo, čo sa hodí do môjho rýchleho života."
@@ -141,9 +141,9 @@ const Transformacie = () => {
                   </div>
                 </div>
                 <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />
-                  ))}
+                  {[...Array(5)].map((_, i) =>
+                  <Star key={i} size={16} fill="hsl(var(--primary))" className="text-primary" />
+                  )}
                 </div>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   "Meditácie a dychové cvičenia zmenili môj prístup k životu. Už sa nenechám tak ľahko rozhodiť a mám viac energie na rodinu aj biznis. Je to o celej mne, nie len o cvičení."
@@ -189,8 +189,8 @@ const Transformacie = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div
                 className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
-                onClick={() => openVideoModal("dQw4w9WgXcQ", "Martinina cesta - Ako som stratila 8 kg")}
-              >
+                onClick={() => openVideoModal("dQw4w9WgXcQ", "Martinina cesta - Ako som stratila 8 kg")}>
+
                 <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
                   <img src={testimonialMartina} alt="Martina transformation video" className="absolute inset-0 w-full h-full object-cover opacity-80" />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
@@ -209,8 +209,8 @@ const Transformacie = () => {
 
               <div
                 className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
-                onClick={() => openVideoModal("dQw4w9WgXcQ", "Luciin príbeh - 15 minút denne")}
-              >
+                onClick={() => openVideoModal("dQw4w9WgXcQ", "Luciin príbeh - 15 minút denne")}>
+
                 <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
                   <img src={testimonialLucia} alt="Lucia transformation video" className="absolute inset-0 w-full h-full object-cover opacity-80" />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
@@ -229,8 +229,8 @@ const Transformacie = () => {
 
               <div
                 className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
-                onClick={() => openVideoModal("dQw4w9WgXcQ", "Zuzanina premena - Od vyhorenia k pokoju")}
-              >
+                onClick={() => openVideoModal("dQw4w9WgXcQ", "Zuzanina premena - Od vyhorenia k pokoju")}>
+
                 <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
                   <img src={testimonialZuzana} alt="Zuzana transformation video" className="absolute inset-0 w-full h-full object-cover opacity-80" />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
@@ -329,8 +329,8 @@ const Transformacie = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>);
+
 };
 
 export default Transformacie;
