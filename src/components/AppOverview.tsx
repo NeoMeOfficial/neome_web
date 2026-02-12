@@ -17,11 +17,11 @@ const appFeatures = [
   id: "cvicenie",
   number: "01",
   badge: "Cvičenie",
-  title: "Online programy",
-  highlight: "pre busy ženy",
-  description: "Či už si po pôrode alebo chceš formovať telo do plaviek.\nKaždý program je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
-  features: ["15-minútové tréningy", "Pre všetky úrovne", "Z pohodlia domova"],
-  quote: "Cvičiť 15-minút každý deň, mi dáva omnoho viac, ako zničiť sa 1 x krát do týždňa.",
+  title: "Programy šité",
+  highlight: "na mieru",
+  description: "Od post-partum po body-forming. Každý program je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
+  features: ["15-30 minútové tréningy", "Pre všetky úrovne", "Žiadne vybavenie"],
+  quote: "Nemusíš sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel.",
   image: testimonialWorkout,
   link: "/cvicenie"
 },
@@ -108,25 +108,28 @@ export const AppOverview = () => {
           <Badge variant="secondary" className="mb-6 px-4 py-2">
             Čo v aplikácii nájdeš
           </Badge>
-          <h2 className="text-4xl md:text-6xl font-light mb-6">
-            Komplexná starostlivosť o tvoje telo a myseľ.<br /><span className="gradient-text font-normal">SILNÚ – ZDRAVÚ – SEBAVEDOMÚ</span>
+          <h2 className="text-4xl md:text-6xl font-light mb-6">Komplexná starostlivosť
+o telo a myseľ. Pre skúčné ženy
+
+SILNÚ – ZDRAVÚ – SEBAVEDOMÚ<span className="gradient-text font-normal">SILNÉ – ZDRAVÉ – SEBAVEDOMÉ</span>
           </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Komplexná starostlivosť o tvoje telo a myseľ.
+Navrhnutá pre skutočné ženy.
+          </p>
         </div>
 
         {/* All features stacked */}
         <div className="space-y-12 md:space-y-16">
-          {appFeatures.map((feature, index) => {
-            const imageFirst = index % 2 === 0;
-
-            return (
-              <div key={feature.id} className="space-y-6">
+          {appFeatures.map((feature, index) => {const imageFirst = index % 2 === 0;
+              return (
+                <div key={feature.id} className="space-y-6">
                 {/* Editorial Section Header */}
                 <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="flex items-end gap-4 md:gap-6">
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="flex items-end gap-4 md:gap-6">
 
                   <span className="text-6xl md:text-8xl font-extralight text-primary/15 leading-none">
                     {feature.number}
@@ -141,19 +144,19 @@ export const AppOverview = () => {
 
                 {/* Card */}
                 <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}>
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}>
 
                 <Card className="overflow-hidden border-border/20 bg-white shadow-xl rounded-3xl">
                   <div className={`grid lg:grid-cols-2 ${!imageFirst ? "lg:[direction:rtl]" : ""}`}>
                     {/* Image Side */}
                     <div className="relative h-[300px] lg:h-[480px] overflow-hidden lg:[direction:ltr]">
                       <img
-                          src={feature.image}
-                          alt={feature.badge}
-                          className="w-full h-full object-cover" />
+                            src={feature.image}
+                            alt={feature.badge}
+                            className="w-full h-full object-cover" />
 
                       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-background/40" />
 
@@ -169,8 +172,7 @@ export const AppOverview = () => {
                     <div className="p-8 lg:p-12 flex flex-col justify-center lg:[direction:ltr]">
 
                       <h3 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 leading-tight">
-                        {feature.title}
-                        <br />
+                        {feature.title}{" "}
                         <span className="gradient-text font-normal">{feature.highlight}</span>
                       </h3>
 
@@ -181,13 +183,13 @@ export const AppOverview = () => {
                       {/* Features List */}
                       <div className="space-y-3 mb-8">
                         {feature.features.map((feat, i) =>
-                          <div key={i} className="flex items-center gap-3">
+                            <div key={i} className="flex items-center gap-3">
                             <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                               <Check size={14} className="text-primary" />
                             </div>
                             <span className="text-foreground">{feat}</span>
                           </div>
-                          )}
+                            )}
                       </div>
 
                       {/* CTA Button */}
@@ -203,7 +205,7 @@ export const AppOverview = () => {
                 </motion.div>
               </div>);
 
-          })}
+            })}
         </div>
       </div>
     </section>);
