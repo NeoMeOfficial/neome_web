@@ -74,7 +74,8 @@ const Transformacie = () => {
               Skutočné ženy,<br /><span className="gradient-text font-normal">skutočné výsledky</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-
+              Nie rýchle zmeny za krátky čas,<br />
+              ale udržateľné zmeny, ktoré s tebou ostanú.
             </p>
           </motion.div>
         </div>
