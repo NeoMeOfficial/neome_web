@@ -105,7 +105,7 @@ export const AppOverview = () => {
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4 px-4 py-2">Čo ti NeoMe ponúka?
+          <Badge variant="secondary" className="mb-4 px-4 py-2">Čo je NeoMe?
           </Badge>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">Komplexnú starostlivosť o tvoje telo a myseľ.
           </p>
