@@ -32,7 +32,7 @@ const appFeatures = [
   title: "Zdravé recepty pre",
   highlight: "reálny život",
   description: "Jednoduché, chutné recepty, ktoré pripravíš aj s deťmi okolo. Bez extrémov, s láskyplným prístupom k strave.",
-  features: ["Rýchle a jednoduché", "Pre celú rodinu", "S nutričnými hodnotami"],
+  features: ["Rýchle a jednoduché", "Pre celú rodinu", "Chutné a výživné"],
   quote: "Konečne recepty, ktoré sú zdravé, ale jednoduché. A moje deti ich jedia!",
   image: testimonialRecipe,
   link: "/strava"
