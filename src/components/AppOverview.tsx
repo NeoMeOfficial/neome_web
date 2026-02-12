@@ -21,7 +21,7 @@ const appFeatures = [
   highlight: "pre busy ženy",
   description: "Či už si po pôrode, riešiš diastázu, alebo chceš formovať do plaviek... Každý zo 4 programov je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
   features: ["15-minútové tréningy", "Pre všetky životné fázy", "Z pohodlia domova"],
-  quote: "Venovať si 15-min netrvá dlho. Keď je to však každý deň, má to fantastické účinky na moje unavené telo a zaneprázdnenú myseľ.",
+  quote: "15 minút mi nezaberie veľa času. Keď si ich doprajem každý deň, má to fantastické účinky na moje unavené telo a zaneprázdnenú myseľ.",
   image: testimonialWorkout,
   link: "/cvicenie"
 },
