@@ -69,7 +69,7 @@ const appFeatures = [
   highlight: "a strečing",
   description: "Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing.",
   features: ["Špecializované workouty", "Mobilita a flexibilita", "Bonusový obsah"],
-  quote: "Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing.",
+  quote: "Keď mám extra čas, extra energiu alebo naopak extra pretlak... nájdem tu pre seba extra.",
   image: testimonialExtras,
   link: "/extras"
 },
