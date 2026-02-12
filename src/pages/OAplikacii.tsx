@@ -64,7 +64,7 @@ pokojnú myseľ.
               Silnú – Zdravú – Sebavedomú
             </p>
             <Button size="lg" className="text-base px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-300">
-              STIAHNI SI NeoMe APLIKÁCIU A ZAČNI
+              STIAHNI SI NEOME APLIKÁCIU A ZAČNI
               <ArrowRight size={20} className="ml-2" />
             </Button>
             <p className="text-sm text-muted-foreground mt-6">
