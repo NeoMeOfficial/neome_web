@@ -1,18 +1,23 @@
 
 
-## Uprava nadpisu v AppOverview
+## Oprava nadpisu v AppOverview
 
-Nahradim text "Komplexná starostlivosť o telo a myseľ. Pre skutočné ženy" textom "Buduj svoju Novú Ja" v nadpise `<h2>` v subore `src/components/AppOverview.tsx` (riadky 111-112).
+Aktualne je text zle - chyba "Buduj svoju Novu Ja" a texty su pomiesane. Opravim to nasledovne:
 
-Vysledny nadpis bude:
+**Vysledok:**
+- Riadok 1: **Buduj svoju Novu Ja** (cierny text, font-light)
+- Riadok 2: **silnu - zdravu - sebavedomu** (hnedy/gradient text)
 
-```
-Buduj svoju Novú Ja
-SILNÉ – ZDRAVÉ – SEBAVEDOMÉ
-```
+Tiez odstranime paragraf pod nadpisom ("Komplexna starostlivost...") ktory tam zostal.
 
 ### Technicke detaily
 
-- **Subor:** `src/components/AppOverview.tsx`, riadky 111-114
-- Zmenim obsah `<h2>` tak, ze prvy riadok bude "Buduj svoju Novú Ja" nasledovany `<br />` a gradient textom "SILNE – ZDRAVE – SEBAVEDOME"
+- **Subor:** `src/components/AppOverview.tsx`, riadky 111-116
+- Zmenim `<h2>` na:
+  ```
+  Buduj svoju Novú Ja
+  <br />
+  <span class="gradient-text">silnú – zdravú – sebavedomú</span>
+  ```
+- Odstranime `<p>` element s textom "Komplexna starostlivost..." (riadky 114-116)
 
