@@ -506,7 +506,8 @@ const OAplikacii = () => {
           <Card className="rounded-3xl shadow-xl p-12 md:p-16 bg-gradient-to-br from-primary/10 to-accent/20 border-primary/20">
             
             <h2 className="text-4xl md:text-5xl font-light mb-6">
-              Aj ty si dôležitá. Aj ty máš právo byť prioritou.
+              Začni dnes. Začni s NeoMe a krok po kroku si buduj svoju <span className="gradient-text font-normal">Novú Ja</span>.<br />
+              <span className="gradient-text font-normal">Silnú – Zdravú – Sebavedomú</span>
             </h2>
             <p className="text-xl mb-10 text-muted-foreground leading-relaxed">
               Každá transformácia začína jediným rozhodnutím.<br />
