@@ -32,10 +32,8 @@ const OAplikacii = () => {
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-7xl font-light mb-6 leading-tight text-white">Pomôžem ti získať pevné telo a
-pokojnú myseľ.
-            <br />
-              <span className="text-white font-normal">tam, kde si.</span>
+            <h1 className="text-4xl md:text-7xl font-light mb-6 leading-tight text-white">
+              Pomôžem ti získať pevné telo a pokojnú myseľ.
             </h1>
             
             <p className="text-lg md:text-2xl mb-8 font-light text-white">
