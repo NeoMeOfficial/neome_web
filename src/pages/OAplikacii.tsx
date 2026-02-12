@@ -1,53 +1,55 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { AppOverview } from "@/components/AppOverview";
 import { ArrowRight } from "lucide-react";
-import lifestyleYogaMat from "@/assets/lifestyle-yoga-mat.webp";
-import { motion } from "framer-motion";
+import { Sparkle } from "@phosphor-icons/react";
+import { Star as StarIcon } from "lucide-react";
+import heroImage from "@/assets/hero-yoga.jpg";
 
 const OAplikacii = () => {
   return <div className="min-h-screen">
-      {/* Hero Split Section */}
-      <section className="pt-24 md:pt-32">
-        <div className="container mx-auto max-w-7xl px-4 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-12rem)]">
-            {/* Left Content */}
-            <motion.div initial={{
-            opacity: 0,
-            x: -30
-          }} animate={{
-            opacity: 1,
-            x: 0
-          }} transition={{
-            duration: 0.8
-          }} className="order-2 lg:order-1">
-              <Badge variant="secondary" className="mb-6 px-4 py-2">
-                O aplikácii NeoMe
-              </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-[1.1]">
-                Pomôžeme ti začať tam, kde si.
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">Každý deň aspoň 15-min pre seba!
-            </p>
-            </motion.div>
-
-            {/* Right Image */}
-            <motion.div initial={{
-            opacity: 0,
-            x: 30
-          }} animate={{
-            opacity: 1,
-            x: 0
-          }} transition={{
-            duration: 0.8,
-            delay: 0.2
-          }} className="order-1 lg:order-2">
-              <div className="relative rounded-3xl overflow-hidden aspect-[3/4] shadow-2xl">
-                <img src={lifestyleYogaMat} alt="Žena pripravujúca podložku na cvičenie" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+      {/* Hero Section - Fullscreen with background image */}
+      <section className="relative min-h-screen flex items-center pt-20 px-0 md:px-4 overflow-hidden shadow-lg" style={{
+        backgroundImage: `url(${heroImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center top',
+        backgroundRepeat: 'no-repeat'
+      }}>
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
+        
+        <div className="container mx-auto max-w-7xl animate-slide-up relative z-10">
+          <div className="max-w-2xl">
+            {/* Stats Badges */}
+            <div className="flex flex-wrap gap-3 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm">
+                <Sparkle size={16} weight="fill" className="text-primary" />
+                <span className="text-sm font-light">4000+ žien už začalo</span>
               </div>
-            </motion.div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm">
+                <StarIcon size={16} className="text-yellow-500 fill-yellow-500" />
+                <span className="text-sm font-light">4.9 hviezdičiek z 230 hodnotení</span>
+              </div>
+            </div>
+            
+            <h1 className="text-4xl md:text-7xl font-light mb-6 leading-tight text-white">
+              Pomôžeme ti začať<br />
+              <span className="text-white font-normal">tam, kde si.</span>
+            </h1>
+            
+            <p className="text-lg md:text-2xl mb-8 font-light text-white">
+              Každý deň aspoň 15-min pre seba!
+            </p>
+
+            {/* Primary CTA */}
+            <Button size="lg" className="text-base px-8 py-6 bg-primary text-primary-foreground group hover:bg-primary/20 hover:backdrop-blur-md hover:border-primary/30 border border-transparent transition-all duration-300 mb-6">
+              STIAHNUŤ APLIKÁCIU TERAZ
+              <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            
+            <p className="text-white/90 mb-6 text-sm">
+              Vyskúšaj zadarmo 7 dní. Žiadna platobná karta potrebná.
+            </p>
           </div>
         </div>
       </section>

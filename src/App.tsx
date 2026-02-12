@@ -13,6 +13,8 @@ import Blog from "./pages/Blog";
 import BlogEditor from "./pages/BlogEditor";
 import About from "./pages/About";
 import OAplikacii from "./pages/OAplikacii";
+import PrecoNeoMe from "./pages/PrecoNeoMe";
+import Cena from "./pages/Cena";
 import Contact from "./pages/Contact";
 import Cvicenie from "./pages/Cvicenie";
 import Strava from "./pages/Strava";
@@ -37,13 +39,14 @@ const App = () => (
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<OAplikacii />} />
+            <Route path="/home-old" element={<Index />} />
             <Route path="/home-shorter" element={<HomeShort />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/editor" element={<BlogEditor />} />
+            <Route path="/preco-neome" element={<PrecoNeoMe />} />
+            <Route path="/cena" element={<Cena />} />
             <Route path="/o-nas" element={<About />} />
-            <Route path="/o-aplikacii" element={<OAplikacii />} />
-            <Route path="/kontakt" element={<Contact />} />
             <Route path="/cvicenie" element={<Cvicenie />} />
             <Route path="/strava" element={<Strava />} />
             <Route path="/mysel" element={<Mysel />} />
