@@ -37,7 +37,7 @@ pokojnú myseľ.
           </h1>
             
             <p className="text-lg md:text-2xl mb-8 font-light text-white">Začni s 15-minútami denne a
-Buduj udržateľné zmeny
+buduj udržateľné zmeny
           </p>
 
             {/* Primary CTA */}
