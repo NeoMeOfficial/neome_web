@@ -67,7 +67,7 @@ const appFeatures = [
   badge: "Extra",
   title: "Keď máš čas na",
   highlight: "\"extra\"",
-  description: "Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing.",
+  description: "Rozšír starostlivosť o seba a dopraj si niečo extra.",
   features: ["Doplnkové workouty, strečingy", "Doplnkové články, meditácie, recepty", "Bonusový obsah"],
   quote: "Keď mám extra čas, extra energiu alebo naopak extra pretlak... nájdem tu pre seba vždy niečo extra.",
   image: testimonialExtras,
