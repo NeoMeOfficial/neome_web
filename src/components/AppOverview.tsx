@@ -79,7 +79,7 @@ const appFeatures = [
   badge: "Denné návyky",
   title: "Denník návykov",
   highlight: "a reflexií",
-  description: "Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom. Malé každodenné kroky vedú k veľkým zmenám.",
+  description: "Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom.",
   features: ["Sledovanie pokroku", "Denné reflexie", "Motivácia"],
   quote: "NeoMe ma naučilo, že aj malé každodenné kroky môžu viesť k veľkým, trvalým zmenám.",
   image: testimonialJournal,
