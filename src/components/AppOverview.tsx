@@ -108,10 +108,7 @@ export const AppOverview = () => {
           <Badge variant="secondary" className="mb-6 px-4 py-2">
             Čo v aplikácii nájdeš
           </Badge>
-          <h2 className="text-4xl md:text-6xl font-light mb-6">Komplexná starostlivosť
-o telo a myseľ. Pre skutočné ženy
-
-SILNÉ – ZDRAVÉ – SEBAVEDOMÉ<span className="gradient-text font-normal">SILNÉ – ZDRAVÉ – SEBAVEDOMÉ</span>
+          <h2 className="text-4xl md:text-6xl font-light mb-6">Buduj svoju Novú Ja<br /><span className="gradient-text font-normal">SILNÉ – ZDRAVÉ – SEBAVEDOMÉ</span>
           </h2>
         </div>
 
