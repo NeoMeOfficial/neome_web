@@ -1,40 +1,41 @@
 
 
-# Skutocne fotky premien v carouseli
+# Zjednotenie fotiek v carouseli premien
 
-## Prehled
+## Problem
+Fotky v carouseli maju rozne velkosti a proporcie. Kombinovane fotky (Danielka) su ovela vyssie nez separate pary (Laura, Klientka). Vysledok vyzera nekonzistentne a "rozhazane". Navyse treba skryt tvare a pridat zjednocujuci filter.
 
-Nahradim AI-generovane placeholder fotky skutocnymi fotkami klientiek. Upravim carousel tak, aby zvladol dva typy fotiek:
-- **Kombinovane fotky** (pred/po uz v jednom obrazku): Danielka, Eliska, Katarina, Simona
-- **Samostatne pary** (dva separatne subory): Laura (zaciatok + po 4 mesiacoch) a anonymna klientka (1000009054 + 1000009069)
+## Riesenie
 
-## Mapovanie fotiek na transformacie
+### 1. Rovnaka velkost vsetkych kariet
+- Vsetky obrazky (aj combined, aj separate) budu mat fixnu vysku cez `aspect-[4/5]` na celej karte
+- Combined fotky budu mat `object-cover` a `object-position: top` aby sa orezali zhora/zdola rovnomerne
+- Separate pary budu mat rovnaky aspect ratio na kazdu polovicu
 
-| # | Meno | Typ | Subory |
-|---|------|-----|--------|
-| 1 | Laura | separatne | Laura_Karabova_-_zaciatok_PP.jpg (pred) + Laura_Karabova_po_4mesiacoch (po) |
-| 2 | anonymna | separatne | 1000009054.jpg (pred) + 1000009069.jpg (po) |
-| 3 | Danielka | kombinovany | Danielka_Gajdosikova_vysleodk_PP_po_2mesiacoch.png |
-| 4 | Eliska | kombinovany | Eliska.jpg |
-| 5 | Katarina | kombinovany | Katarina_Tomcikova_progres.webp |
-| 6 | Simona | kombinovany | Simona_Sokolova_PP.jpg |
+### 2. Skrytie tvari - gradient overlay
+- Na kazdu fotku pridam gradient overlay zhora, ktory jemne zakryje oblast tvare
+- `bg-gradient-to-b from-black/40 via-black/10 to-transparent` - tmavsi zhora (tvare), svetlejsi dole (telo)
+- Toto je elegantny sposob ako skryt tvare bez orezavania
 
-## Dizajnove riesenie
+### 3. Zjednocujuci vizualny filter
+- Pridam na vsetky fotky jemny sepiovy/hnedy filter cez CSS overlay
+- `mix-blend-mode: multiply` s jemnou hnedou farbou pre konzistentny tonalny vzhled
+- Mierne znizim saturacia cez `saturate-[0.85]` a pridam `brightness-[0.95]` pre jemnejsi vzhled
+- Vsetky fotky budu vyzerat vizualne jednotne aj ked pochadza z roznych zdrojov
 
-- **Separatne pary** (Laura, anonymna): zachovam sucasny layout - dve fotky vedla seba s labelmi PRED/PO
-- **Kombinovane fotky** (Danielka, Eliska, Katarina, Simona): zobrazim ako jednu siroku fotku na celu kartu - uz maju pred/po v sebe
+### 4. Konzistentny padding a spacing
+- Kazda karta bude mat rovnaky padding a text area pod fotkou
+- Fixna vyska textovej casti cez `min-h-[100px]`
 
-Vsetky karty budu mat konzistentny aspect ratio (3:4) a zaoblene rohy. Fotky budu orezane cez `object-fit: cover` aby boli vizualne zjednotene.
+## Technicke zmeny
 
-## Technicky plan
+### `src/pages/Transformacie.tsx`
+- Upravit renderovanie obrazkov - pridat gradient overlay div cez `absolute inset-0`
+- Pridat CSS filtre na img elementy: `saturate-[0.85] brightness-[0.95] contrast-[1.05]`
+- Zjednotit aspect ratio na `aspect-[4/5]` pre vsetky typy kariet
+- Pridat sepiovy color overlay `bg-primary/10` s `mix-blend-mode: multiply`
+- Pridat horny gradient pre zakrytie tvari
+- Pridat `min-h` na textovu cast karty pre konzistentnu vysku
 
-1. **Skopirovat 8 fotiek** z user-uploads do `src/assets/` s cistymi nazvami
-2. **Upravit data pole `transformations`** - pridat typ (combined/separate) pre kazdu transformaciu
-3. **Upravit renderovanie karty** v carouseli - podla typu zobrazit bud jednu alebo dve fotky
-4. **Aktualizovat mena a popisy** podla skutocnych mien z nazvov suborov
-
-## Subory na upravu
-
-- Kopirovat 8 fotiek do `src/assets/`
-- `src/pages/Transformacie.tsx` - aktualizovat data a renderovanie kariet
-
+## Vysledok
+Vsetky karty budu rovnako velke, fotky budu mat jemny hnedy filter pre vizualnu jednotu a tvare budu skryte pod gradientom. Celkovy dojem bude profesionalny a cistejsi.
