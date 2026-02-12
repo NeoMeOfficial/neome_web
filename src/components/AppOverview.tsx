@@ -78,7 +78,7 @@ const appFeatures = [
   number: "06",
   badge: "Osobný denník návykov",
   title: "Tvoj osobný denník",
-  highlight: "návykov a reflexií",
+  highlight: "návykov",
   description: "Buduj si zdravé návyky a trackuj svoj progres s tvojím osobným, online denníkom návykov.",
   features: ["Sleduj svoj progres – kroky, zdravé jedlá, cvičenie...", "Reflektuj – čo sa ti dnes podarilo...", "Dostávaj dennú motiváciu, ktorá ťa nakopne v dňoch, kedy to potrebuješ"],
   quote: "NeoMe ma naučilo, že aj malé každodenné kroky môžu viesť k veľkým, trvalým zmenám.",
