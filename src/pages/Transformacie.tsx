@@ -215,23 +215,29 @@ const Transformacie = () => {
                   {transformations.map((t, i) => (
                     <div key={i} className="min-w-0 shrink-0 grow-0 basis-full md:basis-1/2 lg:basis-1/3 pl-4">
                       <Card className="rounded-2xl overflow-hidden shadow-lg border-border/20">
-                        {t.type === "separate" ? (
-                          <div className="flex">
+                      {t.type === "separate" ? (
+                          <div className="flex aspect-[4/5] overflow-hidden">
                             <div className="relative w-1/2">
-                              <img src={t.before} alt={`${t.name} pred`} className="w-full aspect-[3/4] object-cover" />
-                              <span className="absolute top-2 left-2 bg-foreground/80 text-background text-xs font-medium px-2 py-1 rounded">PRED</span>
+                              <img src={t.before} alt={`${t.name} pred`} className="w-full h-full object-cover saturate-[0.85] brightness-[0.95] contrast-[1.05]" />
+                              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-transparent" />
+                              <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
+                              <span className="absolute bottom-2 left-2 bg-foreground/80 text-background text-xs font-medium px-2 py-1 rounded z-10">PRED</span>
                             </div>
                             <div className="relative w-1/2">
-                              <img src={t.after} alt={`${t.name} po`} className="w-full aspect-[3/4] object-cover" />
-                              <span className="absolute top-2 right-2 bg-primary text-primary-foreground text-xs font-medium px-2 py-1 rounded">PO</span>
+                              <img src={t.after} alt={`${t.name} po`} className="w-full h-full object-cover saturate-[0.85] brightness-[0.95] contrast-[1.05]" />
+                              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-transparent" />
+                              <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
+                              <span className="absolute bottom-2 right-2 bg-primary text-primary-foreground text-xs font-medium px-2 py-1 rounded z-10">PO</span>
                             </div>
                           </div>
                         ) : (
-                          <div className="relative">
-                            <img src={t.image} alt={`${t.name} premena`} className="w-full aspect-[3/4] object-cover" />
+                          <div className="relative aspect-[4/5] overflow-hidden">
+                            <img src={t.image} alt={`${t.name} premena`} className="w-full h-full object-cover object-top saturate-[0.85] brightness-[0.95] contrast-[1.05]" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-transparent" />
+                            <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
                           </div>
                         )}
-                        <div className="p-4">
+                        <div className="p-4 min-h-[100px]">
                           <h3 className="font-medium text-base">{t.name}</h3>
                           <p className="text-sm text-muted-foreground mb-2">{t.desc}</p>
                           <div className="flex gap-1.5 flex-wrap">
