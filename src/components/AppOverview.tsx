@@ -111,8 +111,8 @@ export const AppOverview = () => {
           <h2 className="text-4xl md:text-6xl font-light mb-6">SILNÚ – ZDRAVÚ – SEBAVEDOMÚ
             <span className="gradient-text font-normal">SILNÉ – ZDRAVÉ – SEBAVEDOMÉ</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Komplexná starostlivosť o tvoje telo a myseľ.
-Navrhnutá pre skutočné ženy.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Komplexná starostlivosť o tvoje telo a myseľ. 
+
           </p>
         </div>
 
