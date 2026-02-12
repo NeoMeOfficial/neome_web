@@ -36,9 +36,7 @@ const OAplikacii = () => {
 pokojnú myseľ.
           </h1>
             
-            <p className="text-lg md:text-2xl mb-8 font-light text-white">Začni s 15-minútami denne a
-buduj udržateľné zmeny
-          </p>
+            <p className="text-lg md:text-2xl mb-8 font-light text-white">Začni s 15-minútami denne a<br />buduj udržateľné zmeny</p>
 
             {/* Primary CTA */}
             <Button size="lg" className="text-base px-8 py-6 bg-primary text-primary-foreground group hover:bg-primary/20 hover:backdrop-blur-md hover:border-primary/30 border border-transparent transition-all duration-300 mb-6">
