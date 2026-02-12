@@ -4,7 +4,7 @@ import { AppOverview } from "@/components/AppOverview";
 import { ArrowRight } from "lucide-react";
 import { Sparkle } from "@phosphor-icons/react";
 import { Star as StarIcon } from "lucide-react";
-import heroImage from "@/assets/hero-yoga.jpg";
+import heroImage from "@/assets/hero-yoga-edited.jpg";
 
 const OAplikacii = () => {
   return <div className="min-h-screen">
