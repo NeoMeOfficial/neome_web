@@ -109,7 +109,7 @@ export const AppOverview = () => {
             Čo v aplikácii nájdeš
           </Badge>
           <h2 className="text-4xl md:text-6xl font-light mb-6">Komplexná starostlivosť
-Komplexná starostlivosť o telo a myseľ.
+o telo a myseľ. Pre skutočné ženy
 
 SILNÉ – ZDRAVÉ – SEBAVEDOMÉ<span className="gradient-text font-normal">SILNÉ – ZDRAVÉ – SEBAVEDOMÉ</span>
           </h2>
