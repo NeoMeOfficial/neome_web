@@ -505,14 +505,17 @@ const OAplikacii = () => {
         <div className="container mx-auto max-w-4xl text-center">
           <Card className="rounded-3xl shadow-xl p-12 md:p-16 bg-gradient-to-br from-primary/10 to-accent/20 border-primary/20">
             
-            <h2 className="text-5xl md:text-7xl font-light mb-4">
+            <p className="text-lg md:text-xl text-muted-foreground mb-2">
               Začni dnes.
+            </p>
+            <h2 className="text-4xl md:text-6xl font-light mb-4">
+              Začni s NeoMe.
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-4 leading-relaxed">
-              Začni s NeoMe a krok po kroku si buduj svoju{" "}
+            <p className="text-lg md:text-xl text-muted-foreground mb-2 leading-relaxed">
+              Krok po kroku si buduj svoju{" "}
               <span className="gradient-text font-normal">Novú Ja</span>.
             </p>
-            <p className="text-2xl md:text-3xl gradient-text font-normal mb-8">
+            <p className="text-4xl md:text-6xl gradient-text font-normal mb-8">
               Silnú – Zdravú – Sebavedomú
             </p>
             <p className="text-xl mb-10 text-muted-foreground leading-relaxed">
