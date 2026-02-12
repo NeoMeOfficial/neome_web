@@ -64,7 +64,7 @@ const appFeatures = [
 {
   id: "extras",
   number: "05",
-  badge: "Extras",
+  badge: "Extra",
   title: "Doplnkové cvičenia",
   highlight: "a strečing",
   description: "Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing.",
