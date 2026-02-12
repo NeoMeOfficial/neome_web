@@ -19,7 +19,7 @@ const appFeatures = [
   badge: "Cvičenie",
   title: "Online programy",
   highlight: "pre busy ženy",
-  description: "Od post-partum po body-forming. Každý program je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
+  description: "Či už si po pôrode alebo ideš do plaviek. Každý zo 4 programov je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
   features: ["15-30 minútové tréningy", "Pre všetky úrovne", "Žiadne vybavenie"],
   quote: "Venovať si 15-min nie je veľa.  Keď to je však pravidelne - každý deň, má to fantastické účinky na moje telo aj myseľ.",
   image: testimonialWorkout,
