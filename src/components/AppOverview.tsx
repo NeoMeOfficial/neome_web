@@ -92,7 +92,7 @@ const appFeatures = [
   title: "Sledovanie",
   highlight: "menštruačného cyklu",
   description: "Tvoj osobný kalendár, ktorý ti každý deň povie, v akej fáze svojho cyklu sa nachádzaš.",
-  features: ["Presné trackovanie tvojho cyklu", "Predikovanie nasledujúcej menštruácie a plodných dní", "Tipy ako zmierniť nežiaduce symptómy, ako cvičiť, jesť a podporiť telo v jednotlivých fázach"],
+  features: ["Presné trackovanie tvojho cyklu", "Predikovanie nasledujúcej menštruácie, plodných dní, ovulácie...", "Tipy ako zmierniť nežiaduce symptómy, ako cvičiť, jesť a podporiť telo v jednotlivých fázach"],
   quote: "Vďaka periodke lepšie rozumiem svojmu telu a tomu, čo v danej fáze potrebuje.",
   image: testimonialPeriod,
   link: "/extras"
