@@ -1,34 +1,64 @@
 
+# Reorganizacia stranky O aplikacii + nova stranka Transformacie
 
-# Upokojenie vizualneho chaosu v CTA karte
+## Prehlad zmien
 
-## Problem
-Aktualne sa striedaju rozne farby (muted-foreground vs gradient), rozne velkosti (text-lg vs text-6xl) a rozne fonty (font-light vs font-normal), co posobi chaoticky. "Silnu - Zdravu - Sebavedomu" sa na mobile moze lamat do viacerych riadkov.
+Stranka **O aplikacii** bude zjednodusena a dve sekcie sa presunu do novej stranky **Transformacie**, ktora sa objavi v menu.
 
-## Riesenie
-Zjednotim vizualny styl - vsetky texty budu v jednej farbe (foreground/primary), rovnakom fonte (font-light), a pouzijeme len dve velkosti: mensi pre podnadpisy a vacsi pre nadpisy. Gradient ponecham len na poslednom riadku ako jediny akcent.
+## Nova struktura stranky O aplikacii
 
-### Nova struktura (riadky 508-520)
+1. Hero sekcia (zostava)
+2. **Pre skutocne zeny** - presunuta PRED AppOverview (bez casti "Nie si len mama" s fotkou tehotnej zeny)
+3. AppOverview (01-07 Periodka) - zostava
+4. Final CTA "Zacni dnes..." - zostava
 
-```tsx
-<p className="text-base md:text-lg text-foreground/60 mb-2">
-  Začni dnes.
-</p>
-<h2 className="text-3xl md:text-5xl font-light text-foreground mb-3">
-  Začni s NeoMe.
-</h2>
-<p className="text-base md:text-lg text-foreground/60 mb-3">
-  Krok po kroku si buduj svoju Novú Ja.
-</p>
-<p className="text-2xl md:text-4xl font-light gradient-text whitespace-nowrap mb-8">
-  Silnú – Zdravú – Sebavedomú
-</p>
+## Nova stranka: Transformacie (`/transformacie`)
+
+Bude obsahovat:
+1. **Pribehy, ktore inspiruju** - 3 testimonial karty (Martina, Lucia, Zuzana)
+2. **Pozri ich transformacie** - 3 video karty
+
+## Menu
+
+Pridam polozku **Transformacie** do navigacie v Header.tsx.
+
+---
+
+## Technicke detaily
+
+### 1. Zmeny v `src/pages/OAplikacii.tsx`
+
+**Presun sekcie "Pre skutocne zeny" (riadky 82-284):**
+- Presuniem quote cards grid (riadky 83-239) PRED `<AppOverview />` (pred riadok 76)
+- Odstranim cast "Nie si len mama" s fotkou tehotnej zeny (riadky 241-281)
+
+**Odstranenie sekcii presunytych do novej stranky:**
+- Odstranim sekciu "Pribehy, ktore inspiruju" (riadky 287-418)
+- Odstranim sekciu "Pozri ich transformacie" (riadky 420-501)
+- Odstranim nepotrebne importy (testimonialMartina, testimonialLucia, testimonialZuzana, lifestyleCoreWorkout, lifestylePregnancy, lifestyleCollage, VideoPlayerModal, Play, Star, Heart)
+- Odstranim useState pre video modal
+
+**Vysledna struktura OAplikacii:**
+Hero → Pre skutocne zeny (len quote cards) → AppOverview → Final CTA
+
+### 2. Nova stranka `src/pages/Transformacie.tsx`
+
+- Obsahuje hero/header sekciu
+- Sekciu "Pribehy, ktore inspiruju" (testimonial karty)
+- Sekciu "Pozri ich transformacie" (video karty)
+- Pouzije VideoPlayerModal pre prehravanie videi
+- Importy: testimonialMartina, testimonialLucia, testimonialZuzana, lifestyleYogaMat, lifestyleCoreWorkout
+
+### 3. Zmeny v `src/components/Header.tsx` (riadok 36-43)
+
+Pridam novu polozku do `navLinks`:
+```
+{ label: "Transformácie", to: "/transformacie" }
 ```
 
-### Co sa meni
-- **Jedna farba**: podnadpisy su `text-foreground/60` (jemne stlmene), nadpisy su `text-foreground` alebo `gradient-text` - ziadne rozne farebne systemy
-- **Jeden font**: vsetko je `font-light`, ziadne miiesanie s `font-normal`
-- **Gradient len na konci**: "Novu Ja" uz nebude mat gradient, jediny gradient bude posledny riadok ako vizualny vrchol
-- **Silnu-Zdravu-Sebavedomu na jednom riadku**: `whitespace-nowrap` + mierne zmensena velkost (`text-2xl md:text-4xl`) zabezpeci, ze sa text nezalomi
-- **Mensie rozdiely vo velkostiach**: podnadpisy su `text-base/text-lg`, nadpisy `text-3xl/text-5xl` - nie tak extremny skok ako predtym
+### 4. Zmeny v `src/App.tsx`
 
+Pridam novy route:
+```
+<Route path="/transformacie" element={<Transformacie />} />
+```
