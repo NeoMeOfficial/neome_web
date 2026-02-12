@@ -80,7 +80,7 @@ const appFeatures = [
   title: "Tvoj osobný denník",
   highlight: "návykov a reflexií",
   description: "Buduj si zdravé návyky a sleduj svoj pokrok s denným denníkom.",
-  features: ["Sleduj svoj progres – kroky, zdravé jedlá, cvičenie...", "Zapíš si, čo sa ti dnes podarilo a čo môžeš zlepšiť", "Motivácia"],
+  features: ["Sleduj svoj progres – kroky, zdravé jedlá, cvičenie...", "Reflexia v závere dňa – čo sa ti dnes podarilo...", "Motivácia"],
   quote: "NeoMe ma naučilo, že aj malé každodenné kroky môžu viesť k veľkým, trvalým zmenám.",
   image: testimonialJournal,
   link: "/extras"
