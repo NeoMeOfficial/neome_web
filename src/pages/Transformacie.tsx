@@ -176,8 +176,8 @@ const Transformacie = () => {
       <section className="py-12 md:py-16 px-4 md:px-8">
         <div className="container mx-auto max-w-7xl">
           <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-primary/5 to-accent/10 border-border/10">
-            <h2 className="text-4xl md:text-5xl font-light text-center mb-4">
-              Pozri ich transformácie
+            <h2 className="text-4xl md:text-5xl font-light text-center mb-12">
+              Pozri ich premeny
             </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
