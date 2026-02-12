@@ -36,6 +36,7 @@ export const Header = () => {
   const navLinks = [
     { label: "Domov", to: "/" },
     { label: "O Aplikácii", to: "/o-aplikacii" },
+    { label: "Transformácie", to: "/transformacie" },
     { label: "Programy", onClick: () => scrollToSection("programy") },
     { label: "Blog", to: "/blog" },
     { label: "O Nás", to: "/o-nas" },
