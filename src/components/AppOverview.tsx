@@ -108,22 +108,28 @@ export const AppOverview = () => {
           <Badge variant="secondary" className="mb-6 px-4 py-2">
             Čo v aplikácii nájdeš
           </Badge>
-          <h2 className="text-4xl md:text-6xl font-light mb-6">Buduj svoju Novú Ja<br /><span className="gradient-text font-normal">SILNÉ – ZDRAVÉ – SEBAVEDOMÉ</span>
+          <h2 className="text-4xl md:text-6xl font-light mb-6">SILNÚ – ZDRAVÚ – SEBAVEDOMÚ
+            <span className="gradient-text font-normal">SILNÉ – ZDRAVÉ – SEBAVEDOMÉ</span>
           </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Komplexná starostlivosť o tvoje telo a myseľ.
+Navrhnutá pre skutočné ženy.
+          </p>
         </div>
 
         {/* All features stacked */}
         <div className="space-y-12 md:space-y-16">
-          {appFeatures.map((feature, index) => {const imageFirst = index % 2 === 0;
-              return (
-                <div key={feature.id} className="space-y-6">
+          {appFeatures.map((feature, index) => {
+            const imageFirst = index % 2 === 0;
+
+            return (
+              <div key={feature.id} className="space-y-6">
                 {/* Editorial Section Header */}
                 <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="flex items-end gap-4 md:gap-6">
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="flex items-end gap-4 md:gap-6">
 
                   <span className="text-6xl md:text-8xl font-extralight text-primary/15 leading-none">
                     {feature.number}
@@ -138,19 +144,19 @@ export const AppOverview = () => {
 
                 {/* Card */}
                 <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}>
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}>
 
                 <Card className="overflow-hidden border-border/20 bg-white shadow-xl rounded-3xl">
                   <div className={`grid lg:grid-cols-2 ${!imageFirst ? "lg:[direction:rtl]" : ""}`}>
                     {/* Image Side */}
                     <div className="relative h-[300px] lg:h-[480px] overflow-hidden lg:[direction:ltr]">
                       <img
-                            src={feature.image}
-                            alt={feature.badge}
-                            className="w-full h-full object-cover" />
+                          src={feature.image}
+                          alt={feature.badge}
+                          className="w-full h-full object-cover" />
 
                       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-background/40" />
 
@@ -177,13 +183,13 @@ export const AppOverview = () => {
                       {/* Features List */}
                       <div className="space-y-3 mb-8">
                         {feature.features.map((feat, i) =>
-                            <div key={i} className="flex items-center gap-3">
+                          <div key={i} className="flex items-center gap-3">
                             <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                               <Check size={14} className="text-primary" />
                             </div>
                             <span className="text-foreground">{feat}</span>
                           </div>
-                            )}
+                          )}
                       </div>
 
                       {/* CTA Button */}
@@ -199,7 +205,7 @@ export const AppOverview = () => {
                 </motion.div>
               </div>);
 
-            })}
+          })}
         </div>
       </div>
     </section>);
