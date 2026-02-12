@@ -1,36 +1,37 @@
 
-# Graficka uprava Final CTA karty
 
-## Problem
-Karta "Zacni dnes..." ma prilis dlhy nadpis, ktory vizualne splyna do jedneho bloku textu bez jasnej hierarchie. Text "Zacni dnes. Zacni s NeoMe a krok po kroku si buduj svoju Novu Ja. Silnu - Zdravu - Sebavedomu" je vsetko v jednom h2 elemente a nevyzera dobre.
+# Nova hierarchia Final CTA karty
 
-## Riesenie
-Rozdelim text do jasnej vizualnej hierarchie s viacerymi urovnami:
+## Struktura
 
-1. **Hlavny nadpis** - "Zacni dnes." - velky, vyrazny, samostatny riadok
-2. **Podnadpis** - "Zacni s NeoMe a krok po kroku si buduj svoju **Novu Ja**." - mensi text pod nadpisom, s gradient zvyraznenim "Novu Ja"
-3. **Tagline** - "Silnu - Zdravu - Sebavedomu" - gradient text, vizualne oddeleny, ako statement
+Striedanie velky-maly-velky-maly vytvori zaujimavu vizualnu dynamiku:
+
+1. **"Zacni dnes."** - podnadpis (mensi, jemnejsi text)
+2. **"Zacni s NeoMe."** - hlavny nadpis (velky, vyrazny)
+3. **"Krok po kroku si buduj svoju Novu Ja."** - podnadpis (mensi, s gradient zvyraznenim "Novu Ja")
+4. **"Silnu – Zdravu – Sebavedomu"** - hlavny nadpis (velky, gradient)
+
+Toto vytvori rytmus: male → VELKE → male → VELKE, co vizualne "buduje" emocionalny crescendo.
 
 ## Technicke detaily
 
-### Zmeny v `src/pages/OAplikacii.tsx` (riadky 508-511)
+### Zmeny v `src/pages/OAplikacii.tsx` (riadky 508-520)
 
-Nahradim aktualny jednolity h2 element troma oddelenymi textovymi blokmi:
+Nahradim aktualny rozdeleny text novou strukturou:
 
 ```tsx
-<h2 className="text-5xl md:text-7xl font-light mb-4">
+<p className="text-lg md:text-xl text-muted-foreground mb-2">
   Začni dnes.
+</p>
+<h2 className="text-4xl md:text-6xl font-light mb-4">
+  Začni s NeoMe.
 </h2>
-<p className="text-xl md:text-2xl text-muted-foreground mb-4 leading-relaxed">
-  Začni s NeoMe a krok po kroku si buduj svoju{" "}
+<p className="text-lg md:text-xl text-muted-foreground mb-2 leading-relaxed">
+  Krok po kroku si buduj svoju{" "}
   <span className="gradient-text font-normal">Novú Ja</span>.
 </p>
-<p className="text-2xl md:text-3xl gradient-text font-normal mb-8">
+<p className="text-4xl md:text-6xl gradient-text font-normal mb-8">
   Silnú – Zdravú – Sebavedomú
 </p>
 ```
 
-Toto vytvori jasnu vizualnu hierarchiu:
-- Velky hlavny nadpis pritiahne pozornost
-- Stredny popis vysvetli kontext
-- Gradient tagline uzavrie sekciu s emotivnym statementom
