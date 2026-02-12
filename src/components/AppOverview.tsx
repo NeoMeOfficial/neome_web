@@ -57,7 +57,7 @@ const appFeatures = [
   highlight: "sama",
   description: "Pripoj sa k tisíckam žien, ktoré sa navzájom podporujú, inšpirujú a vytvárajú priestor bez súdenia.",
   features: ["Súkromná FB skupina", "Live Q&A s Gabi", "Vzájomná podpora"],
-  quote: "Komunita je najlepšia časť. Konečne som našla ženy, ktoré ma chápú.",
+  quote: "Komunita je môj bezpečný prístav. Miesto pre ženy, ktoré nesúdia, ale sa podporujú.",
   image: testimonialCommunity,
   link: "/komunita"
 },
