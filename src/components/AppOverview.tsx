@@ -17,11 +17,11 @@ const appFeatures = [
   id: "cvicenie",
   number: "01",
   badge: "Cvičenie",
-  title: "Online programy",
-  highlight: "pre busy ženy",
-  description: "Či už si po pôrode alebo ideš do plaviek. Každý zo 4 programov je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
-  features: ["15-min tréningy", "Pre všetky úrovne", "Z pohodlia domova"],
-  quote: "15-minút nie je veľa...\nKeď si ich však doprajem každý deň, efekt na telo aj myseľ je fantastický.",
+  title: "Programy šité",
+  highlight: "na mieru",
+  description: "Od post-partum po body-forming. Každý program je navrhnutý tak, aby rešpektoval tvoje telo a životnú fázu.",
+  features: ["15-30 minútové tréningy", "Pre všetky úrovne", "Žiadne vybavenie"],
+  quote: "Nemusíš sa trápiť s hodinovými tréningami. 15 minút denne mi stačí a vidím obrovský rozdiel.",
   image: testimonialWorkout,
   link: "/cvicenie"
 },
@@ -32,7 +32,7 @@ const appFeatures = [
   title: "Zdravé recepty pre",
   highlight: "reálny život",
   description: "Jednoduché, chutné recepty, ktoré pripravíš aj s deťmi okolo. Bez extrémov, s láskyplným prístupom k strave.",
-  features: ["Rýchle a jednoduché", "Pre celú rodinu", "Chutné a výživné"],
+  features: ["Rýchle a jednoduché", "Pre celú rodinu", "S nutričnými hodnotami"],
   quote: "Konečne recepty, ktoré sú zdravé, ale jednoduché. A moje deti ich jedia!",
   image: testimonialRecipe,
   link: "/strava"
@@ -45,7 +45,7 @@ const appFeatures = [
   highlight: "každý deň",
   description: "Meditácie, dychové cvičenia a mindfulness techniky, ktoré ti pomôžu nájsť kľud aj v chaose každodenného života.",
   features: ["Vedené meditácie", "Dychové cvičenia", "5-15 minút"],
-  quote: "Meditácie mi pomohli nájsť pokoj, ktorý som v chaose dňa stratila.",
+  quote: "Meditácie mi pomohli nájsť pokoj, ktorý som stratila. Už sa necítim tak preťažená.",
   image: testimonialMeditation,
   link: "/mysel"
 },
@@ -105,13 +105,15 @@ export const AppOverview = () => {
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-6 px-4 py-2">
-            Čo v aplikácii nájdeš
+          <Badge variant="secondary" className="mb-6 px-4 py-2">Čo v aplikácii nájdeš
+
           </Badge>
-          <h2 className="text-4xl md:text-6xl font-light mb-6">
-            Buduj svoju Novú Ja<br />
-            <span className="gradient-text font-normal">silnú – zdravú – sebavedomú</span>
+          <h2 className="text-4xl md:text-6xl font-light mb-6">SILNÚ – ZDRAVÚ – SEBAVEDOMÚ
+            <span className="gradient-text font-normal">SILNÉ – ZDRAVÉ – SEBAVEDOMÉ</span>
           </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Komplexná starostlivosť o tvoje telo a myseľ.
+Navrhnutá pre skutočné ženy.
+          </p>
         </div>
 
         {/* All features stacked */}
