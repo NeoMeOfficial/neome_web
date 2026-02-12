@@ -93,7 +93,7 @@ const appFeatures = [
   highlight: "menštruačného cyklu",
   description: "Jednoducho a anonymne sleduj svoju periodu. Vždy budeš vedieť, čo ťa čaká a lepšie porozumieš svojmu telu.",
   features: ["Anonymné sledovanie", "Predpovede cyklu", "Pochopenie tela"],
-  quote: "Vždy budeš vedieť, čo ťa čaká a lepšie porozumieš svojmu telu.",
+  quote: "Vďaka periodke lepšie rozumiem svojmu telu a tomu, čo v danej fáze potrebuje.",
   image: testimonialPeriod,
   link: "/extras"
 }];
