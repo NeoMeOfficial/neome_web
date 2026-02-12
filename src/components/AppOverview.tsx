@@ -45,7 +45,7 @@ const appFeatures = [
   highlight: "každý deň",
   description: "Meditácie, dychové cvičenia a mindfulness techniky, ktoré ti pomôžu nájsť kľud aj v chaose každodenného života.",
   features: ["Vedené meditácie", "Dychové cvičenia", "5-15 minút"],
-  quote: "Meditácie mi pomohli nájsť pokoj, ktorý som stratila. Už sa necítim tak preťažená.",
+  quote: "Meditácie mi pomohli nájsť pokoj, ktorý som v chaose bežných dní stratila.",
   image: testimonialMeditation,
   link: "/mysel"
 },
