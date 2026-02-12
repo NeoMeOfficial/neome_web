@@ -107,7 +107,7 @@ export const AppOverview = () => {
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4 px-4 py-2">Čo v aplikácii nájdeš
           </Badge>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">Komplexná starostlivosť o tvoje telo a myseľ.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">Komplexnú starostlivosť o tvoje telo a myseľ.
           </p>
           <h2 className="text-4xl md:text-6xl font-light mb-2">Buduj svoju
             <span className="gradient-text font-normal"> Novú Ja</span>
