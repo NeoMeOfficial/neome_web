@@ -91,7 +91,7 @@ const appFeatures = [
   badge: "Periodka",
   title: "Sledovanie",
   highlight: "menštruačného cyklu",
-  description: "Tvoj osobný kalendár, ktorý ti každý deň povie, v akej fáze svojho cyklu sa nachádzaš.",
+  description: "Tvoj osobný kalendár, ktorý ti každý deň povie, v akej fáze svojho cyklu sa nachádzaš a lepšie pochopíš svojim hormónom, ktoré riadia tvoje telo.",
   features: ["Anonymné sledovanie", "Predpovede cyklu", "Pochopenie tela"],
   quote: "Vďaka periodke lepšie rozumiem svojmu telu a tomu, čo v danej fáze potrebuje.",
   image: testimonialPeriod,
