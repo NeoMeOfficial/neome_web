@@ -68,7 +68,7 @@ const appFeatures = [
   title: "Keď máš čas na",
   highlight: "\"extras\"",
   description: "Rozšír si svoj tréning o špecializované cvičenia na posilnenie, mobilitu a strečing.",
-  features: ["Špecializované workouty", "Mobilita a flexibilita", "Bonusový obsah"],
+  features: ["Doplnkové workouty, strečingy", "Mobilita a flexibilita", "Bonusový obsah"],
   quote: "Keď mám extra čas, extra energiu alebo naopak extra pretlak... nájdem tu pre seba vždy niečo extra.",
   image: testimonialExtras,
   link: "/extras"
