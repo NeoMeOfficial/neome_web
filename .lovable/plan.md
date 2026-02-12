@@ -1,41 +1,40 @@
 
 
-# Realisticke fotky premien a upravene popisy
+# Skutocne fotky premien v carouseli
 
-## Co sa zmeni
+## Prehled
 
-1. **Vygenerujem 12 novych fotiek** (6 parov pred/po) pomocou AI generovania obrazkov s detailnym promptom:
-   - Zena v cvicebnom obleceni (legginy, sportovy top)
-   - Odfotena z profilu alebo mierne z uhla
-   - Podobna pozicia v oboch fotkach (pred aj po)
-   - Realisticke, jemne zmeny - lepsie drzanie tela, pevnejsi stred, zdravsi vzhled
-   - Bez tvare alebo s ciastocne viditelnou tvarou
-   - Ziadne extremne premeny
+Nahradim AI-generovane placeholder fotky skutocnymi fotkami klientiek. Upravim carousel tak, aby zvladol dva typy fotiek:
+- **Kombinovane fotky** (pred/po uz v jednom obrazku): Danielka, Eliska, Katarina, Simona
+- **Samostatne pary** (dva separatne subory): Laura (zaciatok + po 4 mesiacoch) a anonymna klientka (1000009054 + 1000009069)
 
-2. **Upravim popisy a tagy** aby boli realistickejsie:
-   - Ziadne extremne cisla ako "-8 kg za 3 mesiace"
-   - Zamerim sa na pocity a jemne fyzicke zmeny: "Pevnejsie telo", "Lepsie drzanie tela", "Viac energie", "Silnejsi stred"
-   - Dlhsie casove obdobia (4-8 mesiacov)
+## Mapovanie fotiek na transformacie
 
-## Nove popisy premien
+| # | Meno | Typ | Subory |
+|---|------|-----|--------|
+| 1 | Laura | separatne | Laura_Karabova_-_zaciatok_PP.jpg (pred) + Laura_Karabova_po_4mesiacoch (po) |
+| 2 | anonymna | separatne | 1000009054.jpg (pred) + 1000009069.jpg (po) |
+| 3 | Danielka | kombinovany | Danielka_Gajdosikova_vysleodk_PP_po_2mesiacoch.png |
+| 4 | Eliska | kombinovany | Eliska.jpg |
+| 5 | Katarina | kombinovany | Katarina_Tomcikova_progres.webp |
+| 6 | Simona | kombinovany | Simona_Sokolova_PP.jpg |
 
-| Meno | Popis | Tagy |
-|------|-------|------|
-| Martina, 34 | Po 6 mesiacoch pravidelnosti | Pevnejsie telo, Viac energie |
-| Lucia, 29 | Po 5 mesiacoch s NeoMe | Lepsie drzanie tela, Menej bolesti chrbta |
-| Zuzana, 41 | Po 8 mesiacoch cvicenia | Silnejsi stred, Pokojnejsia mysel |
-| Katarina, 36 | Po 6 mesiacoch treningov | Lepsie drzanie tela, Viac sily |
-| Jana, 38 | Po 7 mesiacoch s aplikaciou | Viac sebavedomia, Lepsi spanok |
-| Petra, 32 | Po 5 mesiacoch zmeny | Pevnejsie brucho, Zdravsie navyky |
+## Dizajnove riesenie
+
+- **Separatne pary** (Laura, anonymna): zachovam sucasny layout - dve fotky vedla seba s labelmi PRED/PO
+- **Kombinovane fotky** (Danielka, Eliska, Katarina, Simona): zobrazim ako jednu siroku fotku na celu kartu - uz maju pred/po v sebe
+
+Vsetky karty budu mat konzistentny aspect ratio (3:4) a zaoblene rohy. Fotky budu orezane cez `object-fit: cover` aby boli vizualne zjednotene.
 
 ## Technicky plan
 
-1. **Vygenerovat 12 novych obrazkov** pomocou AI image generation s promptom zameranym na realisticke fitness premeny z profilu
-2. **Nahradit existujuce subory** transformation-1-before.jpg az transformation-6-after.jpg
-3. **Upravit pole `transformations`** v Transformacie.tsx s novymi popismi a tagmi
+1. **Skopirovat 8 fotiek** z user-uploads do `src/assets/` s cistymi nazvami
+2. **Upravit data pole `transformations`** - pridat typ (combined/separate) pre kazdu transformaciu
+3. **Upravit renderovanie karty** v carouseli - podla typu zobrazit bud jednu alebo dve fotky
+4. **Aktualizovat mena a popisy** podla skutocnych mien z nazvov suborov
 
 ## Subory na upravu
 
-- 12 obrazkovych suborov v `src/assets/` (nahradenie existujucich)
-- `src/pages/Transformacie.tsx` - upravenie popisov a tagov
+- Kopirovat 8 fotiek do `src/assets/`
+- `src/pages/Transformacie.tsx` - aktualizovat data a renderovanie kariet
 
