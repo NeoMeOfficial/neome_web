@@ -1,19 +1,22 @@
 
 
-# Oprava chýbajúcej route pre stránku Kontakt
+## Grafická úprava hero fotky
 
-## Problém
-V `src/App.tsx` je komponent `Contact` importovaný (riadok 18), ale chýba jeho route. Pri poslednej reorganizácii sa route `/kontakt` omylom vymazala.
+### Čo urobím
+Použijem AI model na úpravu obrázka `hero-yoga.jpg` -- konkrétne na to, aby postava na fotke mala plochšie brucho, pričom zvyšok fotky zostane nezmenený.
 
-## Riešenie
-Pridať jeden riadok do `src/App.tsx` - route pre `/kontakt`:
+### Postup
+1. Načítam aktuálny obrázok `hero-yoga.jpg`
+2. Pomocou AI modelu (google/gemini-2.5-flash-image) pošlem inštrukciu na úpravu -- zploštenie brucha postavy
+3. Výsledný obrázok uložím späť do projektu ako nový hero obrázok
+4. Aktualizujem import v `OAplikacii.tsx` ak bude potrebné
 
-```
-<Route path="/kontakt" element={<Contact />} />
-```
+### Technické detaily
+- Použijem edge funkciu na volanie Lovable AI s modelom `google/gemini-2.5-flash-image` pre úpravu obrázka
+- Vstupom bude aktuálna fotka + textová inštrukcia na úpravu
+- Výstup uložím ako nový súbor v `src/assets/`
+- Ak kvalita nebude dostatočná, môžem skúsiť `google/gemini-3-pro-image-preview` pre lepší výsledok
 
-Pridám ho pred catch-all route `*` (pred riadok 60).
-
-## Rozsah zmien
-- **1 súbor**: `src/App.tsx` - pridanie jedného riadku
+### Upozornenie
+AI úprava obrázkov nemusí byť vždy dokonalá -- výsledok ti ukážem a podľa potreby môžeme upraviť ďalej alebo skúsiť iný prístup.
 
