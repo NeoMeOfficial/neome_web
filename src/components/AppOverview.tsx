@@ -113,9 +113,6 @@ o telo a myseľ. Pre skutočné ženy
 
 SILNÉ – ZDRAVÉ – SEBAVEDOMÉ<span className="gradient-text font-normal">SILNÉ – ZDRAVÉ – SEBAVEDOMÉ</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Komplexná starostlivosť o tvoje telo a myseľ.
-Navrhnutá pre skutočné ženy.
-          </p>
         </div>
 
         {/* All features stacked */}
