@@ -517,10 +517,6 @@ const OAplikacii = () => {
             <p className="text-2xl md:text-4xl font-light gradient-text whitespace-nowrap mb-8">
               Silnú – Zdravú – Sebavedomú
             </p>
-            <p className="text-xl mb-10 text-muted-foreground leading-relaxed">
-              Každá transformácia začína jediným rozhodnutím.<br />
-              Tým rozhodnutím môžeš byť ty. Teraz.
-            </p>
             <Button size="lg" className="text-base px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all duration-300">
               STIAHNI APLIKÁCIU A ZAČNI
               <ArrowRight size={20} className="ml-2" />
