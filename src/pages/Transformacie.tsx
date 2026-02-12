@@ -1,34 +1,62 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Star, Play } from "lucide-react";
+import { ArrowRight, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import testimonialMartina from "@/assets/testimonial-martina.jpg";
 import testimonialLucia from "@/assets/testimonial-lucia.jpg";
 import testimonialZuzana from "@/assets/testimonial-zuzana.jpg";
 import lifestyleYogaMat from "@/assets/lifestyle-yoga-mat.webp";
 import lifestyleCoreWorkout from "@/assets/lifestyle-core-workout.jpg";
-import { useState } from "react";
-import { VideoPlayerModal } from "@/components/VideoPlayerModal";
+import { useState, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
+
+import t1Before from "@/assets/transformation-1-before.jpg";
+import t1After from "@/assets/transformation-1-after.jpg";
+import t2Before from "@/assets/transformation-2-before.jpg";
+import t2After from "@/assets/transformation-2-after.jpg";
+import t3Before from "@/assets/transformation-3-before.jpg";
+import t3After from "@/assets/transformation-3-after.jpg";
+import t4Before from "@/assets/transformation-4-before.jpg";
+import t4After from "@/assets/transformation-4-after.jpg";
+import t5Before from "@/assets/transformation-5-before.jpg";
+import t5After from "@/assets/transformation-5-after.jpg";
+import t6Before from "@/assets/transformation-6-before.jpg";
+import t6After from "@/assets/transformation-6-after.jpg";
+
+const transformations = [
+  { name: "Martina, 34", desc: "Po 3 mesiacoch cvičenia", before: t1Before, after: t1After, tags: ["-8 kg", "Viac energie"] },
+  { name: "Lucia, 29", desc: "Po 4 mesiacoch s NeoMe", before: t2Before, after: t2After, tags: ["Pevnejšie telo", "Menej stresu"] },
+  { name: "Zuzana, 41", desc: "Po 6 mesiacoch pravidelnosti", before: t3Before, after: t3After, tags: ["Lepšia kondícia", "Pokojnejšia myseľ"] },
+  { name: "Katarína, 36", desc: "Po 5 mesiacoch tréningov", before: t4Before, after: t4After, tags: ["-6 kg", "Silnejší core"] },
+  { name: "Jana, 38", desc: "Po 4 mesiacoch s aplikáciou", before: t5Before, after: t5After, tags: ["Lepší spánok", "Viac sebavedomia"] },
+  { name: "Petra, 32", desc: "Po 3 mesiacoch zmeny", before: t6Before, after: t6After, tags: ["-5 kg", "Zdravšie návyky"] },
+];
 
 const Transformacie = () => {
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
-  const [currentVideoId, setCurrentVideoId] = useState<string | null>(null);
-  const [currentVideoTitle, setCurrentVideoTitle] = useState("");
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", slidesToScroll: 1 });
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const openVideoModal = (videoId: string, title: string) => {
-    setCurrentVideoId(videoId);
-    setCurrentVideoTitle(title);
-    setVideoModalOpen(true);
-  };
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi, onSelect]);
 
   return (
     <div className="min-h-screen">
-      <VideoPlayerModal
-        isOpen={videoModalOpen}
-        onClose={() => setVideoModalOpen(false)}
-        videoId={currentVideoId}
-        videoTitle={currentVideoTitle} />
+      {/* Carousel and content sections */}
 
 
       {/* Hero */}
@@ -172,74 +200,74 @@ const Transformacie = () => {
         </div>
       </section>
 
-      {/* Video Testimonials Section */}
+      {/* Before/After Transformations Carousel */}
       <section className="py-12 md:py-16 px-4 md:px-8">
         <div className="container mx-auto max-w-7xl">
           <Card className="rounded-3xl shadow-xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-primary/5 to-accent/10 border-border/10">
-            <h2 className="text-4xl md:text-5xl font-light text-center mb-12">Pozri si premeny našich klientiek
-
+            <h2 className="text-4xl md:text-5xl font-light text-center mb-12">
+              Pozri si premeny našich klientiek
             </h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div
-                className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
-                onClick={() => openVideoModal("dQw4w9WgXcQ", "Martinina cesta - Ako som stratila 8 kg")}>
-
-                <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
-                  <img src={testimonialMartina} alt="Martina transformation video" className="absolute inset-0 w-full h-full object-cover opacity-80" />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play size={32} className="text-primary ml-1" fill="hsl(var(--primary))" />
+            <div className="relative">
+              {/* Carousel */}
+              <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex -ml-4">
+                  {transformations.map((t, i) => (
+                    <div key={i} className="min-w-0 shrink-0 grow-0 basis-full md:basis-1/2 lg:basis-1/3 pl-4">
+                      <Card className="rounded-2xl overflow-hidden shadow-lg border-border/20">
+                        <div className="flex">
+                          {/* Before */}
+                          <div className="relative w-1/2">
+                            <img src={t.before} alt={`${t.name} pred`} className="w-full aspect-[3/4] object-cover" />
+                            <span className="absolute top-2 left-2 bg-foreground/80 text-background text-xs font-medium px-2 py-1 rounded">PRED</span>
+                          </div>
+                          {/* After */}
+                          <div className="relative w-1/2">
+                            <img src={t.after} alt={`${t.name} po`} className="w-full aspect-[3/4] object-cover" />
+                            <span className="absolute top-2 right-2 bg-primary text-primary-foreground text-xs font-medium px-2 py-1 rounded">PO</span>
+                          </div>
+                        </div>
+                        <div className="p-4">
+                          <h3 className="font-medium text-base">{t.name}</h3>
+                          <p className="text-sm text-muted-foreground mb-2">{t.desc}</p>
+                          <div className="flex gap-1.5 flex-wrap">
+                            {t.tags.map((tag, j) => (
+                              <span key={j} className="px-2 py-0.5 bg-primary/10 text-primary text-xs rounded-full">{tag}</span>
+                            ))}
+                          </div>
+                        </div>
+                      </Card>
                     </div>
-                    <p className="text-white font-medium mt-4 text-lg">Martinina cesta</p>
-                    <p className="text-white/80 text-sm">3:45</p>
-                  </div>
-                </div>
-                <div className="p-4 bg-white">
-                  <p className="text-sm text-muted-foreground">Ako som stratila 8 kg a získala energiu</p>
+                  ))}
                 </div>
               </div>
 
-              <div
-                className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
-                onClick={() => openVideoModal("dQw4w9WgXcQ", "Luciin príbeh - 15 minút denne")}>
+              {/* Navigation arrows */}
+              <button
+                onClick={() => emblaApi?.scrollPrev()}
+                disabled={!canScrollPrev}
+                className="absolute -left-2 md:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background shadow-md border border-border flex items-center justify-center disabled:opacity-30 hover:bg-muted transition-colors z-10"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={() => emblaApi?.scrollNext()}
+                disabled={!canScrollNext}
+                className="absolute -right-2 md:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background shadow-md border border-border flex items-center justify-center disabled:opacity-30 hover:bg-muted transition-colors z-10"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
 
-                <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
-                  <img src={testimonialLucia} alt="Lucia transformation video" className="absolute inset-0 w-full h-full object-cover opacity-80" />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play size={32} className="text-primary ml-1" fill="hsl(var(--primary))" />
-                    </div>
-                    <p className="text-white font-medium mt-4 text-lg">Luciin príbeh</p>
-                    <p className="text-white/80 text-sm">2:30</p>
-                  </div>
-                </div>
-                <div className="p-4 bg-white">
-                  <p className="text-sm text-muted-foreground">15 minút denne, ktoré zmenili môj život</p>
-                </div>
-              </div>
-
-              <div
-                className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow"
-                onClick={() => openVideoModal("dQw4w9WgXcQ", "Zuzanina premena - Od vyhorenia k pokoju")}>
-
-                <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
-                  <img src={testimonialZuzana} alt="Zuzana transformation video" className="absolute inset-0 w-full h-full object-cover opacity-80" />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play size={32} className="text-primary ml-1" fill="hsl(var(--primary))" />
-                    </div>
-                    <p className="text-white font-medium mt-4 text-lg">Zuzanina premena</p>
-                    <p className="text-white/80 text-sm">4:15</p>
-                  </div>
-                </div>
-                <div className="p-4 bg-white">
-                  <p className="text-sm text-muted-foreground">Od vyhorenia k vnútornému pokoju</p>
-                </div>
-              </div>
+            {/* Dots */}
+            <div className="flex justify-center gap-2 mt-6">
+              {transformations.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => emblaApi?.scrollTo(i)}
+                  className={`w-2.5 h-2.5 rounded-full transition-colors ${i === selectedIndex ? 'bg-primary' : 'bg-primary/20'}`}
+                />
+              ))}
             </div>
 
             <div className="mt-12 text-center">
