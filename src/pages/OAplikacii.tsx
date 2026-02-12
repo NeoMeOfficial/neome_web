@@ -39,9 +39,6 @@ pokojnú myseľ.
             <p className="text-lg md:text-2xl mb-8 font-light text-white">Začni s 15-minútami denne a<br />buduj udržateľné zmeny</p>
 
             {/* Primary CTA */}
-            <p className="text-white/90 mb-6 text-sm">
-              Vyskúšaj zadarmo 7 dní. Žiadna platobná karta potrebná.
-            </p>
           </div>
         </div>
       </section>
