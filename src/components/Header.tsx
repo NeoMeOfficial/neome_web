@@ -25,20 +25,12 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
-  };
-
   const navLinks = [
     { label: "Domov", to: "/" },
-    { label: "O Aplikácii", to: "/o-aplikacii" },
     { label: "Transformácie", to: "/transformacie" },
-    { label: "Programy", onClick: () => scrollToSection("programy") },
-    { label: "Blog", to: "/blog" },
+    { label: "Prečo NeoMe", to: "/preco-neome" },
+    { label: "Programy", to: "/programy" },
+    { label: "Cena", to: "/cena" },
     { label: "O Nás", to: "/o-nas" },
     { label: "Kontakt", to: "/kontakt" },
   ];
@@ -60,28 +52,18 @@ export const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) =>
-                link.to ? (
-                  <Link
-                    key={link.label}
-                    to={link.to}
-                    className={cn(
-                      "text-sm font-light text-foreground/70 hover:text-foreground transition-colors",
-                      currentPath === link.to && "text-foreground font-normal"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <button
-                    key={link.label}
-                    onClick={link.onClick}
-                    className="text-sm font-light text-foreground/70 hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </button>
-                )
-              )}
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  className={cn(
+                    "text-sm font-light text-foreground/70 hover:text-foreground transition-colors",
+                    currentPath === link.to && "text-foreground font-normal"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
 
             {/* CTA Buttons */}
@@ -125,29 +107,19 @@ export const Header = () => {
         )}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8 px-8">
-          {navLinks.map((link) =>
-            link.to ? (
-              <Link
-                key={link.label}
-                to={link.to}
-                className={cn(
-                  "text-2xl font-light text-foreground/70 hover:text-foreground transition-colors",
-                  currentPath === link.to && "text-foreground font-normal"
-                )}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ) : (
-              <button
-                key={link.label}
-                onClick={link.onClick}
-                className="text-2xl font-light text-foreground/70 hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </button>
-            )
-          )}
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              to={link.to}
+              className={cn(
+                "text-2xl font-light text-foreground/70 hover:text-foreground transition-colors",
+                currentPath === link.to && "text-foreground font-normal"
+              )}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
           <div className="flex flex-col gap-4 mt-8 w-full max-w-xs">
             <Button
               variant="outline"

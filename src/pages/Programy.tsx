@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { CheckCircle, Star, ArrowRight, Sparkles, Target, Dumbbell, Heart, TrendingUp, Clock, Play, ChevronLeft, ChevronRight } from "lucide-react";
-import { Header } from "@/components/Header";
 import { FloatingCTA } from "@/components/FloatingCTA";
 import { ProgramQuiz } from "@/components/ProgramQuiz";
+import { ProgramsScroll } from "@/components/ProgramsScroll";
 import {
   Carousel,
   CarouselContent,
@@ -159,7 +159,8 @@ const Programy = () => {
         }}
       />
       
-      <Header />
+      {/* ProgramsScroll from original homepage */}
+      <ProgramsScroll className="bg-white relative z-10" />
       
       {showQuiz && (
         <ProgramQuiz 
