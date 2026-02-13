@@ -291,7 +291,7 @@ const Transformacie = () => {
         </div>
       </section>
       {/* Real Women Section - Quote Cards */}
-      <section className="py-20 md:py-28 px-4 md:px-8 bg-gradient-to-b from-section-white/50 to-transparent">
+      <section className="pt-20 md:pt-28 pb-10 md:pb-14 px-4 md:px-8 bg-gradient-to-b from-section-white/50 to-transparent">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-light mb-6">
@@ -302,7 +302,7 @@ const Transformacie = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-16">
+          <div className="grid md:grid-cols-2 gap-6">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <Card className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border-border/20 hover:border-primary/20 transition-all h-full">
                 <p className="text-lg leading-relaxed text-muted-foreground">
