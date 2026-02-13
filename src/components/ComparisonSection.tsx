@@ -8,7 +8,7 @@ export const ComparisonSection = () => {
     number: "1",
     title: "NeoMe alebo členstvo v gyme?",
     summary: "Šetrenie času a nákladov - cvič z pohodlia domova, kedykoľvek potrebuješ, bez mesačných poplatkov.",
-    advantages: ["Šetri čas - nestrácaj čas cestovaním", "Cvič z domu - bez hanby, stresu, porovnávania", "Využi časovú flexibilitu, ktorú prispôsobíš rodinnému rozvrhu", "Šetri peniaze", "Ukáž svojim deťom, že starostlivosť o seba a svoje zdravie je nevyhnutnosť. Buď pre nich vzor"]
+    advantages: ["Šetri čas - nestrácaj čas cestovaním", "Cvič z domu - bez hanby, stresu, porovnávania", "Využi časovú flexibilitu, ktorú prispôsobíš rodinnému rozvrhu", "Šetri peniaze", "Ukáž svojim deťom, že starostlivosť o svoje zdravie je nevyhnutnosť. Buď pre nich vzor"]
   }, {
     number: "2",
     title: "NeoMe alebo osobný tréner?",
