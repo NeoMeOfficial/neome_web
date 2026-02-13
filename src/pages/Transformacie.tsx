@@ -297,7 +297,7 @@ const Transformacie = () => {
             <h2 className="text-4xl md:text-6xl font-light mb-6">
               Pre <span className="gradient-text font-normal">skutočné ženy</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">a reálny život medzi varením, prácou, únavou.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">a reálny život medzi varením, prácou a únavou.
 
             </p>
           </div>
