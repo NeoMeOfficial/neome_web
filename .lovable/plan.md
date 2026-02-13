@@ -2,7 +2,7 @@
 
 ## Zmenšenie medzery nad záverečnou CTA sekciou
 
-Zmenším horný padding na polovicu aktuálnych hodnôt.
+Ďalšie zmenšenie horného paddingu na polovicu aktuálnych hodnôt.
 
 ### Technické detaily
 
@@ -10,13 +10,13 @@ Zmenším horný padding na polovicu aktuálnych hodnôt.
 
 Zmena z:
 ```tsx
-<section className="pt-8 md:pt-12 pb-16 md:pb-20 px-4 md:px-8">
+<section className="pt-4 md:pt-6 pb-16 md:pb-20 px-4 md:px-8">
 ```
 
 Na:
 ```tsx
-<section className="pt-4 md:pt-6 pb-16 md:pb-20 px-4 md:px-8">
+<section className="pt-2 md:pt-3 pb-16 md:pb-20 px-4 md:px-8">
 ```
 
-Hodnoty `pt-8` na `pt-4` a `md:pt-12` na `md:pt-6`.
+Hodnoty `pt-4` na `pt-2` a `md:pt-6` na `md:pt-3`.
 
