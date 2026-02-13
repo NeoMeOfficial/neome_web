@@ -364,7 +364,7 @@ const Transformacie = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="pt-4 md:pt-6 pb-16 md:pb-20 px-4 md:px-8">
+      <section className="pt-8 md:pt-12 pb-16 md:pb-20 px-4 md:px-8">
         <div className="container mx-auto max-w-4xl text-center">
           <Card className="rounded-3xl shadow-xl p-12 md:p-16 bg-gradient-to-br from-primary/10 to-accent/20 border-primary/20">
             <p className="text-base md:text-lg text-foreground/60 mb-2">
