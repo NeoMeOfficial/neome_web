@@ -1,22 +1,19 @@
 
 
-## Zmenšenie medzery nad záverečnou CTA sekciou
+## Presun textu v sekcii AppOverview
 
-Ďalšie zmenšenie horného paddingu na polovicu aktuálnych hodnôt.
+Presunieme riadok "V NeoMe App nájdeš všetko – cvičenie, recepty, meditácie a viac…" tak, aby sa zobrazoval pod "Silnú – Zdravú – Sebavedomú".
 
-### Technické detaily
+### Aktuálne poradie:
+1. Buduj svoju **Novú Ja**
+2. V NeoMe App nájdeš všetko...
+3. **Silnú – Zdravú – Sebavedomú**
 
-**Súbor:** `src/pages/Transformacie.tsx` (riadok 367)
+### Nové poradie:
+1. Buduj svoju **Novú Ja**
+2. **Silnú – Zdravú – Sebavedomú**
+3. V NeoMe App nájdeš všetko...
 
-Zmena z:
-```tsx
-<section className="pt-4 md:pt-6 pb-16 md:pb-20 px-4 md:px-8">
-```
-
-Na:
-```tsx
-<section className="pt-2 md:pt-3 pb-16 md:pb-20 px-4 md:px-8">
-```
-
-Hodnoty `pt-4` na `pt-2` a `md:pt-6` na `md:pt-3`.
+### Technicky
+- V subore `src/components/AppOverview.tsx` sa presunie `<p>` element za `<h3>` element v hlavicke sekcie.
 
