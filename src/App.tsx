@@ -26,6 +26,7 @@ import Checkout from "./pages/Checkout";
 import Auth from "./pages/Auth";
 import AdminSettings from "./pages/AdminSettings";
 import Transformacie from "./pages/Transformacie";
+import HomeNew from "./pages/HomeNew";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -39,7 +40,8 @@ const App = () => (
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path="/" element={<OAplikacii />} />
+            <Route path="/" element={<HomeNew />} />
+            <Route path="/o-aplikacii" element={<OAplikacii />} />
             <Route path="/home-old" element={<Index />} />
             <Route path="/home-shorter" element={<HomeShort />} />
             <Route path="/blog" element={<Blog />} />
@@ -58,6 +60,8 @@ const App = () => (
             <Route path="/admin/settings" element={<AdminSettings />} />
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/transformacie" element={<Transformacie />} />
+            <Route path="/home-new" element={<HomeNew />} />
+            {/* /home-new kept as alias */}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

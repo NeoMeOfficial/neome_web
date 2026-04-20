@@ -1,0 +1,8 @@
+# Dependencies & build output
+node_modules/
+dist/
+.git/
+
+# Lock files
+*.lock
+bun.lockb
