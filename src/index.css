@@ -287,6 +287,7 @@
   .label--sandy { color: var(--sandy); }
   .label--sage  { color: var(--sage); }
   .label--deep  { color: var(--fg-secondary); }
+  .eyebrow--on-dark { color: var(--sandy); }
 
   /* ── Display italic — the voice moment (terracotta) ────────────────────── */
   .display-italic {

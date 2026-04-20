@@ -201,7 +201,7 @@ const HomeNew = () => {
 
   /* ── Shared label style ───────────────────────────────────────────────── */
   const Label = ({ children, light = false }: { children: string; light?: boolean }) => (
-    <p style={{ fontFamily: DMS, fontSize:"11px", letterSpacing:"0.28em", textTransform:"uppercase", color: light ? `${SANDY}` : SAGE, marginBottom:"20px" }}>
+    <p style={{ fontFamily: DMS, fontSize:"12px", fontWeight:500, letterSpacing:"0.24em", textTransform:"uppercase", color: light ? SANDY : "rgba(61, 41, 33, 0.55)", marginBottom:"20px" }}>
       {children}
     </p>
   );
