@@ -90,7 +90,7 @@ const stagger = {
 const vp = { once: true, margin: "-80px" };
 
 // ── Font helpers ───────────────────────────────────────────────────────────────
-const PF  = "'Bodoni Moda', Georgia, serif";
+const PF  = "'Fraunces', Georgia, serif";
 const DMS = "'DM Sans', system-ui, sans-serif";
 
 // ── Static data ───────────────────────────────────────────────────────────────
@@ -305,32 +305,24 @@ const HomeNew = () => {
       <div className="hn2" style={{ overflowX:"clip" }}>
 
         {/* ══════════════════════════════════════════════════════════════
-            §1  HERO
+            §1  HERO — cream editorial with inset portrait (hero.md)
         ══════════════════════════════════════════════════════════════ */}
-        <section
-          className="relative min-h-screen flex flex-col justify-between pt-20 overflow-hidden"
-          style={{ backgroundImage:`url(${heroImage})`, backgroundSize:"cover", backgroundPosition:"center top" }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/72 via-black/42 to-black/8" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+        <section className="relative pt-32 md:pt-40 pb-20 md:pb-28 px-6 md:px-16 overflow-hidden" style={{ backgroundColor: CREAM }}>
+          <div className="container mx-auto max-w-7xl">
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-          {/* Main copy */}
-          <div className="relative z-10 flex-1 flex items-end pb-28 px-6 md:px-16">
-            <div className="container mx-auto max-w-7xl">
-              <div className="max-w-3xl">
+              {/* Left — editorial copy (cols 1–7) */}
+              <div className="lg:col-span-7">
 
-                {/* Label */}
-                <div className="flex items-center gap-3 mb-10 hn2-word" style={{ animationDelay:"0s" }}>
-                  <div className="h-px w-12" style={{ backgroundColor: SAGE }} />
-                  <span style={{ fontFamily: DMS, fontSize:"11px", letterSpacing:"0.28em", textTransform:"uppercase", color: SAGE }}>
-                    Wellbeing pre ženy
-                  </span>
-                </div>
+                {/* Eyebrow */}
+                <p className="hn2-word eyebrow mb-7" style={{ animationDelay:"0s" }}>
+                  Wellbeing pre ženy
+                </p>
 
                 {/* Headline — word by word */}
                 <h1
-                  className="text-white mb-5 leading-[0.9]"
-                  style={{ fontFamily: PF, fontWeight: 500, fontSize:"clamp(58px,10.5vw,132px)" }}
+                  className="mb-4 leading-[0.9]"
+                  style={{ fontFamily: PF, fontWeight: 500, fontSize:"clamp(58px,10.5vw,132px)", color: DEEP, letterSpacing:"-0.015em" }}
                 >
                   {"Máš 15 minút?".split(" ").map((w, i) => (
                     <span key={i} className="hn2-word" style={{ animationDelay:`${0.18 + i * 0.19}s` }}>
@@ -339,62 +331,63 @@ const HomeNew = () => {
                   ))}
                 </h1>
 
-                {/* Italic sub */}
+                {/* Italic voice moment — terracotta per type.md */}
                 <p
-                  className="hn2-word text-white/70 mb-10 leading-tight"
-                  style={{ fontFamily: PF, fontStyle:"italic", fontWeight:400, fontSize:"clamp(28px,5vw,64px)", animationDelay:"0.75s" }}
+                  className="hn2-word mb-8 leading-tight"
+                  style={{ fontFamily: PF, fontStyle:"italic", fontWeight:400, fontSize:"clamp(28px,5vw,64px)", color: TERRA, animationDelay:"0.75s" }}
                 >
                   Stačí ti to.
                 </p>
 
                 <p
-                  className="hn2-word text-white/72 mb-10 max-w-lg leading-relaxed"
-                  style={{ fontFamily: DMS, fontSize:"17px", fontWeight:300, animationDelay:"0.92s" }}
+                  className="hn2-word mb-10 max-w-[55ch]"
+                  style={{ fontFamily: DMS, fontSize:"17px", fontWeight:300, lineHeight:1.72, color: `${DEEP}C2`, animationDelay:"0.92s" }}
                 >
                   Holistická pohoda pre skutočné ženy — cvičenie, recepty, meditácie
                   a komunita navrhnuté pre tvoj skutočný život. Bez viny, bez extrémov.
                 </p>
 
-                {/* CTAs */}
-                <div className="hn2-word flex flex-col sm:flex-row gap-4 items-start mb-4" style={{ animationDelay:"1.08s" }}>
+                {/* Primary CTA + secondary text link */}
+                <div className="hn2-word flex flex-wrap items-center gap-6 mb-5" style={{ animationDelay:"1.08s" }}>
                   <Button asChild size="lg"
-                    className="rounded-full px-10 py-6 text-[15px] font-normal border-0 hover:opacity-88 transition-opacity shadow-lg"
-                    style={{ backgroundColor: SAGE, color:"#fff", fontFamily: DMS }}>
-                    <Link to="/checkout">Vyskúšaj 7 dní zadarmo <ArrowRight size={16} className="ml-2" /></Link>
+                    className="rounded-full px-10 py-6 text-[15px] font-normal border-0 hover:opacity-88 transition-opacity"
+                    style={{ backgroundColor: TERRA, color:"#fff", fontFamily: DMS }}>
+                    <Link to="/checkout">Vyskúšaj 7 dní zadarmo</Link>
                   </Button>
-                  <Button asChild size="lg" variant="ghost"
-                    className="rounded-full px-9 py-6 text-[15px] text-white hover:text-white hover:bg-white/10"
-                    style={{ border:"1px solid rgba(255,255,255,0.28)", fontFamily: DMS, fontWeight:300 }}>
-                    <Link to="/programy">Pozri si programy</Link>
-                  </Button>
+                  <Link to="/programy" className="inline-flex items-center gap-2 hover:opacity-60 transition-opacity"
+                    style={{ fontFamily: DMS, fontSize:"15px", fontWeight:400, color: DEEP, textDecoration:"underline", textUnderlineOffset:"5px", textDecorationThickness:"1px" }}>
+                    Pozri si programy <ArrowRight size={15} />
+                  </Link>
                 </div>
 
                 {/* Trust micro-copy */}
                 <div className="hn2-word flex items-center gap-2" style={{ animationDelay:"1.2s" }}>
-                  <Shield size={13} className="text-white/35" />
-                  <p style={{ fontFamily: DMS, fontSize:"13px", color:"rgba(255,255,255,0.38)" }}>
+                  <Shield size={13} style={{ color: `${DEEP}55` }} />
+                  <p style={{ fontFamily: DMS, fontSize:"13px", color: `${DEEP}70` }}>
                     Žiadna platobná karta. Zruš kedykoľvek.
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
 
-          {/* ── GLASS §1: Stats bar ──────────────────────────────────── */}
-          <div className="hn2-word relative z-10 px-6 md:px-16 pb-10" style={{ animationDelay:"1.35s" }}>
-            <div
-              className="container mx-auto max-w-7xl rounded-2xl px-6 md:px-10 py-5 flex flex-col sm:flex-row gap-6 sm:gap-0 sm:justify-between sm:items-center"
-              style={glass(0.09, 22, 0.16)}
-            >
+              {/* Right — inset portrait (cols 8–12) */}
+              <div className="lg:col-span-5 hn2-word" style={{ animationDelay:"0.4s" }}>
+                <div className="relative overflow-hidden" style={{ aspectRatio:"3/4", borderRadius:"24px", boxShadow:"0 20px 60px rgba(61, 41, 33, 0.12)" }}>
+                  <img src={heroImage} alt="Žena pri cvičení doma" className="w-full h-full object-cover" style={{ objectPosition:"center top" }} />
+                </div>
+              </div>
+            </div>
+
+            {/* Stats bar — editorial hairline version (spec allows keeping proof row below hero) */}
+            <div className="hn2-word mt-16 md:mt-20 pt-8 border-t grid grid-cols-2 md:grid-cols-4 gap-y-6" style={{ animationDelay:"1.35s", borderColor:`${DEEP}1F` }}>
               {[
                 { value:"4 000+", label:"žien začalo" },
                 { value:"★ 4.9",  label:"priemerné hodnotenie" },
                 { value:"230+",   label:"overených recenzií" },
                 { value:"7 dní",  label:"zadarmo na vyskúšanie" },
               ].map((s, i) => (
-                <div key={i} className="text-center sm:flex-1 sm:border-r last:border-0" style={{ borderColor:"rgba(255,255,255,0.12)" }}>
-                  <div style={{ fontFamily: PF, fontWeight:500, fontSize:"22px", color:"white" }}>{s.value}</div>
-                  <div style={{ fontFamily: DMS, fontSize:"10px", letterSpacing:"0.2em", textTransform:"uppercase", color:"rgba(255,255,255,0.42)", marginTop:"2px" }}>{s.label}</div>
+                <div key={i} className="text-center md:text-left px-3">
+                  <div style={{ fontFamily: PF, fontWeight:500, fontSize:"28px", color: DEEP, lineHeight:1.1 }}>{s.value}</div>
+                  <div className="eyebrow mt-2" style={{ fontSize:"10px", letterSpacing:"0.2em" }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -420,44 +413,47 @@ const HomeNew = () => {
         </div>
 
         {/* ══════════════════════════════════════════════════════════════
-            §3  PAIN POINTS
+            §3  PAIN POINTS — asymmetric editorial (pain-section.md Variant C)
         ══════════════════════════════════════════════════════════════ */}
-        <section className="py-28 md:py-36 px-6 md:px-16 bg-white">
+        <section className="py-32 md:py-40 px-6 md:px-16" style={{ backgroundColor: CREAM }}>
           <div className="container mx-auto max-w-6xl">
             <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={vp}>
 
-              {/* Centred headline */}
-              <motion.div variants={fadeUp} className="text-center mb-16">
+              <motion.div variants={fadeUp} className="mb-14">
                 <Label>Poznáš ten pocit?</Label>
-                <H2>
-                  Si unavená z toho,{" "}
-                  <em style={{ color: TERRA, fontStyle:"italic" }}>že na seba zabudáš.</em>
-                </H2>
               </motion.div>
 
-              {/* 3-column pain cards */}
-              <div className="grid md:grid-cols-3 gap-5">
-                {[
-                  { Icon: Clock,     accent: SAGE,  title:"Chcem cvičiť, ale čas jednoducho nie je.",       body:"Medzi deťmi, prácou a domácnosťou si na seba jednoducho zabudla. Každý deň." },
-                  { Icon: RotateCcw, accent: DUST,  title:"Začínam každý pondelok odznova.",                body:"Nič nevydrží, lebo nič nebolo navrhnuté pre tvoj skutočný, zaneprázdnený život." },
-                  { Icon: Heart,     accent: TERRA, title:"Všetkých sa starám. Seba nechávam na posled.",  body:"Si posledná na tvojom vlastnom zozname — a to nie je správne." },
-                ].map((item, i) => (
-                  <motion.div key={i} variants={fadeUp}>
-                    <div
-                      className="p-8 rounded-2xl h-full"
-                      style={{ backgroundColor: CREAM, borderLeft:`3px solid ${item.accent}`, boxShadow:"0 2px 20px rgba(0,0,0,0.04)" }}
-                    >
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style={{ backgroundColor:`${item.accent}1A` }}>
-                        <item.Icon size={18} style={{ color: item.accent }} />
-                      </div>
-                      <h3 className="font-normal text-base leading-snug mb-3" style={{ fontFamily: DMS, color: DEEP }}>{item.title}</h3>
-                      <p className="text-sm leading-relaxed" style={{ fontFamily: DMS, color:`${DEEP}80` }}>{item.body}</p>
-                    </div>
-                  </motion.div>
-                ))}
+              <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+
+                {/* Left: italic pull-phrase (cols 1–5) */}
+                <motion.blockquote variants={fadeUp} className="lg:col-span-5"
+                  style={{ fontFamily: PF, fontStyle:"italic", fontWeight:400, fontSize:"clamp(28px,5vw,64px)", lineHeight:1.18, color: TERRA, margin:0 }}>
+                  Si unavená z toho, že na seba zabudáš.
+                </motion.blockquote>
+
+                {/* Right: editorial list (cols 7–12) */}
+                <motion.ul variants={fadeUp} className="lg:col-span-7 lg:col-start-6 list-none p-0 m-0">
+                  {[
+                    "Unavená som už roky.",
+                    "Na seba už vôbec nemám čas.",
+                    "Neviem, kde mám vôbec začať.",
+                    "Chcem sa cítiť zase ako ja.",
+                  ].map((item, i, arr) => (
+                    <li key={i}
+                      style={{
+                        fontFamily: PF, fontWeight:500, fontSize:"clamp(22px,2.6vw,32px)",
+                        lineHeight:1.25, color: DEEP,
+                        padding:"28px 0",
+                        borderTop:`1px solid ${DEEP}29`,
+                        ...(i === arr.length - 1 ? { borderBottom:`1px solid ${DEEP}29` } : {}),
+                      }}>
+                      {item}
+                    </li>
+                  ))}
+                </motion.ul>
               </div>
 
-              <motion.p variants={fadeUp} className="text-center mt-10 text-sm" style={{ fontFamily: DMS, color:`${DEEP}70` }}>
+              <motion.p variants={fadeUp} className="text-center mt-16 text-sm max-w-2xl mx-auto" style={{ fontFamily: DMS, color:`${DEEP}75`, lineHeight:1.72 }}>
                 NeoMe vzniklo presne pre teba. Nie pre dokonalú verziu teba —&nbsp;
                 <strong style={{ fontWeight:500, color: DEEP }}>pre teba dnes.</strong>
               </motion.p>
