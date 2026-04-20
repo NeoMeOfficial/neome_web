@@ -1,281 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* NeoMe Design System - Soft, Neutral, Feminine Palette */
+/* ══════════════════════════════════════════════════════════════════════════════
+   NeoMe Design System — mirror of design-system/tokens.css
+   Source of truth: /design-system/tokens.css
+   Editorial luxury × holistic wellbeing for women
+   ══════════════════════════════════════════════════════════════════════════════ */
 
-/* Mobile accordion color swap */
+/* Mobile accordion color swap — programme card accordion */
 @layer components {
-  /* Level 1 mobile accordion */
   @media (max-width: 1023px) {
-    [data-program="0"] [data-state="open"] {
-      background-color: hsl(var(--level-1)) !important;
-    }
-    [data-program="0"] [data-state="open"] .accordion-icon-circle {
-      background-color: white !important;
-    }
-    [data-program="0"] [data-state="open"] .accordion-icon {
-      color: hsl(var(--level-1-foreground)) !important;
-    }
-    [data-program="0"] [data-state="open"] .accordion-badge {
-      background-color: white !important;
-      color: hsl(var(--level-1-foreground)) !important;
-    }
-    [data-program="0"] [data-state="open"] .accordion-tag {
-      color: hsl(var(--level-1-foreground)) !important;
-    }
-  }
-  
-  /* Level 2 mobile accordion */
-  @media (max-width: 1023px) {
-    [data-program="1"] [data-state="open"] {
-      background-color: hsl(var(--level-2)) !important;
-    }
-    [data-program="1"] [data-state="open"] .accordion-icon-circle {
-      background-color: white !important;
-    }
-    [data-program="1"] [data-state="open"] .accordion-icon {
-      color: hsl(var(--level-2)) !important;
-    }
-    [data-program="1"] [data-state="open"] .accordion-badge {
-      background-color: white !important;
-      color: hsl(var(--level-2)) !important;
-    }
-    [data-program="1"] [data-state="open"] .accordion-tag {
-      color: white !important;
-    }
-  }
-  
-  /* Level 3 mobile accordion */
-  @media (max-width: 1023px) {
-    [data-program="2"] [data-state="open"] {
-      background-color: hsl(var(--level-3)) !important;
-    }
-    [data-program="2"] [data-state="open"] .accordion-icon-circle {
-      background-color: white !important;
-    }
-    [data-program="2"] [data-state="open"] .accordion-icon {
-      color: hsl(var(--level-3)) !important;
-    }
-    [data-program="2"] [data-state="open"] .accordion-badge {
-      background-color: white !important;
-      color: hsl(var(--level-3)) !important;
-    }
-    [data-program="2"] [data-state="open"] .accordion-tag {
-      color: white !important;
-    }
-  }
-  
-  /* Level 4 mobile accordion */
-  @media (max-width: 1023px) {
-    [data-program="3"] [data-state="open"] {
-      background-color: hsl(var(--level-4)) !important;
-    }
-    [data-program="3"] [data-state="open"] .accordion-icon-circle {
-      background-color: white !important;
-    }
-    [data-program="3"] [data-state="open"] .accordion-icon {
-      color: hsl(var(--level-4)) !important;
-    }
-    [data-program="3"] [data-state="open"] .accordion-badge {
-      background-color: white !important;
-      color: hsl(var(--level-4)) !important;
-    }
-    [data-program="3"] [data-state="open"] .accordion-tag {
-      color: white !important;
-    }
+    [data-program="0"] [data-state="open"] { background-color: hsl(var(--level-1)) !important; }
+    [data-program="0"] [data-state="open"] .accordion-icon-circle { background-color: white !important; }
+    [data-program="0"] [data-state="open"] .accordion-icon { color: hsl(var(--level-1-foreground)) !important; }
+    [data-program="0"] [data-state="open"] .accordion-badge { background-color: white !important; color: hsl(var(--level-1-foreground)) !important; }
+    [data-program="0"] [data-state="open"] .accordion-tag { color: hsl(var(--level-1-foreground)) !important; }
+
+    [data-program="1"] [data-state="open"] { background-color: hsl(var(--level-2)) !important; }
+    [data-program="1"] [data-state="open"] .accordion-icon-circle { background-color: white !important; }
+    [data-program="1"] [data-state="open"] .accordion-icon { color: hsl(var(--level-2)) !important; }
+    [data-program="1"] [data-state="open"] .accordion-badge { background-color: white !important; color: hsl(var(--level-2)) !important; }
+    [data-program="1"] [data-state="open"] .accordion-tag { color: white !important; }
+
+    [data-program="2"] [data-state="open"] { background-color: hsl(var(--level-3)) !important; }
+    [data-program="2"] [data-state="open"] .accordion-icon-circle { background-color: white !important; }
+    [data-program="2"] [data-state="open"] .accordion-icon { color: hsl(var(--level-3)) !important; }
+    [data-program="2"] [data-state="open"] .accordion-badge { background-color: white !important; color: hsl(var(--level-3)) !important; }
+    [data-program="2"] [data-state="open"] .accordion-tag { color: white !important; }
+
+    [data-program="3"] [data-state="open"] { background-color: hsl(var(--level-4)) !important; }
+    [data-program="3"] [data-state="open"] .accordion-icon-circle { background-color: white !important; }
+    [data-program="3"] [data-state="open"] .accordion-icon { color: hsl(var(--level-4)) !important; }
+    [data-program="3"] [data-state="open"] .accordion-badge { background-color: white !important; color: hsl(var(--level-4)) !important; }
+    [data-program="3"] [data-state="open"] .accordion-tag { color: white !important; }
   }
 }
 
 @layer base {
   :root {
-    /* Primary Brand Colors - Soft neutrals with warmth */
-    --background: 30 15% 97%;
-    --foreground: 30 8% 20%;
+    /* ── NeoMe brand palette (raw hex tokens) ──────────────────────────────── */
+    --cream:        #F8F5F0;
+    --cream-50:     #FBF9F5;
+    --cream-100:    #F8F5F0;
+    --cream-200:    #F1ECE3;
+    --cream-300:    #EAE3D6;
 
-    --card: 30 20% 98%;
-    --card-foreground: 30 8% 20%;
+    --deep-brown:   #3D2921;
+    --deep-500:     #8B6959;
+    --deep-700:     #5F3E31;
+    --deep-900:     #3D2921;
 
-    --popover: 30 20% 98%;
-    --popover-foreground: 30 8% 20%;
+    --sage:         #8B9E88;
+    --sage-100:     #D8DFD7;
+    --sage-300:     #B2BFB0;
+    --sage-500:     #8B9E88;
+    --sage-700:     #6B7C68;
 
-    /* Level System - Program Color Accents */
-    /* Level 1: Lightest beige #F1EDE4 */
+    --terracotta:   #C1856A;
+    --terra-100:    #EAD5C7;
+    --terra-300:    #D5AC95;
+    --terra-500:    #C1856A;
+    --terra-700:    #9C6148;
+
+    --dusty-teal:   #89B0BC;
+    --dusty-blue:   #89B0BC;  /* legacy alias — prefer --dusty-teal */
+    --sandy:        #D4C4B0;
+
+    /* Semantic hierarchy */
+    --primary-ink:        var(--deep-brown);
+    --primary-surface:    var(--cream);
+    --primary-accent:     var(--sage);
+    --accent-action:      var(--terracotta);
+    --accent-mind:        var(--dusty-teal);
+    --accent-warm:        var(--sandy);
+
+    /* Foreground */
+    --fg-primary:     var(--deep-brown);
+    --fg-secondary:   rgba(61, 41, 33, 0.72);
+    --fg-tertiary:    rgba(61, 41, 33, 0.56);
+    --fg-muted:       rgba(61, 41, 33, 0.40);
+    --fg-on-dark:            #FFFFFF;
+    --fg-on-dark-secondary:  rgba(255, 255, 255, 0.72);
+    --fg-on-dark-tertiary:   rgba(255, 255, 255, 0.48);
+
+    /* Surfaces */
+    --surface-primary:    var(--cream);
+    --surface-secondary:  #FFFFFF;           /* only on small raised cards over cream */
+    --surface-dark:       var(--deep-brown);
+    --surface-accent:     var(--sage);
+    --surface-warm:       var(--sandy);
+
+    /* ── shadcn HSL tokens — remapped to NeoMe palette ─────────────────────── */
+    /* #F8F5F0 cream */
+    --background: 33 33% 96%;
+    /* #3D2921 deep-brown */
+    --foreground: 18 29% 19%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 18 29% 19%;
+
+    --popover: 33 33% 96%;
+    --popover-foreground: 18 29% 19%;
+
+    /* Programme level accents (kept — used by accordion) */
     --level-1: 30 29% 92%;
     --level-1-foreground: 18 32% 29%;
-    
-    /* Level 2: Rose/Peach #C1856A */
-    --level-2: 18 41% 59%;
+    --level-2: 18 41% 59%;   /* terracotta */
     --level-2-foreground: 0 0% 100%;
-    
-    /* Level 3: Primary brown #5F3E31 */
     --level-3: 18 32% 29%;
     --level-3-foreground: 0 0% 100%;
-    
-    /* Level 4: Darkest brown #311003 */
     --level-4: 18 95% 10%;
     --level-4-foreground: 0 0% 100%;
 
-    /* Primary - Warm brown #5F3E31 (Level 3) */
-    --primary: 18 32% 29%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 18 32% 39%;
+    /* Primary — deep-brown */
+    --primary: 18 29% 19%;
+    --primary-foreground: 33 33% 96%;
+    --primary-glow: 18 32% 29%;
 
-    /* Secondary - Warm beige (Level 1) */
+    /* Secondary — cream-200 warm tint */
     --secondary: 30 29% 92%;
-    --secondary-foreground: 30 8% 25%;
+    --secondary-foreground: 18 29% 19%;
 
-    /* Muted - Light warm gray */
+    /* Muted */
     --muted: 30 15% 92%;
-    --muted-foreground: 30 6% 50%;
+    --muted-foreground: 18 10% 45%;
 
-    /* Accent - Rose/Peach (Level 2) */
+    /* Accent — terracotta */
     --accent: 18 41% 59%;
     --accent-foreground: 0 0% 100%;
-    
-    /* CTA Colors */
-    --cta-teal: 193 30% 64%;
+
+    /* CTA compatibility */
+    --cta-teal: 196 23% 64%;
     --cta-teal-foreground: 0 0% 100%;
     --cta-white: 0 0% 100%;
-    --cta-white-foreground: 18 32% 29%;
+    --cta-white-foreground: 18 29% 19%;
 
-    /* Feature section - Warm beige */
+    /* Section backgrounds */
     --feature-bg: 30 25% 94%;
     --feature-card: 0 0% 100%;
-
-    /* Alternate section backgrounds */
     --section-white: 0 0% 100%;
     --section-beige: 30 29% 92%;
 
-    --destructive: 0 70% 60%;
+    --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
-
-    /* Success colors for testimonials */
-    --success: 142 76% 36%;
+    --success: 142 50% 38%;
     --success-foreground: 0 0% 100%;
-
-    /* Info colors for educational content */
-    --info: 194 28% 64%;
+    --info: 196 23% 64%;
     --info-foreground: 0 0% 100%;
-
-    /* Warning colors for promotional banners */
-    --warning: 38 92% 50%;
+    --warning: 38 70% 55%;
     --warning-foreground: 0 0% 100%;
 
     --border: 30 15% 88%;
     --input: 30 15% 88%;
-    --ring: 18 32% 29%;
+    --ring: 18 29% 19%;
 
     --radius: 1rem;
 
-    /* Glassmorphism tokens */
+    /* ── Typography ────────────────────────────────────────────────────────── */
+    --serif:     'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans:      'DM Sans', system-ui, -apple-system, sans-serif;
+    --serif-display-vary: "opsz" 144, "SOFT" 30;
+
+    --h1-size:       clamp(58px, 10.5vw, 132px);
+    --h1-weight:     500;
+    --h1-lh:         0.90;
+    --h1-ls:         -0.015em;
+    --h2-size:       clamp(38px, 5.5vw, 70px);
+    --h2-weight:     500;
+    --h2-lh:         1.08;
+    --h2-ls:         -0.01em;
+    --h3-size:       clamp(24px, 2.8vw, 36px);
+    --h3-weight:     500;
+    --h3-lh:         1.15;
+    --display-italic-size:  clamp(28px, 5vw, 64px);
+
+    --body-lg:       17px;
+    --body-md:       15px;
+    --body-sm:       13px;
+    --body-weight:   300;
+    --body-lh:       1.72;
+    --body-opacity:  1;    /* was 0.75 — deep-brown is already the right weight */
+
+    --label-size:    12px;
+    --label-weight:  500;
+    --label-ls:      0.24em;
+    --label-color:   rgba(61, 41, 33, 0.55);
+
+    --font-heading: 500;
+    --font-body: 300;
+
+    /* ── Radii ─────────────────────────────────────────────────────────────── */
+    --r-xs:   8px;
+    --r-sm:   12px;
+    --r-md:   16px;
+    --r-lg:   24px;
+    --r-xl:   32px;
+    --r-2xl:  48px;
+    --r-phone: 54px;
+    --r-pill: 9999px;
+
+    /* ── Shadows (soft, never hard) ────────────────────────────────────────── */
+    --shadow-xs:  0 1px 2px rgba(61, 41, 33, 0.04);
+    --shadow-sm:  0 2px 8px rgba(61, 41, 33, 0.05);
+    --shadow-md:  0 2px 24px rgba(61, 41, 33, 0.05);
+    --shadow-lg:  0 20px 60px rgba(61, 41, 33, 0.12);
+    --shadow-phone: 0 50px 100px rgba(0, 0, 0, 0.28),
+                    0 15px 35px rgba(0, 0, 0, 0.15);
+
+    /* Legacy shadow tokens — kept for back-compat, purged in Phase 3 */
+    --shadow-soft: 0 4px 16px -4px rgba(61, 41, 33, 0.08);
+    --shadow-glow: 0 0 32px rgba(193, 133, 106, 0.25);
+    --neuro-shadow-light: 30 20% 95%;
+    --neuro-shadow-dark: 30 10% 80%;
+    --neuro-glow: 18 32% 29%;
+    --shadow-neuro-out: 8px 8px 16px hsl(30 10% 80%), -8px -8px 16px hsl(30 20% 98%);
+    --shadow-neuro-in: inset 4px 4px 8px hsl(30 10% 85%), inset -4px -4px 8px hsl(30 20% 100%);
+
+    /* Legacy gradients — kept for back-compat, purged in Phase 3 */
+    --gradient-primary: linear-gradient(135deg, hsl(18 29% 19%), hsl(18 32% 29%));
+    --gradient-soft: linear-gradient(180deg, hsl(33 33% 97%), hsl(33 29% 94%));
+    --gradient-warm: linear-gradient(135deg, hsl(20 45% 85%), hsl(30 35% 88%));
+
+    /* Legacy glass tokens — kept for back-compat, purged in Phase 3 */
     --glass-bg: 0 0% 100%;
     --glass-opacity: 0.15;
     --glass-blur: 12px;
     --glass-border: 0 0% 100%;
     --glass-border-opacity: 0.2;
 
-    /* Neumorphism tokens */
-    --neuro-shadow-light: 30 20% 95%;
-    --neuro-shadow-dark: 30 10% 80%;
-    --neuro-glow: 18 32% 29%;
+    /* ── Motion ────────────────────────────────────────────────────────────── */
+    --ease-signature: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-standard:  cubic-bezier(0.4, 0, 0.2, 1);
+    --dur-fade:       900ms;
+    --dur-medium:     600ms;
+    --dur-quick:      300ms;
+    --stagger:        110ms;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(18 32% 29%), hsl(18 32% 39%));
-    --gradient-soft: linear-gradient(180deg, hsl(30 20% 98%), hsl(30 15% 95%));
-    --gradient-warm: linear-gradient(135deg, hsl(20 45% 85%), hsl(30 35% 88%));
-
-    /* Shadows */
-    --shadow-soft: 0 4px 16px -4px hsl(30 15% 20% / 0.08);
-    --shadow-glow: 0 0 32px hsl(18 32% 39% / 0.3);
-    --shadow-neuro-out: 8px 8px 16px hsl(30 10% 80%), -8px -8px 16px hsl(30 20% 98%);
-    --shadow-neuro-in: inset 4px 4px 8px hsl(30 10% 85%), inset -4px -4px 8px hsl(30 20% 100%);
-
-    /* Typography - Inter font with light weights */
-    --font-heading: 300;
-    --font-body: 300;
-    --body-opacity: 0.75;
-
-    /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-glow: box-shadow 0.3s ease;
+
+    /* ── Layout ────────────────────────────────────────────────────────────── */
+    --container-max: 1400px;
+    --container-pad: 2rem;
   }
 
-  .dark {
-    --background: 30 10% 8%;
-    --foreground: 30 10% 95%;
-
-    --card: 30 12% 10%;
-    --card-foreground: 30 10% 95%;
-
-    --popover: 30 12% 10%;
-    --popover-foreground: 30 10% 95%;
-
-    --primary: 18 32% 35%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 18 32% 45%;
-
-    --secondary: 30 10% 15%;
-    --secondary-foreground: 30 10% 90%;
-
-    --muted: 30 8% 18%;
-    --muted-foreground: 30 6% 60%;
-
-    --accent: 20 30% 25%;
-    --accent-foreground: 30 10% 90%;
-
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --success: 142 70% 45%;
-    --success-foreground: 0 0% 100%;
-
-    --info: 194 28% 64%;
-    --info-foreground: 0 0% 100%;
-
-    --warning: 38 85% 55%;
-    --warning-foreground: 0 0% 100%;
-
-    --border: 30 8% 20%;
-    --input: 30 8% 20%;
-    --ring: 18 32% 35%;
-
-    --glass-bg: 0 0% 10%;
-    --glass-opacity: 0.12;
-    --glass-blur: 12px;
-    --glass-border: 0 0% 30%;
-    --glass-border-opacity: 0.15;
-
-    --neuro-shadow-light: 30 10% 12%;
-    --neuro-shadow-dark: 30 15% 5%;
-    --neuro-glow: 18 32% 35%;
-
-    --shadow-soft: 0 4px 16px -4px hsl(0 0% 0% / 0.4);
-    --shadow-glow: 0 0 32px hsl(18 32% 45% / 0.25);
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
 
   body {
-    @apply bg-background text-foreground font-light;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground;
+    font-family: var(--sans);
+    font-weight: var(--body-weight);
+    font-size: var(--body-md);
+    line-height: var(--body-lh);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-light tracking-tight;
+    font-family: var(--serif);
+    font-variation-settings: var(--serif-display-vary);
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
 
-  p {
-    @apply opacity-[var(--body-opacity)];
-  }
+  h1 { font-size: var(--h1-size); line-height: var(--h1-lh); letter-spacing: var(--h1-ls); }
+  h2 { font-size: var(--h2-size); line-height: var(--h2-lh); letter-spacing: var(--h2-ls); }
+  h3 { font-size: var(--h3-size); line-height: var(--h3-lh); }
+
+  p { opacity: var(--body-opacity); }
 }
 
 @layer components {
-  /* Glassmorphic card */
+  /* ── Editorial eyebrow / label ─────────────────────────────────────────── */
+  .eyebrow, .label {
+    font-family: var(--sans);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-ls);
+    text-transform: uppercase;
+    color: var(--label-color);
+    display: inline-block;
+  }
+  .label--sandy { color: var(--sandy); }
+  .label--sage  { color: var(--sage); }
+  .label--deep  { color: var(--fg-secondary); }
+
+  /* ── Display italic — the voice moment (terracotta) ────────────────────── */
+  .display-italic {
+    font-family: var(--serif);
+    font-variation-settings: var(--serif-display-vary);
+    font-style: italic;
+    font-weight: 400;
+    font-size: var(--display-italic-size);
+    line-height: 1.18;
+    color: var(--terracotta);
+  }
+
+  /* ── Canonical pill buttons ────────────────────────────────────────────── */
+  .btn {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 15px;
+    padding: 16px 40px;
+    border-radius: var(--r-pill);
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: opacity var(--dur-quick) var(--ease-signature),
+                transform var(--dur-quick) var(--ease-signature),
+                background-color var(--dur-quick) var(--ease-signature);
+    text-decoration: none;
+  }
+  .btn-primary { background: var(--terracotta); color: #fff; }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-sage { background: var(--sage); color: #fff; }
+  .btn-sage:hover { opacity: 0.88; }
+  .btn-ghost-light {
+    background: transparent;
+    color: var(--fg-primary);
+    border-color: var(--deep-brown);
+  }
+  .btn-ghost-light:hover { background: rgba(61, 41, 33, 0.04); }
+  .btn-ghost-dark {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.28);
+  }
+  .btn-ghost-dark:hover { background: rgba(255, 255, 255, 0.08); }
+
+  /* ── Grain overlay (always on per D31) ─────────────────────────────────── */
+  .grain-overlay {
+    position: fixed;
+    inset: -150%;
+    width: 400%;
+    height: 400%;
+    pointer-events: none;
+    z-index: 998;
+    opacity: 0.028;
+    animation: grain-shift 8s steps(10) infinite;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ── Legacy helpers — DO NOT USE IN NEW CODE (removed in Phase 3) ──────── */
   .glass-card {
     background: hsl(var(--glass-bg) / var(--glass-opacity));
     backdrop-filter: blur(var(--glass-blur));
@@ -283,34 +354,42 @@
     border: 1px solid hsl(var(--glass-border) / var(--glass-border-opacity));
     box-shadow: var(--shadow-soft);
   }
-
-  /* Neumorphic button base */
   .neuro-button {
     background: hsl(var(--background));
     box-shadow: var(--shadow-neuro-out);
     transition: var(--transition-smooth), var(--transition-glow);
   }
-
-  .neuro-button:hover {
-    box-shadow: var(--shadow-neuro-out), var(--shadow-glow);
-  }
-
-  .neuro-button:active {
-    box-shadow: var(--shadow-neuro-in);
-  }
+  .neuro-button:hover { box-shadow: var(--shadow-neuro-out), var(--shadow-glow); }
+  .neuro-button:active { box-shadow: var(--shadow-neuro-in); }
 }
 
 @layer utilities {
-  /* Text opacity utilities */
-  .text-opacity-body {
-    opacity: var(--body-opacity);
-  }
-
-  /* Gradient text */
+  .text-opacity-body { opacity: var(--body-opacity); }
   .gradient-text {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+}
+
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  10%  { transform: translate(-1%, -2%); }
+  20%  { transform: translate(2%, 1%); }
+  30%  { transform: translate(-1%, 3%); }
+  40%  { transform: translate(2%, -1%); }
+  50%  { transform: translate(-2%, 2%); }
+  60%  { transform: translate(1%, -1%); }
+  70%  { transform: translate(-1%, 1%); }
+  80%  { transform: translate(2%, -2%); }
+  90%  { transform: translate(-1%, 1%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .grain-overlay { animation: none; }
 }
