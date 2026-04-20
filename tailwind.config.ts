@@ -14,9 +14,77 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['"DM Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['"Fraunces"', 'Georgia', '"Times New Roman"', 'serif'],
+      },
+      fontSize: {
+        'body-sm': ['13px', { lineHeight: '1.72', fontWeight: '300' }],
+        'body-md': ['15px', { lineHeight: '1.72', fontWeight: '300' }],
+        'body-lg': ['17px', { lineHeight: '1.72', fontWeight: '300' }],
+        eyebrow: ['12px', { lineHeight: '1.4', fontWeight: '500', letterSpacing: '0.24em' }],
+      },
+      letterSpacing: {
+        eyebrow: '0.24em',
+        'display-tight': '-0.015em',
+        'display-snug': '-0.01em',
+      },
+      spacing: {
+        section: '128px',
+        'section-lg': '160px',
+        'section-mobile': '80px',
+      },
+      maxWidth: {
+        container: '1400px',
+      },
+      transitionTimingFunction: {
+        signature: 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+      transitionDuration: {
+        quick: '300ms',
+        medium: '600ms',
+        fade: '900ms',
+      },
+      boxShadow: {
+        'neome-xs': '0 1px 2px rgba(61, 41, 33, 0.04)',
+        'neome-sm': '0 2px 8px rgba(61, 41, 33, 0.05)',
+        'neome-md': '0 2px 24px rgba(61, 41, 33, 0.05)',
+        'neome-lg': '0 20px 60px rgba(61, 41, 33, 0.12)',
+        phone: '0 50px 100px rgba(0, 0, 0, 0.28), 0 15px 35px rgba(0, 0, 0, 0.15)',
       },
       colors: {
+        /* NeoMe palette — named tokens (preferred) */
+        cream: {
+          DEFAULT: '#F8F5F0',
+          50: '#FBF9F5',
+          100: '#F8F5F0',
+          200: '#F1ECE3',
+          300: '#EAE3D6',
+        },
+        'deep-brown': {
+          DEFAULT: '#3D2921',
+          500: '#8B6959',
+          700: '#5F3E31',
+          900: '#3D2921',
+        },
+        sage: {
+          DEFAULT: '#8B9E88',
+          100: '#D8DFD7',
+          300: '#B2BFB0',
+          500: '#8B9E88',
+          700: '#6B7C68',
+        },
+        terracotta: {
+          DEFAULT: '#C1856A',
+          100: '#EAD5C7',
+          300: '#D5AC95',
+          500: '#C1856A',
+          700: '#9C6148',
+        },
+        'dusty-teal': '#89B0BC',
+        'dusty-blue': '#89B0BC',
+        sandy: '#D4C4B0',
+
+        /* shadcn HSL tokens (legacy, remapped to NeoMe palette) */
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -88,6 +156,8 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        phone: '54px',
+        pill: '9999px',
       },
       keyframes: {
         "accordion-down": {

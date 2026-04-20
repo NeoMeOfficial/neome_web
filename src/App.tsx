@@ -7,8 +7,6 @@ import { AuthProvider } from "@/hooks/useAuth";
 import { Header } from "@/components/Header";
 import CookieConsent from "@/components/CookieConsent";
 import SocialProofNotification from "@/components/SocialProofNotification";
-import Index from "./pages/Index";
-import HomeShort from "./pages/HomeShort";
 import Blog from "./pages/Blog";
 import BlogEditor from "./pages/BlogEditor";
 import About from "./pages/About";
@@ -42,8 +40,6 @@ const App = () => (
           <Routes>
             <Route path="/" element={<HomeNew />} />
             <Route path="/o-aplikacii" element={<OAplikacii />} />
-            <Route path="/home-old" element={<Index />} />
-            <Route path="/home-shorter" element={<HomeShort />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/editor" element={<BlogEditor />} />
             <Route path="/preco-neome" element={<PrecoNeoMe />} />
@@ -60,8 +56,6 @@ const App = () => (
             <Route path="/admin/settings" element={<AdminSettings />} />
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/transformacie" element={<Transformacie />} />
-            <Route path="/home-new" element={<HomeNew />} />
-            {/* /home-new kept as alias */}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
