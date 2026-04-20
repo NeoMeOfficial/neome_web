@@ -57,7 +57,7 @@ export const PromoBanner = () => {
               <Gift size={32} className="flex-shrink-0 text-white" />
               <div>
                 <h3 className="font-semibold text-lg mb-1 text-white">Jarná Akcia</h3>
-                <p className="text-sm text-white/90">Ušetri na svojej transformácii</p>
+                <p className="text-sm text-white/90">Ušetri, keď si dáš priestor</p>
               </div>
             </div>
             
