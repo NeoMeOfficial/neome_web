@@ -139,7 +139,7 @@ const BlogEditor = () => {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Naozaj chcete vymazať tento článok?")) return;
+    if (!confirm("Naozaj chceš vymazať tento článok?")) return;
     
     const { error } = await supabase
       .from("blog_posts")

@@ -155,7 +155,7 @@ export default function Checkout() {
       });
 
       toast({
-        title: "Ďakujeme za objednávku!",
+        title: "Ďakujeme za objednávku.",
         description: "Čoskoro ťa budeme kontaktovať s ďalšími inštrukciami."
       });
 
@@ -355,7 +355,7 @@ export default function Checkout() {
                     <div className="flex items-start gap-2">
                       <Check size={20} className="text-primary flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-medium text-foreground">Skvelá voľba!</p>
+                        <p className="font-medium text-foreground">Skvelá voľba.</p>
                         <p className="text-sm text-muted-foreground mt-1">
                           Tento program je ideálny pre tvoje ciele a začneš s ním hneď po aktivácii predplatného.
                         </p>

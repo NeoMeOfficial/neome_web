@@ -108,7 +108,7 @@ const PROGRAMS = [
   { level:"Level 1", tag:"Postpartum",    weeks:"8 týždňov", img: postpartumImg,   accent:"#F1EDE4", text:"#5F3E31", desc:"Bezpečný návrat k pohybu po pôrode. Diastáza, panvové dno, obnova sily." },
   { level:"Level 2", tag:"BodyForming",   weeks:"6 týždňov", img: bodyformingImg,  accent: TERRA,    text:"#fff",    desc:"Formovanie tela s vlastnou váhou. Žiadne vybavenie, maximum výsledkov." },
   { level:"Level 3", tag:"ElasticBands",  weeks:"6 týždňov", img: elasticbandsImg, accent: DEEP,     text:"#fff",    desc:"Svalová definícia a sila s odporovými gumami. Viditeľný rozdiel." },
-  { level:"Level 4", tag:"Strong & Sexy", weeks:"8 týždňov", img: strongsexyImg,   accent:"#1a0a05", text:"#fff",    desc:"Pokročilá transformácia tela a mysle. Pre ženy, ktoré chcú viac." },
+  { level:"Level 4", tag:"Strong & Sexy", weeks:"8 týždňov", img: strongsexyImg,   accent:"#1a0a05", text:"#fff",    desc:"Pokročilá práca s telom a mysľou. Pre ženy, ktoré chcú viac." },
 ];
 
 const TICKER_WORDS = [
@@ -118,18 +118,18 @@ const TICKER_WORDS = [
 
 // ── App pillars for phone scroll (§7) ────────────────────────────────────────
 const APP_FEATURES = [
-  { label:"Cvičenie",           sub:"15-minútové tréningy navrhnuté pre ženy vo všetkých životných fázach. Bez vybavenia, bez ospravedlnení.",        img: appBgTelo,          color: TERRA },
+  { label:"Cvičenie",           sub:"15-minútové tréningy navrhnuté pre ženy vo všetkých životných fázach. Bez vybavenia, kedykoľvek, kdekoľvek.",        img: appBgTelo,          color: TERRA },
   { label:"Recepty",            sub:"Zdravé, rýchle recepty pre celú rodinu. Od raňajok po večeru — výživa bez stresu a bez kompromisov.",              img: appBgStrava,        color: SAGE  },
   { label:"Meditácia",          sub:"Pokoj mysle za 5 minút. Dýchanie, mindfulness a mentálny wellbeing pre každý deň tvojho rušného života.",          img: appBgMysel,         color: DUST  },
   { label:"Komunita",           sub:"Tisíce žien, ktoré ťa chápu. Zdieľaj, motivuj a nechaj sa motivovať ženami, ktoré to žijú rovnako.",              img: appBgKomunity,      color: SANDY },
   { label:"Sledovanie cyklu",   sub:"Poznaj svoje telo hlbšie. Personalizované tipy a pohybové odporúčania pre každú fázu tvojho cyklu.",               img: appBgPeriod,        color: TERRA },
-  { label:"Sledovanie návykov", sub:"Buduj zdravé návyky krok po kroku. Sleduj denný progres a oslavuj každý malý úspech na svojej ceste.",            img: testimonialJournal, color: SAGE  },
+  { label:"Sledovanie návykov", sub:"Buduj zdravé návyky krok po kroku. Sleduj denný progres a oslavuj každý malý úspech každý deň.",            img: testimonialJournal, color: SAGE  },
   { label:"Jedálniček",         sub:"Plánuj jedlá s radosťou a bez stresu. Vyvážený jedálniček pre celý týždeň — rýchlo, jednoducho, zdravo.",         img: appBgStrava,        color: DUST  },
 ];
 
 const COMPARISONS = [
   { title:"NeoMe vs. členstvo v gyme",       points:["Šetrí čas — bez cestovania a čakania","Cvič doma, bez hanby a porovnávania","Flexibilita prispôsobená rodinnému rozvrhu","Zlomok mesačných nákladov na gym","Buď vzorom zdravia pre svoje deti"] },
-  { title:"NeoMe vs. osobný tréner",          points:["Expert-designed od profesionálky s 15+ rokmi praxe","Zlomok ceny osobného trénera","K dispozícii 24/7 — nie podľa kalendára trénera","Vždy po ruke v tvojom mobile","Špecificky navrhnuté pre ženy a mamičky"] },
+  { title:"NeoMe vs. osobný tréner",          points:["Navrhnuté odborníčkou s 15+ rokmi praxe","Zlomok ceny osobného trénera","K dispozícii 24/7 — nie podľa kalendára trénera","Vždy po ruke v tvojom mobile","Špecificky navrhnuté pre ženy a mamičky"] },
   { title:"NeoMe vs. iné fitness aplikácie",  points:["Pre mamičky a ženy — nie generické fitness","Holistický prístup: telo + myseľ + komunita","V slovenčine — rozumieš každému slovu","Aktívna komunita skutočných žien","Hormonálna rovnováha, nie len chudnutie"] },
 ];
 
@@ -323,7 +323,7 @@ const HomeNew = () => {
                 <div className="flex items-center gap-3 mb-10 hn2-word" style={{ animationDelay:"0s" }}>
                   <div className="h-px w-12" style={{ backgroundColor: SAGE }} />
                   <span style={{ fontFamily: DMS, fontSize:"11px", letterSpacing:"0.28em", textTransform:"uppercase", color: SAGE }}>
-                    Women's Wellness App
+                    Wellbeing pre ženy
                   </span>
                 </div>
 
@@ -351,7 +351,7 @@ const HomeNew = () => {
                   className="hn2-word text-white/72 mb-10 max-w-lg leading-relaxed"
                   style={{ fontFamily: DMS, fontSize:"17px", fontWeight:300, animationDelay:"0.92s" }}
                 >
-                  Holistický wellbeing pre skutočné ženy — cvičenie, recepty, meditácie
+                  Holistická pohoda pre skutočné ženy — cvičenie, recepty, meditácie
                   a komunita navrhnuté pre tvoj skutočný život. Bez viny, bez extrémov.
                 </p>
 
@@ -771,7 +771,7 @@ const HomeNew = () => {
                     <strong style={{ fontWeight:500, color: DEEP }}>15+ rokov skúseností</strong> v tanci, joge a fyzickom tréningu. Vystupovala pre Tommy Hilfiger, Avicii a Adidas. Potom sa stala mamou — a všetko sa zmenilo.
                   </p>
                   <p className="text-sm leading-relaxed" style={{ fontFamily: DMS, color:`${DEEP}78` }}>
-                    Zo zlomeného tela po pôrode znovu postavila seba — a NeoMe vytvorila pre všetky ženy, ktoré rozumejú tomuto pocitu. Pre ženy, ktoré si zaslúžia caring, holistický prístup ku svojmu wellbeingu.
+                    Zo zlomeného tela po pôrode znovu postavila seba — a NeoMe vytvorila pre všetky ženy, ktoré rozumejú tomuto pocitu. Pre ženy, ktoré si zaslúžia láskavý, holistický prístup k tvojej pohode.
                   </p>
                 </motion.div>
 
@@ -1078,7 +1078,7 @@ const HomeNew = () => {
                 {[
                   { q:"Ako funguje 7-dňové bezplatné vyskúšanie?",            a:"Po registrácii máš plný prístup ku všetkému obsahu NeoMe na 7 dní zadarmo. Žiadna platobná karta nie je potrebná. Po uplynutí si vyberieš plán alebo jednoducho odídeš." },
                   { q:"Potrebujem nejaké vybavenie na cvičenie?",              a:"Väčšina tréningov nevyžaduje žiadne vybavenie. Niektoré pokročilejšie programy využívajú odporové gumy alebo ľahké činky, ale nie je to povinné." },
-                  { q:"Je NeoMe vhodná aj pre ženy, ktoré nie sú po pôrode?", a:"Áno! NeoMe je pre všetky ženy. Naše programy sú prispôsobené rôznym životným situáciám — od postpartum obnovy cez tvarovanie tela až po pokročilé silové tréningy." },
+                  { q:"Je NeoMe vhodná aj pre ženy, ktoré nie sú po pôrode?", a:"Áno. NeoMe je pre všetky ženy. Naše programy sú prispôsobené rôznym životným situáciám — od postpartum obnovy cez tvarovanie tela až po pokročilé silové tréningy." },
                   { q:"Ako dlho trvajú tréningy?",                            a:"Naše tréningy trvajú 5–15 minút — ráno, počas pauzy, alebo keď spí dieťa. Aj krátky čas venovaný sebe je viac ako nič." },
                   { q:"Ako funguje 30-dňová záruka vrátenia peňazí?",         a:"Ak v priebehu prvých 30 dní zistíš, že NeoMe nie je pre teba, kontaktuj nás a vrátime ti celú sumu. Žiadne otázky." },
                   { q:"Môžem zrušiť predplatné kedykoľvek?",                 a:"Samozrejme. Predplatné môžeš zrušiť kedykoľvek v nastaveniach aplikácie. Prístup ti zostane do konca plateného obdobia." },
