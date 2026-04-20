@@ -1078,7 +1078,7 @@ const HomeNew = () => {
                 {[
                   { q:"Ako funguje 7-dňové bezplatné vyskúšanie?",            a:"Po registrácii máš plný prístup ku všetkému obsahu NeoMe na 7 dní zadarmo. Žiadna platobná karta nie je potrebná. Po uplynutí si vyberieš plán alebo jednoducho odídeš." },
                   { q:"Potrebujem nejaké vybavenie na cvičenie?",              a:"Väčšina tréningov nevyžaduje žiadne vybavenie. Niektoré pokročilejšie programy využívajú odporové gumy alebo ľahké činky, ale nie je to povinné." },
-                  { q:"Je NeoMe vhodná aj pre ženy, ktoré nie sú po pôrode?", a:"Áno! NeoMe je pre všetky ženy. Naše programy sú prispôsobené rôznym životným situáciám — od postpartum obnovy cez tvarovanie tela až po pokročilé silové tréningy." },
+                  { q:"Je NeoMe vhodná aj pre ženy, ktoré nie sú po pôrode?", a:"Áno. NeoMe je pre všetky ženy. Naše programy sú prispôsobené rôznym životným situáciám — od postpartum obnovy cez tvarovanie tela až po pokročilé silové tréningy." },
                   { q:"Ako dlho trvajú tréningy?",                            a:"Naše tréningy trvajú 5–15 minút — ráno, počas pauzy, alebo keď spí dieťa. Aj krátky čas venovaný sebe je viac ako nič." },
                   { q:"Ako funguje 30-dňová záruka vrátenia peňazí?",         a:"Ak v priebehu prvých 30 dní zistíš, že NeoMe nie je pre teba, kontaktuj nás a vrátime ti celú sumu. Žiadne otázky." },
                   { q:"Môžem zrušiť predplatné kedykoľvek?",                 a:"Samozrejme. Predplatné môžeš zrušiť kedykoľvek v nastaveniach aplikácie. Prístup ti zostane do konca plateného obdobia." },

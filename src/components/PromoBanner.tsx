@@ -63,7 +63,7 @@ export const PromoBanner = () => {
             
             <p className="text-base mb-4 leading-relaxed text-white">
               Získaj <strong className="text-xl">30% zľavu</strong> na ročný plán. 
-              Platí len do 31. marca!
+              Platí len do 31. marca.
             </p>
             
             <Button 

@@ -76,7 +76,7 @@ const Auth = () => {
             toast.error('Chyba pri registrácii');
           }
         } else {
-          toast.success('Účet vytvorený. Teraz sa môžete prihlásiť.');
+          toast.success('Účet vytvorený. Teraz sa môžeš prihlásiť.');
           setIsLogin(true);
         }
       }
@@ -93,7 +93,7 @@ const Auth = () => {
             {isLogin ? 'Prihlásenie' : 'Registrácia'}
           </CardTitle>
           <CardDescription>
-            {isLogin ? 'Prihláste sa do admin rozhrania' : 'Vytvorte si nový účet'}
+            {isLogin ? 'Prihlás sa do admin rozhrania' : 'Vytvor si nový účet'}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -105,7 +105,7 @@ const Auth = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="vas@email.sk"
+                placeholder="tvoj@email.sk"
                 disabled={isLoading}
               />
               {errors.email && (
@@ -140,7 +140,7 @@ const Auth = () => {
               onClick={() => setIsLogin(!isLogin)}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              {isLogin ? 'Nemáte účet? Zaregistrujte sa' : 'Už máte účet? Prihláste sa'}
+              {isLogin ? 'Nemáš účet? Zaregistruj sa' : 'Už máš účet? Prihlás sa'}
             </button>
           </div>
         </CardContent>

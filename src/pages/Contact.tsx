@@ -12,8 +12,8 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Správa odoslaná!",
-      description: "Ďakujeme za správu. Odpovieme vám čo najskôr.",
+      title: "Správa odoslaná.",
+      description: "Ďakujeme za správu. Odpovieme ti čo najskôr.",
     });
   };
 
@@ -23,17 +23,17 @@ const Contact = () => {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16 animate-fade-in">
             <h1 className="text-5xl md:text-6xl font-light mb-6">
-              Kontaktujte <span className="gradient-text font-medium">Nás</span>
+              Kontaktuj <span className="gradient-text font-medium">nás</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Máte otázku? Potrebujete pomoc? Sme tu pre vás.
+              Máš otázku? Potrebuješ pomoc? Sme tu pre teba.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Form */}
             <Card className="glass-card p-8">
-              <h2 className="text-2xl font-light mb-6">Napíšte Nám</h2>
+              <h2 className="text-2xl font-light mb-6">Napíš nám</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name" className="text-sm font-light mb-2 block">
@@ -41,7 +41,7 @@ const Contact = () => {
                   </Label>
                   <Input 
                     id="name" 
-                    placeholder="Vaše meno" 
+                    placeholder="Tvoje meno" 
                     required
                     className="glass-card"
                   />
@@ -54,7 +54,7 @@ const Contact = () => {
                   <Input 
                     id="email" 
                     type="email" 
-                    placeholder="vas@email.sk" 
+                    placeholder="tvoj@email.sk" 
                     required
                     className="glass-card"
                   />
@@ -66,7 +66,7 @@ const Contact = () => {
                   </Label>
                   <Input 
                     id="subject" 
-                    placeholder="O čom chcete písať?" 
+                    placeholder="O čom chceš písať?" 
                     required
                     className="glass-card"
                   />
@@ -78,7 +78,7 @@ const Contact = () => {
                   </Label>
                   <Textarea 
                     id="message" 
-                    placeholder="Vaša správa..." 
+                    placeholder="Tvoja správa..." 
                     rows={6}
                     required
                     className="glass-card resize-none"
@@ -89,7 +89,7 @@ const Contact = () => {
                   type="submit" 
                   className="w-full neuro-button bg-primary text-primary-foreground"
                 >
-                  Odoslať Správu
+                  Odoslať správu
                 </Button>
               </form>
             </Card>
@@ -102,7 +102,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-xl font-medium mb-2">Email</h3>
                     <p className="text-muted-foreground mb-2">
-                      Odpovieme vám do 24 hodín.
+                      Odpovieme ti do 24 hodín.
                     </p>
                     <a 
                       href="mailto:info@neome.com" 

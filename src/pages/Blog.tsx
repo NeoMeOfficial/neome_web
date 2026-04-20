@@ -18,7 +18,7 @@ const fallbackPosts = [
   {
     id: "1",
     title: "5 Minút Meditácie, Ktoré Ti Zmenia Deň",
-    excerpt: "Objavte silu krátkej meditácie a ako môže transformovať váš každodenný život.",
+    excerpt: "Objav silu krátkej meditácie a ako môže zmeniť tvoj každodenný život.",
     category: "Myseľ",
     image_url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&auto=format&fit=crop",
     created_at: "2025-03-15T00:00:00Z",
@@ -26,7 +26,7 @@ const fallbackPosts = [
   {
     id: "2",
     title: "Ako Začať s Cvičením Po Pôrode",
-    excerpt: "Bezpečný návrat k pohybu po tehotenstve. Všetko, čo potrebujete vedieť.",
+    excerpt: "Bezpečný návrat k pohybu po tehotenstve. Všetko, čo potrebuješ vedieť.",
     category: "Pohyb",
     image_url: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&auto=format&fit=crop",
     created_at: "2025-03-12T00:00:00Z",
