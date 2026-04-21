@@ -11,6 +11,8 @@ import { Pillars } from "@/components/site/Pillars";
 import { FounderSection } from "@/components/site/FounderSection";
 import { GoogleReviews } from "@/components/site/GoogleReviews";
 import { Experts } from "@/components/site/Experts";
+import { ProgramsSection } from "@/components/site/ProgramsSection";
+import { Comparison } from "@/components/site/Comparison";
 
 /**
  * Phase 4A: NavHeader + Hero + Ticker.
@@ -35,6 +37,8 @@ const HomeNew = () => (
     <FounderSection />
     <GoogleReviews />
     <Experts />
+    <ProgramsSection />
+    <Comparison />
   </div>
 );
 
