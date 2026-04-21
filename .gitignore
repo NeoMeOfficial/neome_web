@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Design-system reference bundles (local-only, not part of the app)
+design-incoming/

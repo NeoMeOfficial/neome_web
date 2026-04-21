@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import { Header } from "@/components/Header";
 import CookieConsent from "@/components/CookieConsent";
@@ -29,6 +29,13 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// NavHeader (fixed pill) lives inside HomeNew; hide global Header there.
+const ConditionalHeader = () => {
+  const { pathname } = useLocation();
+  if (pathname === "/") return null;
+  return <Header />;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -36,7 +43,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Header />
+          <ConditionalHeader />
           <Routes>
             <Route path="/" element={<HomeNew />} />
             <Route path="/o-aplikacii" element={<OAplikacii />} />
