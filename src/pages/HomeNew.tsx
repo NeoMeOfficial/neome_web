@@ -6,6 +6,11 @@ import { PainSection } from "@/components/site/PainSection";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { LifestyleQuote } from "@/components/site/LifestyleQuote";
 import { Transformations } from "@/components/site/Transformations";
+import { ScrollVideoSection } from "@/components/site/ScrollVideoSection";
+import { Pillars } from "@/components/site/Pillars";
+import { FounderSection } from "@/components/site/FounderSection";
+import { GoogleReviews } from "@/components/site/GoogleReviews";
+import { Experts } from "@/components/site/Experts";
 
 /**
  * Phase 4A: NavHeader + Hero + Ticker.
@@ -25,6 +30,11 @@ const HomeNew = () => (
     <HowItWorks />
     <LifestyleQuote />
     <Transformations />
+    <ScrollVideoSection />
+    <Pillars />
+    <FounderSection />
+    <GoogleReviews />
+    <Experts />
   </div>
 );
 
