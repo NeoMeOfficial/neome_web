@@ -68,10 +68,9 @@
   line-height: 0;
 }
 .nav-wordmark-img {
-  height: 22px;
+  height: 28px;
   width: auto;
   display: block;
-  mix-blend-mode: multiply;
 }
 .nav-links { display: flex; gap: 18px; }
 .nav-links a {
@@ -91,7 +90,7 @@
   .nav-pill { gap: 18px; }
   .nav-links { gap: 14px; }
   .nav-links a { font-size: 12.5px; }
-  .nav-wordmark-img { height: 20px; }
+  .nav-wordmark-img { height: 24px; }
 }
 
 /* Tablets and below: hide the inline menu */

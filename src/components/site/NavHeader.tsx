@@ -1,4 +1,4 @@
-import wordmark from "@/assets/brand/neome-wordmark-on-cream.png";
+import wordmark from "@/assets/brand/neome-wordmark-transparent-cream.png";
 
 export const NavHeader = () => (
   <header className="nav-pill">
