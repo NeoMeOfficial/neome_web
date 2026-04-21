@@ -894,7 +894,171 @@
   color: var(--fg-secondary);
 }
 
+/* ── Programs (Phase 4E) ────────────────────────────────────────────── */
+.section--programs { background: var(--cream); padding: 140px 0; }
+.programs-head {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 64px;
+}
+.programs-head .eyebrow { margin-bottom: 16px; }
+.programs-lead {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--fg-secondary);
+}
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.program-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 3/4;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--dur-quick) var(--ease-signature),
+              box-shadow var(--dur-quick) var(--ease-signature);
+}
+.program-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.program-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.program-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(61, 41, 33, 0.78) 100%);
+  pointer-events: none;
+}
+.program-copy {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 28px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.program-level {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+.program-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.05;
+  color: #fff;
+  font-variation-settings: "opsz" 144;
+  margin: 0;
+}
+.program-desc {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}
+
+/* ── Comparison (Phase 4E) ──────────────────────────────────────────── */
+.section--comparison { background: var(--deep-brown); padding: 140px 0; }
+.section--comparison .section-head { margin-bottom: 48px; }
+.compare-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-pill);
+  max-width: 720px;
+  margin: 0 auto 64px;
+}
+.compare-tab {
+  flex: 1;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: var(--r-pill);
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all var(--dur-quick) var(--ease-signature);
+  white-space: nowrap;
+}
+.compare-tab:hover { color: rgba(255, 255, 255, 0.9); }
+.compare-tab.is-active {
+  background: var(--terracotta);
+  color: #fff;
+}
+.compare-rows {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 880px;
+}
+.compare-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 32px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.compare-row:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+.compare-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 32px;
+  color: var(--sandy);
+  font-variation-settings: "opsz" 144;
+}
+.compare-text {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.3;
+  color: #fff;
+  font-variation-settings: "opsz" 144;
+}
+
 @media (max-width: 900px) {
+  .programs-head { grid-template-columns: 1fr; gap: 32px; }
+  .programs-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .program-title { font-size: 24px; }
+  .section--programs { padding: 96px 0; }
+  .compare-tabs { flex-direction: column; border-radius: 20px; }
+  .compare-tab { flex: none; }
+  .compare-row { grid-template-columns: 60px 1fr; gap: 20px; padding: 24px 0; }
+  .compare-text { font-size: 18px; }
+  .compare-num { font-size: 24px; }
+  .section--comparison { padding: 96px 0; }
   .pain-wrap { grid-template-columns: 1fr; gap: 40px; }
   .steps-grid { grid-template-columns: 1fr; gap: 40px; }
   .transforms { grid-template-columns: 1fr; }
