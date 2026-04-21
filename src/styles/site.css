@@ -48,24 +48,32 @@
   z-index: 100;
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 24px;
+  white-space: nowrap;
+  max-width: calc(100vw - 24px);
   background: rgba(255,255,255,0.78);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(61,41,33,0.07);
   border-radius: 999px;
-  padding: 10px 12px 10px 26px;
+  padding: 8px 10px 8px 18px;
   box-shadow: 0 10px 40px rgba(61,41,33,0.08);
 }
 .nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--deep-brown);
   text-decoration: none;
+  flex-shrink: 0;
 }
 .nav-logo em { color: var(--terracotta); font-weight: 500; font-style: italic; }
-.nav-links { display: flex; gap: 24px; }
+.nav-mark { width: 26px; height: 26px; display: block; }
+.nav-wordmark { line-height: 1; }
+.nav-links { display: flex; gap: 18px; }
 .nav-links a {
   font-family: var(--sans);
   font-weight: 300;
@@ -76,11 +84,20 @@
 }
 .nav-links a:hover,
 .nav-links a.active { color: var(--deep-brown); font-weight: 400; }
-.nav-cta { padding: 10px 22px; font-size: 13px; }
+.nav-cta { padding: 9px 18px; font-size: 13px; flex-shrink: 0; }
 
-@media (max-width: 880px) {
+/* 13" MacBook + smaller: drop wordmark, keep monogram */
+@media (max-width: 1180px) {
+  .nav-wordmark { display: none; }
+  .nav-pill { gap: 18px; }
+  .nav-links { gap: 14px; }
+  .nav-links a { font-size: 12.5px; }
+}
+
+/* Tablets and below: hide the inline menu */
+@media (max-width: 820px) {
   .nav-links { display: none; }
-  .nav-pill { gap: 16px; padding: 8px 8px 8px 20px; }
+  .nav-pill { gap: 14px; padding: 8px 8px 8px 14px; }
 }
 
 /* ── Hero (light, image-bleed variant) ────────────────────────────────── */

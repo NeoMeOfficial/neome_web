@@ -1,6 +1,11 @@
+import monogram from "@/assets/brand/neome-monogram-on-cream.png";
+
 export const NavHeader = () => (
   <header className="nav-pill">
-    <a href="#" className="nav-logo">Neo<em>Me</em></a>
+    <a href="#" className="nav-logo" aria-label="NeoMe — domov">
+      <img src={monogram} alt="" className="nav-mark" />
+      <span className="nav-wordmark">Neo<em>Me</em></span>
+    </a>
     <nav className="nav-links">
       <a href="#" className="active">Domov</a>
       <a href="#piliere">Aplikácia</a>
