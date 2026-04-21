@@ -260,7 +260,6 @@
 .pain-pull em { color: var(--terracotta); font-style: italic; }
 .pain-list { display: flex; flex-direction: column; }
 .pain-row { padding: 28px 0; border-bottom: 1px solid rgba(61,41,33,0.14); }
-.pain-row:first-child { border-top: 1px solid rgba(61,41,33,0.14); }
 .pain-title {
   font-family: var(--serif);
   font-weight: 500;
