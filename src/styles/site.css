@@ -62,17 +62,17 @@
 .nav-logo {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 500;
   color: var(--deep-brown);
   text-decoration: none;
   flex-shrink: 0;
+  line-height: 0;
 }
-.nav-logo em { color: var(--terracotta); font-weight: 500; font-style: italic; }
-.nav-mark { width: 26px; height: 26px; display: block; }
-.nav-wordmark { line-height: 1; }
+.nav-wordmark-img {
+  height: 22px;
+  width: auto;
+  display: block;
+  mix-blend-mode: multiply;
+}
 .nav-links { display: flex; gap: 18px; }
 .nav-links a {
   font-family: var(--sans);
@@ -86,12 +86,12 @@
 .nav-links a.active { color: var(--deep-brown); font-weight: 400; }
 .nav-cta { padding: 9px 18px; font-size: 13px; flex-shrink: 0; }
 
-/* 13" MacBook + smaller: drop wordmark, keep monogram */
+/* 13" MacBook + smaller: tighten spacing, keep wordmark */
 @media (max-width: 1180px) {
-  .nav-wordmark { display: none; }
   .nav-pill { gap: 18px; }
   .nav-links { gap: 14px; }
   .nav-links a { font-size: 12.5px; }
+  .nav-wordmark-img { height: 20px; }
 }
 
 /* Tablets and below: hide the inline menu */
